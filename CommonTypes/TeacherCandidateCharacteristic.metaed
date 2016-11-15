@@ -1,0 +1,16 @@
+Common Type TeacherCandidateCharacteristic
+    documentation 'Reflects important characteristics of the TeacherCandidate's home situation: Displaced
+                  'Homemaker, Homeless, Immigrant, Migratory, Military Parent, Pregnant Teen,
+                  'Single Parent, Unaccompanied Youth.
+    descriptor TeacherCandidateCharacteristic
+        documentation 'The characteristic designated for the TeacherCandidate.
+        is part of identity
+    date BeginDate
+        documentation 'The date the characteristic was designated.
+        is optional
+    date EndDate
+        documentation 'The date the characteristic was removed.
+        is optional
+    shared string DesignatedBy named DesignatedBy
+        documentation 'The person, organization, or department that designated the characteristic.
+        is optional

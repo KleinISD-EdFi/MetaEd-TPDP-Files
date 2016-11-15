@@ -1,0 +1,24 @@
+Common Type Aid
+  documentation 'This entity represents the financial aid a person is awarded.
+  date BeginDate
+    documentation 'The date the award was designated.
+    is optional
+  date EndDate
+    documentation 'The date the award was removed.
+    is optional
+  shared string Description named Description
+    documentation 'The description of the condition (e.g., placement in a high need school) under which the aid was given.
+    is optional collection
+    with context AidCondition
+  descriptor AidType
+    documentation 'The classification of financial aid awarded to a person for the academic term/year.
+    is required
+  currency AidAmount
+    documentation 'The amount of financial aid awarded to a person for the term/year.
+    is optional
+  bool PellGrantRecipient
+    documentation 'Indicates a person who receives Pell Grant aid.
+    is optional
+  descriptor EnglishLanguageExam
+    documentation 'Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL).
+    is optional

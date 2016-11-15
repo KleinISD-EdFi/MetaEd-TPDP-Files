@@ -1,0 +1,19 @@
+Descriptor TeacherCandidateIdentificationSystem
+    documentation 'A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a TeacherCandidate.
+    with map type
+        documentation 'A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a TeacherCandidate.
+        item Canadian SIN
+        item District
+        item Drivers License
+        item Federal
+        item Health Record
+        item Medicaid
+        item PIN
+        item Professional Certificate
+        item School
+        item Selective Service
+        item SSN
+        item State
+        item US Visa
+        item Other
+        item Other Federal
