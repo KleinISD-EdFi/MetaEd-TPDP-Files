@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AggregateExtensions>
+  <Aggregate root="AbsenceEventCategoryDescriptor">
+    <Entity table="AbsenceEventCategoryDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="AbsenceEventCategoryType">
+    <Entity table="AbsenceEventCategoryType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="AcademicSubjectExtensionDescriptor">
+    <Entity table="AcademicSubjectExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="AcademicSubjectExtensionType">
+    <Entity table="AcademicSubjectExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="AidType">
+    <Entity table="AidType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="AidTypeDescriptor">
+    <Entity table="AidTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="BackgroundCheckStatusDescriptor">
+    <Entity table="BackgroundCheckStatusDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="BackgroundCheckStatusType">
+    <Entity table="BackgroundCheckStatusType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="BoardCertificationType">
+    <Entity table="BoardCertificationType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="BoardCertificationTypeDescriptor">
+    <Entity table="BoardCertificationTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="CertificationExamType">
+    <Entity table="CertificationExamType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="CertificationExamTypeDescriptor">
+    <Entity table="CertificationExamTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ClassroomPositionExtensionDescriptor">
+    <Entity table="ClassroomPositionExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ClassroomPositionExtensionType">
+    <Entity table="ClassroomPositionExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="CredentialFieldExtensionDescriptor">
+    <Entity table="CredentialFieldExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="DiagnosisExtensionDescriptor">
+    <Entity table="DiagnosisExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="DiagnosisExtensionType">
+    <Entity table="DiagnosisExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="EnglishLanguageExamDescriptor">
+    <Entity table="EnglishLanguageExamDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="EnglishLanguageExamType">
+    <Entity table="EnglishLanguageExamType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="FederalLocaleCodeDescriptor">
+    <Entity table="FederalLocaleCodeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="FederalLocaleCodeType">
+    <Entity table="FederalLocaleCodeType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="FieldworkType">
+    <Entity table="FieldworkType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="FieldworkTypeDescriptor">
+    <Entity table="FieldworkTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="GenderType">
+    <Entity table="GenderType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="GradeLevelExtensionDescriptor">
+    <Entity table="GradeLevelExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="GradeLevelExtensionType">
+    <Entity table="GradeLevelExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="LevelExtensionDescriptor">
+    <Entity table="LevelExtensionDescriptor" isA="Descriptor" schema="extension"/>
+    <Entity table="LevelExtensionDescriptorGradeLevelExtension" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="LevelType">
+    <Entity table="LevelType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="LevelTypeDescriptor">
+    <Entity table="LevelTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ObservationType">
+    <Entity table="ObservationType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ObservationTypeDescriptor">
+    <Entity table="ObservationTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="PreviousCareerDescriptor">
+    <Entity table="PreviousCareerDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="PreviousCareerType">
+    <Entity table="PreviousCareerType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ProfessionalDevelopmentOfferedByDescriptor">
+    <Entity table="ProfessionalDevelopmentOfferedByDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ProfessionalDevelopmentOfferedByType">
+    <Entity table="ProfessionalDevelopmentOfferedByType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ProgramGatewayDescriptor">
+    <Entity table="ProgramGatewayDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ProgramGatewayType">
+    <Entity table="ProgramGatewayType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="RubricType">
+    <Entity table="RubricType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="RubricTypeDescriptor">
+    <Entity table="RubricTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SalaryType">
+    <Entity table="SalaryType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SalaryTypeDescriptor">
+    <Entity table="SalaryTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SchoolStatusDescriptor">
+    <Entity table="SchoolStatusDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SchoolStatusType">
+    <Entity table="SchoolStatusType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="StaffClassificationExtensionDescriptor">
+    <Entity table="StaffClassificationExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="StaffClassificationExtensionType">
+    <Entity table="StaffClassificationExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SurveyCategoryExtensionDescriptor">
+    <Entity table="SurveyCategoryExtensionDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SurveyCategoryExtensionType">
+    <Entity table="SurveyCategoryExtensionType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidate">
+    <Entity table="TeacherCandidate" schema="extension"/>
+    <Entity table="TeacherCandidateAddress" schema="extension"/>
+    <Entity table="TeacherCandidateAid" schema="extension"/>
+    <Entity table="TeacherCandidateAidConditionDescription" schema="extension"/>
+    <Entity table="TeacherCandidateCharacteristic" schema="extension"/>
+    <Entity table="TeacherCandidateCohortYear" schema="extension"/>
+    <Entity table="TeacherCandidateDisability" schema="extension"/>
+    <Entity table="TeacherCandidateElectronicMail" schema="extension"/>
+    <Entity table="TeacherCandidateIdentificationCode" schema="extension"/>
+    <Entity table="TeacherCandidateIdentificationDocument" schema="extension"/>
+    <Entity table="TeacherCandidateIndicator" schema="extension"/>
+    <Entity table="TeacherCandidateInternationalAddress" schema="extension"/>
+    <Entity table="TeacherCandidateLanguage" schema="extension"/>
+    <Entity table="TeacherCandidateLanguageUse" schema="extension"/>
+    <Entity table="TeacherCandidateLearningStyle" schema="extension"/>
+    <Entity table="TeacherCandidateOtherName" schema="extension"/>
+    <Entity table="TeacherCandidateRace" schema="extension"/>
+    <Entity table="TeacherCandidateTelephone" schema="extension"/>
+    <Entity table="TeacherCandidateVisa" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateCharacteristicDescriptor">
+    <Entity table="TeacherCandidateCharacteristicDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateCharacteristicType">
+    <Entity table="TeacherCandidateCharacteristicType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateIdentificationSystemDescriptor">
+    <Entity table="TeacherCandidateIdentificationSystemDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateIdentificationSystemType">
+    <Entity table="TeacherCandidateIdentificationSystemType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherPreparationProgramType">
+    <Entity table="TeacherPreparationProgramType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherPreparationProgramTypeDescriptor">
+    <Entity table="TeacherPreparationProgramTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ThemeType">
+    <Entity table="ThemeType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="ThemeTypeDescriptor">
+    <Entity table="ThemeTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TPPDegreeType">
+    <Entity table="TPPDegreeType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TPPDegreeTypeDescriptor">
+    <Entity table="TPPDegreeTypeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TPPProgramPathwayDescriptor">
+    <Entity table="TPPProgramPathwayDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TPPProgramPathwayType">
+    <Entity table="TPPProgramPathwayType" schema="extension"/>
+  </Aggregate>
+
+</AggregateExtensions>

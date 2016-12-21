@@ -1,0 +1,9 @@
+Descriptor ProgramGateway
+  documentation 'The descriptor holds the program gateway that is associated with continuation in a program.
+  with optional map type
+    documentation 'Map for the type of program gateway.
+    item Gateway 1
+    item Gateway 2
+    item Gateway 3
+    item Gateway 4
+    item Gateway 5
