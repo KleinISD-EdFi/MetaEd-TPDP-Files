@@ -1,0 +1,3 @@
+Common String StudentGrowthActualScore
+  documentation 'The actual score a group of students receives on their student growth assessment
+  max length 32

@@ -1,0 +1,11 @@
+Common Type Observer
+  documentation 'The person that conducted the observation.
+  shared string FirstName named FirstNameOfObserver
+    documentation 'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.
+    is optional
+  shared string LastSurname named LastNameOfObserver
+    documentation 'The name borne in common by members of a family.
+    is optional
+  reference Staff
+    documentation 'The staff associated with the observation.
+    is optional

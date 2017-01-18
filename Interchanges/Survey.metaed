@@ -1,0 +1,11 @@
+Interchange Survey
+  documentation '?
+  element AggregatedSurveyQuestionResponse
+  element AggregatedSurveyResponse
+  element AggregatedSurveySectionResponseRating
+  element Survey
+  element SurveyQuestion
+  element SurveyQuestionResponse
+  element SurveyResponse
+  element SurveySection
+  element SurveySectionResponseRating

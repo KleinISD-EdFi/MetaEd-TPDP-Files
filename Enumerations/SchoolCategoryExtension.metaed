@@ -1,0 +1,23 @@
+Enumeration SchoolCategoryExtension
+    documentation 'The category of school. For example: High School, Middle School, Elementary
+                  'School.
+    item All Levels [227-002]
+    item Adult School [227-001]
+    item Elementary/Secondary School [227-004]
+    item Elementary School [227-003]
+    item High School [227-005]
+    item Infant/toddler School [227-006]
+    item Intermediate School [227-007]
+    item Junior High School [227-008]
+    item Middle School [227-009]
+    item Preschool/early childhood [227-010]
+    item Primary School [227-011]
+    item SecondarySchool [227-012]
+    item Ungraded [227-013]
+    item Other Secondary [227-015]
+    item Other Combination [227-014]
+
+    item Undergraduate
+    item Community College
+    item Graduate
+    item Workforce

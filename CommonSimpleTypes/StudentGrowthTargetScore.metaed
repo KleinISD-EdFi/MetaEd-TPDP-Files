@@ -1,0 +1,3 @@
+Common String StudentGrowthTargetScore
+  documentation 'The target score that has been set of the group of students as it pertains to their student growth.
+  max length 60

@@ -816,7 +816,7 @@ GO
 ALTER TABLE [extension].[ObservationType] ADD CONSTRAINT [ObservationType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Map for the type of previous careers.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ObservationType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Map for the observation types.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ObservationType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for Observation', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ObservationType', @level2type=N'COLUMN', @level2name=N'ObservationTypeId'
 GO
@@ -840,7 +840,7 @@ CREATE TABLE [extension].[ObservationTypeDescriptor](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the previous career of an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ObservationTypeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the type (e.g., walkthrough, summative) of observation conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ObservationTypeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ObservationTypeDescriptor', @level2type=N'COLUMN', @level2name=N'ObservationTypeDescriptorId'
 GO
@@ -3687,19 +3687,17 @@ INSERT INTO [extension].[LevelType] ([CodeValue],[Description],[ShortDescription
 
 INSERT INTO [extension].[LevelType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')
 
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Accounting','Accounting')
+INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Formal','Formal')
 
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Consulting','Consulting')
-
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Education','Education')
-
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Maintenance','Maintenance')
-
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Medical','Medical')
+INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Informal','Informal')
 
 INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')
 
-INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Science and Technology','Science and Technology')
+INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Self Reflection','Self Reflection')
+
+INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Summative','Summative')
+
+INSERT INTO [extension].[ObservationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Walkthrough','Walkthrough')
 
 INSERT INTO [extension].[PreviousCareerType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Accounting','Accounting')
 

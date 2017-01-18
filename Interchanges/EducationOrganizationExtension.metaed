@@ -1,0 +1,42 @@
+Interchange EducationOrganizationExtension
+    documentation 'The Education Organization interchange describes education organizations, their
+                  'structure, and their education offerings. It is used to exchange education
+                  'organization information about a state's schools, local education agencies
+                  '(LEAs), education service centers (ESCs), and others.
+                  '
+                  'In addition, the interchange (optionally) supports the definition of the
+                  'education offerings provided by schools, specifically the available courses and
+                  'alternative/supplemental programs offered. Courses in this context refer to
+                  '"course catalog" information. As such, this interchange may define current as
+                  'well as past courses.
+                  '
+                  'Locations and ClassPeriods can be re-used across Schools, if they are the same,
+                  'using LocationReference and ClassPeriodReference within other domain entities in
+                  'the interchange.
+    extended documentation 'Accountability Ratings can be assigned to a school or LEA through this interchange.
+    use case documentation '1. Exchange a state's full or partial hierarchy of education organizations.
+                           '
+                           '2. Exchange new or updated education organization information (e.g., change of address).
+                           '
+                           '3. Exchange available courses.
+                           '
+                           '4. Exchange available program offerings.
+                           '
+                           '5. Exchange accountability rating information.
+    element StateEducationAgency [2517-001]
+    element EducationServiceCenter [2517-002]
+    element FeederSchoolAssociation [2517-003]
+    element LocalEducationAgency [2517-004]
+    element School [2517-005]
+    element Location [2517-006]
+    element ClassPeriod [2517-007]
+    element Course [2517-008]
+    element Program [2517-009]
+    element AccountabilityRating [2517-010]
+    element EducationOrganizationPeerAssociation [2517-011]
+    element EducationOrganizationNetwork [2517-012]
+    element EducationOrganizationNetworkAssociation [2517-013]
+
+    element University
+    element TeacherPreparationProvider
+    element TeacherPreparationProviderProgram

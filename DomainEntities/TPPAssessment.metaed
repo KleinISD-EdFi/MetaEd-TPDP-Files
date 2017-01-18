@@ -1,0 +1,11 @@
+Domain Entity TPPAssessment based on StudentAssessment
+  documentation '?
+  integer ObjectiveAssessmentScoreMax
+    documentation 'The maximum raw score available across all assessment items.
+    is optional
+  integer ObjectiveAssessmentScoreMin
+    documentation 'The minimum raw score available across all assessment items.
+    is optional
+  descriptor ProgramGateway
+    documentation 'Identifies the program gateway an assessment may be associated with for continuation in the program.
+    is optional

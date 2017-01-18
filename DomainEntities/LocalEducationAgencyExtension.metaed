@@ -1,0 +1,5 @@
+Domain Entity LocalEducationAgencyExtension based on LocalEducationAgency
+  documentation 'Placeholder for proposed extensions to LocalEducationAgency in Ed-Fi core.
+  descriptor FederalLocaleCode
+    documentation 'The federal local code associated with an education organization.
+    is optional

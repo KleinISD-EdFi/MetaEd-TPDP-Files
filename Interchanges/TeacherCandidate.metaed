@@ -1,3 +1,12 @@
 Interchange TeacherCandidate
   documentation 'This interchange defines teacher candidates and contains all their identifying information.
+  element AggregateStudentFact
+  element K12Association
+  element StudentFact
+  element StudentGrowth
   element TeacherCandidate
+  element TeacherCandidateAcademicRecord
+  element TeacherCandidateCourseTranscript
+  element TeacherCandidateGradebookEntry
+  element TeacherCandidateTeacherPreparationProviderProgramAssociation
+  element TPPAssessment

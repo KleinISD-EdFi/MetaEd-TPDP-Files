@@ -97,7 +97,7 @@ The following table describes the primary entities of which the Descriptors Inte
 | GradeLevelExtensionDescriptor | This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LevelExtensionDescriptor | This descriptor defines the grade level(s) certified for teaching. |
 | LevelTypeDescriptor | The descriptor holds the level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured. |
-| ObservationTypeDescriptor | The descriptor holds the previous career of an individual. |
+| ObservationTypeDescriptor | The descriptor holds the type (e.g., walkthrough, summative) of observation conducted. |
 | PreviousCareerDescriptor | The descriptor holds the previous career of an individual. |
 | ProfessionalDevelopmentOfferedByDescriptor | The descriptor holds the organization that a professional development is offered by. |
 | ProgramGatewayDescriptor | The descriptor holds the program gateway that is associated with continuation in a program. |

@@ -1,0 +1,53 @@
+Domain Entity StudentFact
+  documentation 'Domain entity to collect data for indiviudal students with whom the teacher candidate is associated through field work or student teaching
+  bool X504Enrollment
+    documentation 'Information about the students who are enrolled in a 504 program
+    is optional
+  include AcademicRecord
+    documentation 'Data regarding the academic record for the student
+    is optional
+  include AcademicRecordAssessment
+    documentation 'This entity represents the analysis or scoring of a Student's response on an assessment. The analysis results in a value that represents a Student's performance on a set of items on a test.
+    is optional
+  reference Course
+    documentation 'The course associated with aggregated student data
+    is optional
+  descriptor Disability
+    documentation 'The education organization associated with aggregated student data
+    is optional
+  reference EducationOrganization
+    documentation 'The education organization associated with aggregated student data
+    is optional
+  bool EllEnrollment
+    documentation 'Data about the ELL enrollment of the student
+    is optional
+  bool ESLEnrollment
+    documentation 'Data about the ESL enrollment of the student
+    is optional
+  enumeration Gender
+    documentation 'The gender with which a person associates.
+    is optional
+  bool HispanicLatinoEthinicity
+    documentation 'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."
+    is optional
+  descriptor Language
+    documentation 'The language that is spoken by a student
+    is optional collection
+  enumeration Race
+    documentation 'The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.
+    is optional collection
+  descriptor SchoolFoodServicesEligibility
+    documentation 'An indication of a student's level of eligibility for breakfast, lunch, snack, supper and milk programs
+    is optional
+  reference Section
+    documentation 'The section associated with aggregated student data
+    is optional
+  enumeration Sex
+    documentation 'A person's gender.
+    is optional
+  bool SPEDEnrollment
+    documentation 'Data about the enrollment in SPED of the student
+    is optional
+  bool TitleIEnrollment
+    documentation 'Data about the enrollment in Title I of the student
+    is optional

@@ -1,0 +1,17 @@
+Common Type Observee
+  documentation 'Information regarding the observee of the observation.
+  shared string FirstName named FirstNameOfObservee
+    documentation 'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.
+    is required
+  shared string LastSurname named LastNameOfObservee
+    documentation 'The name borne in common by members of a family.
+    is required
+  reference Prospect
+    documentation 'The reference to the prospect.
+    is optional
+  reference Staff
+    documentation 'The staff associated with the observation.
+    is optional
+  reference TeacherCandidate
+    documentation 'The teacher candidate associated with the observation.
+    is optional

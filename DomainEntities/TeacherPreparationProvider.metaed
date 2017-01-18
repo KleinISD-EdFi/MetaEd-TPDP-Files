@@ -1,0 +1,9 @@
+Domain Entity TeacherPreparationProvider based on EducationOrganization
+    documentation 'This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups.
+    integer TeacherPreparationProviderId
+      documentation 'The identifier assigned to a school by the State Education Agency (SEA).
+      renames identity property EducationOrganizationId
+      is queryable field
+    reference University
+      documentation 'The post secondary institution of which the teacher preparation provider is a component of.
+      is optional

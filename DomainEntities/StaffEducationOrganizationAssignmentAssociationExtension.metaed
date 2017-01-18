@@ -1,0 +1,8 @@
+Domain Entity StaffEducationOrganizationAssignmentAssociationExtension
+  documentation '?
+  include SiteCoordinator
+    documentation 'The education site coordinator, acting on behalf of a community or educational board, provides on-site administrative coordination for their organization.
+    is optional
+  shared decimal NumberOfYears named YearsOfExperienceAtCurrentEducationOrganization
+    documentation 'The total number of years that an individual has previously held a teaching position in one or more education institutions.
+    is optional 

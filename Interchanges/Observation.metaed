@@ -1,0 +1,8 @@
+Interchange Observation
+  documentation '?
+  element AggregatedObservation
+  element AggregatedRubricLevelResponse
+  element Observation
+  element Rubric
+  element RubricLevel
+  element RubricLevelResponse

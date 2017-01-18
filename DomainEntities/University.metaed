@@ -1,0 +1,6 @@
+Domain Entity University based on EducationOrganization
+    documentation 'This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups.
+    integer UniversityId
+        documentation 'The identifier assigned to a school by the State Education Agency (SEA).
+        renames identity property EducationOrganizationId
+        is queryable field

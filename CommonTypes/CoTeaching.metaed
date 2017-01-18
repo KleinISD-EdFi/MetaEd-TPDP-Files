@@ -1,0 +1,5 @@
+Common Type CoTeaching
+  documentation 'The act of two teachers (teacher candidate and cooperating teacher) working together with groups of students; sharing the planning, organization, delivery, and assessment of instruction, as well as the physical space.
+  InterchangeTeacherCandidate\K-12Association\FieldworkExperience\Co-Teaching\Co-Teaching	An indication of whether a teacher candidate is co-teaching.	xs:boolean	Optional
+InterchangeTeacherCandidate\K-12Association\FieldworkExperience\Co-Teaching\Co-TeachingBeginDate	The month, day, and year on which the teacher candidate first starts co-teaching.	xs:date[0..1]	Optional
+InterchangeTeacherCandidate\K-12Association\FieldworkExperience\Co-Teaching\Co-TeachingEndDate	The month, day, and year on which the teacher candidate stopped co-teaching.	xs:date[0..1]	Optional
