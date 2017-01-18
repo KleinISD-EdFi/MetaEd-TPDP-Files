@@ -6,9 +6,11 @@ Domain Entity StudentGrowth
   reference EducationOrganization
     documentation 'The education organization associated with aggregated student data
     is required
-  enumeration ResultDatatypeType named ScoreResultDataType
+  enumeration ResultDatatypeType
     documentation 'The datatype of the result. The results can be expressed as a number, percentile, range, level, etc.
     is required
+    with context Score
+    shorten to ScoreResultDataType
   reference Section
     documentation 'The section associated with aggregated student data
     is optional
@@ -24,9 +26,11 @@ Domain Entity StudentGrowth
   integer StudentGrowthNCount
     documentation 'The number of students included in the average score result.
     is optional
-  enumeration SchoolYear named StudentGrowthReportYear
+  enumeration SchoolYear
     documentation 'The school year associated with the student growth data
     is optional
+    with context StudentGrowthReportYear
+    shorten to StudentGrowthReportYear
   include StudentGrowthTargetScore
     documentation 'The target score that has been set of the group of students as it pertains to their student growth.
     is optional
