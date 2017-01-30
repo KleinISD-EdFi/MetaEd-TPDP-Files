@@ -1,0 +1,8 @@
+Domain Entity StudentGradebookEntryExtension based on StudentGradebookEntry
+  documentation '?
+  date DateCompleted
+    documentation 'The date that the assignment was completed.
+    is optional
+  bool AssignmentPassed
+    documentation 'Indication of whether the assignment was passed or not.
+    is optional
