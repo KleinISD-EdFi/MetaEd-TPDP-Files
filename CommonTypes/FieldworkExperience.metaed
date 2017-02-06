@@ -12,7 +12,7 @@ Common Type FieldworkExperience
   descriptor FieldworkType
     documentation 'The type of fieldwork being executed by a teacher candidate.
     is required
-  include HoursPerWeek
+  shared decimal HoursPerWeek named HoursPerWeek
     documentation 'The number of hours per week for fieldwork.
     is optional
   reference School

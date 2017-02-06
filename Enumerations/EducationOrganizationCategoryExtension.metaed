@@ -1,0 +1,15 @@
+Enumeration EducationOrganizationCategoryExtension
+    documentation 'The classification of the education agency within the geographic boundaries of a
+                  'state according to the level of administrative and operational control granted
+                  'by the state.
+    item Education Organization Network [166-001]
+    item Education Service Center [166-002]
+    item Local Education Agency [166-003]
+    item School [166-004]
+    item State Education Agency [166-005]
+    item Other [166-006]
+
+    item Post Secondary Institution
+    item Post Secondary Institution Branch
+    item College
+    item Teacher Preparation Provider

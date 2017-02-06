@@ -3,7 +3,7 @@ Common Type TeacherCandidateAbsenceEvent
   descriptor AbsenceEventCategory
     documentation 'The category describing the type of leave taken, for example: Sick, Personal, Vacation.
     is required
-  include AbsenceEventReason
+  shared string AbsenceEventReason named AbsenceEventReason
     documentation 'Expanded reason for the teacher candidate absence.
     is optional
   date EventDate

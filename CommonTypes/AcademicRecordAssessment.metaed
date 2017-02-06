@@ -12,12 +12,16 @@ Common Type AcademicRecordAssessment
   include PerformanceLevel
     documentation 'The performance level(s) achieved for the StudentAssessment.
     is optional collection
-  enumeration SchoolYear named SchoolYearTaken
+  enumeration SchoolYear
     documentation 'The school year the assessment was taken
     is optional
+    with context SchoolYearTaken
+    shorten to SchoolYearTaken
   include ScoreResult
     documentation 'The complex type that reports the score results for an assessment for a student
     is optional collection
-  descriptor TermDescriptor named TermTaken
+  descriptor Term
     documentation 'The term in which the assessment was administered
     is optional
+    with context TermTaken
+    shorten to TermTaken

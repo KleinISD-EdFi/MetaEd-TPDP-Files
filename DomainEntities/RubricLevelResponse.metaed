@@ -9,6 +9,6 @@ Domain Entity RubricLevelResponse
   reference RubricLevel
     documentation 'Reference the rubric level.
     is optional collection
-  include TextResponse
+  shared string TextResponse named TextResponse
     documentation 'The text response(s) for the question.
     is optional

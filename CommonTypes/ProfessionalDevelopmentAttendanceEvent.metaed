@@ -9,13 +9,13 @@ Common Type ProfessionalDevelopmentAttendanceEvent
   bool MultipleSession
     documentation 'An indication of whether or not a professional development event is comprised of multiple sessions or not.
     is optional
-  descriptor ProfessionalDevelopementOfferedBy
+  descriptor ProfessionalDevelopmentOfferedBy
     documentation 'A code describing an organization that is offering a specific professional development.
     is required
-  include ProfessionalDevelopmentReason
+  shared string ProfessionalDevelopmentReason named ProfessionalDevelopmentReason
     documentation 'The reported reason for a teacher candidate's professional development.
     is optional
-  include ProfessionalDevelopmentTitle
+  shared string ProfessionalDevelopmentTitle named ProfessionalDevelopmentTitle
     documentation 'The title or name for a professional development.
     is optional
   bool Required

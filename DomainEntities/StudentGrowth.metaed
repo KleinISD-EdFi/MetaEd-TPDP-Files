@@ -14,7 +14,7 @@ Domain Entity StudentGrowth
   reference Section
     documentation 'The section associated with aggregated student data
     is optional
-  include StudentGrowthActualScore
+  shared string StudentGrowthActualScore named StudentGrowthActualScore
     documentation 'The actual score a group of students receives on their student growth assessment
     is required
   date StudentGrowthAMeasureDate
@@ -31,7 +31,7 @@ Domain Entity StudentGrowth
     is optional
     with context StudentGrowthReportYear
     shorten to StudentGrowthReportYear
-  include StudentGrowthTargetScore
+  shared string StudentGrowthTargetScore named StudentGrowthTargetScore
     documentation 'The target score that has been set of the group of students as it pertains to their student growth.
     is optional
   descriptor StudentGrowthType

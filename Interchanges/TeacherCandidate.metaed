@@ -9,4 +9,3 @@ Interchange TeacherCandidate
   element TeacherCandidateCourseTranscript
   element TeacherCandidateGradebookEntry
   element TeacherCandidateTeacherPreparationProviderProgramAssociation
-  element TPPAssessment

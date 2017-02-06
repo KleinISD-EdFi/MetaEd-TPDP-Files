@@ -9,9 +9,6 @@ Domain Entity TeacherCandidate based on Student
     documentation 'The gender with which a person associates.
     is optional
     is queryable field
-  include TeacherCandidateCharacteristic
-    documentation 'Reflects important characteristics of the TeacherCandidate's home situation:  Displaced Homemaker, Immigrant, Migrantory, Military Parent, Pregnant Teen, Single Parent, and Unaccompanied Youth.
-    is optional collection
   currency TuitionCost
     documentation 'The tuition for a person's participation in a program, service. or course.
     is optional
@@ -30,6 +27,6 @@ Domain Entity TeacherCandidate based on Student
   bool ProgramComplete
     documentation 'An indication of whether a teacher candidate has completed the teacher prepartion program.
     is optional
-  include StaffReference
+  reference Staff
     documentation 'The staff associated.
     is optional

@@ -1,0 +1,11 @@
+Domain Entity ApplicantExtension based on Applicant
+  documentation '?
+  include Aid
+    documentation 'This entity represents the financial aid a person is awarded.
+    is optional collection
+  include Disability
+    documentation 'The disability condition(s) that best describes an individual's impairment.
+    is optional collection
+  enumeration Gender
+    documentation 'The gender with which a person associates.
+    is optional 

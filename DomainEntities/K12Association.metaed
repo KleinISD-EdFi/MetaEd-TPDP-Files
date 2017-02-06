@@ -12,7 +12,7 @@ Domain Entity K12Association
   reference School
     documentation 'The school associated with teacher candidate or staff at the K-12 association.
     is optional
-  reference StaffReference
+  reference Staff
     documentation 'The staff associated with the K-12 association.
     is optional
   reference TeacherCandidate
