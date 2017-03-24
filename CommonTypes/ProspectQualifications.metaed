@@ -1,5 +1,0 @@
-Common Type ProspectQualifications
-      documentation 'The qualifications of a prospective mentor teacher.
-      bool CapacityToServe
-          documentation 'An indication of whether or not a prospect mentor teacher has capacity to serve.
-          is optional

@@ -4,7 +4,7 @@ Descriptor SurveyCategory
         documentation 'Map for the category or type of survey.
         item Administrator
             documentation '*NONE*
-        item Applicant 
+        item Applicant
             documentation '*NONE*
         item Community
             documentation '*NONE*
@@ -22,3 +22,10 @@ Descriptor SurveyCategory
             documentation '*NONE*
         item Teacher
             documentation '*NONE*
+
+        item School/District Leader
+        item Alumni
+        item Faculty
+        item Mentor/Cooperating Teacher
+        item Course Evaluation
+        item Disposition

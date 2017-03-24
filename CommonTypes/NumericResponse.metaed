@@ -1,5 +1,0 @@
-Common Type NumericResponse
-  documentation 'The information about the numeric response for a aggregated survey
-  integer NumericResponseNCount
-    documentation 'The number responses to survey sections collected at the aggregate level.
-    is optional

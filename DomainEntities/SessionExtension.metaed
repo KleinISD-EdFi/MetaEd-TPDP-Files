@@ -1,5 +1,0 @@
-Domain Entity SessionExtension based on Session
-  documentation 'Placeholder for proposed extensions to Session in Ed-Fi core.
-  reference EducationOrganization
-    documentation 'Relates the session to the education organization.
-    is optional

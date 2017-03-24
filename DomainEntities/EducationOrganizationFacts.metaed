@@ -28,3 +28,18 @@ Domain Entity EducationOrganizationFacts
         documentation 'The Education Organization(s) associated with the facts.
         is part of identity
 
+    percent HiringRate
+      documentation '(TPDP Extension) The percent of staff hired for the education organization.
+      is optional
+    percent RetentionRate
+      documentation '(TPDP Extension) The percent of staff retained for the education organization.
+      is optional
+    percent RetirementRate
+      documentation '(TPDP Extension) The percent of staff retired for the education organization.
+      is optional
+    include Vacancies
+      documentation '(TPDP Extension) This entity represents actual and projected vacancies for the education organization.
+      is optional
+    include AggregatedSalary
+      documentation '(TPDP Extension) Salary information collected at the aggregate level.
+      is optional

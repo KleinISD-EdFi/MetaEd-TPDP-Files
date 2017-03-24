@@ -1,14 +1,16 @@
 Domain Entity RubricLevelResponse
   documentation 'This entity represents the response to the rubric level.
-  integer NumericResponse
-    documentation 'The score for the specified level of the rubric.
-    is required
   reference Observation
     documentation 'Reference to the observation.
-    is optional collection
+    is part of identity
+    is queryable field
   reference RubricLevel
     documentation 'Reference the rubric level.
-    is optional collection
+    is part of identity
+    is queryable field
+  shared integer NumericResponse named NumericResponse
+    documentation 'The score for the specified level of the rubric.
+    is required
   shared string TextResponse named TextResponse
     documentation 'The text response(s) for the question.
     is optional

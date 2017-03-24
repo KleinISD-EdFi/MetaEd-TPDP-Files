@@ -83,3 +83,13 @@ Domain Entity Applicant
     reference Prospect
         documentation 'Reference to previously identified prospect.
         is optional
+
+    enumeration Gender
+      documentation '(TPDP Extension) The gender with which a person associates.
+      is optional
+    include Disability
+      documentation '(TPDP Extension) The disability condition(s) that best describes an individual's impairment.
+      is optional collection
+    include Aid
+      documentation '(TPDP Extension) This entity represents the financial aid a person is awarded.
+      is optional collection

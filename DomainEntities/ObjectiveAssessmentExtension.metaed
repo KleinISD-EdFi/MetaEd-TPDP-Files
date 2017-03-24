@@ -1,5 +1,0 @@
-Domain Entity ObjectiveAssessmentExtension based on ObjectiveAssessment
-  documentation '?
-  integer MinRawScore
-    documentation 'The minimum raw score available across all assessment items.
-    is optional

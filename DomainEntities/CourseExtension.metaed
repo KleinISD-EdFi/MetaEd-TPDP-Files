@@ -1,5 +1,0 @@
-Domain Entity CourseExtension based on Course
-  documentation 'Placeholder for proposed extensions to Course in Ed-Fi core.
-  enumeration CourseLevelCharacteristicExtension
-    documentation 'The type of specific program or designation with which the course is associated (e.g., AP, IB, Dual Credit, CTE).
-    is optional collection

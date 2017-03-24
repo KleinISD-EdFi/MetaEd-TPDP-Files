@@ -1,0 +1,21 @@
+Association TeacherCandidateTeacherPreparationProviderProgramAssociation
+  documentation 'Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram
+  domain entity TeacherCandidate
+    documentation '?
+  domain entity TeacherPreparationProviderProgram
+    documentation '?
+  include Service
+    documentation 'Service for the association
+    is optional collection
+  bool ServiceOutsideRegularSession
+    documentation 'Indicates whether the Teacher Candidate received services during the summer session or between sessions.
+    is optional
+  date BeginDate
+    documentation 'The begin date for the association
+    is part of identity
+  date EndDate
+    documentation 'The end date for the association
+    is optional
+  descriptor ReasonExited
+    documentation 'Reason exited for the association
+    is optional

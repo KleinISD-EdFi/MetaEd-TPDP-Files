@@ -1,5 +1,0 @@
-Domain Entity RecruitmentEventExtension based on RecruitmentEvent
-      documentation '?
-      shared string EventLocation named EventLocation
-          documentation 'The location of the event.
-          is optional

@@ -1,0 +1,4 @@
+Common String AnonymizedStudentIdentifier
+  documentation 'Unique identifier for anonymized student
+  min length 1
+  max length 60

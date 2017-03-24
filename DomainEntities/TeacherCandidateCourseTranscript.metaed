@@ -1,6 +1,6 @@
 Domain Entity TeacherCandidateCourseTranscript based on CourseTranscript
   documentation '?
-  enumeration SchoolCategoryExtension
+  enumeration SchoolCategory
     documentation 'The one or more categories of school. For example: High School, Middle School, and/or Elementary School
     is optional collection
     with context PreviousInsitutionCategory

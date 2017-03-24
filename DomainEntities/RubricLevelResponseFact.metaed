@@ -1,0 +1,11 @@
+Domain Entity RubricLevelResponseFact
+  documentation 'This entity represents the rubric level response at the aggregate level.
+  reference ObservationFact
+    documentation 'Reference to the aggregated observation.
+    is part of identity
+    is queryable field
+  reference RubricLevel
+    documentation 'Reference the rubric level.
+    is part of identity
+    is queryable field
+  

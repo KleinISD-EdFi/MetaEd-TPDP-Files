@@ -1,5 +1,0 @@
-Domain Entity SectionExtension based on SectionExtension
-  documentation 'Placeholder for proposed extensions to Section in Ed-Fi core.
-  reference EducationOrganization
-    documentation 'The education organization where the section is taught.
-    is optional

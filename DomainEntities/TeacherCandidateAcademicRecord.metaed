@@ -9,3 +9,6 @@ Domain Entity TeacherCandidateAcademicRecord based on StudentAcademicRecord
   descriptor ProgramGateway
     documentation 'Identifies the program gateway that may be associated for continuation in the program.
     is required
+  descriptor TPPDegreeType
+    documentation 'The degree type that a teacher candidate accomplishes.
+    is required

@@ -1,0 +1,40 @@
+Domain Entity AnonymizedStudentAssessment
+  documentation 'This entity represents the analysis or scoring of a Student's response on an assessment. The analysis results in a value that represents a Student's performance on a set of items on a test.
+  shared string AnonymizedStudentIdentifier named AnonymizedStudentIdentifier
+    documentation 'Unique identifier for anonymized student
+    is part of identity
+  reference Course
+    documentation 'The course associated with aggregated student data
+    is optional
+  reference Section
+    documentation 'The section associated with aggregated student data
+    is optional
+  descriptor AssessmentCategory
+    documentation 'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...
+    is optional
+  include PerformanceLevel
+    documentation 'The performance level(s) achieved for the StudentAssessment.
+    is optional
+  include ScoreResult
+    documentation 'A specification of which performance level value describes the student proficiency.
+    is optional
+  descriptor Term
+    documentation 'The term in which the assessment was administered
+    is optional
+  date AdministrationDate
+    documentation 'Date the assessment was administered
+    is optional
+  shared string AssessmentTitle named AssessmentTitle
+    documentation 'The title if any specific assessment given to a group
+    is optional
+  enumeration SchoolYear
+    documentation 'The school year the assessment was taken
+    is required
+    with context Taken
+    shorten to SchoolYearTaken
+  descriptor AcademicSubject
+    documentation 'The academic subject associated with a student assessment
+    is optional
+  descriptor GradeLevel
+    documentation 'Grade level for which effectiveness is measured.
+    is optional

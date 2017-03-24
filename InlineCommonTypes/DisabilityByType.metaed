@@ -1,0 +1,20 @@
+Common Type DisabilityByType
+  documentation 'Students in the course who have a disability by disability type
+  enumeration SchoolYear
+    documentation 'The school year for which the data is associated
+    is required
+  date FactAsOfDate
+    documentation 'The date for which the data element is relevant
+    is required
+  enumeration ValueType
+    documentation 'The value of the data, i.e., is the data projected, actual or other
+    is optional
+  descriptor Disability
+    documentation 'Data about the diability of a group
+    is optional
+  percent Percentage
+    documentation 'The percentage of students who have a disability by each specific disability type
+    is required
+  integer TypeNumber
+    documentation 'The number of student who have a disability by disability type
+    is optional

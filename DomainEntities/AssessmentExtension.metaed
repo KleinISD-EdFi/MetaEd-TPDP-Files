@@ -1,5 +1,0 @@
-Domain Entity AssessmentExtension based on Assessment
-  documentation '?
-  descriptor ProgramGateway
-    documentation 'Identifies the program gateway an assessment may be associated with for continuation in the program.
-    is optional

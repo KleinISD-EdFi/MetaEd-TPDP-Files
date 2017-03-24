@@ -1,0 +1,8 @@
+Common Type AggregatedSalary
+  documentation 'Salary information collected at the aggregate level.
+  integer CountOfSalariesAveraged
+    documentation 'The number of salaries averaged that were collected at the aggregate level.
+    is optional
+  integer StandardDeviation
+    documentation 'The standard deviation of the salaries collected at the aggregate level.
+    is optional

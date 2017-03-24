@@ -1,11 +1,8 @@
 Domain Entity TeacherPreparationProviderProgram based on Program
   documentation 'This entity represents information regarding a teacher preparation provider program.
-  descriptor GradeLevelExtension
+  descriptor GradeLevel
     documentation 'The grade levels served at the TPP Program.
     is optional collection
-  reference TeacherPreparationProvider
-    documentation 'Relates the teacher preparation provider with the Teacher Preparation Provider Program.
-    is optional
   include TPPProgramDegree
     documentation 'Details of the degree.
     is required

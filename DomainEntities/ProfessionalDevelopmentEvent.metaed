@@ -1,0 +1,5 @@
+Domain Entity ProfessionalDevelopmentEvent
+  documentation '?
+  bool PROPERTYNAME
+    documentation 'DOCUMENTATION
+    is part of identity

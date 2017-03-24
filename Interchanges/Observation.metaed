@@ -1,8 +1,8 @@
 Interchange Observation
   documentation '?
-  element AggregatedObservation
-  element AggregatedRubricLevelResponse
   element Observation
+  element ObservationFact
   element Rubric
   element RubricLevel
   element RubricLevelResponse
+  element RubricLevelResponseFact

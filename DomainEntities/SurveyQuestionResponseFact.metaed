@@ -1,0 +1,9 @@
+Domain Entity SurveyQuestionResponseFact
+  documentation 'Survey question response data provided at the aggregate level.
+  reference SurveyQuestion
+    documentation 'Reference to the aggregated survey response.
+    is part of identity
+    is queryable field
+  include AggregatedNumericResponse
+    documentation 'Numeric response survey data provided at the aggregate level.
+    is optional

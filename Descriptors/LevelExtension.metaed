@@ -1,5 +1,0 @@
-Descriptor LevelExtension
-    documentation 'This descriptor defines the grade level(s) certified for teaching.
-    descriptor GradeLevelExtension
-        documentation 'The mapping to known grade levels for which certification exists.
-        is optional collection

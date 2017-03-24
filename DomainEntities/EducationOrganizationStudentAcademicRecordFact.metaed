@@ -1,0 +1,17 @@
+Domain Entity EducationOrganizationStudentAcademicRecordFact
+  documentation 'Complex type that provides data about a group of student and their academic record
+  reference	EducationOrganization
+    documentation 'The section associated with aggregated student data
+    is part of identity
+  date FactAsOfDate
+  	 documentation 'The date for which the data element is relevant
+     is part of identity
+   include StudentsEnrolled
+     documentation 'The information about the number of students enrolled
+     is optional
+  include AggregatedCumulativeGradePointAverage
+    documentation 'Data about the cumulative grade point for a group
+    is optional
+  include AggregatedSessionGradePointAverage
+    documentation 'Data about the cumulative grade point for a group
+    is optional

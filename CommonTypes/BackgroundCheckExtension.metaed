@@ -1,5 +1,0 @@
-Common Type BackgroundCheckExtension based on BackgroundCheck
-      documentation '?
-      bool Fingerprint
-          documentation 'Indicates that a person has or has not completed a fingerprint.
-          is optional

@@ -9,3 +9,7 @@ Domain Entity RecruitmentEvent
     shared string EventTitle named EventTitle
         documentation 'The title of the event.
         is part of identity
+
+    shared string EventLocation named EventLocation
+      documentation '(TPDP Extension) The location of the event.
+      is optional

@@ -1,11 +1,15 @@
 Interchange Survey
   documentation '?
-  element AggregatedSurveyQuestionResponse
-  element AggregatedSurveyResponse
-  element AggregatedSurveySectionResponseRating
+  element CourseSurveyResponseFact
+  element CourseSurveySectionResponseRatingFact
+  element EducationOrganizationSurveyResponseFact
+  element EducationOrganizationSurveySectionResponseRatingFact
+  element SectionSurveyResponseFact
+  element SectionSurveySectionResponseRatingFact
   element Survey
   element SurveyQuestion
   element SurveyQuestionResponse
+  element SurveyQuestionResponseFact
   element SurveyResponse
   element SurveySection
   element SurveySectionResponseRating

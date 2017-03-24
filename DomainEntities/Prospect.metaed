@@ -66,3 +66,12 @@ Domain Entity Prospect
         documentation 'Content associated with different touchpoints with the prospect.
         is optional collection
 
+    enumeration Gender
+      documentation '(TPDP Extension) The gender with which a person associates.
+      is optional
+    include Disability
+      documentation '(TPDP Extension) The disability condition(s) that best describes an individual's impairment.
+      is optional collection
+    include ProspectQualifications
+      documentation '(TPDP Extension) The qualifications of a prospective mentor teacher.
+      is optional

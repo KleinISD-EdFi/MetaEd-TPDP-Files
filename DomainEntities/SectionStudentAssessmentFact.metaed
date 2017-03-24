@@ -1,0 +1,40 @@
+Domain Entity SectionStudentAssessmentFact
+  documentation '?
+  reference Section
+    documentation 'The section associated with aggregated student data
+    is part of identity
+  enumeration SchoolYear
+    documentation 'The school year the assessment was taken
+    is part of identity
+    with context Taken
+    shorten to SchoolYearTaken
+  date FactAsOfDate
+    documentation 'The date for which the data element is relevant
+    is part of identity
+  shared string AssessmentTitle named AssessmentTitle
+    documentation 'The title if any specific assessment given to a group
+    is optional
+  descriptor AssessmentCategory
+    documentation 'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...
+    is optional
+  descriptor AcademicSubject
+    documentation 'The academic subject associated with a CourseStudentAssessment.
+    is optional
+  descriptor GradeLevel
+    documentation 'The grade level associated with a CourseStudentAssessment.
+    is optional
+  date AdministrationDate
+    documentation 'The date a specific assessment was administered to a group of students
+    is optional
+  descriptor Term
+    documentation 'The term in which the assessment was administered
+    is optional
+  include StudentsEnrolled
+    documentation 'The information about the number of students enrolled
+    is optional
+  include AggregatedScoreResult
+    documentation 'Data about the score from an assessment of the group
+    is optional
+  include AggregatedPerformanceLevel
+    documentation 'Data about the performance level for an assessment of a group
+    is optional
