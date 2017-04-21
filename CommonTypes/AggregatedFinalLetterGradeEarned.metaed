@@ -1,0 +1,17 @@
+Common Type AggregatedFinalLetterGradeEarned
+  documentation 'Data about the final letter grade earned of the group	Final Letter Grade Earned
+  enumeration SchoolYear
+    documentation 'The school year for which the data is associated
+    is required
+  date FactAsOfDate
+    documentation 'The date for which the data element is relevant
+    is required
+  shared string GradeEarned named FinalLetterGrade
+    documentation 'The final indicator of student performance in a class as submitted by the instructor.
+    is required
+  integer LetterGradeTypeNumber
+    documentation 'The number of students receiving a letter grade by letter grade type
+    is optional
+  percent LetterGradeTypePercentage
+    documentation 'The percentage of student receiving a letter grade by type
+    is optional

@@ -3038,11 +3038,6 @@ Special education students
               <xs:documentation>The total number of years that an individual has previously held a teaching position in one or more education institutions.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="LoginId" type="IdentificationCode" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The login ID for the user; used for security access control interface.</xs:documentation>
@@ -11385,65 +11380,6 @@ Student late arrival/early dismissal.</xs:documentation>
       <xs:element name="AssigningOrganizationIdentificationCode" type="IdentificationCode" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The organization code or name assigning the staff Identification Code.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Credential">
-    <xs:annotation>
-      <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="CredentialType" type="CredentialType">
-        <xs:annotation>
-          <xs:documentation>An indication of the category of credential an individual holds.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialField" type="CredentialFieldDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>The field of certification for the certificate (e.g., Mathematics, Music).</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>CredentialFieldDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Level" type="LevelDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>The grade level(s) certified for teaching.</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>LevelDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TeachingCredential" type="TeachingCredentialDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>An indication of the category of a legal document giving authorization to perform teaching assignment services.</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>TeachingCredentialDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialIssuanceDate" type="xs:date">
-        <xs:annotation>
-          <xs:documentation>The month, day, and year on which an active credential was issued to an individual.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialExpirationDate" type="xs:date" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The month, day, and year on which an active credential held by an individual will expire.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TeachingCredentialBasis" type="TeachingCredentialBasisType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>An indication of the pre-determined criteria for granting the teaching credential that an individual holds.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StateOfIssueStateAbbreviation" type="StateAbbreviationType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

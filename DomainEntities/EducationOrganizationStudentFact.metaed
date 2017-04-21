@@ -27,11 +27,8 @@ Domain Entity EducationOrganizationStudentFact
   include AggregatedLanguage
     documentation 'The data about the language
     is optional collection
-  include DisabilityByType
-    documentation 'Students in the course who have a disability by disability type
-    is optional collection
-  include TotalStudentsDisabled
-    documentation '?
+  include AggregatedDisability
+    documentation 'Information about the disability of a group aggregated by course.
     is optional
   include AggregatedELLEnrollment
     documentation 'Data about the ELL enrollment of the group

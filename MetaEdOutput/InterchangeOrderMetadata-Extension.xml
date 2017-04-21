@@ -41,6 +41,7 @@
     <Element name="SurveyCategoryDescriptor" />
     <Element name="AssessmentCategoryDescriptor" />
     <Element name="PerformanceLevelDescriptor" />
+    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="FieldworkTypeDescriptor" />
     <Element name="StudentGrowthTypeDescriptor" />
     <Element name="TPPDegreeTypeDescriptor" />
@@ -68,7 +69,6 @@
     <Element name="StudentIdentificationSystemDescriptor" />
     <Element name="TeachingCredentialDescriptor" />
     <Element name="WeaponDescriptor" />
-    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="AidTypeDescriptor" />
     <Element name="BackgroundCheckStatusDescriptor" />
     <Element name="BackgroundCheckTypeDescriptor" />
@@ -187,7 +187,6 @@
     <Element name="StaffFieldworkExperience" />
     <Element name="StaffStudentGrowthFact" />
     <Element name="TeacherCandidateAcademicRecord" />
-    <Element name="TeacherCandidateCourseTranscript" />
     <Element name="TeacherCandidateFieldworkAbsenceEvent" />
     <Element name="TeacherCandidateFieldworkExperience" />
     <Element name="TeacherCandidateStudentGrowthFact" />
@@ -242,14 +241,16 @@
     <Element name="CourseSurveyResponseFact" />
     <Element name="SurveySection" />
     <Element name="CourseSurveySectionResponseRatingFact" />
+    <Element name="SurveyQuestion" />
+    <Element name="CourseSurveyQuestionResponseFact" />
     <Element name="EducationOrganizationSurveyResponseFact" />
     <Element name="EducationOrganizationSurveySectionResponseRatingFact" />
+    <Element name="EducationOrganizationSurveyQuestionResponseFact" />
     <Element name="SectionSurveyResponseFact" />
     <Element name="SectionSurveySectionResponseRatingFact" />
-    <Element name="SurveyQuestion" />
+    <Element name="SectionSurveyQuestionResponseFact" />
     <Element name="SurveyResponse" />
     <Element name="SurveyQuestionResponse" />
-    <Element name="SurveyQuestionResponseFact" />
     <Element name="SurveySectionResponseRating" />
   </Interchange>
   <Interchange name="Finance" order="130">

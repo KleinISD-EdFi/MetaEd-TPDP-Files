@@ -1,0 +1,16 @@
+Domain Entity SectionSurveyQuestionResponseFact
+  documentation 'Survey question response data provided at the aggregate level.
+  reference SectionSurveyResponseFact
+    documentation 'Reference to the aggregated section survey response.
+    is part of identity
+    is queryable field
+  reference SurveyQuestion
+    documentation 'Reference to the associated Survey Question.
+    is part of identity
+    is queryable field
+  include AggregatedNumericResponse
+    documentation 'Numeric response survey data provided at the aggregate level.
+    is optional
+  include AggregatedSurveyQuestionMatrixElementResponse
+    documentation 'Matrix element response survey data provided at the aggregate level.
+    is optional collection

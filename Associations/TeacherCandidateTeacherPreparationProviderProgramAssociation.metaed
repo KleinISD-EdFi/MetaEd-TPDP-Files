@@ -1,9 +1,9 @@
 Association TeacherCandidateTeacherPreparationProviderProgramAssociation
   documentation 'Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram
   domain entity TeacherCandidate
-    documentation '?
+    documentation 'Teacher Candidate for the association
   domain entity TeacherPreparationProviderProgram
-    documentation '?
+    documentation 'Reference to the Teacher Preparation Provider Program
   include Service
     documentation 'Service for the association
     is optional collection

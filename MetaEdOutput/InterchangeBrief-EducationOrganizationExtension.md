@@ -74,7 +74,7 @@ This interchange includes the following Extended References.
 | LearningStandardReference (in Program) | Optional.  LearningStandard followed by this program. |
 | StaffReference (in StaffTeacherPreparationProviderAssociation) | Required.  Staff reference for the association |
 | TeacherCandidateReference (in TeacherCandidateTeacherPreparationProviderAssociation) | Required.  Teacher Candidate for the association |
-| TeacherCandidateReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  ? |
+| TeacherCandidateReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Teacher Candidate for the association |
 
 
 
@@ -99,6 +99,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | ReasonExitedDescriptor | Optional.  This descriptor defines the reason a student exited a program. |
 | ServiceDescriptor | Optional.  This descriptor defines the services provided by an education organization to populations of students associated with a program. |
 | TPPDegreeTypeDescriptor | Required.  The descriptor holds the degree that a teacher candidate accomplishes. |
-| TPPProgramPathwayDescriptor | Required.  The descriptor holds the program pathways available at TPP's. |
+| TPPProgramPathwayDescriptor | Optional.  The descriptor holds the program pathways available at TPP's. |
 
 

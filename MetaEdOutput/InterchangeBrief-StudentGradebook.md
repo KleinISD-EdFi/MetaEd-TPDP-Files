@@ -61,5 +61,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | AcademicSubjectDescriptor | Required.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
 | CompetencyLevelDescriptor | Optional.  This descriptor defines various levels for assessed competencies. |
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
+| ProgramGatewayDescriptor | Optional.  The descriptor holds the program gateway that is associated with continuation in a program. |
 
 

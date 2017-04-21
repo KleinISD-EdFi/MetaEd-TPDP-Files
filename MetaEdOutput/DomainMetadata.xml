@@ -764,7 +764,6 @@
   <Aggregate root="Staff">
     <Entity table="Staff"/>
     <Entity table="StaffAddress"/>
-    <Entity table="StaffCredential"/>
     <Entity table="StaffElectronicMail"/>
     <Entity table="StaffIdentificationCode"/>
     <Entity table="StaffIdentificationDocument"/>

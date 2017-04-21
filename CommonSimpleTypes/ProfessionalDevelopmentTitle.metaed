@@ -1,4 +1,4 @@
 Common String ProfessionalDevelopmentTitle
 	 documentation 'The title or name for a professional development.
-   min length 2
-   max length 60
+   min length 1
+	 max length 60

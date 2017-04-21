@@ -1,0 +1,14 @@
+Common Type StudentsEnrolled
+  documentation '?
+  enumeration SchoolYear
+    documentation 'The school year for which the data is associated
+    is required
+  date FactAsOfDate
+    documentation 'The date for which the data element is relevant
+    is required
+  enumeration ValueType
+    documentation 'The value of the data, i.e., is the data projected, actual or other
+    is optional
+	integer NumberStudentsEnrolled
+    documentation 'The total number of student enrolled in the respective Section
+    is optional

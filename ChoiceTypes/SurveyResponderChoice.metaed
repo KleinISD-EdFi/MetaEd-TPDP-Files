@@ -12,3 +12,8 @@ Choice Common Type SurveyResponderChoice [2500]
     reference Applicant
         documentation '*NONE*
         is required
+
+    reference Prospect
+        documentation '(TPDP Extension) The reference to the prospect.
+        is required
+    

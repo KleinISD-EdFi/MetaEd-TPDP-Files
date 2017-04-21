@@ -21,6 +21,3 @@ Domain Entity CourseCourseTranscriptFact
   include AggregatedNumericGradeEarned
     documentation 'Data about the numeric grade received by the group
     is optional
-  shared decimal GPA named AggregatedGPAMax
-    documentation 'The maximum grade point average a student can receive in the course
-    is optional

@@ -1,0 +1,17 @@
+Common Type AcademicRecord
+  documentation 'Data regarding the academic record for the student
+  shared decimal GPA named CumulativeGradePointAverage
+    documentation 'The average cumulative grade point average for a student
+    is optional
+  shared string GradeEarned named FinalLetterGradeEarned
+    documentation 'The letter indicator of student performance in a class as submitted by the instructor.
+    is optional
+  integer FinalNumericGradeEarned
+    documentation 'The numeric indicator of student performance in a class as submitted by the instructor.
+    is optional
+  integer GPAMax
+    documentation 'The maximum grade point average that can be achieved by a student
+    is optional
+  integer GPAMin
+    documentation 'The minimum grade point average that can be achieved by a student
+    is optional

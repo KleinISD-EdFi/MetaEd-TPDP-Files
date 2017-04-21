@@ -28,7 +28,7 @@
 | EducationOrganizationSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
 | Observation | The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation. |
 | ObservationFact | This entity represents aggregated information regarding observation data. |
-| ProfessionalDevelopmentEvent | ? |
+| ProfessionalDevelopmentEvent | Information about a professional development event. |
 | Prospect | A prospect for employment or contract that has not yet made formal application, often obtained from job fairs or university recruiting visits. |
 | RecruitmentEvent | Events associated with the recruitment process. |
 | Rubric | This entity represents the rubric used to conduct the observation. |
@@ -47,13 +47,11 @@
 | Survey | A survey to identified or anonymous respondants. |
 | SurveyQuestion | The questions for the survey. |
 | SurveyQuestionResponse | The response to a survey question. |
-| SurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
 | SurveyResponse | Responses to a Survey for named or anonymous persons. |
 | SurveySection | The section(s) of questions for the survey. |
 | SurveySectionResponseRating | Optional numeric rating computed from the survey responses for the section. |
 | TeacherCandidate | This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program. |
 | TeacherCandidateAcademicRecord | ? |
-| TeacherCandidateCourseTranscript | ? |
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | TeacherCandidateStudentGrowthFact | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |

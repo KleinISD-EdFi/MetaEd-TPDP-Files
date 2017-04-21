@@ -25,14 +25,16 @@ The following table describes the primary entities of which the Survey Interchan
 |----------|-----------------|
 | CourseSurveyResponseFact | Survey response data provided at the aggregate level. |
 | CourseSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| CourseSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
 | EducationOrganizationSurveyResponseFact | Survey response data provided at the aggregate level. |
 | EducationOrganizationSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| EducationOrganizationSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFact | Survey response data provided at the aggregate level. |
 | SectionSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| SectionSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
 | Survey | A survey to identified or anonymous respondants. |
 | SurveyQuestion | The questions for the survey. |
 | SurveyQuestionResponse | The response to a survey question. |
-| SurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
 | SurveyResponse | Responses to a Survey for named or anonymous persons. |
 | SurveySection | The section(s) of questions for the survey. |
 | SurveySectionResponseRating | Optional numeric rating computed from the survey responses for the section. |
@@ -48,10 +50,14 @@ This interchange includes the following Extended References.
 |-----------------------------|-----------------|
 | ApplicantReference (in SurveyResponse) | Optional.  *NONE* |
 | CourseReference (in CourseSurveyResponseFact) | Required.  The section(s) associated with the aggregated survey response. |
+| CourseReference (in Survey) | Optional.  (TPDP Extension) The course associated with the survey. |
 | EducationOrganizationReference (in EducationOrganizationSurveyResponseFact) | Required.  The section(s) associated with the aggregated survey response. |
-| EducationOrganizationReference (in Survey) | Required.  The Education Organization(s) associated with the survey. |
+| EducationOrganizationReference (in Survey) | Optional.  (TPDP Change) The Education Organization(s) associated with the survey. |
 | ParentReference (in SurveyResponse) | Optional.  *NONE* |
+| ProgramReference (in Survey) | Optional.  (TPDP Extension) The program associated with the survey. |
+| ProspectReference (in SurveyResponse) | Optional.  (TPDP Extension) The reference to the prospect. |
 | SectionReference (in SectionSurveyResponseFact) | Required.  The section(s) associated with the aggregated survey response. |
+| SectionReference (in Survey) | Optional.  (TPDP Extension) The section associated with the survey. |
 | StaffReference (in SurveyResponse) | Optional.  *NONE* |
 | StudentReference (in SurveyResponse) | Optional.  *NONE* |
 

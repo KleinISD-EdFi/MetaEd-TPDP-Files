@@ -39,13 +39,11 @@ Domain TeacherPreparation
     domain item Survey
     domain item SurveyQuestion
     domain item SurveyQuestionResponse
-    domain item SurveyQuestionResponseFact
     domain item SurveyResponse
     domain item SurveySection
     domain item SurveySectionResponseRating
     domain item TeacherCandidate
     domain item TeacherCandidateAcademicRecord
-    domain item TeacherCandidateCourseTranscript
     domain item TeacherCandidateFieldworkAbsenceEvent
     domain item TeacherCandidateFieldworkExperience
     domain item TeacherCandidateStudentGrowthFact

@@ -47,7 +47,6 @@ The following table describes the primary entities of which the Teacher Candidat
 | StaffStudentGrowthFact | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
 | TeacherCandidate | This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program. |
 | TeacherCandidateAcademicRecord | ? |
-| TeacherCandidateCourseTranscript | ? |
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | TeacherCandidateStudentGrowthFact | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
@@ -69,7 +68,6 @@ This interchange includes the following Extended References.
 | CourseReference (in CourseStudentAcademicRecordFact) | Required.  The course for which the data is associated |
 | CourseReference (in CourseStudentAssessmentFact) | Required.  The course associated with aggregated student data |
 | CourseReference (in CourseStudentFact) | Required.  The course associated with aggregated student data |
-| CourseReference (in CourseTranscript) | Required.  The course recorded in the course transcript entry. |
 | EducationOrganizationReference (in AnonymizedStudent) | Optional.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the assocation |
@@ -78,7 +76,6 @@ This interchange includes the following Extended References.
 | EducationOrganizationReference (in EducationOrganizationStudentFact) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in StudentAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
 | ReportCardReference (in StudentAcademicRecord) | Optional.  Report cards for the student. |
-| SchoolReference (in CourseTranscript) | Optional.  The School that provided the reported instruction. |
 | SchoolReference (in StaffFieldworkExperience) | Required.  The school the field work experience is associated with |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
 | SectionReference (in AnonymizedStudent) | Optional.  The section associated with aggregated student data |
@@ -93,7 +90,7 @@ This interchange includes the following Extended References.
 | StaffReference (in StaffFieldworkExperience) | Required.  The staff the field work experience is associated with |
 | StaffReference (in StaffStudentGrowthFact) | Required.  The staff associated with aggregated student growth data |
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
-| TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  ? |
+| TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Reference to the Teacher Preparation Provider Program |
 
 
 
@@ -103,6 +100,7 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 
 | Descriptor Name | Description |
 |---------------------|-----------------|
+| AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AcademicSubjectDescriptor | Optional.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
 | AchievementCategoryDescriptor | Optional.  This descriptor defines the category of achievement attributed to the learner. |
 | AidTypeDescriptor | Optional.  The classification of financial aid awarded to a person for the academic term/year. |

@@ -2,14 +2,16 @@ Interchange Survey
   documentation '?
   element CourseSurveyResponseFact
   element CourseSurveySectionResponseRatingFact
+  element CourseSurveyQuestionResponseFact
   element EducationOrganizationSurveyResponseFact
   element EducationOrganizationSurveySectionResponseRatingFact
+  element EducationOrganizationSurveyQuestionResponseFact
   element SectionSurveyResponseFact
   element SectionSurveySectionResponseRatingFact
+  element SectionSurveyQuestionResponseFact
   element Survey
   element SurveyQuestion
   element SurveyQuestionResponse
-  element SurveyQuestionResponseFact
   element SurveyResponse
   element SurveySection
   element SurveySectionResponseRating

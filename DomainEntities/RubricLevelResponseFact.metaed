@@ -8,4 +8,6 @@ Domain Entity RubricLevelResponseFact
     documentation 'Reference the rubric level.
     is part of identity
     is queryable field
-  
+  include AggregatedNumericResponse
+    documentation 'Numeric response survey data provided at the aggregate level.
+    is optional

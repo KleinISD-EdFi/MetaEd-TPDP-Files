@@ -1,8 +1,0 @@
-Common Type ReceivedTraining
-  documentation 'An indication that the observer has or has not received training on conducting observations.
-  date ReceivedTrainingDate
-    documentation 'The date on which the observer received training on how to conduct observations.
-    is optional
-  integer InterRaterReliabilityScore
-    documentation 'A score indicating how much homogeneity, or consensus, there is in the ratings given by judges.
-    is optional

@@ -39,6 +39,7 @@ This interchange includes the following Extended References.
 
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
+| EducationOrganizationReference (in ObservationFact) | Required.  Provides user information to lookup and link to an existing educational organization record. |
 | EducationOrganizationReference (in Rubric) | Required.  The education organization, typically a LocalEducationAgency, associated with the prospect. |
 | ProspectReference (in Observation) | Optional.  The reference to the prospect. |
 | StaffReference (in Observation) | Optional.  The staff associated with the observation. |

@@ -1,0 +1,18 @@
+Common Type RecommendingInstitution
+  documentation 'Information regarding the institution that is recommending a candidate for certification.
+  shared string NameOfInstitution named RecommendingInstutionName
+    documentation 'The full, legally accepted name of the institution.
+    is required
+  date RecommendingDate
+    documentation 'The month, day, and year on which a recommendation for a candidate is made.
+    is optional
+  descriptor Country
+    documentation 'The country that the recommendation for a candidate was made in.
+    is optional
+    with context RecommendingInstution
+    shorten to RecommendingInstitutionCountry
+  enumeration StateAbbreviation
+    documentation 'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.
+    is optional
+    with context RecommendingInstitution
+    shorten to RecommendingInstutionState

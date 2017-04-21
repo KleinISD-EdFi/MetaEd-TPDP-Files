@@ -72,16 +72,13 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | AcademicSubjectDescriptor | Optional.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
 | ClassroomPositionDescriptor | Required.  This descriptor defines the type of position the staff member holds in a specific class/section. |
 | CountryDescriptor | Optional.  This descriptor defines the name and code of the country. |
-| CredentialFieldDescriptor | Optional.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
 | EmploymentStatusDescriptor | Required.  This descriptor defines the type of employment or contract. |
 | GradeLevelDescriptor | Optional.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |
-| LevelDescriptor | Optional.  This descriptor defines the grade level(s) certified for teaching. |
 | LevelOfEducationDescriptor | Optional.  This descriptor defines the different levels of education achievable. |
 | ProgramAssignmentDescriptor | Required.  This descriptor defines the name of the education program for which a teacher is assigned to a school. |
 | SeparationReasonDescriptor | Optional.  This descriptor defines the reasons for terminating the employment. |
 | StaffClassificationDescriptor | Required.  This descriptor defines an individual's title of employment, official status or rank. |
 | StaffIdentificationSystemDescriptor | Optional.  This descriptor defines the originating record system and code that is used for record-keeping purposes of the staff. |
-| TeachingCredentialDescriptor | Optional.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |
 
 

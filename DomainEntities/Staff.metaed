@@ -22,6 +22,9 @@ Domain Entity Staff additions
         documentation 'Reference to applicant(s) represented by this staff member.
         is optional collection
 
+    enumeration Gender
+      documentation 'The gender with which a person associates.
+      is optional
     include Salary
         documentation 'Information regarding the salary of a staff member.
         is optional

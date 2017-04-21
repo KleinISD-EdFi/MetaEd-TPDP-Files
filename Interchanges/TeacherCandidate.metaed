@@ -24,7 +24,6 @@ Interchange TeacherCandidate
   element StaffStudentGrowthFact
   element TeacherCandidate
   element TeacherCandidateAcademicRecord
-  element TeacherCandidateCourseTranscript
   element TeacherCandidateFieldworkAbsenceEvent
   element TeacherCandidateFieldworkExperience
   element TeacherCandidateStudentGrowthFact

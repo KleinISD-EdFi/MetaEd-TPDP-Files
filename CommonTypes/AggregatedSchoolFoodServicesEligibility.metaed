@@ -1,0 +1,20 @@
+Common Type AggregatedSchoolFoodServicesEligibility
+  documentation 'Identifies if the student is eligible for Free and Reduce Price Lunch
+  enumeration SchoolYear
+    documentation 'The school year for which the data is associated
+    is required
+  date FactAsOfDate
+    documentation 'The date for which the data element is relevant
+    is required
+  enumeration ValueType
+    documentation 'The value of the data, i.e., is the data projected, actual or other
+    is optional
+  descriptor SchoolFoodServicesEligibility
+    documentation 'Information about the students who are enrolled based on School Food Services Eligibility
+    is optional
+  integer TypeNumber
+    documentation 'The number of students eligibile for SchoolFoodServicesEligibility by category
+    is optional
+  integer TypePercentage
+    documentation 'The percentage of student who are eligible for SchoolFoodServicesEligibility by type
+    is optional

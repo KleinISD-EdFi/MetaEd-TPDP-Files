@@ -67,9 +67,6 @@ Domain Entity Applicant
     bool HighlyQualifiedTeacher
         documentation 'An indication of whether a teacher is classified as highly qualified for his/her assignment according to state definition. This attribute indicates the teacher is highly qualified for ALL Sections being taught.
         is optional
-    include Credential
-        documentation 'The legal document or authorization giving authorization to perform teaching assignment services.
-        is optional collection
     include BackgroundCheck
         documentation 'Applicant background check history and disposition.
         is optional collection

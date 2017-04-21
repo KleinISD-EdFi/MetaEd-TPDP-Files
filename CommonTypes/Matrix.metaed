@@ -1,0 +1,11 @@
+Common Type Matrix
+  documentation 'Information about the matrix element in the survey
+  shared string MatrixElement named MatrixElement
+    documentation 'For matrix questions, the text identifying each row of the matrix.
+    is optional
+  integer MinRawScore
+    documentation 'The minimum score possible on a survey.
+    is optional
+  integer MaxRawScore
+    documentation 'The maximum score possible on a survey.
+    is optional

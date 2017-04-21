@@ -9,9 +9,6 @@ Domain Entity SurveyQuestion
     shared string QuestionText named QuestionText
         documentation 'The text of the question.
         is required
-    shared string MatrixElement named MatrixElement
-        documentation 'For matrix questions, the text identifying each row of the matrix.
-        is optional collection
     shared integer NumericChoice named NumericChoice
         documentation 'For matrix of rating scale and for ranking, the numeric choices.
         is optional collection
@@ -24,3 +21,7 @@ Domain Entity SurveyQuestion
     reference SurveySection
         documentation 'Reference to the Survey Section.
         is required
+
+    include Matrix
+        documentation '(TPDP Extension) Information about the matrix element in the survey
+        is optional collection

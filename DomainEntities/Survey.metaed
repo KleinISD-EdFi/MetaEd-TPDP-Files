@@ -4,8 +4,8 @@ Domain Entity Survey
         documentation 'The unique survey identifier from the survey tool.
         is part of identity
     reference EducationOrganization
-        documentation 'The Education Organization(s) associated with the survey.
-        is required
+        documentation '(TPDP Change) The Education Organization(s) associated with the survey.
+        is optional
     shared string SurveyTitle named SurveyTitle
         documentation 'The title of the survey.
         is required
@@ -17,4 +17,14 @@ Domain Entity Survey
         is optional
     descriptor SurveyCategory
         documentation 'The Category or Type of Survey.
+        is optional
+
+    reference Program
+        documentation '(TPDP Extension) The program associated with the survey.
+        is optional
+    reference Course
+        documentation '(TPDP Extension) The course associated with the survey.
+        is optional
+    reference Section
+        documentation '(TPDP Extension) The section associated with the survey.
         is optional

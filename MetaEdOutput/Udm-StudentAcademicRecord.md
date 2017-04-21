@@ -35,7 +35,7 @@ An individual assignment in a gradebook is represented as a GradebookEntry. A Gr
 | CourseTranscript | This entity is the final record of a student's performance in their courses at the end of a semester or school year. |
 | EducationOrganization | This entity represents any public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. |
 | Grade | This educational entity represents an overall score or assessment tied to a course over a period of time (i.e., the grading period). Student grades are usually a compilation of marks and other scores. |
-| GradebookEntry | This entity represents an assignment, homework, or classroom assessment to be recorded in a gradebook. |
+| GradebookEntry |  |
 | GradingPeriod | This descriptor defines the name of the period for which grades are reported. The mapping of descriptor values to known Ed-Fi enumeration values is required. |
 | LearningObjective | This entity represents identified learning objectives for courses in specific grades. |
 | LearningStandard | This entity is a sub-element of a learning objective consisting of a precise statement of the expectation of a student's proficiency. |

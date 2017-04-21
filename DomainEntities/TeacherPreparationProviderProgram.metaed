@@ -8,4 +8,4 @@ Domain Entity TeacherPreparationProviderProgram based on Program
     is required
   descriptor TPPProgramPathway
     documentation 'A code for describing the program pathway, for example: Residency, Internship, Traditional
-    is required
+    is optional
