@@ -25,7 +25,7 @@ Domain Entity StaffStudentGrowthFact
     is optional
   integer StudentGrowthTargetScore
     documentation 'The target score that has been set of the group of students as it pertains to their student growth.
-    is required
+    is optional
   integer StudentGrowthActualScore
     documentation 'The actual score a group of students receives on their student growth assessment
     is required
@@ -35,3 +35,12 @@ Domain Entity StaffStudentGrowthFact
   integer StudentGrowthNCount
     documentation 'The number of students included in the average score result.
     is optional
+  reference EducationOrganization
+    documentation 'Any education organizations associated with the staff's student growth data, if applicable.
+    is optional collection
+  reference Course
+    documentation 'Any courses associated with the staff's student growth data, if applicable.
+    is optional collection
+  reference Section
+    documentation 'Any sections associated with the staff's student growth data, if applicable.
+    is optional collection

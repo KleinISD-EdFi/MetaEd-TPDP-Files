@@ -27376,6 +27376,8 @@ INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDe
 
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','School Specialist','School Specialist')
 
+INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Site Coordinator','Site Coordinator')
+
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Speech Language Pathologist','Speech Language Pathologist')
 
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','State Administrator','State Administrator')

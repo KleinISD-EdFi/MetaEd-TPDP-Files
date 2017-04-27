@@ -390,6 +390,9 @@
   </Aggregate>
   <Aggregate root="StaffStudentGrowthFact">
     <Entity table="StaffStudentGrowthFact" schema="extension"/>
+    <Entity table="StaffStudentGrowthFactCourse" schema="extension"/>
+    <Entity table="StaffStudentGrowthFactEducationOrganization" schema="extension"/>
+    <Entity table="StaffStudentGrowthFactSection" schema="extension"/>
   </Aggregate>
   <Aggregate root="StaffTeacherPreparationProviderAssociation">
     <Entity table="StaffTeacherPreparationProviderAssociation" schema="extension"/>
@@ -459,6 +462,9 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateStudentGrowthFact">
     <Entity table="TeacherCandidateStudentGrowthFact" schema="extension"/>
+    <Entity table="TeacherCandidateStudentGrowthFactCourse" schema="extension"/>
+    <Entity table="TeacherCandidateStudentGrowthFactEducationOrganization" schema="extension"/>
+    <Entity table="TeacherCandidateStudentGrowthFactSection" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateTeacherPreparationProviderAssociation">
     <Entity table="TeacherCandidateTeacherPreparationProviderAssociation" schema="extension"/>

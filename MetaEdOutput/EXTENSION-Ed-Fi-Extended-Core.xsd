@@ -210,6 +210,11 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
+          <xs:element name="AssessmentIdentifier" type="EXTENSION-AssessmentIdentifier">
+            <xs:annotation>
+              <xs:documentation>An identifier that uniquely identifies the assessment to which the student results are associated.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="AssessmentTitle" type="AssessmentTitle" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The title if any specific assessment given to a group</xs:documentation>
@@ -2824,11 +2829,6 @@ Withdrawn.</xs:documentation>
               <xs:documentation>Date for this absence event</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="HoursAbsent" type="EXTENSION-HoursPerDay" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The hours the staff was absence if not the entire working day</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="AbsenceEventCategory" type="EXTENSION-AbsenceEventCategoryDescriptorReferenceType">
             <xs:annotation>
               <xs:documentation>The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation.</xs:documentation>
@@ -2840,6 +2840,11 @@ Withdrawn.</xs:documentation>
           <xs:element name="AbsenceEventReason" type="EXTENSION-AbsenceEventReason" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Expanded reason for the staff absence</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="HoursAbsent" type="EXTENSION-HoursPerDay" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The hours the staff was absence if not the entire working day</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2998,7 +3003,7 @@ Withdrawn.</xs:documentation>
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="StudentGrowthTargetScore" type="xs:int">
+          <xs:element name="StudentGrowthTargetScore" type="xs:int" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The target score that has been set of the group of students as it pertains to their student growth.</xs:documentation>
             </xs:annotation>
@@ -3016,6 +3021,21 @@ Withdrawn.</xs:documentation>
           <xs:element name="StudentGrowthNCount" type="xs:int" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The number of students included in the average score result.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any education organizations associated with the staff's student growth data, if applicable.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any courses associated with the staff's student growth data, if applicable.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SectionReference" type="SectionReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any sections associated with the staff's student growth data, if applicable.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3619,7 +3639,7 @@ Withdrawn.</xs:documentation>
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="StudentGrowthTargetScore" type="xs:int">
+          <xs:element name="StudentGrowthTargetScore" type="xs:int" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The target score that has been set of the group of students as it pertains to their student growth.</xs:documentation>
             </xs:annotation>
@@ -3637,6 +3657,21 @@ Withdrawn.</xs:documentation>
           <xs:element name="StudentGrowthNCount" type="xs:int" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The number of students included in the average score result.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any education organizations associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any courses associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SectionReference" type="SectionReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Any sections associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -4589,6 +4624,11 @@ Withdrawn.</xs:documentation>
       <xs:element name="AdministrationDate" type="xs:date">
         <xs:annotation>
           <xs:documentation>Date the assessment was administered</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AssessmentIdentifier" type="EXTENSION-AssessmentIdentifier">
+        <xs:annotation>
+          <xs:documentation>An identifier that uniquely identifies the assessment to which the student results are associated.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -6370,6 +6410,14 @@ Withdrawn.</xs:documentation>
           <xs:documentation>Date for this absence event</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="AbsenceEventCategory" type="EXTENSION-AbsenceEventCategoryDescriptorReferenceType">
+        <xs:annotation>
+          <xs:documentation>The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation.</xs:documentation>
+          <xs:appinfo>
+            <ann:Descriptor>EXTENSION-AbsenceEventCategoryDescriptor</ann:Descriptor>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EXTENSION-StaffFieldworkAbsenceEventReferenceType">
@@ -8079,6 +8127,11 @@ Withdrawn.</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AverageSalary" type="Currency">
+        <xs:annotation>
+          <xs:documentation>The average of salaries collected at the aggregate level.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="CountOfSalariesAveraged" type="xs:int" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The number of salaries averaged that were collected at the aggregate level.</xs:documentation>
@@ -8087,6 +8140,16 @@ Withdrawn.</xs:documentation>
       <xs:element name="StandardDeviation" type="xs:int" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The standard deviation of the salaries collected at the aggregate level.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SalaryMinRange" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The minimum salary range for a staff.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SalaryMaxRange" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The maximum salary range for a staff.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9125,11 +9188,6 @@ Withdrawn.</xs:documentation>
           <xs:documentation>For matrix questions, the text identifying each row of the matrix.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NoResponse" type="xs:boolean" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Indicates there was no response to the question.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="NumericResponse" type="EXTENSION-NumericResponse" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The numeric response to the question.</xs:documentation>
@@ -9138,6 +9196,21 @@ Withdrawn.</xs:documentation>
       <xs:element name="TextResponse" type="EXTENSION-TextResponse" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The text response(s) for the question.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NoResponse" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates there was no response to the question.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MinNumericResponse" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The minimum score possible on a survey.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MaxNumericResponse" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The maximum score possible on a survey.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -10705,6 +10778,18 @@ Withdrawn.</xs:documentation>
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-AssessmentIdentifier">
+    <xs:annotation>
+      <xs:documentation>An identifier that uniquely identifies the assessment to which the student results are associated.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-CertificationExamTitle">

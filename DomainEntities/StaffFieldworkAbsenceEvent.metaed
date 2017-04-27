@@ -6,12 +6,12 @@ Domain Entity StaffFieldworkAbsenceEvent
   date EventDate
     documentation 'Date for this absence event
     is part of identity
-  shared decimal HoursPerDay named HoursAbsent
-    documentation 'The hours the staff was absence if not the entire working day
-    is optional
   descriptor AbsenceEventCategory
     documentation 'The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation.
-    is required
+    is part of identity
   shared string AbsenceEventReason named AbsenceEventReason
     documentation 'Expanded reason for the staff absence
+    is optional
+  shared decimal HoursPerDay named HoursAbsent
+    documentation 'The hours the staff was absence if not the entire working day
     is optional

@@ -14,6 +14,9 @@ Domain Entity AnonymizedStudentAssessment
   descriptor Term
     documentation 'The term in which the assessment was administered
     is optional
+  shared string AssessmentIdentifier named AssessmentIdentifier
+    documentation 'An identifier that uniquely identifies the assessment to which the student results are associated.
+    is part of identity
   shared string AssessmentTitle named AssessmentTitle
     documentation 'The title if any specific assessment given to a group
     is optional

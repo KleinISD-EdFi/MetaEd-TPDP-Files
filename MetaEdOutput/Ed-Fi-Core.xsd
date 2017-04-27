@@ -19872,31 +19872,6 @@ Second retest
           <xs:documentation></xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Full Professor">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Assistant Professor">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Associate Professor">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Adjunct Professor">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Clinical Professor">
-        <xs:annotation>
-          <xs:documentation></xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="School Counselor">
         <xs:annotation>
           <xs:documentation></xs:documentation>
@@ -19923,6 +19898,36 @@ Second retest
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Psychologist">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Full Professor">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Assistant Professor">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Associate Professor">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Adjunct Professor">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Clinical Professor">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Site Coordinator">
         <xs:annotation>
           <xs:documentation></xs:documentation>
         </xs:annotation>

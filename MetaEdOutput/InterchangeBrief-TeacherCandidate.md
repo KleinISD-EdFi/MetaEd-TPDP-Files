@@ -68,13 +68,17 @@ This interchange includes the following Extended References.
 | CourseReference (in CourseStudentAcademicRecordFact) | Required.  The course for which the data is associated |
 | CourseReference (in CourseStudentAssessmentFact) | Required.  The course associated with aggregated student data |
 | CourseReference (in CourseStudentFact) | Required.  The course associated with aggregated student data |
+| CourseReference (in StaffStudentGrowthFact) | Optional.  Any courses associated with the staff's student growth data, if applicable. |
+| CourseReference (in TeacherCandidateStudentGrowthFact) | Optional.  Any courses associated with the teacher candidate's student growth data, if applicable. |
 | EducationOrganizationReference (in AnonymizedStudent) | Optional.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the assocation |
 | EducationOrganizationReference (in EducationOrganizationStudentAcademicRecordFact) | Required.  The section associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentAssessmentFact) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentFact) | Required.  The education organization associated with aggregated student data |
+| EducationOrganizationReference (in StaffStudentGrowthFact) | Optional.  Any education organizations associated with the staff's student growth data, if applicable. |
 | EducationOrganizationReference (in StudentAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
+| EducationOrganizationReference (in TeacherCandidateStudentGrowthFact) | Optional.  Any education organizations associated with the teacher candidate's student growth data, if applicable. |
 | ReportCardReference (in StudentAcademicRecord) | Optional.  Report cards for the student. |
 | SchoolReference (in StaffFieldworkExperience) | Required.  The school the field work experience is associated with |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
@@ -85,7 +89,9 @@ This interchange includes the following Extended References.
 | SectionReference (in SectionStudentAssessmentFact) | Required.  The section associated with aggregated student data |
 | SectionReference (in SectionStudentFact) | Required.  The section associated with aggregated student data |
 | SectionReference (in StaffFieldworkExperience) | Optional.  The section the field work experience is associated with |
+| SectionReference (in StaffStudentGrowthFact) | Optional.  Any sections associated with the staff's student growth data, if applicable. |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
+| SectionReference (in TeacherCandidateStudentGrowthFact) | Optional.  Any sections associated with the teacher candidate's student growth data, if applicable. |
 | StaffReference (in StaffFieldworkAbsenceEvent) | Required.  The staff associated with this absence event |
 | StaffReference (in StaffFieldworkExperience) | Required.  The staff the field work experience is associated with |
 | StaffReference (in StaffStudentGrowthFact) | Required.  The staff associated with aggregated student growth data |
