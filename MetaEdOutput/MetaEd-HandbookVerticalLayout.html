@@ -5050,136 +5050,6 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
         </p>
         <p>
-            <h2>AcademicRecord</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Data regarding the academic record for the student</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Common Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CumulativeGradePointAverage (optional)<br />FinalLetterGradeEarned (optional)<br />FinalNumericGradeEarned (optional)<br />GPAMax (optional)<br />GPAMin (optional)<br /></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-AcademicRecord&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Data regarding the academic record for the student&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;CumulativeGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The average cumulative grade point average for a student&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;FinalLetterGradeEarned&quot; type=&quot;GradeEarned&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The letter indicator of student performance in a class as submitted by the instructor.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;FinalNumericGradeEarned&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The numeric indicator of student performance in a class as submitted by the instructor.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;GPAMax&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The maximum grade point average that can be achieved by a student&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;GPAMin&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The minimum grade point average that can be achieved by a student&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-  &lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>AcademicRecordAssessment</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>This entity represents the analysis or scoring of a Student's response on an assessment. The analysis results in a value that represents a Student's performance on a set of items on a test.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Common Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AdministrationDate (optional)<br />AssessmentCategory (optional)<br />AssessmentTitle (optional)<br />PerformanceLevel (optional collection)<br />SchoolYearTakenSchoolYear (optional)<br />ScoreResult (optional collection)<br />TermTakenTerm (optional)<br /></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-AcademicRecordAssessment&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;This entity represents the analysis or scoring of a Student's response on an assessment. The analysis results in a value that represents a Student's performance on a set of items on a test.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;AdministrationDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;Date the assessment was administered&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;AssessmentCategory&quot; type=&quot;AssessmentCategoryDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...&lt;/xs:documentation&gt;
-        &lt;xs:appinfo&gt;
-          &lt;ann:Descriptor&gt;AssessmentCategoryDescriptor&lt;/ann:Descriptor&gt;
-        &lt;/xs:appinfo&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;AssessmentTitle&quot; type=&quot;AssessmentTitle&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The title of any specific assessment given to a student&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;PerformanceLevel&quot; type=&quot;PerformanceLevel&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The performance level(s) achieved for the StudentAssessment.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;SchoolYearTakenSchoolYear&quot; type=&quot;SchoolYearType&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The school year the assessment was taken&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;ScoreResult&quot; type=&quot;ScoreResult&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The complex type that reports the score results for an assessment for a student&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;TermTakenTerm&quot; type=&quot;TermDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The term in which the assessment was administered&lt;/xs:documentation&gt;
-        &lt;xs:appinfo&gt;
-          &lt;ann:Descriptor&gt;TermDescriptor&lt;/ann:Descriptor&gt;
-        &lt;/xs:appinfo&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-  &lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>AdditionalCredits</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -8788,7 +8658,7 @@ Distinguished Achievement Program.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />PerformanceLevel (identity)<br />PerformanceLevelMet (required)<br /><br />Used By:<br />StudentObjectiveAssessment.PerformanceLevel (as optional collection)<br />AcademicRecordAssessment.PerformanceLevel (as optional collection)<br />AggregatedPerformanceLevel.PerformanceLevel (as optional)<br />StudentAssessment.PerformanceLevel (as optional collection)<br />AnonymizedStudentAssessment.PerformanceLevel (as optional)</div>
+                <div><br />Contains:<br />PerformanceLevel (identity)<br />PerformanceLevelMet (required)<br /><br />Used By:<br />StudentObjectiveAssessment.PerformanceLevel (as optional collection)<br />AggregatedPerformanceLevel.PerformanceLevel (as optional)<br />StudentAssessment.PerformanceLevel (as optional collection)<br />AnonymizedStudentAssessment.PerformanceLevel (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9452,7 +9322,7 @@ Distinguished Achievement Program.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AssessmentReportingMethod (identity)<br />Result (required)<br />ResultDatatypeType (required)<br /><br />Used By:<br />StudentObjectiveAssessment.ScoreResult (as required collection)<br />AcademicRecordAssessment.ScoreResult (as optional collection)<br />StudentAssessment.ScoreResult (as optional collection)<br />AnonymizedStudentAssessment.ScoreResult (as optional)</div>
+                <div><br />Contains:<br />AssessmentReportingMethod (identity)<br />Result (required)<br />ResultDatatypeType (required)<br /><br />Used By:<br />StudentObjectiveAssessment.ScoreResult (as required collection)<br />StudentAssessment.ScoreResult (as optional collection)<br />AnonymizedStudentAssessment.ScoreResult (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10719,11 +10589,11 @@ Met standard
             <h2>AdministrationDate</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
+                <div>[1727]</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>Date the assessment was administered</div>
+                <div>The month(s), day(s), and year on which an assessment is administered or first day of administration if over multiple days.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -10731,13 +10601,13 @@ Met standard
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecordAssessment.AdministrationDate (as optional)</div>
+                <div><br />Used By:<br />StudentAssessment.AdministrationDate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;AdministrationDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+                <div><pre>&lt;xs:element name=&quot;AdministrationDate&quot; type=&quot;xs:date&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Date the assessment was administered&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;The month(s), day(s), and year on which an assessment is administered or first day of administration if over multiple days.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -12919,7 +12789,7 @@ Met standard
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecord.CumulativeGradePointAverage (as optional)<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
+                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFact.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -13897,7 +13767,7 @@ AidTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecordAssessment.AssessmentCategory (as optional)<br />Assessment.AssessmentCategory (as optional)<br />AssessmentFamily.AssessmentCategory (as optional)<br />AnonymizedStudentAssessment.AssessmentCategory (as optional)<br />CourseStudentAssessmentFact.AssessmentCategory (as optional)<br />EducationOrganizationStudentAssessmentFact.AssessmentCategory (as optional)<br />SectionStudentAssessmentFact.AssessmentCategory (as optional)</div>
+                <div><br />Used By:<br />Assessment.AssessmentCategory (as optional)<br />AssessmentFamily.AssessmentCategory (as optional)<br />AnonymizedStudentAssessment.AssessmentCategory (as optional)<br />CourseStudentAssessmentFact.AssessmentCategory (as optional)<br />EducationOrganizationStudentAssessmentFact.AssessmentCategory (as optional)<br />SectionStudentAssessmentFact.AssessmentCategory (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -18083,7 +17953,7 @@ TeachingCredentialTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecordAssessment.TermTakenTerm (as optional)<br />Session.Term (as identity)<br />StudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAssessment.Term (as optional)<br />CourseStudentAcademicRecordFact.Term (as identity)<br />CourseStudentAssessmentFact.Term (as optional)<br />EducationOrganizationStudentAcademicRecordFact.Term (as identity)<br />EducationOrganizationStudentAssessmentFact.Term (as optional)<br />Observation.Term (as required)<br />SectionStudentAcademicRecordFact.Term (as identity)<br />SectionStudentAssessmentFact.Term (as optional)<br />Survey.Term (as optional)</div>
+                <div><br />Used By:<br />Session.Term (as identity)<br />StudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAssessment.Term (as optional)<br />CourseStudentAcademicRecordFact.Term (as identity)<br />CourseStudentAssessmentFact.Term (as optional)<br />EducationOrganizationStudentAcademicRecordFact.Term (as identity)<br />EducationOrganizationStudentAssessmentFact.Term (as optional)<br />Observation.Term (as required)<br />SectionStudentAcademicRecordFact.Term (as identity)<br />SectionStudentAssessmentFact.Term (as optional)<br />Survey.Term (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -41025,7 +40895,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AcademicRecordAssessment.SchoolYearTakenSchoolYear (as optional)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as required)<br />AggregatedGender.SchoolYear (as required)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as required)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as required)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as required)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as required)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseCourseTranscriptFact.SchoolYear (as identity)<br />CourseStudentAcademicRecordFact.SchoolYear (as identity)<br />CourseStudentAssessmentFact.TakenSchoolYear (as identity)<br />CourseSurveyResponseFact.SchoolYear (as required)<br />EducationOrganizationCourseTranscriptFact.SchoolYear (as identity)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFact.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFact.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFact.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />ObservationFact.SchoolYear (as identity)<br />SectionCourseTranscriptFact.SchoolYear (as identity)<br />SectionStudentAcademicRecordFact.SchoolYear (as identity)<br />SectionStudentAssessmentFact.TakenSchoolYear (as identity)<br />SectionSurveyResponseFact.SchoolYear (as required)<br />StaffStudentGrowthFact.SchoolYear (as identity)<br />StaffStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthFact.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as required)<br />AggregatedGender.SchoolYear (as required)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as required)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as required)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as required)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as required)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseCourseTranscriptFact.SchoolYear (as identity)<br />CourseStudentAcademicRecordFact.SchoolYear (as identity)<br />CourseStudentAssessmentFact.TakenSchoolYear (as identity)<br />CourseSurveyResponseFact.SchoolYear (as required)<br />EducationOrganizationCourseTranscriptFact.SchoolYear (as identity)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFact.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFact.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFact.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />ObservationFact.SchoolYear (as identity)<br />SectionCourseTranscriptFact.SchoolYear (as identity)<br />SectionStudentAcademicRecordFact.SchoolYear (as identity)<br />SectionStudentAssessmentFact.TakenSchoolYear (as identity)<br />SectionSurveyResponseFact.SchoolYear (as required)<br />StaffStudentGrowthFact.SchoolYear (as identity)<br />StaffStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthFact.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -42697,33 +42567,6 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
         </p>
         <p>
-            <h2>FinalNumericGradeEarned</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The numeric indicator of student performance in a class as submitted by the instructor.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecord.FinalNumericGradeEarned (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>FinalNumericGradeEarned [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>FiscalYear</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -42775,60 +42618,6 @@ Change of assignment.&lt;/xs:documentation&gt;
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>GenderTypeNumber [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>GPAMax</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The maximum grade point average that can be achieved by a student</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecord.GPAMax (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>GPAMax [INT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>GPAMin</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The minimum grade point average that can be achieved by a student</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecord.GPAMin (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>GPAMin [INT]</pre></div>
             </div>
         </p>
         <p>
@@ -45188,7 +44977,7 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecordAssessment.AssessmentTitle (as optional)<br />AnonymizedStudentAssessment.AssessmentTitle (as optional)<br />Assessment.AssessmentTitle (as identity)<br />AssessmentFamily.AssessmentFamilyTitle (as identity)<br />CourseStudentAssessmentFact.AssessmentTitle (as optional)<br />EducationOrganizationStudentAssessmentFact.AssessmentTitle (as optional)<br />SectionStudentAssessmentFact.AssessmentTitle (as optional)</div>
+                <div><br />Used By:<br />AnonymizedStudentAssessment.AssessmentTitle (as optional)<br />Assessment.AssessmentTitle (as identity)<br />AssessmentFamily.AssessmentFamilyTitle (as identity)<br />CourseStudentAssessmentFact.AssessmentTitle (as optional)<br />EducationOrganizationStudentAssessmentFact.AssessmentTitle (as optional)<br />SectionStudentAssessmentFact.AssessmentTitle (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -47115,7 +46904,7 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AcademicRecord.FinalLetterGradeEarned (as optional)<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as required)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)</div>
+                <div><br />Used By:<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as required)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
