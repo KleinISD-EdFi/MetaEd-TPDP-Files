@@ -14,7 +14,7 @@ Domain Entity TeacherCandidate based on Student
     is optional
   include Aid
     documentation 'This entity represents the financial aid a person is awarded.
-    is optional
+    is optional collection
   include BackgroundCheck
     documentation 'Applicant background check history and disposition.
     is optional

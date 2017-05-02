@@ -2,16 +2,16 @@ Common Type AggregatedSchoolFoodServicesEligibility
   documentation 'Identifies if the student is eligible for Free and Reduce Price Lunch
   enumeration SchoolYear
     documentation 'The school year for which the data is associated
-    is required
+    is part of identity
   date FactAsOfDate
     documentation 'The date for which the data element is relevant
-    is required
+    is part of identity
   enumeration ValueType
     documentation 'The value of the data, i.e., is the data projected, actual or other
     is optional
   descriptor SchoolFoodServicesEligibility
     documentation 'Information about the students who are enrolled based on School Food Services Eligibility
-    is optional
+    is part of identity
   integer TypeNumber
     documentation 'The number of students eligibile for SchoolFoodServicesEligibility by category
     is optional

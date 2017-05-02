@@ -5417,7 +5417,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />FinalLetterGrade (required)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br />SchoolYear (required)<br /><br />Used By:<br />CourseCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)<br />EducationOrganizationCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />FinalLetterGrade (identity)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br />SchoolYear (identity)<br /><br />Used By:<br />CourseCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)<br />EducationOrganizationCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFact.AggregatedFinalLetterGradeEarned (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5474,7 +5474,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />Gender (optional)<br />GenderTypeNumber (optional)<br />GenderTypePercentage (optional)<br />SchoolYear (required)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedGender (as optional collection)<br />EducationOrganizationStudentFact.AggregatedGender (as optional collection)<br />SectionStudentFact.AggregatedGender (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />Gender (identity)<br />GenderTypeNumber (optional)<br />GenderTypePercentage (optional)<br />SchoolYear (identity)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedGender (as optional collection)<br />EducationOrganizationStudentFact.AggregatedGender (as optional collection)<br />SectionStudentFact.AggregatedGender (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5501,7 +5501,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;Gender&quot; type=&quot;EXTENSION-GenderType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;Gender&quot; type=&quot;EXTENSION-GenderType&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The gender with which a person associates.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -5598,7 +5598,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />Language (optional)<br />LanguageTypeNumber (optional)<br />LanguageTypePercentage (optional)<br />SchoolYear (required)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedLanguage (as optional collection)<br />EducationOrganizationStudentFact.AggregatedLanguage (as optional collection)<br />SectionStudentFact.AggregatedLanguage (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />Language (identity)<br />LanguageTypeNumber (optional)<br />LanguageTypePercentage (optional)<br />SchoolYear (identity)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedLanguage (as optional collection)<br />EducationOrganizationStudentFact.AggregatedLanguage (as optional collection)<br />SectionStudentFact.AggregatedLanguage (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5625,7 +5625,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;Language&quot; type=&quot;LanguageDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;Language&quot; type=&quot;LanguageDescriptorReferenceType&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;Data about the language of the group&lt;/xs:documentation&gt;
         &lt;xs:appinfo&gt;
@@ -5824,7 +5824,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />Race (optional)<br />RaceTypeNumber (optional)<br />RaceTypePercentage (optional)<br />SchoolYear (required)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedRace (as optional collection)<br />EducationOrganizationStudentFact.AggregatedRace (as optional collection)<br />SectionStudentFact.AggregatedRace (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />Race (identity)<br />RaceTypeNumber (optional)<br />RaceTypePercentage (optional)<br />SchoolYear (identity)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedRace (as optional collection)<br />EducationOrganizationStudentFact.AggregatedRace (as optional collection)<br />SectionStudentFact.AggregatedRace (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5851,7 +5851,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;Race&quot; type=&quot;RaceType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;Race&quot; type=&quot;RaceType&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -5943,7 +5943,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />SchoolFoodServicesEligibility (optional)<br />SchoolYear (required)<br />TypeNumber (optional)<br />TypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />EducationOrganizationStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />SectionStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />SchoolFoodServicesEligibility (identity)<br />SchoolYear (identity)<br />TypeNumber (optional)<br />TypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />EducationOrganizationStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />SectionStudentFact.AggregatedSchoolFoodServicesEligibility (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5970,7 +5970,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;SchoolFoodServicesEligibility&quot; type=&quot;SchoolFoodServicesEligibilityDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;SchoolFoodServicesEligibility&quot; type=&quot;SchoolFoodServicesEligibilityDescriptorReferenceType&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;Information about the students who are enrolled based on School Food Services Eligibility&lt;/xs:documentation&gt;
         &lt;xs:appinfo&gt;
@@ -6179,7 +6179,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />SchoolYear (required)<br />Sex (required)<br />SexTypeNumber (optional)<br />SexTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedSex (as optional collection)<br />EducationOrganizationStudentFact.AggregatedSex (as optional collection)<br />SectionStudentFact.AggregatedSex (as optional collection)</div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />SchoolYear (identity)<br />Sex (identity)<br />SexTypeNumber (optional)<br />SexTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFact.AggregatedSex (as optional collection)<br />EducationOrganizationStudentFact.AggregatedSex (as optional collection)<br />SectionStudentFact.AggregatedSex (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6402,7 +6402,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AidAmount (optional)<br />AidConditionDescription (optional)<br />AidType (required)<br />BeginDate (optional)<br />EndDate (optional)<br />PellGrantRecipient (optional)<br /><br />Used By:<br />TeacherCandidate.Aid (as optional)<br />Applicant.Aid (as optional collection)</div>
+                <div><br />Contains:<br />AidAmount (optional)<br />AidConditionDescription (optional)<br />AidType (identity)<br />BeginDate (identity)<br />EndDate (optional)<br />PellGrantRecipient (optional)<br /><br />Used By:<br />TeacherCandidate.Aid (as optional collection)<br />Applicant.Aid (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6414,7 +6414,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The date the award was designated.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -7124,7 +7124,7 @@ Student late arrival/early dismissal.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (optional)<br />EndDate (optional)<br /><br />Used By:<br />FieldworkExperience.Coteaching (as optional collection)<br />StaffFieldworkExperience.Coteaching (as optional)<br />TeacherCandidateFieldworkExperience.Coteaching (as optional)</div>
+                <div><br />Contains:<br />BeginDate (required)<br />EndDate (optional)<br /><br />Used By:<br />FieldworkExperience.Coteaching (as optional collection)<br />StaffFieldworkExperience.Coteaching (as optional)<br />TeacherCandidateFieldworkExperience.Coteaching (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7136,7 +7136,7 @@ Student late arrival/early dismissal.&lt;/xs:documentation&gt;
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate first starts co-teaching.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -8544,7 +8544,7 @@ Distinguished Achievement Program.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstNameOfObserver (optional)<br />LastNameOfObserver (optional)<br />ReceivedTraining (optional)<br />Staff (optional)<br /><br />Used By:<br />Observation.Observer (as optional collection)</div>
+                <div><br />Contains:<br />FirstNameOfObserver (identity)<br />LastNameOfObserver (identity)<br />ReceivedTraining (optional)<br />Staff (optional)<br /><br />Used By:<br />Observation.Observer (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8556,12 +8556,12 @@ Distinguished Achievement Program.&lt;/xs:documentation&gt;
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;FirstNameOfObserver&quot; type=&quot;FirstName&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;FirstNameOfObserver&quot; type=&quot;FirstName&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LastNameOfObserver&quot; type=&quot;LastSurname&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;LastNameOfObserver&quot; type=&quot;LastSurname&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The name borne in common by members of a family.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -9979,7 +9979,7 @@ Met standard
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -9993,7 +9993,7 @@ Met standard
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-StudentsEnrolled&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -13699,7 +13699,7 @@ AdministrativeFundingControlTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Aid.AidType (as required)</div>
+                <div><br />Used By:<br />Aid.AidType (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -15682,7 +15682,7 @@ GraduationPlanTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Language.Language (as identity)<br />AggregatedLanguage.Language (as optional)<br />Assessment.Language (as optional collection)<br />AssessmentFamily.Language (as optional collection)<br />Section.InstructionLanguage (as optional)<br />StudentAssessment.AdministrationLanguage (as optional)<br />LearningResource.Language (as optional collection)</div>
+                <div><br />Used By:<br />Language.Language (as identity)<br />AggregatedLanguage.Language (as identity)<br />Assessment.Language (as optional collection)<br />AssessmentFamily.Language (as optional collection)<br />Section.InstructionLanguage (as optional)<br />StudentAssessment.AdministrationLanguage (as optional)<br />LearningResource.Language (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -16953,7 +16953,7 @@ SalaryTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedSchoolFoodServicesEligibility.SchoolFoodServicesEligibility (as optional)<br />Student.SchoolFoodServicesEligibility (as optional)<br />AnonymizedStudent.SchoolFoodServicesEligibility (as optional)</div>
+                <div><br />Used By:<br />AggregatedSchoolFoodServicesEligibility.SchoolFoodServicesEligibility (as identity)<br />Student.SchoolFoodServicesEligibility (as optional)<br />AnonymizedStudent.SchoolFoodServicesEligibility (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -19448,7 +19448,7 @@ EducationOrganizationId
 
 ApplicantIdentifier [NVARCHAR](32) NOT NULL
 EducationOrganizationId [INT] NOT NULL
-BeginDate [DATE] NULL
+BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
 AidTypeDescriptorId [INT] NOT NULL
@@ -19457,7 +19457,9 @@ PellGrantRecipient [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AidTypeDescriptorId
 ApplicantIdentifier
+BeginDate
 EducationOrganizationId
 <br />extension.ApplicantBackgroundCheck
 
@@ -21318,6 +21320,7 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 FactsAsOfDate
+FinalLetterGrade
 SchoolYear
 TermDescriptorId
 <br />extension.CourseCourseTranscriptFactAggregatedNumericGradeEarned
@@ -22028,7 +22031,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-GenderTypeId [INT] NULL
+GenderTypeId [INT] NOT NULL
 GenderTypeNumber [INT] NULL
 GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -22037,6 +22040,8 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
+GenderTypeId
+SchoolYear
 <br />extension.CourseStudentFactAggregatedHispanicLatinoEthnicity
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -22060,7 +22065,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-LanguageDescriptorId [INT] NULL
+LanguageDescriptorId [INT] NOT NULL
 LanguageTypeNumber [INT] NULL
 LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -22069,6 +22074,8 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
+LanguageDescriptorId
+SchoolYear
 <br />extension.CourseStudentFactAggregatedRace
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -22076,7 +22083,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-RaceTypeId [INT] NULL
+RaceTypeId [INT] NOT NULL
 RaceTypeNumber [INT] NULL
 RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -22085,6 +22092,8 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
+RaceTypeId
+SchoolYear
 <br />extension.CourseStudentFactAggregatedSchoolFoodServicesEligibility
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -22092,7 +22101,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-SchoolFoodServicesEligibilityDescriptorId [INT] NULL
+SchoolFoodServicesEligibilityDescriptorId [INT] NOT NULL
 TypeNumber [INT] NULL
 TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
@@ -22101,6 +22110,8 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
+SchoolFoodServicesEligibilityDescriptorId
+SchoolYear
 <br />extension.CourseStudentFactAggregatedSection504Enrollment
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -22132,6 +22143,8 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
+SchoolYear
+SexTypeId
 <br />extension.CourseStudentFactAggregatedSPED
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -23760,6 +23773,7 @@ Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 FactsAsOfDate
+FinalLetterGrade
 SchoolYear
 TermDescriptorId
 <br />extension.EducationOrganizationCourseTranscriptFactAggregatedNumericGradeEarned
@@ -24488,7 +24502,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-GenderTypeId [INT] NULL
+GenderTypeId [INT] NOT NULL
 GenderTypeNumber [INT] NULL
 GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -24496,6 +24510,8 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
+GenderTypeId
+SchoolYear
 <br />extension.EducationOrganizationStudentFactAggregatedHispanicLatinoEthnicity
 
 EducationOrganizationId [INT] NOT NULL
@@ -24516,7 +24532,7 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-LanguageDescriptorId [INT] NULL
+LanguageDescriptorId [INT] NOT NULL
 LanguageTypeNumber [INT] NULL
 LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -24524,13 +24540,15 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
+LanguageDescriptorId
+SchoolYear
 <br />extension.EducationOrganizationStudentFactAggregatedRace
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-RaceTypeId [INT] NULL
+RaceTypeId [INT] NOT NULL
 RaceTypeNumber [INT] NULL
 RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -24538,13 +24556,15 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
+RaceTypeId
+SchoolYear
 <br />extension.EducationOrganizationStudentFactAggregatedSchoolFoodServicesEligibility
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-SchoolFoodServicesEligibilityDescriptorId [INT] NULL
+SchoolFoodServicesEligibilityDescriptorId [INT] NOT NULL
 TypeNumber [INT] NULL
 TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
@@ -24552,6 +24572,8 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
+SchoolFoodServicesEligibilityDescriptorId
+SchoolYear
 <br />extension.EducationOrganizationStudentFactAggregatedSection504Enrollment
 
 EducationOrganizationId [INT] NOT NULL
@@ -24579,6 +24601,8 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
+SchoolYear
+SexTypeId
 <br />extension.EducationOrganizationStudentFactAggregatedSPED
 
 EducationOrganizationId [INT] NOT NULL
@@ -27655,21 +27679,27 @@ ObservationIdentifier
 <br />extension.ObservationObserver
 
 ObservationIdentifier [NVARCHAR](64) NOT NULL
-FirstNameOfObserver [NVARCHAR](75) NULL
-LastNameOfObserver [NVARCHAR](75) NULL
+FirstNameOfObserver [NVARCHAR](75) NOT NULL
+LastNameOfObserver [NVARCHAR](75) NOT NULL
 StaffUSI [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+FirstNameOfObserver
+LastNameOfObserver
 ObservationIdentifier
 <br />extension.ObservationObserverReceivedTraining
 
+FirstNameOfObserver [NVARCHAR](75) NOT NULL
+LastNameOfObserver [NVARCHAR](75) NOT NULL
 ObservationIdentifier [NVARCHAR](64) NOT NULL
 ReceivedTrainingDate [DATE] NULL
 InterRaterReliabilityScore [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+FirstNameOfObserver
+LastNameOfObserver
 ObservationIdentifier
 <br />extension.ObservationProgramGateway
 
@@ -28923,7 +28953,7 @@ TouchpointDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This event entity represents the recording of whether a prospect is in attendance for professional development.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -28937,7 +28967,7 @@ TouchpointDate
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-ProspectProfessionalDevelopmentEventAttendance&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This event entity represents the recording of whether a prospect is in attendance for professional development.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -30177,6 +30207,7 @@ ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
 FactsAsOfDate
+FinalLetterGrade
 LocalCourseCode
 SchoolId
 SchoolYear
@@ -30435,7 +30466,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -30449,7 +30480,7 @@ UniqueSectionCode
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionStudentAssessmentFact&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -30961,7 +30992,7 @@ ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
-GenderTypeId [INT] NULL
+GenderTypeId [INT] NOT NULL
 GenderTypeNumber [INT] NULL
 GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -30970,6 +31001,7 @@ Primary Keys:
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
+GenderTypeId
 LocalCourseCode
 SchoolId
 SchoolYear
@@ -31015,7 +31047,7 @@ ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
-LanguageDescriptorId [INT] NULL
+LanguageDescriptorId [INT] NOT NULL
 LanguageTypeNumber [INT] NULL
 LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -31024,6 +31056,7 @@ Primary Keys:
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
+LanguageDescriptorId
 LocalCourseCode
 SchoolId
 SchoolYear
@@ -31042,7 +31075,7 @@ ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
-RaceTypeId [INT] NULL
+RaceTypeId [INT] NOT NULL
 RaceTypeNumber [INT] NULL
 RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
@@ -31052,6 +31085,7 @@ ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
 LocalCourseCode
+RaceTypeId
 SchoolId
 SchoolYear
 SequenceOfCourse
@@ -31069,7 +31103,7 @@ ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
-SchoolFoodServicesEligibilityDescriptorId [INT] NULL
+SchoolFoodServicesEligibilityDescriptorId [INT] NOT NULL
 TypeNumber [INT] NULL
 TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
@@ -31079,6 +31113,7 @@ ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
 LocalCourseCode
+SchoolFoodServicesEligibilityDescriptorId
 SchoolId
 SchoolYear
 SequenceOfCourse
@@ -31135,6 +31170,7 @@ LocalCourseCode
 SchoolId
 SchoolYear
 SequenceOfCourse
+SexTypeId
 TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactAggregatedSPED
@@ -32246,7 +32282,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This event entity represents the recording of whether a staff is in attendance for professional development.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -32260,7 +32296,7 @@ StaffUSI
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-StaffProfessionalDevelopmentEventAttendance&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This event entity represents the recording of whether a staff is in attendance for professional development.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -35071,7 +35107,7 @@ TeacherCandidateUniqueId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This event entity represents the recording of whether a teacher candidate is in attendance for professional development.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -35085,7 +35121,7 @@ TeacherCandidateUniqueId
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateProfessionalDevelopmentEventAttendance&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This event entity represents the recording of whether a teacher candidate is in attendance for professional development.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -36012,7 +36048,7 @@ ProgramTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Aid (optional)<br />BackgroundCheck (optional)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />TeacherCandidateUniqueId (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />CredentialIndividualChoice.TeacherCandidate (as required)<br />ObserveeChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthFact.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />TeacherCandidateUniqueId (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />CredentialIndividualChoice.TeacherCandidate (as required)<br />ObserveeChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthFact.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -36041,7 +36077,7 @@ ProgramTypeId
             &lt;xs:documentation&gt;The tuition for a person's participation in a program, service. or course.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Aid&quot; type=&quot;EXTENSION-Aid&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;Aid&quot; type=&quot;EXTENSION-Aid&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;This entity represents the financial aid a person is awarded.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -36099,7 +36135,7 @@ TeacherCandidateUniqueId
 <br />extension.TeacherCandidateAid
 
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
-BeginDate [DATE] NULL
+BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
 AidTypeDescriptorId [INT] NOT NULL
@@ -36108,6 +36144,8 @@ PellGrantRecipient [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AidTypeDescriptorId
+BeginDate
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateBackgroundCheck
 
@@ -36132,7 +36170,7 @@ TeacherCandidateUniqueId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>?</div>
+                <div>This educational entity represents the cumulative record of academic achievement for a teacher candidate.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -36146,7 +36184,7 @@ TeacherCandidateUniqueId
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateAcademicRecord&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;?&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This educational entity represents the cumulative record of academic achievement for a teacher candidate.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -38445,7 +38483,7 @@ EventCircumstanceTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedGender.Gender (as optional)<br />Staff.Gender (as optional)<br />TeacherCandidate.Gender (as optional)<br />AnonymizedStudent.Gender (as optional)<br />Applicant.Gender (as optional)<br />Prospect.Gender (as optional)</div>
+                <div><br />Used By:<br />AggregatedGender.Gender (as identity)<br />Staff.Gender (as optional)<br />TeacherCandidate.Gender (as optional)<br />AnonymizedStudent.Gender (as optional)<br />Applicant.Gender (as optional)<br />Prospect.Gender (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40178,7 +40216,7 @@ QuestionFormTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedRace.Race (as optional)<br />Staff.Race (as optional collection)<br />Student.Race (as optional collection)<br />AnonymizedStudent.Race (as optional collection)<br />Applicant.Race (as optional collection)<br />Prospect.Race (as optional collection)</div>
+                <div><br />Used By:<br />AggregatedRace.Race (as identity)<br />Staff.Race (as optional collection)<br />Student.Race (as optional collection)<br />AnonymizedStudent.Race (as optional collection)<br />Applicant.Race (as optional collection)<br />Prospect.Race (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40895,7 +40933,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as required)<br />AggregatedGender.SchoolYear (as required)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as required)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as required)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as required)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as required)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseCourseTranscriptFact.SchoolYear (as identity)<br />CourseStudentAcademicRecordFact.SchoolYear (as identity)<br />CourseStudentAssessmentFact.TakenSchoolYear (as identity)<br />CourseSurveyResponseFact.SchoolYear (as required)<br />EducationOrganizationCourseTranscriptFact.SchoolYear (as identity)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFact.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFact.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFact.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />ObservationFact.SchoolYear (as identity)<br />SectionCourseTranscriptFact.SchoolYear (as identity)<br />SectionStudentAcademicRecordFact.SchoolYear (as identity)<br />SectionStudentAssessmentFact.TakenSchoolYear (as identity)<br />SectionSurveyResponseFact.SchoolYear (as required)<br />StaffStudentGrowthFact.SchoolYear (as identity)<br />StaffStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthFact.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseCourseTranscriptFact.SchoolYear (as identity)<br />CourseStudentAcademicRecordFact.SchoolYear (as identity)<br />CourseStudentAssessmentFact.TakenSchoolYear (as identity)<br />CourseSurveyResponseFact.SchoolYear (as required)<br />EducationOrganizationCourseTranscriptFact.SchoolYear (as identity)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFact.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFact.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFact.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />ObservationFact.SchoolYear (as identity)<br />SectionCourseTranscriptFact.SchoolYear (as identity)<br />SectionStudentAcademicRecordFact.SchoolYear (as identity)<br />SectionStudentAssessmentFact.TakenSchoolYear (as identity)<br />SectionSurveyResponseFact.SchoolYear (as required)<br />StaffStudentGrowthFact.SchoolYear (as identity)<br />StaffStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthFact.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthFact.StudentGrowthReportSchoolYear (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -41026,7 +41064,7 @@ SeparationTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedSex.Sex (as required)<br />Intervention.AppropriateSex (as optional collection)<br />InterventionPrescription.AppropriateSex (as optional collection)<br />InterventionStudy.AppropriateSex (as optional collection)<br />Parent.Sex (as optional)<br />Staff.Sex (as optional)<br />Student.Sex (as required)<br />AnonymizedStudent.Sex (as optional)<br />Applicant.Sex (as optional)<br />Prospect.Sex (as optional)<br />LearningResource.AppropriateSex (as optional collection)</div>
+                <div><br />Used By:<br />AggregatedSex.Sex (as identity)<br />Intervention.AppropriateSex (as optional collection)<br />InterventionPrescription.AppropriateSex (as optional collection)<br />InterventionStudy.AppropriateSex (as optional collection)<br />Parent.Sex (as optional)<br />Staff.Sex (as optional)<br />Student.Sex (as required)<br />AnonymizedStudent.Sex (as optional)<br />Applicant.Sex (as optional)<br />Prospect.Sex (as optional)<br />LearningResource.AppropriateSex (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -46737,7 +46775,7 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.FirstName (as required)<br />Observee.FirstNameOfObservee (as required)<br />Observer.FirstNameOfObserver (as optional)<br />OtherName.FirstName (as required)</div>
+                <div><br />Used By:<br />Name.FirstName (as required)<br />Observee.FirstNameOfObservee (as required)<br />Observer.FirstNameOfObserver (as identity)<br />OtherName.FirstName (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -46904,7 +46942,7 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as required)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)</div>
+                <div><br />Used By:<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as identity)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -47240,7 +47278,7 @@ Change of assignment.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />Observee.LastNameOfObservee (as required)<br />Observer.LastNameOfObserver (as optional)<br />OtherName.LastSurname (as required)</div>
+                <div><br />Used By:<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />Observee.LastNameOfObservee (as required)<br />Observer.LastNameOfObserver (as identity)<br />OtherName.LastSurname (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

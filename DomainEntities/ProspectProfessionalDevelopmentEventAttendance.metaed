@@ -1,5 +1,5 @@
 Domain Entity ProspectProfessionalDevelopmentEventAttendance
-  documentation '?
+  documentation 'This event entity represents the recording of whether a prospect is in attendance for professional development.
   reference Prospect
     documentation 'The staff associated with the professional development attendance event.
     is part of identity

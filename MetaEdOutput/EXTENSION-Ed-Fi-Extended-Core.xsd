@@ -2116,7 +2116,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-ProspectProfessionalDevelopmentEventAttendance">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This event entity represents the recording of whether a prospect is in attendance for professional development.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2467,7 +2467,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-SectionStudentAssessmentFact">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2915,7 +2915,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-StaffProfessionalDevelopmentEventAttendance">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This event entity represents the recording of whether a staff is in attendance for professional development.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -3378,7 +3378,7 @@ Withdrawn.</xs:documentation>
               <xs:documentation>The tuition for a person's participation in a program, service. or course.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Aid" type="EXTENSION-Aid" minOccurs="0">
+          <xs:element name="Aid" type="EXTENSION-Aid" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>This entity represents the financial aid a person is awarded.</xs:documentation>
             </xs:annotation>
@@ -3420,7 +3420,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-TeacherCandidateAcademicRecord">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This educational entity represents the cumulative record of academic achievement for a teacher candidate.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -3551,7 +3551,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-TeacherCandidateProfessionalDevelopmentEventAttendance">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This event entity represents the recording of whether a teacher candidate is in attendance for professional development.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -7798,7 +7798,7 @@ Withdrawn.</xs:documentation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Gender" type="EXTENSION-GenderType" minOccurs="0">
+      <xs:element name="Gender" type="EXTENSION-GenderType">
         <xs:annotation>
           <xs:documentation>The gender with which a person associates.</xs:documentation>
         </xs:annotation>
@@ -7878,7 +7878,7 @@ Withdrawn.</xs:documentation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Language" type="LanguageDescriptorReferenceType" minOccurs="0">
+      <xs:element name="Language" type="LanguageDescriptorReferenceType">
         <xs:annotation>
           <xs:documentation>Data about the language of the group</xs:documentation>
           <xs:appinfo>
@@ -8016,7 +8016,7 @@ Withdrawn.</xs:documentation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Race" type="RaceType" minOccurs="0">
+      <xs:element name="Race" type="RaceType">
         <xs:annotation>
           <xs:documentation>The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.</xs:documentation>
         </xs:annotation>
@@ -8091,7 +8091,7 @@ Withdrawn.</xs:documentation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SchoolFoodServicesEligibility" type="SchoolFoodServicesEligibilityDescriptorReferenceType" minOccurs="0">
+      <xs:element name="SchoolFoodServicesEligibility" type="SchoolFoodServicesEligibilityDescriptorReferenceType">
         <xs:annotation>
           <xs:documentation>Information about the students who are enrolled based on School Food Services Eligibility</xs:documentation>
           <xs:appinfo>
@@ -8359,7 +8359,7 @@ Withdrawn.</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+      <xs:element name="BeginDate" type="xs:date">
         <xs:annotation>
           <xs:documentation>The date the award was designated.</xs:documentation>
         </xs:annotation>
@@ -8499,7 +8499,7 @@ Withdrawn.</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+      <xs:element name="BeginDate" type="xs:date">
         <xs:annotation>
           <xs:documentation>The month, day, and year on which the teacher candidate first starts co-teaching.</xs:documentation>
         </xs:annotation>
@@ -8771,12 +8771,12 @@ Withdrawn.</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="FirstNameOfObserver" type="FirstName" minOccurs="0">
+      <xs:element name="FirstNameOfObserver" type="FirstName">
         <xs:annotation>
           <xs:documentation>A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="LastNameOfObserver" type="LastSurname" minOccurs="0">
+      <xs:element name="LastNameOfObserver" type="LastSurname">
         <xs:annotation>
           <xs:documentation>The name borne in common by members of a family.</xs:documentation>
         </xs:annotation>
@@ -9061,7 +9061,7 @@ Withdrawn.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="EXTENSION-StudentsEnrolled">
     <xs:annotation>
-      <xs:documentation>?</xs:documentation>
+      <xs:documentation>This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>

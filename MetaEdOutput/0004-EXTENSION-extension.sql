@@ -936,7 +936,7 @@ GO
 CREATE TABLE [extension].[ApplicantAid](
     [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
-    [BeginDate] [DATE] NULL,
+    [BeginDate] [DATE] NOT NULL,
     [EndDate] [DATE] NULL,
     [AidConditionDescription] [NVARCHAR](1024) NULL,
     [AidTypeDescriptorId] [INT] NOT NULL,
@@ -944,7 +944,9 @@ CREATE TABLE [extension].[ApplicantAid](
     [PellGrantRecipient] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ApplicantAid_PK] PRIMARY KEY CLUSTERED (
+        [AidTypeDescriptorId] ASC,
         [ApplicantIdentifier] ASC,
+        [BeginDate] ASC,
         [EducationOrganizationId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -1792,6 +1794,7 @@ CREATE TABLE [extension].[CourseCourseTranscriptFactAggregatedFinalLetterGradeEa
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [FactsAsOfDate] ASC,
+        [FinalLetterGrade] ASC,
         [SchoolYear] ASC,
         [TermDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -2499,14 +2502,16 @@ CREATE TABLE [extension].[CourseStudentFactAggregatedGender](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [GenderTypeId] [INT] NULL,
+    [GenderTypeId] [INT] NOT NULL,
     [GenderTypeNumber] [INT] NULL,
     [GenderTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactAggregatedGender_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [GenderTypeId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2583,14 +2588,16 @@ CREATE TABLE [extension].[CourseStudentFactAggregatedLanguage](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [LanguageDescriptorId] [INT] NULL,
+    [LanguageDescriptorId] [INT] NOT NULL,
     [LanguageTypeNumber] [INT] NULL,
     [LanguageTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactAggregatedLanguage_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [LanguageDescriptorId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2625,14 +2632,16 @@ CREATE TABLE [extension].[CourseStudentFactAggregatedRace](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [RaceTypeId] [INT] NULL,
+    [RaceTypeId] [INT] NOT NULL,
     [RaceTypeNumber] [INT] NULL,
     [RaceTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactAggregatedRace_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [RaceTypeId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2667,14 +2676,16 @@ CREATE TABLE [extension].[CourseStudentFactAggregatedSchoolFoodServicesEligibili
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [SchoolFoodServicesEligibilityDescriptorId] [INT] NULL,
+    [SchoolFoodServicesEligibilityDescriptorId] [INT] NOT NULL,
     [TypeNumber] [INT] NULL,
     [TypePercentage] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactAggregatedSchoolFoodServicesEligibility_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [SchoolFoodServicesEligibilityDescriptorId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2755,7 +2766,9 @@ CREATE TABLE [extension].[CourseStudentFactAggregatedSex](
     CONSTRAINT [CourseStudentFactAggregatedSex_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [SchoolYear] ASC,
+        [SexTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -3435,6 +3448,7 @@ CREATE TABLE [extension].[EducationOrganizationCourseTranscriptFactAggregatedFin
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [FactsAsOfDate] ASC,
+        [FinalLetterGrade] ASC,
         [SchoolYear] ASC,
         [TermDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -4213,13 +4227,15 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactAggregatedGender](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [GenderTypeId] [INT] NULL,
+    [GenderTypeId] [INT] NOT NULL,
     [GenderTypeNumber] [INT] NULL,
     [GenderTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactAggregatedGender_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [GenderTypeId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4289,13 +4305,15 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactAggregatedLanguage](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [LanguageDescriptorId] [INT] NULL,
+    [LanguageDescriptorId] [INT] NOT NULL,
     [LanguageTypeNumber] [INT] NULL,
     [LanguageTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactAggregatedLanguage_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [LanguageDescriptorId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4327,13 +4345,15 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactAggregatedRace](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [RaceTypeId] [INT] NULL,
+    [RaceTypeId] [INT] NOT NULL,
     [RaceTypeNumber] [INT] NULL,
     [RaceTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactAggregatedRace_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [RaceTypeId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4365,13 +4385,15 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactAggregatedSchoolFoodSe
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [SchoolFoodServicesEligibilityDescriptorId] [INT] NULL,
+    [SchoolFoodServicesEligibilityDescriptorId] [INT] NOT NULL,
     [TypeNumber] [INT] NULL,
     [TypePercentage] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactAggregatedSchoolFoodServicesEligibility_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [SchoolFoodServicesEligibilityDescriptorId] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4444,7 +4466,9 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactAggregatedSex](
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactAggregatedSex_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [SchoolYear] ASC,
+        [SexTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -6111,11 +6135,13 @@ GO
 
 CREATE TABLE [extension].[ObservationObserver](
     [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
-    [FirstNameOfObserver] [NVARCHAR](75) NULL,
-    [LastNameOfObserver] [NVARCHAR](75) NULL,
+    [FirstNameOfObserver] [NVARCHAR](75) NOT NULL,
+    [LastNameOfObserver] [NVARCHAR](75) NOT NULL,
     [StaffUSI] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ObservationObserver_PK] PRIMARY KEY CLUSTERED (
+        [FirstNameOfObserver] ASC,
+        [LastNameOfObserver] ASC,
         [ObservationIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6138,11 +6164,15 @@ GO
 /****** Table: [extension].[ObservationObserverReceivedTraining] ******/
 
 CREATE TABLE [extension].[ObservationObserverReceivedTraining](
+    [FirstNameOfObserver] [NVARCHAR](75) NOT NULL,
+    [LastNameOfObserver] [NVARCHAR](75) NOT NULL,
     [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
     [ReceivedTrainingDate] [DATE] NULL,
     [InterRaterReliabilityScore] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ObservationObserverReceivedTraining_PK] PRIMARY KEY CLUSTERED (
+        [FirstNameOfObserver] ASC,
+        [LastNameOfObserver] ASC,
         [ObservationIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6151,6 +6181,10 @@ ALTER TABLE [extension].[ObservationObserverReceivedTraining] ADD CONSTRAINT [Ob
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the observer has or has not received training on conducting observations.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ObservationObserverReceivedTraining'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ObservationObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'FirstNameOfObserver'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ObservationObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'LastNameOfObserver'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ObservationObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
 GO
@@ -6693,7 +6727,7 @@ GO
 ALTER TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance] ADD CONSTRAINT [ProspectProfessionalDevelopmentEventAttendance_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectProfessionalDevelopmentEventAttendance'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This event entity represents the recording of whether a prospect is in attendance for professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectProfessionalDevelopmentEventAttendance'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7460,6 +7494,7 @@ CREATE TABLE [extension].[SectionCourseTranscriptFactAggregatedFinalLetterGradeE
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
         [FactsAsOfDate] ASC,
+        [FinalLetterGrade] ASC,
         [LocalCourseCode] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
@@ -7906,7 +7941,7 @@ GO
 ALTER TABLE [extension].[SectionStudentAssessmentFact] ADD CONSTRAINT [SectionStudentAssessmentFact_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentAssessmentFact'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentAssessmentFact'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFact', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
 GO
@@ -8502,7 +8537,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedGender](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [GenderTypeId] [INT] NULL,
+    [GenderTypeId] [INT] NOT NULL,
     [GenderTypeNumber] [INT] NULL,
     [GenderTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -8510,6 +8545,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedGender](
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
+        [GenderTypeId] ASC,
         [LocalCourseCode] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
@@ -8628,7 +8664,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedLanguage](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [LanguageDescriptorId] [INT] NULL,
+    [LanguageDescriptorId] [INT] NOT NULL,
     [LanguageTypeNumber] [INT] NULL,
     [LanguageTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -8636,6 +8672,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedLanguage](
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
+        [LanguageDescriptorId] ASC,
         [LocalCourseCode] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
@@ -8691,7 +8728,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedRace](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [RaceTypeId] [INT] NULL,
+    [RaceTypeId] [INT] NOT NULL,
     [RaceTypeNumber] [INT] NULL,
     [RaceTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -8700,6 +8737,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedRace](
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
         [LocalCourseCode] ASC,
+        [RaceTypeId] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
         [SequenceOfCourse] ASC,
@@ -8754,7 +8792,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedSchoolFoodServicesEligibil
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [SchoolFoodServicesEligibilityDescriptorId] [INT] NULL,
+    [SchoolFoodServicesEligibilityDescriptorId] [INT] NOT NULL,
     [TypeNumber] [INT] NULL,
     [TypePercentage] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -8763,6 +8801,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedSchoolFoodServicesEligibil
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
         [LocalCourseCode] ASC,
+        [SchoolFoodServicesEligibilityDescriptorId] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
         [SequenceOfCourse] ASC,
@@ -8889,6 +8928,7 @@ CREATE TABLE [extension].[SectionStudentFactAggregatedSex](
         [SchoolId] ASC,
         [SchoolYear] ASC,
         [SequenceOfCourse] ASC,
+        [SexTypeId] ASC,
         [TermDescriptorId] ASC,
         [UniqueSectionCode] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -9765,7 +9805,7 @@ GO
 ALTER TABLE [extension].[StaffProfessionalDevelopmentEventAttendance] ADD CONSTRAINT [StaffProfessionalDevelopmentEventAttendance_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffProfessionalDevelopmentEventAttendance'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This event entity represents the recording of whether a staff is in attendance for professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffProfessionalDevelopmentEventAttendance'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
@@ -10919,7 +10959,7 @@ CREATE TABLE [extension].[TeacherCandidateAcademicRecord](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateAcademicRecord'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This educational entity represents the cumulative record of academic achievement for a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateAcademicRecord'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure of average performance in all courses taken by an individual within a given content area during his or her school career as determined for record-keeping purposes. This is obtained by dividing the total grade points received by the total number of credits attempted. This usually includes grade points received and credits attempted in his or her current school as well as those transferred from schools in which the individual was previously enrolled.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAcademicRecord', @level2type=N'COLUMN', @level2name=N'ContentGradePointAverage'
 GO
@@ -10943,7 +10983,7 @@ GO
 
 CREATE TABLE [extension].[TeacherCandidateAid](
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [BeginDate] [DATE] NULL,
+    [BeginDate] [DATE] NOT NULL,
     [EndDate] [DATE] NULL,
     [AidConditionDescription] [NVARCHAR](1024) NULL,
     [AidTypeDescriptorId] [INT] NOT NULL,
@@ -10951,6 +10991,8 @@ CREATE TABLE [extension].[TeacherCandidateAid](
     [PellGrantRecipient] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateAid_PK] PRIMARY KEY CLUSTERED (
+        [AidTypeDescriptorId] ASC,
+        [BeginDate] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11221,7 +11263,7 @@ GO
 ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] ADD CONSTRAINT [TeacherCandidateProfessionalDevelopmentEventAttendance_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'?', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This event entity represents the recording of whether a teacher candidate is in attendance for professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -15859,14 +15901,14 @@ CREATE NONCLUSTERED INDEX [FK_ObservationObserver_Staff]
 ON [extension].[ObservationObserver]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[ObservationObserverReceivedTraining] WITH CHECK ADD CONSTRAINT [FK_ObservationObserverReceivedTraining_ObservationObserver] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[ObservationObserver] ([ObservationIdentifier])
+ALTER TABLE [extension].[ObservationObserverReceivedTraining] WITH CHECK ADD CONSTRAINT [FK_ObservationObserverReceivedTraining_ObservationObserver] FOREIGN KEY ([FirstNameOfObserver], [LastNameOfObserver], [ObservationIdentifier])
+REFERENCES [extension].[ObservationObserver] ([FirstNameOfObserver], [LastNameOfObserver], [ObservationIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ObservationObserverReceivedTraining_ObservationObserver]
-ON [extension].[ObservationObserverReceivedTraining]([ObservationIdentifier] ASC)
+ON [extension].[ObservationObserverReceivedTraining]([FirstNameOfObserver] ASC, [LastNameOfObserver] ASC, [ObservationIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ObservationProgramGateway] WITH CHECK ADD CONSTRAINT [FK_ObservationProgramGateway_Observation] FOREIGN KEY ([ObservationIdentifier])

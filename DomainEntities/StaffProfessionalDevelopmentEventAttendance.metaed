@@ -1,5 +1,5 @@
 Domain Entity StaffProfessionalDevelopmentEventAttendance
-  documentation '?
+  documentation 'This event entity represents the recording of whether a staff is in attendance for professional development.
   reference Staff
     documentation 'The staff associated with the professional development attendance event.
     is part of identity

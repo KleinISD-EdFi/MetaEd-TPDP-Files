@@ -2,7 +2,7 @@ Common Type Coteaching
   documentation 'The act of two teachers (teacher candidate and cooperating teacher) working together with groups of students; sharing the planning, organization, delivery, and assessment of instruction, as well as the physical space.
   date BeginDate
     documentation 'The month, day, and year on which the teacher candidate first starts co-teaching.
-    is optional
+    is required
   date EndDate
     documentation 'The month, day, and year on which the teacher candidate stopped co-teaching.
     is optional

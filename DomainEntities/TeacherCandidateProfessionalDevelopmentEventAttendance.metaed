@@ -1,5 +1,5 @@
 Domain Entity TeacherCandidateProfessionalDevelopmentEventAttendance
-  documentation '?
+  documentation 'This event entity represents the recording of whether a teacher candidate is in attendance for professional development.
   reference TeacherCandidate
     documentation 'The teacher candidate associated with the professional development attendance event.
     is part of identity

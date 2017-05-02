@@ -2,16 +2,16 @@ Common Type AggregatedGender
   documentation 'The information about the gender
   enumeration SchoolYear
     documentation 'The school year for which the data is associated
-    is required
+    is part of identity
   date FactAsOfDate
     documentation 'The date for which the data element is relevant
-    is required
+    is part of identity
   enumeration ValueType
     documentation 'The value of the data, i.e., is the data projected, actual or other
     is optional
   enumeration Gender
     documentation 'The gender with which a person associates.
-    is optional
+    is part of identity
   integer GenderTypeNumber
     documentation 'The number of students who identify by each gender type
     is optional

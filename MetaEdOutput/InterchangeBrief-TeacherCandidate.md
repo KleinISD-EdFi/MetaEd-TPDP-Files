@@ -40,13 +40,13 @@ The following table describes the primary entities of which the Teacher Candidat
 | EducationOrganizationStudentFact | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
 | SectionCourseTranscriptFact | Data about the final letter grade earned of the group |
 | SectionStudentAcademicRecordFact | Complex type that provides data about a group of student and their academic record |
-| SectionStudentAssessmentFact | ? |
+| SectionStudentAssessmentFact | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
 | SectionStudentFact | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | StaffStudentGrowthFact | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
 | TeacherCandidate | This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program. |
-| TeacherCandidateAcademicRecord | ? |
+| TeacherCandidateAcademicRecord | This educational entity represents the cumulative record of academic achievement for a teacher candidate. |
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | TeacherCandidateStudentGrowthFact | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |

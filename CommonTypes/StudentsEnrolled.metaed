@@ -1,5 +1,5 @@
 Common Type StudentsEnrolled
-  documentation '?
+  documentation 'This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments.
   enumeration SchoolYear
     documentation 'The school year for which the data is associated
     is required
