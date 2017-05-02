@@ -8299,6 +8299,11 @@ Withdrawn.</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedMatrixElement" type="EXTENSION-AggregatedMatrixElement">
+        <xs:annotation>
+          <xs:documentation>For aggregated matrix questions, the text identifying each row of the matrix.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="AverageNumericResponse" type="EXTENSION-AverageNumericResponse">
         <xs:annotation>
           <xs:documentation>The average numeric response for the survey.</xs:documentation>
@@ -10668,6 +10673,18 @@ Withdrawn.</xs:documentation>
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="40" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-AggregatedMatrixElement">
+    <xs:annotation>
+      <xs:documentation>For aggregated matrix questions, the text identifying each row of the matrix.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="50" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-AnonymizedStudentIdentifier">

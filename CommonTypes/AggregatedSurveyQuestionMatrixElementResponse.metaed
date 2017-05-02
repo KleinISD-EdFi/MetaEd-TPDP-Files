@@ -1,8 +1,11 @@
 Common Type AggregatedSurveyQuestionMatrixElementResponse
   documentation 'Matrix element response survey data provided at the aggregate level.
+  shared string AggregatedMatrixElement named AggregatedMatrixElement
+    documentation 'For aggregated matrix questions, the text identifying each row of the matrix.
+    is part of identity
   shared decimal AverageNumericResponse named AverageNumericResponse
     documentation 'The average numeric response for the survey.
-    is required
+    is part of identity
   integer NumericResponseNCount
     documentation 'The total number of data values in set of data that makes up the average numeric grade for a group
     is optional

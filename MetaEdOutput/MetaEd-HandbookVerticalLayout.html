@@ -6298,7 +6298,7 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />EducationOrganizationSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />SectionSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedMatrixElement (identity)<br />AverageNumericResponse (identity)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />EducationOrganizationSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />SectionSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6310,6 +6310,11 @@ Aligns with federal requirements.&lt;/xs:documentation&gt;
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedMatrixElement&quot; type=&quot;EXTENSION-AggregatedMatrixElement&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;For aggregated matrix questions, the text identifying each row of the matrix.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;AverageNumericResponse&quot; type=&quot;EXTENSION-AverageNumericResponse&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The average numeric response for the survey.&lt;/xs:documentation&gt;
@@ -12620,7 +12625,7 @@ Met standard
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedNumericResponse.AverageNumericResponse (as required)<br />AggregatedSurveyQuestionMatrixElementResponse.AverageNumericResponse (as required)</div>
+                <div><br />Used By:<br />AggregatedNumericResponse.AverageNumericResponse (as required)<br />AggregatedSurveyQuestionMatrixElementResponse.AverageNumericResponse (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -22291,12 +22296,15 @@ EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 QuestionCode [NVARCHAR](20) NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
+AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
 NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedMatrixElement
+AverageNumericResponse
 CourseCode
 EducationOrganizationId
 FactsAsOfDate
@@ -24738,12 +24746,15 @@ EducationOrganizationId [INT] NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 QuestionCode [NVARCHAR](20) NOT NULL
+AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
 NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedMatrixElement
+AverageNumericResponse
 EducationOrganizationId
 FactsAsOfDate
 QuestionCode
@@ -31382,12 +31393,15 @@ ClassPeriodName [NVARCHAR](20) NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 QuestionCode [NVARCHAR](20) NOT NULL
+AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
 NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedMatrixElement
+AverageNumericResponse
 ClassPeriodName
 ClassroomIdentificationCode
 FactsAsOfDate
@@ -44699,6 +44713,48 @@ Change of assignment.&lt;/xs:documentation&gt;
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>AddressLine [NVARCHAR](150)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>AggregatedMatrixElement</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>For aggregated matrix questions, the text identifying each row of the matrix.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 50</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />AggregatedSurveyQuestionMatrixElementResponse.AggregatedMatrixElement (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-AggregatedMatrixElement&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;For aggregated matrix questions, the text identifying each row of the matrix.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;50&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AggregatedMatrixElement [NVARCHAR](50)</pre></div>
             </div>
         </p>
         <p>

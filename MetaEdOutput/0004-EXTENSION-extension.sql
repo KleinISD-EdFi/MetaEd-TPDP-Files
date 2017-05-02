@@ -3002,11 +3002,14 @@ CREATE TABLE [extension].[CourseSurveyQuestionResponseFactAggregatedSurveyQuesti
     [FactsAsOfDate] [DATE] NOT NULL,
     [QuestionCode] [NVARCHAR](20) NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
+    [AggregatedMatrixElement] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse_PK] PRIMARY KEY CLUSTERED (
+        [AggregatedMatrixElement] ASC,
+        [AverageNumericResponse] ASC,
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactsAsOfDate] ASC,
@@ -3029,6 +3032,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'QuestionCode'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For aggregated matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AggregatedMatrixElement'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
@@ -4679,11 +4684,14 @@ CREATE TABLE [extension].[EducationOrganizationSurveyQuestionResponseFactAggrega
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [QuestionCode] [NVARCHAR](20) NOT NULL,
+    [AggregatedMatrixElement] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse_PK] PRIMARY KEY CLUSTERED (
+        [AggregatedMatrixElement] ASC,
+        [AverageNumericResponse] ASC,
         [EducationOrganizationId] ASC,
         [FactsAsOfDate] ASC,
         [QuestionCode] ASC,
@@ -4703,6 +4711,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'QuestionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For aggregated matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AggregatedMatrixElement'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
@@ -9291,11 +9301,14 @@ CREATE TABLE [extension].[SectionSurveyQuestionResponseFactAggregatedSurveyQuest
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [QuestionCode] [NVARCHAR](20) NOT NULL,
+    [AggregatedMatrixElement] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse_PK] PRIMARY KEY CLUSTERED (
+        [AggregatedMatrixElement] ASC,
+        [AverageNumericResponse] ASC,
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactsAsOfDate] ASC,
@@ -9336,6 +9349,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'QuestionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For aggregated matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AggregatedMatrixElement'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
