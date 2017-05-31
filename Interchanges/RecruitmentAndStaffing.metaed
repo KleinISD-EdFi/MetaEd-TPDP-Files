@@ -1,6 +1,0 @@
-Interchange RecruitmentAndStaffing
-  documentation '?
-  element Applicant
-  element EducationOrganizationFacts
-  element Prospect
-  element RecruitmentEvent

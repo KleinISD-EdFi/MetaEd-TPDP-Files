@@ -1,0 +1,7 @@
+Descriptor CertificationExamType
+  documentation "The descriptor holds the  type of certification exam that was taken."
+  with map type
+    documentation "Map for the certification exam types."
+    item "National"
+    item "State"
+    item "Other"

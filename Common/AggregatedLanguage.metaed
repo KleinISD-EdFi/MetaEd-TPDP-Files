@@ -1,0 +1,20 @@
+Common AggregatedLanguage
+  documentation "The data about the language"
+  enumeration SchoolYear
+    documentation "The school year for which the data is associated"
+    is part of identity
+  date FactAsOfDate
+    documentation "The date for which the data element is relevant"
+    is part of identity
+  enumeration ValueType
+    documentation "The value of the data, i.e., is the data projected, actual or other"
+    is optional
+  descriptor Language
+    documentation "Data about the language of the group"
+    is part of identity
+  integer LanguageTypeNumber
+    documentation "The number of student by each lanugage type"
+    is optional
+  percent LanguageTypePercentage
+    documentation "The percentage of student by language type"
+    is optional

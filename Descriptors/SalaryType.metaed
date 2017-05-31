@@ -1,9 +1,0 @@
-Descriptor SalaryType
-  documentation 'The descriptor holds the type of salary that a staff member is receiving.
-  with optional map type
-    documentation 'Map for the salary types.
-    item Hourly
-    item Part Time
-    item Full Time
-    item Contract
-    item Other

@@ -1,0 +1,11 @@
+Domain Entity TeacherCandidateFieldworkAbsenceEvent
+  documentation "Expanded reason for the staff absence"
+  domain entity TeacherCandidate
+    documentation "The staff associated with this absence event"
+    is part of identity
+  date EventDate
+    documentation "Date for this absence event"
+    is required
+  shared decimal HoursPerDay named HoursAbsent
+    documentation "he hours the staff was absence if not the entire working day"
+    is optional

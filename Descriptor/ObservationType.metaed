@@ -1,0 +1,10 @@
+Descriptor ObservationType
+  documentation "The descriptor holds the type (e.g., walkthrough, summative) of observation conducted."
+  with optional map type
+    documentation "Map for the observation types."
+    item "Walkthrough"
+    item "Formal"
+    item "Informal"
+    item "Self Reflection"
+    item "Summative"
+    item "Other"

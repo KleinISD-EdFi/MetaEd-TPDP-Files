@@ -1,0 +1,14 @@
+Common Observer
+  documentation "The person that conducted the observation."
+  shared string FirstName named FirstNameOfObserver
+    documentation "A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change."
+    is part of identity
+  shared string LastSurname named LastNameOfObserver
+    documentation "The name borne in common by members of a family."
+    is part of identity
+  domain entity Staff
+    documentation "The staff associated with the observation."
+    is optional
+  common ReceivedTraining
+    documentation "An indication that the observer has or has not received training on conducting observations."
+    is optional

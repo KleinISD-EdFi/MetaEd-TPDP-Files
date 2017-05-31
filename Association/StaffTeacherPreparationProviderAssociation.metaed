@@ -1,0 +1,18 @@
+Association StaffTeacherPreparationProviderAssociation
+  documentation "Information about the association between the Staff and the TeacherPreparationProvider"
+  domain entity Staff
+    documentation "Staff reference for the association"
+  domain entity TeacherPreparationProvider
+    documentation "The TeacherPreparationProvider for the association"
+  enumeration SchoolYear
+    documentation "Identifier for a school year."
+    is required
+  descriptor ProgramAssignment
+    documentation "Program Assignment for the association"
+    is required
+  descriptor GradeLevel
+    documentation "The grade levels for the association."
+    is optional collection
+  descriptor AcademicSubject
+    documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a degree."
+    is optional collection

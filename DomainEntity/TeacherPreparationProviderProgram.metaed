@@ -1,0 +1,11 @@
+Domain Entity TeacherPreparationProviderProgram based on Program
+  documentation "This entity represents information regarding a teacher preparation provider program."
+  descriptor GradeLevel
+    documentation "The grade levels served at the TPP Program."
+    is optional collection
+  common TPPProgramDegree
+    documentation "Details of the degree."
+    is required
+  descriptor TPPProgramPathway
+    documentation "A code for describing the program pathway, for example: Residency, Internship, Traditional"
+    is optional

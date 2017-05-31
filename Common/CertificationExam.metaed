@@ -1,0 +1,11 @@
+Common CertificationExam
+  documentation "Certification information for a individual."
+  shared string CertificationExamTitle
+    documentation "The title or name of the certification."
+    is required
+  descriptor CertificationExamType
+    documentation "The type of certification exam that taken."
+    is optional
+  integer CertificationExamOverallScore
+    documentation "The overall score that was received on the certification exam."
+    is required

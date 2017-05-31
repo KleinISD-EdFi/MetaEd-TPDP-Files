@@ -1,0 +1,32 @@
+Domain Entity TeacherCandidate based on Student
+  documentation "This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program."
+  shared string UniqueId
+    documentation "A unique alphanumeric code assigned to a TeacherCandidate."
+    renames identity property StudentUniqueId
+    with context TeacherCandidate
+    is queryable field
+  enumeration Gender
+    documentation "The gender with which a person associates."
+    is optional
+    is queryable field
+  currency TuitionCost
+    documentation "The tuition for a person's participation in a program, service. or course."
+    is optional
+  common Aid
+    documentation "This entity represents the financial aid a person is awarded."
+    is optional collection
+  common BackgroundCheck
+    documentation "Applicant background check history and disposition."
+    is optional
+  descriptor EnglishLanguageExam
+    documentation "Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL)."
+    is optional
+  descriptor PreviousCareer
+    documentation "The career previous for an individual."
+    is optional
+  bool ProgramComplete
+    documentation "An indication of whether a teacher candidate has completed the teacher prepartion program."
+    is optional
+  domain entity Staff
+    documentation "The staff associated."
+    is optional

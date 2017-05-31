@@ -1,0 +1,23 @@
+Domain Entity SectionCourseTranscriptFact
+  documentation "Data about the final letter grade earned of the group"
+  domain entity SectionStudentAcademicRecordFact
+    documentation "The Section Student Academic Record Fact the data is associated with"
+    is part of identity
+  enumeration SchoolYear
+    documentation "The school year for which the data is associated	SchoolYear"
+    is part of identity
+  date FactsAsOfDate
+    documentation "The date for which the data element is relevant"
+    is part of identity
+  shared string CourseTitle
+    documentation "Data about the final letter grade earned of the group"
+    is optional
+  common StudentsEnrolled
+    documentation "The information about the number of students enrolled"
+    is optional
+  common AggregatedFinalLetterGradeEarned
+    documentation "Data about the final letter grade earned of the group"
+    is optional collection
+  common AggregatedNumericGradeEarned
+    documentation "Data about the numeric grade received by the group"
+    is optional

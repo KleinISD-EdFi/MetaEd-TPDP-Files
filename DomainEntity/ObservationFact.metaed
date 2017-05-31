@@ -1,0 +1,26 @@
+Domain Entity ObservationFact
+  documentation "This entity represents aggregated information regarding observation data."
+  domain entity Rubric
+    documentation "Reference to the rubric."
+    is part of identity
+    is queryable field
+  enumeration SchoolYear
+    documentation "The identifier for the school year."
+    is part of identity
+    is queryable field
+  date FactsAsOfDate
+    documentation "The as-of-date for the aggregated observation data."
+    is part of identity
+    is queryable field
+  domain entity EducationOrganization
+    documentation "Provides user information to lookup and link to an existing educational organization record."
+    is required
+  descriptor ObservationType
+    documentation "The type (e.g., walkthrough, summative) of observation conducted."
+    is required
+  descriptor AcademicSubject
+    documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an assessment."
+    is optional
+  descriptor GradeLevel
+    documentation "The grade levels for the aggregated observation data."
+    is required collection

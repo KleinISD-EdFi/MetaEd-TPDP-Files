@@ -1,4 +1,0 @@
-Common String ProfessionalDevelopmentReason
-  documentation 'The reported reason for a teacher candidate's professional development.
-  min length 1
-  max length 60

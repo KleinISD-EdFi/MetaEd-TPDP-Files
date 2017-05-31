@@ -1,0 +1,8 @@
+Common TPPProgramDegree
+  documentation "Details of the degree."
+  descriptor AcademicSubject
+    documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a degree."
+    is required
+  descriptor TPPDegreeType
+    documentation "A code for describing the degree type that a teacher candidate accomplishes."
+    is required

@@ -1,0 +1,14 @@
+Domain Entity TeacherCandidateAcademicRecord based on StudentAcademicRecord
+  documentation "This educational entity represents the cumulative record of academic achievement for a teacher candidate."
+  shared decimal GPA named ContentGradePointAverage
+    documentation "A measure of average performance in all courses taken by an individual within a given content area during his or her school career as determined for record-keeping purposes. This is obtained by dividing the total grade points received by the total number of credits attempted. This usually includes grade points received and credits attempted in his or her current school as well as those transferred from schools in which the individual was previously enrolled."
+    is optional
+  shared decimal GPA named ContentGradePointEarned
+    documentation "The cumulative number of grade points an individual earns within a given content area by successfully completing courses or examinations during his or her enrollment in the current school as well as those transferred from schools in which the individual had been previously enrolled."
+    is optional
+  descriptor ProgramGateway
+    documentation "Identifies the program gateway that may be associated for continuation in the program."
+    is required
+  descriptor TPPDegreeType
+    documentation "The degree type that a teacher candidate accomplishes."
+    is required

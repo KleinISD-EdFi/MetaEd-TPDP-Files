@@ -1,8 +1,0 @@
-Interchange Observation
-  documentation '?
-  element Observation
-  element ObservationFact
-  element Rubric
-  element RubricLevel
-  element RubricLevelResponse
-  element RubricLevelResponseFact

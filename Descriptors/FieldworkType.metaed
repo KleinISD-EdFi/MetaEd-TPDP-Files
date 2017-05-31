@@ -1,8 +1,0 @@
-Descriptor FieldworkType
-  documentation 'The descriptor holds the type of fieldwork being executed by a teacher candidate.
-  with optional map type
-    documentation 'Map for the fieldwork types.
-    item Clinical Experience
-    item Field Placement
-    item Residential Program
-    item Other

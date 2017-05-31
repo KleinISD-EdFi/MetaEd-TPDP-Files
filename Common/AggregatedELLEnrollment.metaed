@@ -1,0 +1,17 @@
+Common AggregatedELLEnrollment
+  documentation "Data about the ELL enrollment of the group"
+  enumeration SchoolYear
+    documentation "The school year for which the data is associated"
+    is required
+  date FactAsOfDate
+    documentation "The date for which the data element is relevant"
+    is required
+  enumeration ValueType
+    documentation "The value of the data, i.e., is the data projected, actual or other"
+    is optional
+  integer ELLEnrollmentNumber
+    documentation "The number of student who are ELL"
+    is optional
+  percent ELLEnrollmentPercentage
+    documentation "The percentage of students who are identified as ELL"
+    is optional

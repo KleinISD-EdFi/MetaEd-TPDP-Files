@@ -1,4 +1,0 @@
-Common String RubricTitle
-  documentation 'The title or name of the rubric.
-  min length 2
-  max length 15

@@ -1,4 +1,0 @@
-Common String ObservationIdentifier
-  documentation 'An assigned unique identifier for the observation instance.
-  min length 1
-  max length 64

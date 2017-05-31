@@ -1,0 +1,75 @@
+Domain TeacherPreparation
+    documentation "?"
+    domain entity AnonymizedStudent
+    domain entity AnonymizedStudentAcademicRecord
+    domain entity AnonymizedStudentAssessment
+    domain entity AnonymizedStudentCourseTranscript
+    domain entity Applicant
+    domain entity Assessment
+    domain entity CourseCourseTranscriptFact
+    domain entity CourseStudentAcademicRecordFact
+    domain entity CourseStudentAssessmentFact
+    domain entity CourseStudentFact
+    domain entity CourseSurveyQuestionResponseFact
+    domain entity CourseSurveyResponseFact
+    domain entity CourseSurveySectionResponseRatingFact
+    domain entity Credential
+    domain entity EducationOrganizationCourseTranscriptFact
+    domain entity EducationOrganizationFacts
+    domain entity EducationOrganizationStudentAcademicRecordFact
+    domain entity EducationOrganizationStudentAssessmentFact
+    domain entity EducationOrganizationStudentFact
+    domain entity EducationOrganizationSurveyQuestionResponseFact
+    domain entity EducationOrganizationSurveyResponseFact
+    domain entity EducationOrganizationSurveySectionResponseRatingFact
+    domain entity ExternalCourseTranscript
+    domain entity ExternalEducationOrganization
+    domain entity ExternalStudentAcademicRecord
+    domain entity GradebookEntry
+    domain entity Observation
+    domain entity ObservationFact
+    domain entity ProfessionalDevelopmentEvent
+    domain entity Prospect
+    domain entity ProspectProfessionalDevelopmentEventAttendance
+    domain entity RecruitmentEvent
+    domain entity Rubric
+    domain entity RubricLevel
+    domain entity RubricLevelResponse
+    domain entity RubricLevelResponseFact
+    domain entity School
+    domain entity SectionCourseTranscriptFact
+    domain entity SectionStudentAcademicRecordFact
+    domain entity SectionStudentAssessmentFact
+    domain entity SectionStudentFact
+    domain entity SectionSurveyQuestionResponseFact
+    domain entity SectionSurveyResponseFact
+    domain entity SectionSurveySectionResponseRatingFact
+    domain entity Staff
+    domain entity StaffFieldworkAbsenceEvent
+    domain entity StaffFieldworkExperience
+    domain entity StaffProfessionalDevelopmentEventAttendance
+    domain entity StaffStudentGrowthFact
+    domain entity StudentGradebookEntry
+    domain entity Survey
+    domain entity SurveyQuestion
+    domain entity SurveyQuestionResponse
+    domain entity SurveyResponse
+    domain entity SurveySection
+    domain entity SurveySectionResponseRating
+    domain entity TeacherCandidate
+    domain entity TeacherCandidateAcademicRecord
+    domain entity TeacherCandidateFieldworkAbsenceEvent
+    domain entity TeacherCandidateFieldworkExperience
+    domain entity TeacherCandidateProfessionalDevelopmentEventAttendance
+    domain entity TeacherCandidateStudentGrowthFact
+    domain entity TeacherPreparationProvider
+    domain entity TeacherPreparationProviderProgram
+    domain entity University
+    association AnonymizedStudentCourseAssociation
+    association AnonymizedStudentEducationOrganizationAssociation
+    association AnonymizedStudentSectionAssociation
+    association StaffEducationOrganizationAssignmentAssociation
+    association StaffTeacherPreparationProviderAssociation
+    association StaffTeacherPreparationProviderProgramAssociation
+    association TeacherCandidateTeacherPreparationProviderAssociation
+    association TeacherCandidateTeacherPreparationProviderProgramAssociation
