@@ -21,6 +21,7 @@ Domain Entity SurveyQuestion
 	domain entity SurveySection
         documentation "Reference to the Survey Section."
         is required
+        merge SurveySection.Survey with Survey
 
     common Matrix
         documentation "(TPDP Extension) Information about the matrix element in the survey"

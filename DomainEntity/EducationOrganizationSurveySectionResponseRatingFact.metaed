@@ -6,6 +6,7 @@ Domain Entity EducationOrganizationSurveySectionResponseRatingFact
   domain entity SurveySection
     documentation "Reference to the Survey Section."
     is part of identity
+    merge SurveySection.Survey with EducationOrganizationSurveyResponseFact.Survey
   common AggregatedNumericResponse
     documentation "The average of the numeric responses to survey sections collected at the aggregate level."
     is required

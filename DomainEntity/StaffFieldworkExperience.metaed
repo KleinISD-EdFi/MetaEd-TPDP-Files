@@ -15,6 +15,7 @@ Domain Entity StaffFieldworkExperience
   domain entity Section
     documentation "The section the field work experience is associated with"
     is optional
+    merge Section.Location.School with School
   descriptor FieldworkType
     documentation "The type of fieldwork being executed by a staff."
     is required
@@ -29,4 +30,7 @@ Domain Entity StaffFieldworkExperience
     is optional
   common Coteaching
     documentation "The act of two teachers (teacher candidate and cooperating teacher) working together with groups of students; sharing the planning, organization, delivery, and assessment of instruction, as well as the physical space."
+    is optional
+  descriptor ProgramGateway
+    documentation "The descriptor holds the program gateway that is associated with continuation in a program."
     is optional

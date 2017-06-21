@@ -64,6 +64,9 @@ Domain Entity Applicant
     shared string IdentificationCode named LoginId
         documentation "The login ID for the user; used for security access control interface."
         is optional
+    common Credential
+        documentation "The legal document or authorization giving authorization to perform teaching assignment services."
+        is optional collection
     bool HighlyQualifiedTeacher
         documentation "An indication of whether a teacher is classified as highly qualified for his/her assignment according to state definition. This attribute indicates the teacher is highly qualified for ALL Sections being taught."
         is optional
@@ -80,6 +83,7 @@ Domain Entity Applicant
 	domain entity Prospect
         documentation "Reference to previously identified prospect."
         is optional
+        merge Prospect.EducationOrganization with EducationOrganization
 
     enumeration Gender
       documentation "(TPDP Extension) The gender with which a person associates."

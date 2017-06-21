@@ -16,3 +16,4 @@ Choice SurveyResponderChoice
 	domain entity Prospect
         documentation "(TPDP Extension) The reference to the prospect."
         is required
+        merge Prospect.EducationOrganization with Applicant.EducationOrganization

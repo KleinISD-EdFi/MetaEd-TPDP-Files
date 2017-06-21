@@ -1,6 +1,5 @@
 Interchange RecruitmentAndStaffing
   documentation "?"
   domain entity Applicant
-  domain entity EducationOrganizationFacts
   domain entity Prospect
   domain entity RecruitmentEvent

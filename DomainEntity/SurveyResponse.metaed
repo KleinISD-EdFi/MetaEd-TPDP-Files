@@ -19,5 +19,5 @@ Domain Entity SurveyResponse
         documentation "The survey associated with the response."
         is part of identity
     choice SurveyResponderChoice
-        documentation "Reference to either a student, parent, staff, or applicant - or none for anonymnous survey."
+        documentation "Reference to either a student, parent, staff, or applicant - or none for anonymous survey."
         is optional

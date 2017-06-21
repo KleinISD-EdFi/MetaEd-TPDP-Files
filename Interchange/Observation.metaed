@@ -1,8 +1,0 @@
-Interchange Observation
-  documentation "?"
-  domain entity Observation
-  domain entity ObservationFact
-  domain entity Rubric
-  domain entity RubricLevel
-  domain entity RubricLevelResponse
-  domain entity RubricLevelResponseFact

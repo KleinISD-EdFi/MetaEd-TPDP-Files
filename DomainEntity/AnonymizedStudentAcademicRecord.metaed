@@ -6,9 +6,6 @@ Domain Entity AnonymizedStudentAcademicRecord
   domain entity EducationOrganization
     documentation "The education organization associated with aggregated student data"
     is part of identity
-  enumeration SchoolYear
-    documentation "The school year for which the data is associated"
-    is part of identity
   descriptor Term
     documentation "The term for the session during the school year."
     is part of identity

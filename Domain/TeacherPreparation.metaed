@@ -6,19 +6,19 @@ Domain TeacherPreparation
     domain entity AnonymizedStudentCourseTranscript
     domain entity Applicant
     domain entity Assessment
-    domain entity CourseCourseTranscriptFact
-    domain entity CourseStudentAcademicRecordFact
-    domain entity CourseStudentAssessmentFact
-    domain entity CourseStudentFact
+    domain entity CourseCourseTranscriptFacts
+    domain entity CourseStudentAcademicRecordFacts
+    domain entity CourseStudentAssessmentFacts
+    domain entity CourseStudentFacts
     domain entity CourseSurveyQuestionResponseFact
     domain entity CourseSurveyResponseFact
     domain entity CourseSurveySectionResponseRatingFact
     domain entity Credential
-    domain entity EducationOrganizationCourseTranscriptFact
+    domain entity EducationOrganizationCourseTranscriptFacts
     domain entity EducationOrganizationFacts
-    domain entity EducationOrganizationStudentAcademicRecordFact
-    domain entity EducationOrganizationStudentAssessmentFact
-    domain entity EducationOrganizationStudentFact
+    domain entity EducationOrganizationStudentAcademicRecordFacts
+    domain entity EducationOrganizationStudentAssessmentFacts
+    domain entity EducationOrganizationStudentFacts
     domain entity EducationOrganizationSurveyQuestionResponseFact
     domain entity EducationOrganizationSurveyResponseFact
     domain entity EducationOrganizationSurveySectionResponseRatingFact
@@ -26,8 +26,8 @@ Domain TeacherPreparation
     domain entity ExternalEducationOrganization
     domain entity ExternalStudentAcademicRecord
     domain entity GradebookEntry
-    domain entity Observation
-    domain entity ObservationFact
+    domain entity PerformanceMeasure
+    domain entity PerformanceMeasureFacts
     domain entity ProfessionalDevelopmentEvent
     domain entity Prospect
     domain entity ProspectProfessionalDevelopmentEventAttendance
@@ -37,10 +37,10 @@ Domain TeacherPreparation
     domain entity RubricLevelResponse
     domain entity RubricLevelResponseFact
     domain entity School
-    domain entity SectionCourseTranscriptFact
-    domain entity SectionStudentAcademicRecordFact
-    domain entity SectionStudentAssessmentFact
-    domain entity SectionStudentFact
+    domain entity SectionCourseTranscriptFacts
+    domain entity SectionStudentAcademicRecordFacts
+    domain entity SectionStudentAssessmentFacts
+    domain entity SectionStudentFacts
     domain entity SectionSurveyQuestionResponseFact
     domain entity SectionSurveyResponseFact
     domain entity SectionSurveySectionResponseRatingFact
@@ -48,7 +48,7 @@ Domain TeacherPreparation
     domain entity StaffFieldworkAbsenceEvent
     domain entity StaffFieldworkExperience
     domain entity StaffProfessionalDevelopmentEventAttendance
-    domain entity StaffStudentGrowthFact
+    domain entity StaffStudentGrowthMeasure
     domain entity StudentGradebookEntry
     domain entity Survey
     domain entity SurveyQuestion
@@ -61,7 +61,7 @@ Domain TeacherPreparation
     domain entity TeacherCandidateFieldworkAbsenceEvent
     domain entity TeacherCandidateFieldworkExperience
     domain entity TeacherCandidateProfessionalDevelopmentEventAttendance
-    domain entity TeacherCandidateStudentGrowthFact
+    domain entity TeacherCandidateStudentGrowthMeasure
     domain entity TeacherPreparationProvider
     domain entity TeacherPreparationProviderProgram
     domain entity University

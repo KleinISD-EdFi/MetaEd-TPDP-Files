@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c)2017 Ed-Fi Alliance, LLC. All Rights Reserved. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ed-fi.org/0200" targetNamespace="http://ed-fi.org/0200" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="EXTENSION-Ed-Fi-Extended-Core.xsd" />
+  <xs:annotation>
+    <xs:documentation>===== Teacher Candidate Interchange Model =====</xs:documentation>
+  </xs:annotation>
+  <xs:element name="InterchangeTeacherCandidate">
+    <xs:annotation>
+      <xs:documentation>This interchange defines teacher candidates and contains all their identifying information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AnonymizedStudentAcademicRecord" type="EXTENSION-AnonymizedStudentAcademicRecord" />
+        <xs:element name="AnonymizedStudentCourseAssociation" type="EXTENSION-AnonymizedStudentCourseAssociation" />
+        <xs:element name="AnonymizedStudentCourseTranscript" type="EXTENSION-AnonymizedStudentCourseTranscript" />
+        <xs:element name="AnonymizedStudentEducationOrganizationAssociation" type="EXTENSION-AnonymizedStudentEducationOrganizationAssociation" />
+        <xs:element name="AnonymizedStudentSectionAssociation" type="EXTENSION-AnonymizedStudentSectionAssociation" />
+        <xs:element name="StaffFieldworkAbsenceEvent" type="EXTENSION-StaffFieldworkAbsenceEvent" />
+        <xs:element name="TeacherCandidate" type="EXTENSION-TeacherCandidate" />
+        <xs:element name="TeacherCandidateAcademicRecord" type="EXTENSION-TeacherCandidateAcademicRecord" />
+        <xs:element name="TeacherCandidateFieldworkAbsenceEvent" type="EXTENSION-TeacherCandidateFieldworkAbsenceEvent" />
+        <xs:element name="TeacherCandidateFieldworkExperience" type="EXTENSION-TeacherCandidateFieldworkExperience" />
+        <xs:element name="TeacherCandidateTeacherPreparationProviderProgramAssociation" type="EXTENSION-TeacherCandidateTeacherPreparationProviderProgramAssociation" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

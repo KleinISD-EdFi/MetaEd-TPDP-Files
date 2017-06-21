@@ -22,4 +22,5 @@ Interchange StaffAssociationExtension
     domain entity OpenStaffPosition [2523-007]
     association StaffProgramAssociation [2523-008]
 
+    domain entity StaffFieldworkExperience
     association StaffTeacherPreparationProviderProgramAssociation

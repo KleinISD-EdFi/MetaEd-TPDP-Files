@@ -37,6 +37,7 @@ Interchange EducationOrganizationExtension
     domain entity EducationOrganizationNetwork [2517-012]
     association EducationOrganizationNetworkAssociation [2517-013]
 
+    domain entity EducationOrganizationFacts
     association StaffTeacherPreparationProviderAssociation
     association TeacherCandidateTeacherPreparationProviderAssociation
     association TeacherCandidateTeacherPreparationProviderProgramAssociation

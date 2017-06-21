@@ -1,0 +1,42 @@
+Domain Entity PerformanceMeasure
+  documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation."
+  shared string ObservationIdentifier
+    documentation "An assigned unique identifier for the observation instance."
+    is part of identity
+    is queryable field
+  descriptor PerformanceMeasureType
+    documentation "The type (e.g., walkthrough, summative) of performance measure conducted."
+    is required
+  descriptor ProgramGateway
+    documentation "Identifies the program gateway that may be associated for continuation in the program."
+    is optional collection
+  domain entity Rubric
+    documentation "Reference to the rubric."
+    is required
+  descriptor Term
+    documentation "The term for the session during the school year."
+    is required
+  descriptor AcademicSubject
+    documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a performance measure."
+    is optional
+  descriptor GradeLevel
+    documentation "The grade levels for the performance measure."
+    is optional collection
+  common Observee
+    documentation "Information regarding the observee of the observation."
+    is optional
+  common Observer
+    documentation "The person that conducted the observation."
+    is optional collection
+  date ScheduleDateOfObservation
+    documentation "The month, day, and year on which the observation was scheduled to be conducted."
+    is optional
+  date ActualDateOfObservation
+    documentation "The month, day, and year on which the observation was conducted."
+    is required
+  time TimeOfObservation
+    documentation "An indication of the the time at which the observation was conducted."
+    is optional
+  shared integer Duration named DurationOfObservation
+    documentation "The actual or estimated number of clock minutes during which the observation was conducted."
+    is optional

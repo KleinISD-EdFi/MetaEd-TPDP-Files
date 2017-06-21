@@ -1,10 +1,11 @@
-Descriptor ObservationType
+Descriptor PerformanceMeasureType
   documentation "The descriptor holds the type (e.g., walkthrough, summative) of observation conducted."
   with optional map type
-    documentation "Map for the observation types."
-    item "Walkthrough"
-    item "Formal"
-    item "Informal"
+    documentation "Map for the performance measure types."
+    item "Formal Observation"
+    item "Informal Observation"
     item "Self Reflection"
-    item "Summative"
+    item "Summative Observation"
+    item "Assessment"
+    item "Performance Evaluation"
     item "Other"

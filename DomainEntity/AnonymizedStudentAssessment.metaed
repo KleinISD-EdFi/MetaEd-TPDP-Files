@@ -41,3 +41,5 @@ Domain Entity AnonymizedStudentAssessment
   domain entity Section
     documentation "The section associated with aggregated student data"
     is optional
+    merge Section.CourseOffering.Session.SchoolYear with AnonymizedStudent.SchoolYear
+    merge Section.CourseOffering.Session.Term with Term

@@ -6,6 +6,7 @@ Domain Entity AnonymizedStudentCourseTranscript
   domain entity Course
     documentation "The course recorded in the course transcript entry."
     is part of identity
+    merge Course.EducationOrganization with AnonymizedStudentAcademicRecord.EducationOrganization
   shared string GradeEarned named FinalLetterGradeEarned
     documentation "The final indicator of student performance in a class as submitted by the instructor."
     is optional

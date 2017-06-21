@@ -1,9 +1,10 @@
 Domain Entity RubricLevelResponseFact
   documentation "This entity represents the rubric level response at the aggregate level."
-  domain entity ObservationFact
-    documentation "Reference to the aggregated observation."
+  domain entity PerformanceMeasureFacts
+    documentation "Reference to the aggregated performance measure."
     is part of identity
     is queryable field
+    merge PerformanceMeasureFacts.Rubric with RubricLevel.Rubric
   domain entity RubricLevel
     documentation "Reference the rubric level."
     is part of identity

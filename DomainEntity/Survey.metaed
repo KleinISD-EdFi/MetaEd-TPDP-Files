@@ -22,9 +22,13 @@ Domain Entity Survey
 	domain entity Program
         documentation "(TPDP Extension) The program associated with the survey."
         is optional
+        merge Program.EducationOrganization with EducationOrganization
 	domain entity Course
         documentation "(TPDP Extension) The course associated with the survey."
         is optional
+        merge  Course.EducationOrganization with EducationOrganization
 	domain entity Section
         documentation "(TPDP Extension) The section associated with the survey."
         is optional
+        merge Section.CourseOffering.Session.SchoolYear with SchoolYear
+        merge Section.CourseOffering.Session.Term with Term

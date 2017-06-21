@@ -8,9 +8,6 @@ Domain Entity SectionSurveyResponseFact
     documentation "Reference to the Survey."
     is part of identity
     is queryable field
-  enumeration SchoolYear
-    documentation "The school year for the aggregated survey data."
-    is required
   date FactsAsOfDate
     documentation "The as-of-date for the aggregated survey data."
     is part of identity
