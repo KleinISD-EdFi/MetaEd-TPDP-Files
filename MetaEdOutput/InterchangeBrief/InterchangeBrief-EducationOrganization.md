@@ -39,6 +39,13 @@ The following table describes the primary entities of which the Education Organi
 
 | Name | Description |
 |----------|-----------------|
+| EducationOrganizationFacts | Selective fact(s) about the education organization used for comparative analysis. |
+| StaffTeacherPreparationProviderAssociation | Information about the association between the Staff and the TeacherPreparationProvider |
+| TeacherCandidateTeacherPreparationProviderAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
+| TeacherCandidateTeacherPreparationProviderProgramAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
+| TeacherPreparationProvider | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
+| TeacherPreparationProviderProgram | This entity represents information regarding a teacher preparation provider program. |
+| University | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
 | StateEducationAgency | This entity represents the agency of the state charged with the primary responsibility for coordinating and supervising public instruction, including the setting of standards for elementary and secondary instructional programs. |
 | EducationServiceCenter | This entity represents a regional, multi-services public agency authorized by state law to develop, manage and provide services, programs, or other support options (e.g., construction, food services, and technology services) to LEAs. |
 | FeederSchoolAssociation | The association from feeder school to the receiving school. |
@@ -66,6 +73,9 @@ This interchange includes the following Extended References.
 | LearningObjectiveReference (in Program) | Optional.  References the LearningObjective(s) with which the Program is associated. |
 | LearningStandardReference (in Course) | Optional.  Learning Standard(s) to be taught by the course. |
 | LearningStandardReference (in Program) | Optional.  LearningStandard followed by this program. |
+| StaffReference (in StaffTeacherPreparationProviderAssociation) | Required.  Staff reference for the association |
+| TeacherCandidateReference (in TeacherCandidateTeacherPreparationProviderAssociation) | Required.  Teacher Candidate for the association |
+| TeacherCandidateReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Teacher Candidate for the association |
 
 
 
@@ -75,16 +85,22 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 
 | Descriptor Name | Description |
 |---------------------|-----------------|
-| AcademicSubjectDescriptor | Optional.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
+| AcademicSubjectDescriptor | Required.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
 | AdministrativeFundingControlDescriptor | Optional.  This descriptor holds the type of education institution as classified by its funding source (e.g., public or private). |
 | CompetencyLevelDescriptor | Optional.  This descriptor defines various levels for assessed competencies. |
 | CountryDescriptor | Optional.  This descriptor defines the name and code of the country. |
 | CourseIdentificationSystemDescriptor | Required.  This descriptor defines a standard code that identifies the organization of subject matter and related learning experiences provided for the instruction of students. |
 | EducationOrganizationIdentificationSystemDescriptor | Optional.  This descriptor defines the originating record system and code that is used for record-keeping purposes by education organizations. |
+| EntryTypeDescriptor | Optional.  This descriptor defines the process by which a student enters a school during a given academic session. |
+| ExitWithdrawTypeDescriptor | Optional.  This descriptor defines the circumstances under which the student exited from membership in an educational institution. |
 | FederalLocaleCodeDescriptor | Optional.  (TPDP Extension) The descriptor holds the federal locale code applicable to an education organization. |
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
+| ProgramAssignmentDescriptor | Required.  This descriptor defines the name of the education program for which a teacher is assigned to a school. |
 | ProgramCharacteristicDescriptor | Optional.  This descriptor defines important characteristics of the Program, such as categories or particular indications. |
+| ReasonExitedDescriptor | Optional.  This descriptor defines the reason a student exited a program. |
 | SchoolStatusDescriptor | Optional.  The descriptor holds the status of a school e.g. priority or focus. |
 | ServiceDescriptor | Optional.  This descriptor defines the services provided by an education organization to populations of students associated with a program. |
+| TPPDegreeTypeDescriptor | Required.  The descriptor holds the degree that a teacher candidate accomplishes. |
+| TPPProgramPathwayDescriptor | Optional.  The descriptor holds the program pathways available at TPP's. |
 
 

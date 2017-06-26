@@ -26,6 +26,13 @@
         <xs:element name="EducationOrganizationPeerAssociation" type="EducationOrganizationPeerAssociation" />
         <xs:element name="EducationOrganizationNetwork" type="EducationOrganizationNetwork" />
         <xs:element name="EducationOrganizationNetworkAssociation" type="EducationOrganizationNetworkAssociation" />
+        <xs:element name="EducationOrganizationFacts" type="EXTENSION-EducationOrganizationFacts" />
+        <xs:element name="StaffTeacherPreparationProviderAssociation" type="EXTENSION-StaffTeacherPreparationProviderAssociation" />
+        <xs:element name="TeacherCandidateTeacherPreparationProviderAssociation" type="EXTENSION-TeacherCandidateTeacherPreparationProviderAssociation" />
+        <xs:element name="TeacherCandidateTeacherPreparationProviderProgramAssociation" type="EXTENSION-TeacherCandidateTeacherPreparationProviderProgramAssociation" />
+        <xs:element name="TeacherPreparationProvider" type="EXTENSION-TeacherPreparationProvider" />
+        <xs:element name="TeacherPreparationProviderProgram" type="EXTENSION-TeacherPreparationProviderProgram" />
+        <xs:element name="University" type="EXTENSION-University" />
       </xs:choice>
     </xs:complexType>
   </xs:element>
