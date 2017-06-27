@@ -1,14 +1,14 @@
 Interchange Survey
   documentation "?"
-  domain entity CourseSurveyResponseFact
+  domain entity CourseSurveyResponseFacts
   domain entity CourseSurveySectionResponseRatingFact
-  domain entity CourseSurveyQuestionResponseFact
-  domain entity EducationOrganizationSurveyResponseFact
+  domain entity CourseSurveyQuestionResponseFacts
+  domain entity EducationOrganizationSurveyResponseFacts
   domain entity EducationOrganizationSurveySectionResponseRatingFact
-  domain entity EducationOrganizationSurveyQuestionResponseFact
-  domain entity SectionSurveyResponseFact
+  domain entity EducationOrganizationSurveyQuestionResponseFacts
+  domain entity SectionSurveyResponseFacts
   domain entity SectionSurveySectionResponseRatingFact
-  domain entity SectionSurveyQuestionResponseFact
+  domain entity SectionSurveyQuestionResponseFacts
   domain entity Survey
   domain entity SurveyQuestion
   domain entity SurveyQuestionResponse

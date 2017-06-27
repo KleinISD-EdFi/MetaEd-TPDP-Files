@@ -1,4 +1,4 @@
-Domain Entity EducationOrganizationSurveyResponseFact
+Domain Entity EducationOrganizationSurveyResponseFacts
   documentation "Survey response data provided at the aggregate level."
   domain entity EducationOrganization
     documentation "The section(s) associated with the aggregated survey response."

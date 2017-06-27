@@ -1,6 +1,6 @@
 Domain Entity CourseSurveySectionResponseRatingFact
   documentation "Responses to survey sections collected at the aggregate level."
-  domain entity CourseSurveyResponseFact
+  domain entity CourseSurveyResponseFacts
     documentation "Reference to the Aggregated Survey Response."
     is required
   domain entity SurveySection

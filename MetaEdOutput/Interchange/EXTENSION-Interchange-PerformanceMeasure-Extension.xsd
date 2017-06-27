@@ -16,7 +16,7 @@
         <xs:element name="Rubric" type="EXTENSION-Rubric" />
         <xs:element name="RubricLevel" type="EXTENSION-RubricLevel" />
         <xs:element name="RubricLevelResponse" type="EXTENSION-RubricLevelResponse" />
-        <xs:element name="RubricLevelResponseFact" type="EXTENSION-RubricLevelResponseFact" />
+        <xs:element name="RubricLevelResponseFacts" type="EXTENSION-RubricLevelResponseFacts" />
       </xs:choice>
     </xs:complexType>
   </xs:element>

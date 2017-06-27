@@ -5916,7 +5916,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFact.AggregatedNumericResponse (as optional)<br />EducationOrganizationSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)<br />RubricLevelResponseFact.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFact.AggregatedNumericResponse (as optional)<br />SectionSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)</div>
+                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />EducationOrganizationSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)<br />RubricLevelResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveySectionResponseRatingFact.AggregatedNumericResponse (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6494,7 +6494,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedMatrixElement (identity)<br />AverageNumericResponse (identity)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />EducationOrganizationSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />SectionSurveyQuestionResponseFact.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedMatrixElement (identity)<br />AverageNumericResponse (identity)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)<br />SectionSurveyQuestionResponseFacts.AggregatedSurveyQuestionMatrixElementResponse (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10269,7 +10269,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />NumberStudentsEnrolled (optional)<br />SchoolYear (required)<br />ValueType (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.StudentsEnrolled (as optional)<br />CourseStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />CourseStudentAssessmentFacts.StudentsEnrolled (as optional)<br />CourseStudentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationCourseTranscriptFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAssessmentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentFacts.StudentsEnrolled (as optional)<br />SectionCourseTranscriptFacts.StudentsEnrolled (as optional)<br />SectionStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />SectionStudentAssessmentFacts.StudentsEnrolled (as optional)<br />SectionStudentFacts.StudentsEnrolled (as optional)</div>
+                <div><br />Contains:<br />FactAsOfDate (required)<br />NumberStudentsEnrolled (optional)<br />PercentAtRisk (optional)<br />PercentMobility (optional)<br />SchoolYear (required)<br />ValueType (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.StudentsEnrolled (as optional)<br />CourseStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />CourseStudentAssessmentFacts.StudentsEnrolled (as optional)<br />CourseStudentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationCourseTranscriptFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAssessmentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentFacts.StudentsEnrolled (as optional)<br />SectionCourseTranscriptFacts.StudentsEnrolled (as optional)<br />SectionStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />SectionStudentAssessmentFacts.StudentsEnrolled (as optional)<br />SectionStudentFacts.StudentsEnrolled (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10299,6 +10299,16 @@ StudentUSI
     &lt;xs:element name=&quot;NumberStudentsEnrolled&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The total number of student enrolled in the respective Section&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;PercentAtRisk&quot; type=&quot;Percent&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The percent of students who have been identified as at risk.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;PercentMobility&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The average number of times a student moves schools during a school year.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -23813,7 +23823,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFact.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />StaffStudentGrowthMeasure.Course (as optional collection)<br />Survey.Course (as optional)<br />TeacherCandidateStudentGrowthMeasure.Course (as optional collection)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFacts.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />StaffStudentGrowthMeasure.Course (as optional collection)<br />Survey.Course (as optional)<br />TeacherCandidateStudentGrowthMeasure.Course (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -24183,6 +24193,8 @@ SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -24447,6 +24459,8 @@ SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -24647,6 +24661,8 @@ SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -25013,6 +25029,8 @@ FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -25023,7 +25041,7 @@ FactAsOfDate
             </div>
         </p>
         <p>
-            <h2>CourseSurveyQuestionResponseFact</h2>
+            <h2>CourseSurveyQuestionResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -25038,11 +25056,11 @@ FactAsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />CourseSurveyResponseFact (identity)<br />SurveyQuestion (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />CourseSurveyResponseFacts (identity)<br />SurveyQuestion (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-CourseSurveyQuestionResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-CourseSurveyQuestionResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey question response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -25052,7 +25070,7 @@ FactAsOfDate
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;CourseSurveyResponseFactReference&quot; type=&quot;EXTENSION-CourseSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;CourseSurveyResponseFactsReference&quot; type=&quot;EXTENSION-CourseSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the aggregated course survey response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -25079,7 +25097,7 @@ FactAsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.CourseSurveyQuestionResponseFact
+                <div><pre>extension.CourseSurveyQuestionResponseFacts
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
@@ -25096,7 +25114,7 @@ EducationOrganizationId
 FactsAsOfDate
 QuestionCode
 SurveyIdentifier
-<br />extension.CourseSurveyQuestionResponseFactAggregatedNumericResponse
+<br />extension.CourseSurveyQuestionResponseFactsAggregatedNumericResponse
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
@@ -25114,7 +25132,7 @@ EducationOrganizationId
 FactsAsOfDate
 QuestionCode
 SurveyIdentifier
-<br />extension.CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse
+<br />extension.CourseSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse
 
 AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
@@ -25139,7 +25157,7 @@ SurveyIdentifier
             </div>
         </p>
         <p>
-            <h2>CourseSurveyResponseFact</h2>
+            <h2>CourseSurveyResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -25154,11 +25172,11 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (required)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.CourseSurveyResponseFact (as identity)<br />CourseSurveySectionResponseRatingFact.CourseSurveyResponseFact (as required)</div>
+                <div><br />Contains:<br />Course (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (required)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.CourseSurveyResponseFacts (as identity)<br />CourseSurveySectionResponseRatingFact.CourseSurveyResponseFacts (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-CourseSurveyResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-CourseSurveyResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -25195,7 +25213,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.CourseSurveyResponseFact
+                <div><pre>extension.CourseSurveyResponseFacts
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
@@ -25229,7 +25247,7 @@ FactsAsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />CourseSurveyResponseFact (required)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />CourseSurveyResponseFacts (required)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25243,7 +25261,7 @@ FactsAsOfDate
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;CourseSurveyResponseFactReference&quot; type=&quot;EXTENSION-CourseSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;CourseSurveyResponseFactsReference&quot; type=&quot;EXTENSION-CourseSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the Aggregated Survey Response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -26075,7 +26093,7 @@ LanguageDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFact.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.EducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
+                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.EducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -26371,6 +26389,8 @@ SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -26680,6 +26700,8 @@ SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -26870,6 +26892,8 @@ SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27204,6 +27228,8 @@ FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27213,7 +27239,7 @@ FactAsOfDate
             </div>
         </p>
         <p>
-            <h2>EducationOrganizationSurveyQuestionResponseFact</h2>
+            <h2>EducationOrganizationSurveyQuestionResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -27228,11 +27254,11 @@ FactAsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />EducationOrganizationSurveyResponseFact (identity)<br />SurveyQuestion (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />EducationOrganizationSurveyResponseFacts (identity)<br />SurveyQuestion (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-EducationOrganizationSurveyQuestionResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-EducationOrganizationSurveyQuestionResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey question response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -27242,7 +27268,7 @@ FactAsOfDate
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;EducationOrganizationSurveyResponseFactReference&quot; type=&quot;EXTENSION-EducationOrganizationSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;EducationOrganizationSurveyResponseFactsReference&quot; type=&quot;EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the aggregated education organization survey response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -27269,7 +27295,7 @@ FactAsOfDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.EducationOrganizationSurveyQuestionResponseFact
+                <div><pre>extension.EducationOrganizationSurveyQuestionResponseFacts
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -27284,7 +27310,7 @@ EducationOrganizationId
 FactsAsOfDate
 QuestionCode
 SurveyIdentifier
-<br />extension.EducationOrganizationSurveyQuestionResponseFactAggregatedNumericResponse
+<br />extension.EducationOrganizationSurveyQuestionResponseFactsAggregatedNumericResponse
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -27300,7 +27326,7 @@ EducationOrganizationId
 FactsAsOfDate
 QuestionCode
 SurveyIdentifier
-<br />extension.EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse
+<br />extension.EducationOrganizationSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse
 
 AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
@@ -27323,7 +27349,7 @@ SurveyIdentifier
             </div>
         </p>
         <p>
-            <h2>EducationOrganizationSurveyResponseFact</h2>
+            <h2>EducationOrganizationSurveyResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -27338,11 +27364,11 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (identity)<br /><br />Used By:<br />EducationOrganizationSurveyQuestionResponseFact.EducationOrganizationSurveyResponseFact (as identity)<br />EducationOrganizationSurveySectionResponseRatingFact.EducationOrganizationSurveyResponseFact (as required)</div>
+                <div><br />Contains:<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (identity)<br /><br />Used By:<br />EducationOrganizationSurveyQuestionResponseFacts.EducationOrganizationSurveyResponseFacts (as identity)<br />EducationOrganizationSurveySectionResponseRatingFact.EducationOrganizationSurveyResponseFacts (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-EducationOrganizationSurveyResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-EducationOrganizationSurveyResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -27379,7 +27405,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.EducationOrganizationSurveyResponseFact
+                <div><pre>extension.EducationOrganizationSurveyResponseFacts
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -27412,7 +27438,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />EducationOrganizationSurveyResponseFact (required)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />EducationOrganizationSurveyResponseFacts (required)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -27426,7 +27452,7 @@ SurveyIdentifier
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;EducationOrganizationSurveyResponseFactReference&quot; type=&quot;EXTENSION-EducationOrganizationSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;EducationOrganizationSurveyResponseFactsReference&quot; type=&quot;EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the Aggregated Survey Response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -30544,7 +30570,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation.</div>
+                <div>Information about the performance measure</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -30558,7 +30584,7 @@ StaffUSI
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-PerformanceMeasure&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation.&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;Information about the performance measure&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -30739,7 +30765,7 @@ ProgramGatewayDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>This entity represents aggregated information regarding observation data.</div>
+                <div>This entity represents aggregated information regarding performance measure data.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -30747,13 +30773,13 @@ ProgramGatewayDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />FactsAsOfDate (identity)<br />GradeLevel (required collection)<br />PerformanceMeasureType (required)<br />Rubric (identity)<br />SchoolYear (identity)<br /><br />Used By:<br />RubricLevelResponseFact.PerformanceMeasureFacts (as identity)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />FactsAsOfDate (identity)<br />GradeLevel (required collection)<br />PerformanceMeasureType (required)<br />Rubric (identity)<br />SchoolYear (identity)<br /><br />Used By:<br />RubricLevelResponseFacts.PerformanceMeasureFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-PerformanceMeasureFacts&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;This entity represents aggregated information regarding observation data.&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;This entity represents aggregated information regarding performance measure data.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
@@ -32223,7 +32249,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Level (required)<br />Rubric (identity)<br />RubricLevelCode (identity)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFact.RubricLevel (as identity)</div>
+                <div><br />Contains:<br />Level (required)<br />Rubric (identity)<br />RubricLevelCode (identity)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32400,7 +32426,7 @@ RubricTypeDescriptorId
             </div>
         </p>
         <p>
-            <h2>RubricLevelResponseFact</h2>
+            <h2>RubricLevelResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -32419,7 +32445,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-RubricLevelResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-RubricLevelResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;This entity represents the rubric level response at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -32451,7 +32477,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.RubricLevelResponseFact
+                <div><pre>extension.RubricLevelResponseFacts
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -32470,7 +32496,7 @@ RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
 SchoolYear
-<br />extension.RubricLevelResponseFactAggregatedNumericResponse
+<br />extension.RubricLevelResponseFactsAggregatedNumericResponse
 
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -32509,7 +32535,7 @@ SchoolYear
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AvailableCredits (optional)<br />ClassPeriod (identity)<br />CourseOffering (identity)<br />EducationalEnvironment (optional)<br />InstructionLanguage (optional)<br />Location (identity)<br />MediumOfInstruction (optional)<br />PopulationServed (optional)<br />Program (optional collection)<br />School (required)<br />SectionCharacteristic (optional collection)<br />SequenceOfCourse (identity)<br />UniqueSectionCode (identity)<br /><br />Used By:<br />StaffSectionAssociation.Section (as identity)<br />StudentCohortAssociation.Section (as optional collection)<br />StudentSectionAssociation.Section (as identity)<br />AnonymizedStudentSectionAssociation.Section (as identity)<br />SectionOrProgramChoice.Section (as required collection)<br />FieldworkExperience.Section (as optional)<br />GradebookEntry.Section (as identity)<br />SectionAttendanceTakenEvent.Section (as identity)<br />StudentSectionAttendanceEvent.Section (as identity)<br />AnonymizedStudent.Section (as optional)<br />AnonymizedStudentAssessment.Section (as optional)<br />SectionStudentAcademicRecordFacts.Section (as identity)<br />SectionStudentAssessmentFacts.Section (as identity)<br />SectionStudentFacts.Section (as identity)<br />SectionSurveyResponseFact.Section (as identity)<br />StaffFieldworkExperience.Section (as optional)<br />StaffStudentGrowthMeasure.Section (as optional collection)<br />Survey.Section (as optional)<br />TeacherCandidateFieldworkExperience.Section (as optional)<br />TeacherCandidateStudentGrowthMeasure.Section (as optional collection)</div>
+                <div><br />Contains:<br />AvailableCredits (optional)<br />ClassPeriod (identity)<br />CourseOffering (identity)<br />EducationalEnvironment (optional)<br />InstructionLanguage (optional)<br />Location (identity)<br />MediumOfInstruction (optional)<br />PopulationServed (optional)<br />Program (optional collection)<br />School (required)<br />SectionCharacteristic (optional collection)<br />SequenceOfCourse (identity)<br />UniqueSectionCode (identity)<br /><br />Used By:<br />StaffSectionAssociation.Section (as identity)<br />StudentCohortAssociation.Section (as optional collection)<br />StudentSectionAssociation.Section (as identity)<br />AnonymizedStudentSectionAssociation.Section (as identity)<br />SectionOrProgramChoice.Section (as required collection)<br />FieldworkExperience.Section (as optional)<br />GradebookEntry.Section (as identity)<br />SectionAttendanceTakenEvent.Section (as identity)<br />StudentSectionAttendanceEvent.Section (as identity)<br />AnonymizedStudent.Section (as optional)<br />AnonymizedStudentAssessment.Section (as optional)<br />SectionStudentAcademicRecordFacts.Section (as identity)<br />SectionStudentAssessmentFacts.Section (as identity)<br />SectionStudentFacts.Section (as identity)<br />SectionSurveyResponseFacts.Section (as identity)<br />StaffFieldworkExperience.Section (as optional)<br />StaffStudentGrowthMeasure.Section (as optional collection)<br />Survey.Section (as optional)<br />TeacherCandidateFieldworkExperience.Section (as optional)<br />TeacherCandidateStudentGrowthMeasure.Section (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32955,6 +32981,8 @@ TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33129,6 +33157,8 @@ TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33377,6 +33407,8 @@ TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33916,6 +33948,8 @@ TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
+PercentAtRisk [DECIMAL](5, 4) NULL
+PercentMobility [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33932,7 +33966,7 @@ UniqueSectionCode
             </div>
         </p>
         <p>
-            <h2>SectionSurveyQuestionResponseFact</h2>
+            <h2>SectionSurveyQuestionResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -33947,11 +33981,11 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />SectionSurveyResponseFact (identity)<br />SurveyQuestion (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />AggregatedSurveyQuestionMatrixElementResponse (optional collection)<br />SectionSurveyResponseFacts (identity)<br />SurveyQuestion (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionSurveyQuestionResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionSurveyQuestionResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey question response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -33961,7 +33995,7 @@ UniqueSectionCode
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;SectionSurveyResponseFactReference&quot; type=&quot;EXTENSION-SectionSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;SectionSurveyResponseFactsReference&quot; type=&quot;EXTENSION-SectionSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the aggregated section survey response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -33988,7 +34022,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.SectionSurveyQuestionResponseFact
+                <div><pre>extension.SectionSurveyQuestionResponseFacts
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
@@ -34017,7 +34051,7 @@ SequenceOfCourse
 SurveyIdentifier
 TermDescriptorId
 UniqueSectionCode
-<br />extension.SectionSurveyQuestionResponseFactAggregatedNumericResponse
+<br />extension.SectionSurveyQuestionResponseFactsAggregatedNumericResponse
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
@@ -34047,7 +34081,7 @@ SequenceOfCourse
 SurveyIdentifier
 TermDescriptorId
 UniqueSectionCode
-<br />extension.SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse
+<br />extension.SectionSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse
 
 AggregatedMatrixElement [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
@@ -34084,7 +34118,7 @@ UniqueSectionCode
             </div>
         </p>
         <p>
-            <h2>SectionSurveyResponseFact</h2>
+            <h2>SectionSurveyResponseFacts</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -34099,11 +34133,11 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFact.SectionSurveyResponseFact (as identity)<br />SectionSurveySectionResponseRatingFact.SectionSurveyResponseFact (as required)</div>
+                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFacts.SectionSurveyResponseFacts (as identity)<br />SectionSurveySectionResponseRatingFact.SectionSurveyResponseFacts (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionSurveyResponseFact&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionSurveyResponseFacts&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Survey response data provided at the aggregate level.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -34135,7 +34169,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.SectionSurveyResponseFact
+                <div><pre>extension.SectionSurveyResponseFacts
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
@@ -34181,7 +34215,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />SectionSurveyResponseFact (required)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />SectionSurveyResponseFacts (required)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -34195,7 +34229,7 @@ UniqueSectionCode
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;SectionSurveyResponseFactReference&quot; type=&quot;EXTENSION-SectionSurveyResponseFactReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;SectionSurveyResponseFactsReference&quot; type=&quot;EXTENSION-SectionSurveyResponseFactsReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Reference to the Aggregated Survey Response.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -37138,7 +37172,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (optional)<br />EducationOrganization (optional)<br />Program (optional)<br />SchoolYear (required)<br />Section (optional)<br />SurveyCategory (optional)<br />SurveyIdentifier (identity)<br />SurveyTitle (required)<br />Term (optional)<br /><br />Used By:<br />CourseSurveyResponseFact.Survey (as required)<br />EducationOrganizationSurveyResponseFact.Survey (as identity)<br />SectionSurveyResponseFact.Survey (as identity)<br />SurveyQuestion.Survey (as identity)<br />SurveyResponse.Survey (as identity)<br />SurveySection.Survey (as identity)</div>
+                <div><br />Contains:<br />Course (optional)<br />EducationOrganization (optional)<br />Program (optional)<br />SchoolYear (required)<br />Section (optional)<br />SurveyCategory (optional)<br />SurveyIdentifier (identity)<br />SurveyTitle (required)<br />Term (optional)<br /><br />Used By:<br />CourseSurveyResponseFacts.Survey (as required)<br />EducationOrganizationSurveyResponseFacts.Survey (as identity)<br />SectionSurveyResponseFacts.Survey (as identity)<br />SurveyQuestion.Survey (as identity)<br />SurveyResponse.Survey (as identity)<br />SurveySection.Survey (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37252,7 +37286,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Matrix (optional collection)<br />NumericChoice (optional collection)<br />QuestionCode (identity)<br />QuestionForm (required)<br />QuestionText (required)<br />Survey (identity)<br />SurveySection (required)<br />TextChoice (optional collection)<br /><br />Used By:<br />CourseSurveyQuestionResponseFact.SurveyQuestion (as identity)<br />EducationOrganizationSurveyQuestionResponseFact.SurveyQuestion (as identity)<br />SectionSurveyQuestionResponseFact.SurveyQuestion (as identity)<br />SurveyQuestionResponse.SurveyQuestion (as identity)</div>
+                <div><br />Contains:<br />Matrix (optional collection)<br />NumericChoice (optional collection)<br />QuestionCode (identity)<br />QuestionForm (required)<br />QuestionText (required)<br />Survey (identity)<br />SurveySection (required)<br />TextChoice (optional collection)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />EducationOrganizationSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SectionSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SurveyQuestionResponse.SurveyQuestion (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -43880,7 +43914,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFact.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFact.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />StaffStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />StaffStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -46525,6 +46559,33 @@ VisaTypeId
             </div>
         </p>
         <p>
+            <h2>PercentMobility</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The average number of times a student moves schools during a school year.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StudentsEnrolled.PercentMobility (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>PercentMobility [INT]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>PerformanceLevelMetNumber</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -47360,7 +47421,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelTypePercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />DisabilityByType.Percentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />TotalStudentsDisabled.StudentsDisabledPercentage (as optional)</div>
+                <div><br />Used By:<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelTypePercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />DisabilityByType.Percentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />StudentsEnrolled.PercentAtRisk (as optional)<br />TotalStudentsDisabled.StudentsDisabledPercentage (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

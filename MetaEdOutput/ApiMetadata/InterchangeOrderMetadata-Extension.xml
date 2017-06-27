@@ -88,7 +88,7 @@
     <Element name="PerformanceMeasureFacts" />
     <Element name="RubricLevel" />
     <Element name="RubricLevelResponse" />
-    <Element name="RubricLevelResponseFact" />
+    <Element name="RubricLevelResponseFacts" />
   </Interchange>
   <Interchange name="Standards" order="20">
     <Element name="LearningStandard" />
@@ -215,17 +215,17 @@
   </Interchange>
   <Interchange name="Survey" order="100">
     <Element name="Survey" />
-    <Element name="CourseSurveyResponseFact" />
+    <Element name="CourseSurveyResponseFacts" />
     <Element name="SurveySection" />
     <Element name="CourseSurveySectionResponseRatingFact" />
     <Element name="SurveyQuestion" />
-    <Element name="CourseSurveyQuestionResponseFact" />
-    <Element name="EducationOrganizationSurveyResponseFact" />
+    <Element name="CourseSurveyQuestionResponseFacts" />
+    <Element name="EducationOrganizationSurveyResponseFacts" />
     <Element name="EducationOrganizationSurveySectionResponseRatingFact" />
-    <Element name="EducationOrganizationSurveyQuestionResponseFact" />
-    <Element name="SectionSurveyResponseFact" />
+    <Element name="EducationOrganizationSurveyQuestionResponseFacts" />
+    <Element name="SectionSurveyResponseFacts" />
     <Element name="SectionSurveySectionResponseRatingFact" />
-    <Element name="SectionSurveyQuestionResponseFact" />
+    <Element name="SectionSurveyQuestionResponseFacts" />
     <Element name="SurveyResponse" />
     <Element name="SurveyQuestionResponse" />
     <Element name="SurveySectionResponseRating" />

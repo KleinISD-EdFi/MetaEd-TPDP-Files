@@ -1,12 +1,12 @@
 Domain Entity SectionSurveySectionResponseRatingFact
   documentation "Responses to survey sections collected at the aggregate level."
-  domain entity SectionSurveyResponseFact
+  domain entity SectionSurveyResponseFacts
     documentation "Reference to the Aggregated Survey Response."
     is required
   domain entity SurveySection
     documentation "Reference to the Survey Section."
     is part of identity
-    merge SurveySection.Survey with SectionSurveyResponseFact.Survey
+    merge SurveySection.Survey with SectionSurveyResponseFacts.Survey
   common AggregatedNumericResponse
     documentation "The average of the numeric responses to survey sections collected at the aggregate level."
     is required

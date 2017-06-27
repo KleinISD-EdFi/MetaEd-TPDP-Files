@@ -10,8 +10,8 @@ Domain TeacherPreparation
     domain entity CourseStudentAcademicRecordFacts
     domain entity CourseStudentAssessmentFacts
     domain entity CourseStudentFacts
-    domain entity CourseSurveyQuestionResponseFact
-    domain entity CourseSurveyResponseFact
+    domain entity CourseSurveyQuestionResponseFacts
+    domain entity CourseSurveyResponseFacts
     domain entity CourseSurveySectionResponseRatingFact
     domain entity Credential
     domain entity EducationOrganizationCourseTranscriptFacts
@@ -19,8 +19,8 @@ Domain TeacherPreparation
     domain entity EducationOrganizationStudentAcademicRecordFacts
     domain entity EducationOrganizationStudentAssessmentFacts
     domain entity EducationOrganizationStudentFacts
-    domain entity EducationOrganizationSurveyQuestionResponseFact
-    domain entity EducationOrganizationSurveyResponseFact
+    domain entity EducationOrganizationSurveyQuestionResponseFacts
+    domain entity EducationOrganizationSurveyResponseFacts
     domain entity EducationOrganizationSurveySectionResponseRatingFact
     domain entity ExternalCourseTranscript
     domain entity ExternalEducationOrganization
@@ -35,14 +35,14 @@ Domain TeacherPreparation
     domain entity Rubric
     domain entity RubricLevel
     domain entity RubricLevelResponse
-    domain entity RubricLevelResponseFact
+    domain entity RubricLevelResponseFacts
     domain entity School
     domain entity SectionCourseTranscriptFacts
     domain entity SectionStudentAcademicRecordFacts
     domain entity SectionStudentAssessmentFacts
     domain entity SectionStudentFacts
-    domain entity SectionSurveyQuestionResponseFact
-    domain entity SectionSurveyResponseFact
+    domain entity SectionSurveyQuestionResponseFacts
+    domain entity SectionSurveyResponseFacts
     domain entity SectionSurveySectionResponseRatingFact
     domain entity Staff
     domain entity StaffFieldworkAbsenceEvent

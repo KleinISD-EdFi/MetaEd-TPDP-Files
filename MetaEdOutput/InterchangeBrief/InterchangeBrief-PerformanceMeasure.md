@@ -23,12 +23,12 @@ The following table describes the primary entities of which the Performance Meas
 
 | Name | Description |
 |----------|-----------------|
-| PerformanceMeasure | The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation. |
-| PerformanceMeasureFacts | This entity represents aggregated information regarding observation data. |
+| PerformanceMeasure | Information about the performance measure |
+| PerformanceMeasureFacts | This entity represents aggregated information regarding performance measure data. |
 | Rubric | This entity represents the rubric used to conduct the observation. |
 | RubricLevel | This entity represents the level of the rubric. |
 | RubricLevelResponse | This entity represents the response to the rubric level. |
-| RubricLevelResponseFact | This entity represents the rubric level response at the aggregate level. |
+| RubricLevelResponseFacts | This entity represents the rubric level response at the aggregate level. |
 
 
 

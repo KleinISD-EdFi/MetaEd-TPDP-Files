@@ -1,5 +1,5 @@
 Domain Entity PerformanceMeasureFacts
-  documentation "This entity represents aggregated information regarding observation data."
+  documentation "This entity represents aggregated information regarding performance measure data."
   domain entity Rubric
     documentation "Reference to the rubric."
     is part of identity

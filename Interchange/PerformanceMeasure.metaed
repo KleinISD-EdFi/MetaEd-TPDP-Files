@@ -5,4 +5,4 @@ Interchange PerformanceMeasure
   domain entity Rubric
   domain entity RubricLevel
   domain entity RubricLevelResponse
-  domain entity RubricLevelResponseFact
+  domain entity RubricLevelResponseFacts

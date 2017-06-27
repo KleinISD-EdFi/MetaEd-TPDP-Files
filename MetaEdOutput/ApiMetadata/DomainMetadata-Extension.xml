@@ -123,13 +123,13 @@
     <Entity table="CourseStudentFactsAggregatedTitleIEnrollment" schema="extension"/>
     <Entity table="CourseStudentFactsStudentsEnrolled" schema="extension"/>
   </Aggregate>
-  <Aggregate root="CourseSurveyQuestionResponseFact">
-    <Entity table="CourseSurveyQuestionResponseFact" schema="extension"/>
-    <Entity table="CourseSurveyQuestionResponseFactAggregatedNumericResponse" schema="extension"/>
-    <Entity table="CourseSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
+  <Aggregate root="CourseSurveyQuestionResponseFacts">
+    <Entity table="CourseSurveyQuestionResponseFacts" schema="extension"/>
+    <Entity table="CourseSurveyQuestionResponseFactsAggregatedNumericResponse" schema="extension"/>
+    <Entity table="CourseSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
   </Aggregate>
-  <Aggregate root="CourseSurveyResponseFact">
-    <Entity table="CourseSurveyResponseFact" schema="extension"/>
+  <Aggregate root="CourseSurveyResponseFacts">
+    <Entity table="CourseSurveyResponseFacts" schema="extension"/>
   </Aggregate>
   <Aggregate root="CourseSurveySectionResponseRatingFact">
     <Entity table="CourseSurveySectionResponseRatingFact" schema="extension"/>
@@ -176,13 +176,13 @@
     <Entity table="EducationOrganizationStudentFactsAggregatedTitleIEnrollment" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsStudentsEnrolled" schema="extension"/>
   </Aggregate>
-  <Aggregate root="EducationOrganizationSurveyQuestionResponseFact">
-    <Entity table="EducationOrganizationSurveyQuestionResponseFact" schema="extension"/>
-    <Entity table="EducationOrganizationSurveyQuestionResponseFactAggregatedNumericResponse" schema="extension"/>
-    <Entity table="EducationOrganizationSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
+  <Aggregate root="EducationOrganizationSurveyQuestionResponseFacts">
+    <Entity table="EducationOrganizationSurveyQuestionResponseFacts" schema="extension"/>
+    <Entity table="EducationOrganizationSurveyQuestionResponseFactsAggregatedNumericResponse" schema="extension"/>
+    <Entity table="EducationOrganizationSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
   </Aggregate>
-  <Aggregate root="EducationOrganizationSurveyResponseFact">
-    <Entity table="EducationOrganizationSurveyResponseFact" schema="extension"/>
+  <Aggregate root="EducationOrganizationSurveyResponseFacts">
+    <Entity table="EducationOrganizationSurveyResponseFacts" schema="extension"/>
   </Aggregate>
   <Aggregate root="EducationOrganizationSurveySectionResponseRatingFact">
     <Entity table="EducationOrganizationSurveySectionResponseRatingFact" schema="extension"/>
@@ -312,9 +312,9 @@
   <Aggregate root="RubricLevelResponse">
     <Entity table="RubricLevelResponse" schema="extension"/>
   </Aggregate>
-  <Aggregate root="RubricLevelResponseFact">
-    <Entity table="RubricLevelResponseFact" schema="extension"/>
-    <Entity table="RubricLevelResponseFactAggregatedNumericResponse" schema="extension"/>
+  <Aggregate root="RubricLevelResponseFacts">
+    <Entity table="RubricLevelResponseFacts" schema="extension"/>
+    <Entity table="RubricLevelResponseFactsAggregatedNumericResponse" schema="extension"/>
   </Aggregate>
   <Aggregate root="RubricType">
     <Entity table="RubricType" schema="extension"/>
@@ -370,13 +370,13 @@
     <Entity table="SectionStudentFactsAggregatedTitleIEnrollment" schema="extension"/>
     <Entity table="SectionStudentFactsStudentsEnrolled" schema="extension"/>
   </Aggregate>
-  <Aggregate root="SectionSurveyQuestionResponseFact">
-    <Entity table="SectionSurveyQuestionResponseFact" schema="extension"/>
-    <Entity table="SectionSurveyQuestionResponseFactAggregatedNumericResponse" schema="extension"/>
-    <Entity table="SectionSurveyQuestionResponseFactAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
+  <Aggregate root="SectionSurveyQuestionResponseFacts">
+    <Entity table="SectionSurveyQuestionResponseFacts" schema="extension"/>
+    <Entity table="SectionSurveyQuestionResponseFactsAggregatedNumericResponse" schema="extension"/>
+    <Entity table="SectionSurveyQuestionResponseFactsAggregatedSurveyQuestionMatrixElementResponse" schema="extension"/>
   </Aggregate>
-  <Aggregate root="SectionSurveyResponseFact">
-    <Entity table="SectionSurveyResponseFact" schema="extension"/>
+  <Aggregate root="SectionSurveyResponseFacts">
+    <Entity table="SectionSurveyResponseFacts" schema="extension"/>
   </Aggregate>
   <Aggregate root="SectionSurveySectionResponseRatingFact">
     <Entity table="SectionSurveySectionResponseRatingFact" schema="extension"/>

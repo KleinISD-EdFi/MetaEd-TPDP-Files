@@ -1,4 +1,4 @@
-Domain Entity RubricLevelResponseFact
+Domain Entity RubricLevelResponseFacts
   documentation "This entity represents the rubric level response at the aggregate level."
   domain entity PerformanceMeasureFacts
     documentation "Reference to the aggregated performance measure."

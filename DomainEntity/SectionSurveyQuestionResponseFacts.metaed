@@ -1,14 +1,14 @@
-Domain Entity EducationOrganizationSurveyQuestionResponseFact
+Domain Entity SectionSurveyQuestionResponseFacts
   documentation "Survey question response data provided at the aggregate level."
-  domain entity EducationOrganizationSurveyResponseFact
-    documentation "Reference to the aggregated education organization survey response."
+  domain entity SectionSurveyResponseFacts
+    documentation "Reference to the aggregated section survey response."
     is part of identity
     is queryable field
   domain entity SurveyQuestion
     documentation "Reference to the associated Survey Question."
     is part of identity
     is queryable field
-    merge SurveyQuestion.Survey with EducationOrganizationSurveyResponseFact.Survey
+    merge SurveyQuestion.Survey with SectionSurveyResponseFacts.Survey
   common AggregatedNumericResponse
     documentation "Numeric response survey data provided at the aggregate level."
     is optional

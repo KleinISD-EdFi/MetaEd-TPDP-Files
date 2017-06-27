@@ -18,8 +18,8 @@
 | CourseStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | CourseStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
 | CourseStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching	AggregatedStudentFact |
-| CourseSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
-| CourseSurveyResponseFact | Survey response data provided at the aggregate level. |
+| CourseSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
+| CourseSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | CourseSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
 | Credential | The legal document giving authorization to perform teaching assignment services. |
 | EducationOrganizationCourseTranscriptFacts | Data about the final letter grade earned of the group |
@@ -27,15 +27,15 @@
 | EducationOrganizationStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | EducationOrganizationStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
 | EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
-| EducationOrganizationSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
-| EducationOrganizationSurveyResponseFact | Survey response data provided at the aggregate level. |
+| EducationOrganizationSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
+| EducationOrganizationSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | EducationOrganizationSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
 | ExternalCourseTranscript | This entity is the final record of a student's performance in their courses at the end of a semester or school year of an ExternalEducationOrgnaization. |
 | ExternalEducationOrganization | This entity represents any external public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. This entity is provided to refer to organizations about which local school and districts have little to no information. |
 | ExternalStudentAcademicRecord | This educational entity represents the cumulative record of academic achievement for a student that is being collected from an extrnal education organization about which local school and districts have little to no information. |
 | GradebookEntry |  |
-| PerformanceMeasure | The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation. |
-| PerformanceMeasureFacts | This entity represents aggregated information regarding observation data. |
+| PerformanceMeasure | Information about the performance measure |
+| PerformanceMeasureFacts | This entity represents aggregated information regarding performance measure data. |
 | ProfessionalDevelopmentEvent | Information about a professional development event. |
 | Prospect | A prospect for employment or contract that has not yet made formal application, often obtained from job fairs or university recruiting visits. |
 | ProspectProfessionalDevelopmentEventAttendance | This event entity represents the recording of whether a prospect is in attendance for professional development. |
@@ -43,14 +43,14 @@
 | Rubric | This entity represents the rubric used to conduct the observation. |
 | RubricLevel | This entity represents the level of the rubric. |
 | RubricLevelResponse | This entity represents the response to the rubric level. |
-| RubricLevelResponseFact | This entity represents the rubric level response at the aggregate level. |
+| RubricLevelResponseFacts | This entity represents the rubric level response at the aggregate level. |
 | School |  |
 | SectionCourseTranscriptFacts | Data about the final letter grade earned of the group |
 | SectionStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
 | SectionStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
-| SectionSurveyQuestionResponseFact | Survey question response data provided at the aggregate level. |
-| SectionSurveyResponseFact | Survey response data provided at the aggregate level. |
+| SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
+| SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | SectionSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
 | Staff |  |
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |

@@ -764,7 +764,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFact">
+  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey question response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -774,7 +774,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="CourseSurveyResponseFactReference" type="EXTENSION-CourseSurveyResponseFactReferenceType">
+          <xs:element name="CourseSurveyResponseFactsReference" type="EXTENSION-CourseSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the aggregated course survey response.</xs:documentation>
             </xs:annotation>
@@ -798,7 +798,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyResponseFact">
+  <xs:complexType name="EXTENSION-CourseSurveyResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -842,7 +842,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="CourseSurveyResponseFactReference" type="EXTENSION-CourseSurveyResponseFactReferenceType">
+          <xs:element name="CourseSurveyResponseFactsReference" type="EXTENSION-CourseSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Aggregated Survey Response.</xs:documentation>
             </xs:annotation>
@@ -1221,7 +1221,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFact">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey question response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -1231,7 +1231,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationSurveyResponseFactReference" type="EXTENSION-EducationOrganizationSurveyResponseFactReferenceType">
+          <xs:element name="EducationOrganizationSurveyResponseFactsReference" type="EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the aggregated education organization survey response.</xs:documentation>
             </xs:annotation>
@@ -1255,7 +1255,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFact">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -1299,7 +1299,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationSurveyResponseFactReference" type="EXTENSION-EducationOrganizationSurveyResponseFactReferenceType">
+          <xs:element name="EducationOrganizationSurveyResponseFactsReference" type="EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Aggregated Survey Response.</xs:documentation>
             </xs:annotation>
@@ -1642,7 +1642,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-PerformanceMeasure">
     <xs:annotation>
-      <xs:documentation>The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation.</xs:documentation>
+      <xs:documentation>Information about the performance measure</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -1736,7 +1736,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-PerformanceMeasureFacts">
     <xs:annotation>
-      <xs:documentation>This entity represents aggregated information regarding observation data.</xs:documentation>
+      <xs:documentation>This entity represents aggregated information regarding performance measure data.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2156,7 +2156,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-RubricLevelResponseFact">
+  <xs:complexType name="EXTENSION-RubricLevelResponseFacts">
     <xs:annotation>
       <xs:documentation>This entity represents the rubric level response at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -2467,7 +2467,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFact">
+  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey question response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -2477,7 +2477,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="SectionSurveyResponseFactReference" type="EXTENSION-SectionSurveyResponseFactReferenceType">
+          <xs:element name="SectionSurveyResponseFactsReference" type="EXTENSION-SectionSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the aggregated section survey response.</xs:documentation>
             </xs:annotation>
@@ -2501,7 +2501,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyResponseFact">
+  <xs:complexType name="EXTENSION-SectionSurveyResponseFacts">
     <xs:annotation>
       <xs:documentation>Survey response data provided at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -2540,7 +2540,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="SectionSurveyResponseFactReference" type="EXTENSION-SectionSurveyResponseFactReferenceType">
+          <xs:element name="SectionSurveyResponseFactsReference" type="EXTENSION-SectionSurveyResponseFactsReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Aggregated Survey Response.</xs:documentation>
             </xs:annotation>
@@ -4926,15 +4926,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyQuestionResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyQuestionResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="CourseSurveyResponseFactReference" type="EXTENSION-CourseSurveyResponseFactReferenceType">
+      <xs:element name="CourseSurveyResponseFactsReference" type="EXTENSION-CourseSurveyResponseFactsReferenceType">
         <xs:annotation>
           <xs:documentation>Reference to the aggregated course survey response.</xs:documentation>
         </xs:annotation>
@@ -4946,9 +4946,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-CourseSurveyQuestionResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a CourseSurveyQuestionResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a CourseSurveyQuestionResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -4956,18 +4956,18 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="CourseSurveyQuestionResponseFactIdentity" type="EXTENSION-CourseSurveyQuestionResponseFactIdentityType" minOccurs="0">
+          <xs:element name="CourseSurveyQuestionResponseFactsIdentity" type="EXTENSION-CourseSurveyQuestionResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyQuestionResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyQuestionResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-CourseSurveyResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -4985,9 +4985,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveyResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-CourseSurveyResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a CourseSurveyResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a CourseSurveyResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -4995,9 +4995,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="CourseSurveyResponseFactIdentity" type="EXTENSION-CourseSurveyResponseFactIdentityType" minOccurs="0">
+          <xs:element name="CourseSurveyResponseFactsIdentity" type="EXTENSION-CourseSurveyResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a CourseSurveyResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -5256,15 +5256,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyQuestionResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyQuestionResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EducationOrganizationSurveyResponseFactReference" type="EXTENSION-EducationOrganizationSurveyResponseFactReferenceType">
+      <xs:element name="EducationOrganizationSurveyResponseFactsReference" type="EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType">
         <xs:annotation>
           <xs:documentation>Reference to the aggregated education organization survey response.</xs:documentation>
         </xs:annotation>
@@ -5276,9 +5276,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyQuestionResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for an EducationOrganizationSurveyQuestionResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for an EducationOrganizationSurveyQuestionResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -5286,18 +5286,18 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationSurveyQuestionResponseFactIdentity" type="EXTENSION-EducationOrganizationSurveyQuestionResponseFactIdentityType" minOccurs="0">
+          <xs:element name="EducationOrganizationSurveyQuestionResponseFactsIdentity" type="EXTENSION-EducationOrganizationSurveyQuestionResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyQuestionResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyQuestionResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -5320,9 +5320,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveyResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for an EducationOrganizationSurveyResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for an EducationOrganizationSurveyResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -5330,9 +5330,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationSurveyResponseFactIdentity" type="EXTENSION-EducationOrganizationSurveyResponseFactIdentityType" minOccurs="0">
+          <xs:element name="EducationOrganizationSurveyResponseFactsIdentity" type="EXTENSION-EducationOrganizationSurveyResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of an EducationOrganizationSurveyResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -5796,9 +5796,9 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-RubricLevelResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-RubricLevelResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a RubricLevelResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a RubricLevelResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -5816,9 +5816,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-RubricLevelResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-RubricLevelResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a RubricLevelResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a RubricLevelResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -5826,9 +5826,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="RubricLevelResponseFactIdentity" type="EXTENSION-RubricLevelResponseFactIdentityType" minOccurs="0">
+          <xs:element name="RubricLevelResponseFactsIdentity" type="EXTENSION-RubricLevelResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a RubricLevelResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a RubricLevelResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -6054,15 +6054,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyQuestionResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyQuestionResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="SectionSurveyResponseFactReference" type="EXTENSION-SectionSurveyResponseFactReferenceType">
+      <xs:element name="SectionSurveyResponseFactsReference" type="EXTENSION-SectionSurveyResponseFactsReferenceType">
         <xs:annotation>
           <xs:documentation>Reference to the aggregated section survey response.</xs:documentation>
         </xs:annotation>
@@ -6074,9 +6074,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-SectionSurveyQuestionResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a SectionSurveyQuestionResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a SectionSurveyQuestionResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -6084,18 +6084,18 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="SectionSurveyQuestionResponseFactIdentity" type="EXTENSION-SectionSurveyQuestionResponseFactIdentityType" minOccurs="0">
+          <xs:element name="SectionSurveyQuestionResponseFactsIdentity" type="EXTENSION-SectionSurveyQuestionResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyQuestionResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyQuestionResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyResponseFactIdentityType">
+  <xs:complexType name="EXTENSION-SectionSurveyResponseFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyResponseFact.</xs:documentation>
+      <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyResponseFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -6118,9 +6118,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveyResponseFactReferenceType">
+  <xs:complexType name="EXTENSION-SectionSurveyResponseFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a SectionSurveyResponseFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a SectionSurveyResponseFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -6128,9 +6128,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="SectionSurveyResponseFactIdentity" type="EXTENSION-SectionSurveyResponseFactIdentityType" minOccurs="0">
+          <xs:element name="SectionSurveyResponseFactsIdentity" type="EXTENSION-SectionSurveyResponseFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyResponseFact.</xs:documentation>
+              <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a SectionSurveyResponseFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -8928,6 +8928,16 @@
       <xs:element name="NumberStudentsEnrolled" type="xs:int" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The total number of student enrolled in the respective Section</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PercentAtRisk" type="Percent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The percent of students who have been identified as at risk.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PercentMobility" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The average number of times a student moves schools during a school year.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

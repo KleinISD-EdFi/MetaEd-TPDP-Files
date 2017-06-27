@@ -1,5 +1,5 @@
 Domain Entity PerformanceMeasure
-  documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of an observation."
+  documentation "Information about the performance measure"
   shared string ObservationIdentifier
     documentation "An assigned unique identifier for the observation instance."
     is part of identity
