@@ -9,11 +9,6 @@ Domain Entity TeacherCandidateStudentGrowthMeasure
   date FactAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity
-  enumeration SchoolYear
-    documentation "The school year for which the data is associated"
-    is optional
-    with context StudentGrowthReport
-    shorten to StudentGrowthReportYear
   date StudentGrowthMeasureDate
     documentation "The date for which the student growth is measured"
     is optional

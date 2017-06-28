@@ -7561,6 +7561,8 @@ CREATE TABLE [extension].[RubricLevelResponse](
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [NumericResponse] [INT] NOT NULL,
     [TextResponse] [NVARCHAR](255) NULL,
+    [AreaOfRefinement] [BIT] NULL,
+    [AreaOfReinforcement] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -7595,6 +7597,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The score for the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'NumericResponse'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The text response(s) for the question.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'TextResponse'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator that the rubric component is an area of refinement.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'AreaOfRefinement'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator that the rubric component is an area of reinforcement.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'AreaOfReinforcement'
 GO
 
 
@@ -10658,7 +10664,6 @@ CREATE TABLE [extension].[StaffStudentGrowthMeasure](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [StaffUSI] [INT] NOT NULL,
-    [StudentGrowthReportYearSchoolYear] [SMALLINT] NULL,
     [StudentGrowthMeasureDate] [DATE] NULL,
     [ResultDatatypeTypeId] [INT] NULL,
     [StudentGrowthTypeDescriptorId] [INT] NULL,
@@ -10690,8 +10695,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthReportYearSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the student growth is measured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMeasureDate'
 GO
@@ -12384,7 +12387,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [StudentGrowthReportYearSchoolYear] [SMALLINT] NULL,
     [StudentGrowthMeasureDate] [DATE] NULL,
     [ResultDatatypeTypeId] [INT] NULL,
     [StudentGrowthTypeDescriptorId] [INT] NULL,
@@ -12416,8 +12418,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthReportYearSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the student growth is measured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMeasureDate'
 GO
@@ -18772,16 +18772,6 @@ CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasure_SchoolYearType]
 ON [extension].[StaffStudentGrowthMeasure]([SchoolYear] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasure_SchoolYearType1] FOREIGN KEY ([StudentGrowthReportYearSchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasure_SchoolYearType1]
-ON [extension].[StaffStudentGrowthMeasure]([StudentGrowthReportYearSchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[StaffStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasure_Staff] FOREIGN KEY ([StaffUSI])
 REFERENCES [edfi].[Staff] ([StaffUSI])
 
@@ -19788,16 +19778,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_SchoolYearType]
 ON [extension].[TeacherCandidateStudentGrowthMeasure]([SchoolYear] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_SchoolYearType1] FOREIGN KEY ([StudentGrowthReportYearSchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_SchoolYearType1]
-ON [extension].[TeacherCandidateStudentGrowthMeasure]([StudentGrowthReportYearSchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_StudentGrowthTypeDescriptor] FOREIGN KEY ([StudentGrowthTypeDescriptorId])

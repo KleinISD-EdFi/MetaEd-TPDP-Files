@@ -14,3 +14,9 @@ Domain Entity RubricLevelResponse
   shared string TextResponse
     documentation "The text response(s) for the question."
     is optional
+  bool AreaOfRefinement
+    documentation "Indicator that the rubric component is an area of refinement."
+    is optional
+  bool AreaOfReinforcement
+    documentation "Indicator that the rubric component is an area of reinforcement."
+    is optional

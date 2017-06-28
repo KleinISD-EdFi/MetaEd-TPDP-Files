@@ -3067,7 +3067,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Level.AreaOfRefinement (as optional)</div>
+                <div><br />Used By:<br />RubricLevelResponse.AreaOfRefinement (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -3098,7 +3098,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Level.AreaOfReinforcement (as optional)</div>
+                <div><br />Used By:<br />RubricLevelResponse.AreaOfReinforcement (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8635,7 +8635,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AreaOfRefinement (optional)<br />AreaOfReinforcement (optional)<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.Level (as required)</div>
+                <div><br />Contains:<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.Level (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8663,16 +8663,6 @@ StudentUSI
     &lt;xs:element name=&quot;LevelDescription&quot; type=&quot;EXTENSION-LevelDescription&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The description of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;AreaOfRefinement&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;Indicator that the rubric component is an area of refinement.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;AreaOfReinforcement&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;Indicator that the rubric component is an area of reinforcement.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
     &lt;xs:element name=&quot;MinimumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
@@ -32605,8 +32595,6 @@ RubricTypeDescriptorId [INT] NOT NULL
 LevelTypeDescriptorId [INT] NOT NULL
 LevelTitle [NVARCHAR](15) NOT NULL
 LevelDescription [NVARCHAR](255) NULL
-AreaOfRefinement [BIT] NULL
-AreaOfReinforcement [BIT] NULL
 MinimumScore [NVARCHAR](35) NULL
 MaximumScore [NVARCHAR](35) NULL
 CreateDate [DATETIME] NOT NULL
@@ -32650,7 +32638,7 @@ ThemeTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />NumericResponse (required)<br />PerformanceMeasure (identity)<br />RubricLevel (identity)<br />TextResponse (optional)<br /></div>
+                <div><br />Contains:<br />AreaOfRefinement (optional)<br />AreaOfReinforcement (optional)<br />NumericResponse (required)<br />PerformanceMeasure (identity)<br />RubricLevel (identity)<br />TextResponse (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32684,6 +32672,16 @@ ThemeTypeDescriptorId
             &lt;xs:documentation&gt;The text response(s) for the question.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AreaOfRefinement&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicator that the rubric component is an area of refinement.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AreaOfReinforcement&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicator that the rubric component is an area of reinforcement.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -32700,6 +32698,8 @@ RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 NumericResponse [INT] NOT NULL
 TextResponse [NVARCHAR](255) NULL
+AreaOfRefinement [BIT] NULL
+AreaOfReinforcement [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -35505,7 +35505,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />Staff (identity)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthReportSchoolYear (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br /></div>
+                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />Staff (identity)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35532,11 +35532,6 @@ StaffUSI
         &lt;xs:element name=&quot;FactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;StudentGrowthReportSchoolYear&quot; type=&quot;SchoolYearType&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;StudentGrowthMeasureDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
@@ -35604,7 +35599,6 @@ StaffUSI
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 StaffUSI [INT] NOT NULL
-StudentGrowthReportYearSchoolYear [SMALLINT] NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
 StudentGrowthTypeDescriptorId [INT] NULL
@@ -38343,7 +38337,7 @@ TeacherCandidateUniqueId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthReportSchoolYear (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br />TeacherCandidate (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -38370,11 +38364,6 @@ TeacherCandidateUniqueId
         &lt;xs:element name=&quot;FactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;StudentGrowthReportSchoolYear&quot; type=&quot;SchoolYearType&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;StudentGrowthMeasureDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
@@ -38442,7 +38431,6 @@ TeacherCandidateUniqueId
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
-StudentGrowthReportYearSchoolYear [SMALLINT] NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
 StudentGrowthTypeDescriptorId [INT] NULL
@@ -44202,7 +44190,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />StaffStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.StudentGrowthReportSchoolYear (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

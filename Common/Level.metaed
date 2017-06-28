@@ -9,12 +9,6 @@ Common Level
   shared string LevelDescription
     documentation "The description of the level of the rubric at which the data is captured."
     is optional
-  bool AreaOfRefinement
-    documentation "Indicator that the rubric component is an area of refinement."
-    is optional
-  bool AreaOfReinforcement
-    documentation "Indicator that the rubric component is an area of reinforcement."
-    is optional
   shared string Result named MinimumScore
     documentation "The minimum score for the level of the rubic."
     is optional
