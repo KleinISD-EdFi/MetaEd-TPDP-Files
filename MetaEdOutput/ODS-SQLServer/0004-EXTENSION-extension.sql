@@ -6287,8 +6287,8 @@ GO
 
 CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
     [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
-    [FirstNameOfObservee] [NVARCHAR](75) NOT NULL,
-    [LastNameOfObservee] [NVARCHAR](75) NOT NULL,
+    [FirstName] [NVARCHAR](75) NOT NULL,
+    [LastSurname] [NVARCHAR](75) NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
     [EducationOrganizationId] [INT] NULL,
     [StaffUSI] [INT] NULL,
@@ -6306,9 +6306,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information re
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'FirstNameOfObservee'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'FirstName'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'LastNameOfObservee'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'LastSurname'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO

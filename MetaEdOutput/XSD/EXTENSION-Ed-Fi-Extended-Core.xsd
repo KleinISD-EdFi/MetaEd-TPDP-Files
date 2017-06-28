@@ -8690,12 +8690,12 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="FirstNameOfObservee" type="FirstName">
+      <xs:element name="FirstName" type="FirstName">
         <xs:annotation>
           <xs:documentation>A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="LastNameOfObservee" type="LastSurname">
+      <xs:element name="LastSurname" type="LastSurname">
         <xs:annotation>
           <xs:documentation>The name borne in common by members of a family.</xs:documentation>
         </xs:annotation>

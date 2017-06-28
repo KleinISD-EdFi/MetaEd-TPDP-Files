@@ -9040,7 +9040,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstNameOfObservee (required)<br />LastNameOfObservee (required)<br />PersonBeingReviewedChoice (optional)<br /><br />Used By:<br />PerformanceMeasure.PersonBeingReviewed (as optional)</div>
+                <div><br />Contains:<br />FirstName (required)<br />LastSurname (required)<br />PersonBeingReviewedChoice (optional)<br /><br />Used By:<br />PerformanceMeasure.PersonBeingReviewed (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9052,12 +9052,12 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;FirstNameOfObservee&quot; type=&quot;FirstName&quot;&gt;
+    &lt;xs:element name=&quot;FirstName&quot; type=&quot;FirstName&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LastNameOfObservee&quot; type=&quot;LastSurname&quot;&gt;
+    &lt;xs:element name=&quot;LastSurname&quot; type=&quot;LastSurname&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The name borne in common by members of a family.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -30998,8 +30998,8 @@ PerformanceMeasureIdentifier
 <br />extension.PerformanceMeasurePersonBeingReviewed
 
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
-FirstNameOfObservee [NVARCHAR](75) NOT NULL
-LastNameOfObservee [NVARCHAR](75) NOT NULL
+FirstName [NVARCHAR](75) NOT NULL
+LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
@@ -50167,7 +50167,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstNameOfObservee (as required)<br />Reviewer.FirstName (as identity)</div>
+                <div><br />Used By:<br />Name.FirstName (as required)<br />OtherName.FirstName (as required)<br />PersonBeingReviewed.FirstName (as required)<br />Reviewer.FirstName (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50670,7 +50670,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastNameOfObservee (as required)<br />Reviewer.LastSurname (as identity)</div>
+                <div><br />Used By:<br />Name.LastSurname (as required)<br />Name.MaidenName (as optional)<br />OtherName.LastSurname (as required)<br />PersonBeingReviewed.LastSurname (as required)<br />Reviewer.LastSurname (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
