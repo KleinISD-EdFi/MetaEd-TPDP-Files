@@ -23,16 +23,11 @@ The following table describes the primary entities of which the Teacher Candidat
 
 | Name | Description |
 |----------|-----------------|
-| AnonymizedStudentAcademicRecord | The academic record for an anonymized student |
-| AnonymizedStudentCourseAssociation | Information about the association between an anonymized student and the course they are enrolled in |
-| AnonymizedStudentCourseTranscript | The date for which the data element is relevant |
-| AnonymizedStudentEducationOrganizationAssociation | Information about the association between an anonymized student and the Education Organziation they are enrolled in |
-| AnonymizedStudentSectionAssociation | Information about the association between an anonymized student and the Section they are enrolled in |
-| StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidate | This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program. |
 | TeacherCandidateAcademicRecord | This educational entity represents the cumulative record of academic achievement for a teacher candidate. |
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
+| TeacherCandidateStaffAssociation | This association associates teacher candidates to a staff member. |
 | TeacherCandidateTeacherPreparationProviderProgramAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
 
 
@@ -44,21 +39,12 @@ This interchange includes the following Extended References.
 
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
-| AnonymizedStudentReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
-| AnonymizedStudentReference (in AnonymizedStudentCourseAssociation) | Required.  The Anonymized Student reference for the association |
-| AnonymizedStudentReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Anonymized Student reference for the association |
-| AnonymizedStudentReference (in AnonymizedStudentSectionAssociation) | Required.  The Anonymozed Student reference for the association |
-| CourseReference (in AnonymizedStudentCourseAssociation) | Required.  The Course reference for the assocation |
-| CourseReference (in AnonymizedStudentCourseTranscript) | Required.  The course recorded in the course transcript entry. |
-| EducationOrganizationReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
-| EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the assocation |
 | EducationOrganizationReference (in StudentAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
 | ReportCardReference (in StudentAcademicRecord) | Optional.  Report cards for the student. |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
-| SectionReference (in AnonymizedStudentSectionAssociation) | Required.  The Section reference for the assocation |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
-| StaffReference (in StaffFieldworkAbsenceEvent) | Required.  The staff associated with this absence event |
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
+| StaffReference (in TeacherCandidateStaffAssociation) | Required.  The staff associated with the teacher candidate. |
 | TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Reference to the Teacher Preparation Provider Program |
 
 
@@ -69,7 +55,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 
 | Descriptor Name | Description |
 |---------------------|-----------------|
-| AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AchievementCategoryDescriptor | Optional.  This descriptor defines the category of achievement attributed to the learner. |
 | AidTypeDescriptor | Optional.  The classification of financial aid awarded to a person for the academic term/year. |
 | BackgroundCheckStatusDescriptor | Optional.  This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |

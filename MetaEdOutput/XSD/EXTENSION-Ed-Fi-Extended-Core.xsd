@@ -120,6 +120,16 @@
               <xs:documentation>Data about the enrollment in Title I of the student</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="AtriskIndicator" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indicator that identifies if the student has been flagged as being at risk according to the District's definition of at risk.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Mobility" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The number of times a student has moved schools during the current school year.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -460,6 +470,11 @@
           <xs:element name="Aid" type="EXTENSION-Aid" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>(TPDP Extension) This entity represents the financial aid a person is awarded.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ScoreResult" type="ScoreResult" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -832,7 +847,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFact">
+  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFacts">
     <xs:annotation>
       <xs:documentation>Responses to survey sections collected at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -983,6 +998,11 @@
           <xs:element name="AggregatedSalary" type="EXTENSION-AggregatedSalary" minOccurs="0">
             <xs:annotation>
               <xs:documentation>(TPDP Extension) Salary information collected at the aggregate level.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AverageYearsInDistrictEmployed" type="NumberOfYears" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>(TPDP Extension) The average number of years that all staff have been employed in the current district of employment.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1289,7 +1309,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFact">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFacts">
     <xs:annotation>
       <xs:documentation>Responses to survey sections collected at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -1650,9 +1670,9 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="ObservationIdentifier" type="EXTENSION-ObservationIdentifier">
+          <xs:element name="PerformanceMeasureIdentifier" type="EXTENSION-PerformanceMeasureIdentifier">
             <xs:annotation>
-              <xs:documentation>An assigned unique identifier for the observation instance.</xs:documentation>
+              <xs:documentation>An assigned unique identifier for the performance measure instance.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="PerformanceMeasureType" type="EXTENSION-PerformanceMeasureTypeDescriptorReferenceType">
@@ -1700,34 +1720,54 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Observee" type="EXTENSION-Observee" minOccurs="0">
+          <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Information regarding the observee of the observation.</xs:documentation>
+              <xs:documentation>The course offered by the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Observer" type="EXTENSION-Observer" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="PersonBeingReviewed" type="EXTENSION-PersonBeingReviewed" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The person that conducted the observation.</xs:documentation>
+              <xs:documentation>Information regarding the person taking the performance measure.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ScheduleDateOfObservation" type="xs:date" minOccurs="0">
+          <xs:element name="Reviewer" type="EXTENSION-Reviewer" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>The month, day, and year on which the observation was scheduled to be conducted.</xs:documentation>
+              <xs:documentation>The person that conducted the performance measure.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ActualDateOfObservation" type="xs:date">
+          <xs:element name="ScheduleDateOfPerformanceMeasure" type="xs:date" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The month, day, and year on which the observation was conducted.</xs:documentation>
+              <xs:documentation>The month, day, and year on which the performance measure was to be conducted.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="TimeOfObservation" type="xs:time" minOccurs="0">
+          <xs:element name="ActualDateOfPerformanceMeasure" type="xs:date">
             <xs:annotation>
-              <xs:documentation>An indication of the the time at which the observation was conducted.</xs:documentation>
+              <xs:documentation>The month, day, and year on which the performance measure was conducted.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DurationOfObservation" type="Duration" minOccurs="0">
+          <xs:element name="TimeOfPerformanceMeasure" type="xs:time" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The actual or estimated number of clock minutes during which the observation was conducted.</xs:documentation>
+              <xs:documentation>An indication of the the time at which the performance measure was conducted.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DurationOfPerformanceMeasure" type="Duration" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The actual or estimated number of clock minutes during which the performance measure was conducted.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Announced" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indicator of whether the performance measure was announced or not.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CoteachingObserved" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indicator of whether co-teaching was part of the performance measure or not.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Comments" type="EXTENSION-Comments" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Any comments about the performance measure to be captured</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2530,7 +2570,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFact">
+  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFacts">
     <xs:annotation>
       <xs:documentation>Responses to survey sections collected at the aggregate level.</xs:documentation>
       <xs:appinfo>
@@ -4282,6 +4322,40 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStaffAssociation">
+    <xs:annotation>
+      <xs:documentation>This association associates teacher candidates to a staff member.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType">
+            <xs:annotation>
+              <xs:documentation>The teacher candidate associated with the staff.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StaffReference" type="StaffReferenceType">
+            <xs:annotation>
+              <xs:documentation>The staff associated with the teacher candidate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which the teacher candidate is associated to the staff.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which the teacher candidate stops association with the staff.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-TeacherCandidateTeacherPreparationProviderAssociation">
     <xs:annotation>
       <xs:documentation>Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram</xs:documentation>
@@ -5004,9 +5078,9 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFactIdentityType">
+  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Identity of a CourseSurveySectionResponseRatingFact.</xs:documentation>
+      <xs:documentation>Identity of a CourseSurveySectionResponseRatingFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -5019,9 +5093,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFactReferenceType">
+  <xs:complexType name="EXTENSION-CourseSurveySectionResponseRatingFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a CourseSurveySectionResponseRatingFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a CourseSurveySectionResponseRatingFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -5029,9 +5103,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="CourseSurveySectionResponseRatingFactIdentity" type="EXTENSION-CourseSurveySectionResponseRatingFactIdentityType" minOccurs="0">
+          <xs:element name="CourseSurveySectionResponseRatingFactsIdentity" type="EXTENSION-CourseSurveySectionResponseRatingFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Identity of a CourseSurveySectionResponseRatingFact.</xs:documentation>
+              <xs:documentation>Identity of a CourseSurveySectionResponseRatingFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -5339,9 +5413,9 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactIdentityType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Identity of an EducationOrganizationSurveySectionResponseRatingFact.</xs:documentation>
+      <xs:documentation>Identity of an EducationOrganizationSurveySectionResponseRatingFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -5354,9 +5428,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactReferenceType">
+  <xs:complexType name="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for an EducationOrganizationSurveySectionResponseRatingFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for an EducationOrganizationSurveySectionResponseRatingFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -5364,9 +5438,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationSurveySectionResponseRatingFactIdentity" type="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactIdentityType" minOccurs="0">
+          <xs:element name="EducationOrganizationSurveySectionResponseRatingFactsIdentity" type="EXTENSION-EducationOrganizationSurveySectionResponseRatingFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Identity of an EducationOrganizationSurveySectionResponseRatingFact.</xs:documentation>
+              <xs:documentation>Identity of an EducationOrganizationSurveySectionResponseRatingFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -5547,9 +5621,9 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ObservationIdentifier" type="EXTENSION-ObservationIdentifier">
+      <xs:element name="PerformanceMeasureIdentifier" type="EXTENSION-PerformanceMeasureIdentifier">
         <xs:annotation>
-          <xs:documentation>An assigned unique identifier for the observation instance.</xs:documentation>
+          <xs:documentation>An assigned unique identifier for the performance measure instance.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -6137,9 +6211,9 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFactIdentityType">
+  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFactsIdentityType">
     <xs:annotation>
-      <xs:documentation>Identity of a SectionSurveySectionResponseRatingFact.</xs:documentation>
+      <xs:documentation>Identity of a SectionSurveySectionResponseRatingFacts.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Identity</ann:TypeGroup>
       </xs:appinfo>
@@ -6152,9 +6226,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFactReferenceType">
+  <xs:complexType name="EXTENSION-SectionSurveySectionResponseRatingFactsReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides alternative references for a SectionSurveySectionResponseRatingFact. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:documentation>Provides alternative references for a SectionSurveySectionResponseRatingFacts. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -6162,9 +6236,9 @@
     <xs:complexContent>
       <xs:extension base="ReferenceType">
         <xs:sequence>
-          <xs:element name="SectionSurveySectionResponseRatingFactIdentity" type="EXTENSION-SectionSurveySectionResponseRatingFactIdentityType" minOccurs="0">
+          <xs:element name="SectionSurveySectionResponseRatingFactsIdentity" type="EXTENSION-SectionSurveySectionResponseRatingFactsIdentityType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Identity of a SectionSurveySectionResponseRatingFact.</xs:documentation>
+              <xs:documentation>Identity of a SectionSurveySectionResponseRatingFacts.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -6874,6 +6948,45 @@
           <xs:element name="TeacherCandidateIdentity" type="EXTENSION-TeacherCandidateIdentityType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Encapsulates primary attributes that can be used to look up the identity of a TeacherCandidate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStaffAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a TeacherCandidateStaffAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType">
+        <xs:annotation>
+          <xs:documentation>The teacher candidate associated with the staff.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StaffReference" type="StaffReferenceType">
+        <xs:annotation>
+          <xs:documentation>The staff associated with the teacher candidate.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStaffAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a TeacherCandidateStaffAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStaffAssociationIdentity" type="EXTENSION-TeacherCandidateStaffAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a TeacherCandidateStaffAssociation.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -8569,9 +8682,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-Observee">
+  <xs:complexType name="EXTENSION-PersonBeingReviewed">
     <xs:annotation>
-      <xs:documentation>Information regarding the observee of the observation.</xs:documentation>
+      <xs:documentation>Information regarding the person taking the performance measure.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -8595,45 +8708,15 @@
         </xs:element>
         <xs:element name="StaffReference" type="StaffReferenceType">
           <xs:annotation>
-            <xs:documentation>The staff associated with the observation.</xs:documentation>
+            <xs:documentation>The staff associated with the performance measure.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType">
           <xs:annotation>
-            <xs:documentation>The teacher candidate associated with the observation.</xs:documentation>
+            <xs:documentation>The teacher candidate associated with the performance measure.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-Observer">
-    <xs:annotation>
-      <xs:documentation>The person that conducted the observation.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="FirstNameOfObserver" type="FirstName">
-        <xs:annotation>
-          <xs:documentation>A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="LastNameOfObserver" type="LastSurname">
-        <xs:annotation>
-          <xs:documentation>The name borne in common by members of a family.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StaffReference" type="StaffReferenceType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The staff associated with the observation.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ReceivedTraining" type="EXTENSION-ReceivedTraining" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>An indication that the observer has or has not received training on conducting observations.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EXTENSION-ProfessionalDevelopmentAttendanceEvent">
@@ -8731,7 +8814,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-ReceivedTraining">
     <xs:annotation>
-      <xs:documentation>An indication that the observer has or has not received training on conducting observations.</xs:documentation>
+      <xs:documentation>An indication that the person administering the performance measure has or has not received training on conducting performance measures.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -8739,7 +8822,7 @@
     <xs:sequence>
       <xs:element name="ReceivedTrainingDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The date on which the observer received training on how to conduct observations.</xs:documentation>
+          <xs:documentation>The date on which the person administering the performance meausre received training on how to conduct performance measures.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="InterRaterReliabilityScore" type="xs:int" minOccurs="0">
@@ -8812,6 +8895,36 @@
       <xs:element name="RecommendingInstitutionStateAbbreviation" type="StateAbbreviationType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-Reviewer">
+    <xs:annotation>
+      <xs:documentation>The person that conducted the performance measure.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FirstName" type="FirstName">
+        <xs:annotation>
+          <xs:documentation>A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LastSurname" type="LastSurname">
+        <xs:annotation>
+          <xs:documentation>The name borne in common by members of a family.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StaffReference" type="StaffReferenceType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The staff associated with the performance measure.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReceivedTraining" type="EXTENSION-ReceivedTraining" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>An indication that the person administering the performance measure has or has not received training on conducting performance measures.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -10588,6 +10701,17 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-Comments">
+    <xs:annotation>
+      <xs:documentation>Any comments about the performance measure to be captured</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-CredentialEndorsement">
     <xs:annotation>
       <xs:documentation>Endorsements are attachments to teaching certificates and indicate areas of specialization.</xs:documentation>
@@ -10727,9 +10851,9 @@
       <xs:maxLength value="255" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ObservationIdentifier">
+  <xs:simpleType name="EXTENSION-PerformanceMeasureIdentifier">
     <xs:annotation>
-      <xs:documentation>An assigned unique identifier for the observation instance.</xs:documentation>
+      <xs:documentation>An assigned unique identifier for the performance measure instance.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Simple</ann:TypeGroup>
       </xs:appinfo>

@@ -131,6 +131,8 @@ CREATE TABLE [extension].[AnonymizedStudent](
     [ESLEnrollment] [BIT] NULL,
     [SPEDEnrollment] [BIT] NULL,
     [TitleIEnrollment] [BIT] NULL,
+    [AtriskIndicator] [BIT] NULL,
+    [Mobility] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -194,6 +196,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the enrollment in SPED of the student', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudent', @level2type=N'COLUMN', @level2name=N'SPEDEnrollment'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the enrollment in Title I of the student', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudent', @level2type=N'COLUMN', @level2name=N'TitleIEnrollment'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indicator that identifies if the student has been flagged as being at risk according to the District''s definition of at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudent', @level2type=N'COLUMN', @level2name=N'AtriskIndicator'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of times a student has moved schools during the current school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudent', @level2type=N'COLUMN', @level2name=N'Mobility'
 GO
 
 
@@ -1582,6 +1588,39 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantRace', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general racial category which most clearly reflects the individual''s recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantRace', @level2type=N'COLUMN', @level2name=N'RaceTypeId'
+GO
+
+
+/****** Table: [extension].[ApplicantScoreResult] ******/
+
+CREATE TABLE [extension].[ApplicantScoreResult](
+    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
+    [AssessmentReportingMethodTypeId] [INT] NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [Result] [NVARCHAR](35) NOT NULL,
+    [ResultDatatypeTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [ApplicantScoreResult_PK] PRIMARY KEY CLUSTERED (
+        [ApplicantIdentifier] ASC,
+        [AssessmentReportingMethodTypeId] ASC,
+        [EducationOrganizationId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[ApplicantScoreResult] ADD CONSTRAINT [ApplicantScoreResult_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantScoreResult'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The method that the administrator of the assessment uses to report the performance and achievement of all students. It may be a qualitative method such as performance level descriptors or a quantitative method such as a numerical grade or cut score. More than one type of reporting method may be used.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'AssessmentReportingMethodTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of a meaningful raw score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'Result'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datatype of the result. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'ResultDatatypeTypeId'
 GO
 
 
@@ -3425,9 +3464,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 
 
-/****** Table: [extension].[CourseSurveySectionResponseRatingFact] ******/
+/****** Table: [extension].[CourseSurveySectionResponseRatingFacts] ******/
 
-CREATE TABLE [extension].[CourseSurveySectionResponseRatingFact](
+CREATE TABLE [extension].[CourseSurveySectionResponseRatingFacts](
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [CourseCode] [NVARCHAR](60) NOT NULL,
@@ -3436,62 +3475,62 @@ CREATE TABLE [extension].[CourseSurveySectionResponseRatingFact](
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
-    CONSTRAINT [CourseSurveySectionResponseRatingFact_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [CourseSurveySectionResponseRatingFacts_PK] PRIMARY KEY CLUSTERED (
         [SurveyIdentifier] ASC,
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFact] ADD CONSTRAINT [CourseSurveySectionResponseRatingFact_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFacts] ADD CONSTRAINT [CourseSurveySectionResponseRatingFacts_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFact] ADD CONSTRAINT [CourseSurveySectionResponseRatingFact_DF_Id] DEFAULT (newid()) FOR [Id]
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFacts] ADD CONSTRAINT [CourseSurveySectionResponseRatingFacts_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFact] ADD CONSTRAINT [CourseSurveySectionResponseRatingFact_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseSurveySectionResponseRatingFact'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'CourseCode'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFacts] ADD CONSTRAINT [CourseSurveySectionResponseRatingFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseSurveySectionResponseRatingFacts'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'CourseCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+GO
 
-/****** Table: [extension].[CourseSurveySectionResponseRatingFactAggregatedNumericResponse] ******/
 
-CREATE TABLE [extension].[CourseSurveySectionResponseRatingFactAggregatedNumericResponse](
+/****** Table: [extension].[CourseSurveySectionResponseRatingFactsAggregatedNumericResponse] ******/
+
+CREATE TABLE [extension].[CourseSurveySectionResponseRatingFactsAggregatedNumericResponse](
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [CourseSurveySectionResponseRatingFactAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [CourseSurveySectionResponseRatingFactsAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
         [SurveyIdentifier] ASC,
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFactAggregatedNumericResponse] ADD CONSTRAINT [CourseSurveySectionResponseRatingFactAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [CourseSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
 GO
 
 
@@ -3690,6 +3729,7 @@ CREATE TABLE [extension].[EducationOrganizationFacts](
     [HiringRate] [DECIMAL](5, 4) NULL,
     [RetentionRate] [DECIMAL](5, 4) NULL,
     [RetirementRate] [DECIMAL](5, 4) NULL,
+    [AverageYearsInDistrictEmployed] [DECIMAL](5, 2) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -3732,6 +3772,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The percent of staff retained for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetentionRate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The percent of staff retired for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetirementRate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The average number of years that all staff have been employed in the current district of employment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'AverageYearsInDistrictEmployed'
 GO
 
 
@@ -4884,9 +4926,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 
 
-/****** Table: [extension].[EducationOrganizationSurveySectionResponseRatingFact] ******/
+/****** Table: [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ******/
 
-CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact](
+CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts](
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
@@ -4894,55 +4936,55 @@ CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact](
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
-    CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFact_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFacts_PK] PRIMARY KEY CLUSTERED (
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFact_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFacts_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFact_DF_Id] DEFAULT (newid()) FOR [Id]
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFacts_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFact_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationSurveySectionResponseRatingFact'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationSurveySectionResponseRatingFacts'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+GO
 
-/****** Table: [extension].[EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse] ******/
 
-CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse](
+/****** Table: [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] ******/
+
+CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse](
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
 GO
 
 
@@ -6068,22 +6110,26 @@ GO
 /****** Table: [extension].[PerformanceMeasure] ******/
 
 CREATE TABLE [extension].[PerformanceMeasure](
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [PerformanceMeasureTypeDescriptorId] [INT] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
     [RubricTitle] [NVARCHAR](15) NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [AcademicSubjectDescriptorId] [INT] NULL,
-    [ScheduleDateOfObservation] [DATE] NULL,
-    [ActualDateOfObservation] [DATE] NOT NULL,
-    [TimeOfObservation] [TIME](7) NULL,
-    [DurationOfObservation] [INT] NULL,
+    [CourseCode] [NVARCHAR](60) NULL,
+    [ScheduleDateOfPerformanceMeasure] [DATE] NULL,
+    [ActualDateOfPerformanceMeasure] [DATE] NOT NULL,
+    [TimeOfPerformanceMeasure] [TIME](7) NULL,
+    [DurationOfPerformanceMeasure] [INT] NULL,
+    [Announced] [BIT] NULL,
+    [CoteachingObserved] [BIT] NULL,
+    [Comments] [NVARCHAR](1024) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [PerformanceMeasure_PK] PRIMARY KEY CLUSTERED (
-        [ObservationIdentifier] ASC
+        [PerformanceMeasureIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -6096,7 +6142,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the performance measure', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasure'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type (e.g., walkthrough, summative) of performance measure conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureTypeDescriptorId'
 GO
@@ -6110,13 +6156,21 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a performance measure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the observation was scheduled to be conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ScheduleDateOfObservation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the observation was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ActualDateOfObservation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the performance measure was to be conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ScheduleDateOfPerformanceMeasure'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the the time at which the observation was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'TimeOfObservation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the performance measure was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'ActualDateOfPerformanceMeasure'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The actual or estimated number of clock minutes during which the observation was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'DurationOfObservation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the the time at which the performance measure was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'TimeOfPerformanceMeasure'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The actual or estimated number of clock minutes during which the performance measure was conducted.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'DurationOfPerformanceMeasure'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indicator of whether the performance measure was announced or not.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'Announced'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indicator of whether co-teaching was part of the performance measure or not.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'CoteachingObserved'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any comments about the performance measure to be captured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasure', @level2type=N'COLUMN', @level2name=N'Comments'
 GO
 
 
@@ -6210,11 +6264,11 @@ GO
 
 CREATE TABLE [extension].[PerformanceMeasureGradeLevel](
     [GradeLevelDescriptorId] [INT] NOT NULL,
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasureGradeLevel_PK] PRIMARY KEY CLUSTERED (
         [GradeLevelDescriptorId] ASC,
-        [ObservationIdentifier] ASC
+        [PerformanceMeasureIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -6225,14 +6279,14 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade leve
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade levels for the performance measure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureGradeLevel', @level2type=N'COLUMN', @level2name=N'GradeLevelDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureGradeLevel', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureGradeLevel', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
 
 
-/****** Table: [extension].[PerformanceMeasureObservee] ******/
+/****** Table: [extension].[PerformanceMeasurePersonBeingReviewed] ******/
 
-CREATE TABLE [extension].[PerformanceMeasureObservee](
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
+CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [FirstNameOfObservee] [NVARCHAR](75) NOT NULL,
     [LastNameOfObservee] [NVARCHAR](75) NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
@@ -6240,103 +6294,40 @@ CREATE TABLE [extension].[PerformanceMeasureObservee](
     [StaffUSI] [INT] NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [PerformanceMeasureObservee_PK] PRIMARY KEY CLUSTERED (
-        [ObservationIdentifier] ASC
+    CONSTRAINT [PerformanceMeasurePersonBeingReviewed_PK] PRIMARY KEY CLUSTERED (
+        [PerformanceMeasureIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[PerformanceMeasureObservee] ADD CONSTRAINT [PerformanceMeasureObservee_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] ADD CONSTRAINT [PerformanceMeasurePersonBeingReviewed_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the observee of the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureObservee'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the person taking the performance measure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasurePersonBeingReviewed'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'FirstNameOfObservee'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'FirstNameOfObservee'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'LastNameOfObservee'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'LastNameOfObservee'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObservee', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-
-
-/****** Table: [extension].[PerformanceMeasureObserver] ******/
-
-CREATE TABLE [extension].[PerformanceMeasureObserver](
-    [FirstNameOfObserver] [NVARCHAR](75) NOT NULL,
-    [LastNameOfObserver] [NVARCHAR](75) NOT NULL,
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
-    [StaffUSI] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [PerformanceMeasureObserver_PK] PRIMARY KEY CLUSTERED (
-        [FirstNameOfObserver] ASC,
-        [LastNameOfObserver] ASC,
-        [ObservationIdentifier] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[PerformanceMeasureObserver] ADD CONSTRAINT [PerformanceMeasureObserver_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The person that conducted the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureObserver'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserver', @level2type=N'COLUMN', @level2name=N'FirstNameOfObserver'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserver', @level2type=N'COLUMN', @level2name=N'LastNameOfObserver'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserver', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserver', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-
-
-/****** Table: [extension].[PerformanceMeasureObserverReceivedTraining] ******/
-
-CREATE TABLE [extension].[PerformanceMeasureObserverReceivedTraining](
-    [FirstNameOfObserver] [NVARCHAR](75) NOT NULL,
-    [LastNameOfObserver] [NVARCHAR](75) NOT NULL,
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
-    [ReceivedTrainingDate] [DATE] NULL,
-    [InterRaterReliabilityScore] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [PerformanceMeasureObserverReceivedTraining_PK] PRIMARY KEY CLUSTERED (
-        [FirstNameOfObserver] ASC,
-        [LastNameOfObserver] ASC,
-        [ObservationIdentifier] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[PerformanceMeasureObserverReceivedTraining] ADD CONSTRAINT [PerformanceMeasureObserverReceivedTraining_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the observer has or has not received training on conducting observations.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureObserverReceivedTraining'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'FirstNameOfObserver'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'LastNameOfObserver'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date on which the observer received training on how to conduct observations.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'ReceivedTrainingDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A score indicating how much homogeneity, or consensus, there is in the ratings given by judges.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureObserverReceivedTraining', @level2type=N'COLUMN', @level2name=N'InterRaterReliabilityScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
 
 /****** Table: [extension].[PerformanceMeasureProgramGateway] ******/
 
 CREATE TABLE [extension].[PerformanceMeasureProgramGateway](
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [ProgramGatewayDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasureProgramGateway_PK] PRIMARY KEY CLUSTERED (
-        [ObservationIdentifier] ASC,
+        [PerformanceMeasureIdentifier] ASC,
         [ProgramGatewayDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6346,9 +6337,72 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies the program gateway that may be associated for continuation in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureProgramGateway'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureProgramGateway', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureProgramGateway', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies the program gateway that may be associated for continuation in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureProgramGateway', @level2type=N'COLUMN', @level2name=N'ProgramGatewayDescriptorId'
+GO
+
+
+/****** Table: [extension].[PerformanceMeasureReviewer] ******/
+
+CREATE TABLE [extension].[PerformanceMeasureReviewer](
+    [FirstName] [NVARCHAR](75) NOT NULL,
+    [LastSurname] [NVARCHAR](75) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
+    [StaffUSI] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [PerformanceMeasureReviewer_PK] PRIMARY KEY CLUSTERED (
+        [FirstName] ASC,
+        [LastSurname] ASC,
+        [PerformanceMeasureIdentifier] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[PerformanceMeasureReviewer] ADD CONSTRAINT [PerformanceMeasureReviewer_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The person that conducted the performance measure.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureReviewer'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'FirstName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'LastSurname'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+
+
+/****** Table: [extension].[PerformanceMeasureReviewerReceivedTraining] ******/
+
+CREATE TABLE [extension].[PerformanceMeasureReviewerReceivedTraining](
+    [FirstName] [NVARCHAR](75) NOT NULL,
+    [LastSurname] [NVARCHAR](75) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
+    [ReceivedTrainingDate] [DATE] NULL,
+    [InterRaterReliabilityScore] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [PerformanceMeasureReviewerReceivedTraining_PK] PRIMARY KEY CLUSTERED (
+        [FirstName] ASC,
+        [LastSurname] ASC,
+        [PerformanceMeasureIdentifier] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[PerformanceMeasureReviewerReceivedTraining] ADD CONSTRAINT [PerformanceMeasureReviewerReceivedTraining_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the person administering the performance measure has or has not received training on conducting performance measures.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PerformanceMeasureReviewerReceivedTraining'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewerReceivedTraining', @level2type=N'COLUMN', @level2name=N'FirstName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne in common by members of a family.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewerReceivedTraining', @level2type=N'COLUMN', @level2name=N'LastSurname'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewerReceivedTraining', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date on which the person administering the performance meausre received training on how to conduct performance measures.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewerReceivedTraining', @level2type=N'COLUMN', @level2name=N'ReceivedTrainingDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A score indicating how much homogeneity, or consensus, there is in the ratings given by judges.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewerReceivedTraining', @level2type=N'COLUMN', @level2name=N'InterRaterReliabilityScore'
 GO
 
 
@@ -7501,7 +7555,7 @@ GO
 
 CREATE TABLE [extension].[RubricLevelResponse](
     [EducationOrganizationId] [INT] NOT NULL,
-    [ObservationIdentifier] [NVARCHAR](64) NOT NULL,
+    [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
     [RubricTitle] [NVARCHAR](15) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
@@ -7512,7 +7566,7 @@ CREATE TABLE [extension].[RubricLevelResponse](
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [RubricLevelResponse_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [ObservationIdentifier] ASC,
+        [PerformanceMeasureIdentifier] ASC,
         [RubricLevelCode] ASC,
         [RubricTitle] ASC,
         [RubricTypeDescriptorId] ASC
@@ -7530,7 +7584,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity re
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the observation instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'ObservationIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
 GO
@@ -9884,9 +9938,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique ident
 GO
 
 
-/****** Table: [extension].[SectionSurveySectionResponseRatingFact] ******/
+/****** Table: [extension].[SectionSurveySectionResponseRatingFacts] ******/
 
-CREATE TABLE [extension].[SectionSurveySectionResponseRatingFact](
+CREATE TABLE [extension].[SectionSurveySectionResponseRatingFacts](
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
     [SequenceOfCourse] [INT] NOT NULL,
@@ -9901,69 +9955,69 @@ CREATE TABLE [extension].[SectionSurveySectionResponseRatingFact](
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
-    CONSTRAINT [SectionSurveySectionResponseRatingFact_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [SectionSurveySectionResponseRatingFacts_PK] PRIMARY KEY CLUSTERED (
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFact] ADD CONSTRAINT [SectionSurveySectionResponseRatingFact_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFacts] ADD CONSTRAINT [SectionSurveySectionResponseRatingFacts_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFact] ADD CONSTRAINT [SectionSurveySectionResponseRatingFact_DF_Id] DEFAULT (newid()) FOR [Id]
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFacts] ADD CONSTRAINT [SectionSurveySectionResponseRatingFacts_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFact] ADD CONSTRAINT [SectionSurveySectionResponseRatingFact_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFact'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SchoolId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFact', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFacts] ADD CONSTRAINT [SectionSurveySectionResponseRatingFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFacts'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SchoolId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
+GO
 
-/****** Table: [extension].[SectionSurveySectionResponseRatingFactAggregatedNumericResponse] ******/
 
-CREATE TABLE [extension].[SectionSurveySectionResponseRatingFactAggregatedNumericResponse](
+/****** Table: [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] ******/
+
+CREATE TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse](
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
     [NumericResponseNCount] [INT] NULL,
     [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [SectionSurveySectionResponseRatingFactAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
         [SurveySectionTitle] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactAggregatedNumericResponse] ADD CONSTRAINT [SectionSurveySectionResponseRatingFactAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFactAggregatedNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
 GO
 
 
@@ -12289,6 +12343,41 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The reported r
 GO
 
 
+/****** Table: [extension].[TeacherCandidateStaffAssociation] ******/
+
+CREATE TABLE [extension].[TeacherCandidateStaffAssociation](
+    [StaffUSI] [INT] NOT NULL,
+    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
+    [BeginDate] [DATE] NOT NULL,
+    [EndDate] [DATE] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [TeacherCandidateStaffAssociation_PK] PRIMARY KEY CLUSTERED (
+        [StaffUSI] ASC,
+        [TeacherCandidateUniqueId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] ADD CONSTRAINT [TeacherCandidateStaffAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] ADD CONSTRAINT [TeacherCandidateStaffAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] ADD CONSTRAINT [TeacherCandidateStaffAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This association associates teacher candidates to a staff member.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStaffAssociation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate is associated to the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate stops association with the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
+GO
+
+
 /****** Table: [extension].[TeacherCandidateStudentGrowthMeasure] ******/
 
 CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
@@ -13965,6 +14054,36 @@ CREATE NONCLUSTERED INDEX [FK_ApplicantRace_RaceType]
 ON [extension].[ApplicantRace]([RaceTypeId] ASC)
 GO
 
+ALTER TABLE [extension].[ApplicantScoreResult] WITH CHECK ADD CONSTRAINT [FK_ApplicantScoreResult_Applicant] FOREIGN KEY ([ApplicantIdentifier], [EducationOrganizationId])
+REFERENCES [extension].[Applicant] ([ApplicantIdentifier], [EducationOrganizationId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_ApplicantScoreResult_Applicant]
+ON [extension].[ApplicantScoreResult]([ApplicantIdentifier] ASC, [EducationOrganizationId] ASC)
+GO
+
+ALTER TABLE [extension].[ApplicantScoreResult] WITH CHECK ADD CONSTRAINT [FK_ApplicantScoreResult_AssessmentReportingMethodType] FOREIGN KEY ([AssessmentReportingMethodTypeId])
+REFERENCES [edfi].[AssessmentReportingMethodType] ([AssessmentReportingMethodTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_ApplicantScoreResult_AssessmentReportingMethodType]
+ON [extension].[ApplicantScoreResult]([AssessmentReportingMethodTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[ApplicantScoreResult] WITH CHECK ADD CONSTRAINT [FK_ApplicantScoreResult_ResultDatatypeType] FOREIGN KEY ([ResultDatatypeTypeId])
+REFERENCES [edfi].[ResultDatatypeType] ([ResultDatatypeTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_ApplicantScoreResult_ResultDatatypeType]
+ON [extension].[ApplicantScoreResult]([ResultDatatypeTypeId] ASC)
+GO
+
 ALTER TABLE [extension].[ApplicantStaffIdentificationCode] WITH CHECK ADD CONSTRAINT [FK_ApplicantStaffIdentificationCode_Applicant] FOREIGN KEY ([ApplicantIdentifier], [EducationOrganizationId])
 REFERENCES [extension].[Applicant] ([ApplicantIdentifier], [EducationOrganizationId])
 ON DELETE CASCADE
@@ -15017,17 +15136,17 @@ CREATE NONCLUSTERED INDEX [FK_CourseSurveyResponseFacts_Survey]
 ON [extension].[CourseSurveyResponseFacts]([SurveyIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFact_CourseSurveyResponseFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactsAsOfDate])
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFacts_CourseSurveyResponseFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactsAsOfDate])
 REFERENCES [extension].[CourseSurveyResponseFacts] ([CourseCode], [EducationOrganizationId], [FactsAsOfDate])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CourseSurveySectionResponseRatingFact_CourseSurveyResponseFacts]
-ON [extension].[CourseSurveySectionResponseRatingFact]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactsAsOfDate] ASC)
+CREATE NONCLUSTERED INDEX [FK_CourseSurveySectionResponseRatingFacts_CourseSurveyResponseFacts]
+ON [extension].[CourseSurveySectionResponseRatingFacts]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactsAsOfDate] ASC)
 GO
 
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFact_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFacts_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
 REFERENCES [extension].[SurveySection] ([SurveyIdentifier], [SurveySectionTitle])
 
 
@@ -15035,8 +15154,8 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseSurveySectionResponseRatingFactAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFactAggregatedNumericResponse_CourseSurveySectionResponseRatingFact] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
-REFERENCES [extension].[CourseSurveySectionResponseRatingFact] ([SurveyIdentifier], [SurveySectionTitle])
+ALTER TABLE [extension].[CourseSurveySectionResponseRatingFactsAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_CourseSurveySectionResponseRatingFactsAggregatedNumericResponse_CourseSurveySectionResponseRatingFacts] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
+REFERENCES [extension].[CourseSurveySectionResponseRatingFacts] ([SurveyIdentifier], [SurveySectionTitle])
 ON DELETE CASCADE
 
 GO
@@ -15941,28 +16060,28 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveyResponseFacts_Survey]
 ON [extension].[EducationOrganizationSurveyResponseFacts]([SurveyIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFact_EducationOrganizationSurveyResponseFacts] FOREIGN KEY ([EducationOrganizationId], [FactsAsOfDate], [SurveyIdentifier])
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFacts_EducationOrganizationSurveyResponseFacts] FOREIGN KEY ([EducationOrganizationId], [FactsAsOfDate], [SurveyIdentifier])
 REFERENCES [extension].[EducationOrganizationSurveyResponseFacts] ([EducationOrganizationId], [FactsAsOfDate], [SurveyIdentifier])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveySectionResponseRatingFact_EducationOrganizationSurveyResponseFacts]
-ON [extension].[EducationOrganizationSurveySectionResponseRatingFact]([EducationOrganizationId] ASC, [FactsAsOfDate] ASC, [SurveyIdentifier] ASC)
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveySectionResponseRatingFacts_EducationOrganizationSurveyResponseFacts]
+ON [extension].[EducationOrganizationSurveySectionResponseRatingFacts]([EducationOrganizationId] ASC, [FactsAsOfDate] ASC, [SurveyIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFact_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFacts_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
 REFERENCES [extension].[SurveySection] ([SurveyIdentifier], [SurveySectionTitle])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveySectionResponseRatingFact_SurveySection]
-ON [extension].[EducationOrganizationSurveySectionResponseRatingFact]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveySectionResponseRatingFacts_SurveySection]
+ON [extension].[EducationOrganizationSurveySectionResponseRatingFacts]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse_EducationOrganizationSurveySectionResponseRatin] FOREIGN KEY ([SurveySectionTitle])
-REFERENCES [extension].[EducationOrganizationSurveySectionResponseRatingFact] ([SurveySectionTitle])
+ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_EducationOrganizationSurveySectionResponseRati] FOREIGN KEY ([SurveySectionTitle])
+REFERENCES [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ([SurveySectionTitle])
 ON DELETE CASCADE
 
 GO
@@ -16547,6 +16666,16 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasure_AcademicSubjectDescriptor]
 ON [extension].[PerformanceMeasure]([AcademicSubjectDescriptorId] ASC)
 GO
 
+ALTER TABLE [extension].[PerformanceMeasure] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasure_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
+REFERENCES [edfi].[Course] ([CourseCode], [EducationOrganizationId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasure_Course]
+ON [extension].[PerformanceMeasure]([CourseCode] ASC, [EducationOrganizationId] ASC)
+GO
+
 ALTER TABLE [extension].[PerformanceMeasure] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasure_PerformanceMeasureTypeDescriptor] FOREIGN KEY ([PerformanceMeasureTypeDescriptorId])
 REFERENCES [extension].[PerformanceMeasureTypeDescriptor] ([PerformanceMeasureTypeDescriptorId])
 
@@ -16647,90 +16776,62 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureGradeLevel_GradeLevelDescriptor]
 ON [extension].[PerformanceMeasureGradeLevel]([GradeLevelDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureGradeLevel] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureGradeLevel_PerformanceMeasure] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasure] ([ObservationIdentifier])
+ALTER TABLE [extension].[PerformanceMeasureGradeLevel] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureGradeLevel_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureGradeLevel_PerformanceMeasure]
-ON [extension].[PerformanceMeasureGradeLevel]([ObservationIdentifier] ASC)
+ON [extension].[PerformanceMeasureGradeLevel]([PerformanceMeasureIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureObservee] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObservee_PerformanceMeasure] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasure] ([ObservationIdentifier])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])
 ON DELETE CASCADE
 
 GO
 
 
 
-ALTER TABLE [extension].[PerformanceMeasureObservee] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObservee_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
 REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureObservee_Prospect]
-ON [extension].[PerformanceMeasureObservee]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Prospect]
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureObservee] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObservee_Staff] FOREIGN KEY ([StaffUSI])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Staff] FOREIGN KEY ([StaffUSI])
 REFERENCES [edfi].[Staff] ([StaffUSI])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureObservee_Staff]
-ON [extension].[PerformanceMeasureObservee]([StaffUSI] ASC)
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Staff]
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureObservee] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObservee_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
 REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureObservee_TeacherCandidate]
-ON [extension].[PerformanceMeasureObservee]([TeacherCandidateUniqueId] ASC)
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate]
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([TeacherCandidateUniqueId] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureObserver] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObserver_PerformanceMeasure] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasure] ([ObservationIdentifier])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureObserver_PerformanceMeasure]
-ON [extension].[PerformanceMeasureObserver]([ObservationIdentifier] ASC)
-GO
-
-ALTER TABLE [extension].[PerformanceMeasureObserver] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObserver_Staff] FOREIGN KEY ([StaffUSI])
-REFERENCES [edfi].[Staff] ([StaffUSI])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureObserver_Staff]
-ON [extension].[PerformanceMeasureObserver]([StaffUSI] ASC)
-GO
-
-ALTER TABLE [extension].[PerformanceMeasureObserverReceivedTraining] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureObserverReceivedTraining_PerformanceMeasureObserver] FOREIGN KEY ([FirstNameOfObserver], [LastNameOfObserver], [ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasureObserver] ([FirstNameOfObserver], [LastNameOfObserver], [ObservationIdentifier])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[PerformanceMeasureProgramGateway] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureProgramGateway_PerformanceMeasure] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasure] ([ObservationIdentifier])
+ALTER TABLE [extension].[PerformanceMeasureProgramGateway] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureProgramGateway_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureProgramGateway_PerformanceMeasure]
-ON [extension].[PerformanceMeasureProgramGateway]([ObservationIdentifier] ASC)
+ON [extension].[PerformanceMeasureProgramGateway]([PerformanceMeasureIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasureProgramGateway] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureProgramGateway_ProgramGatewayDescriptor] FOREIGN KEY ([ProgramGatewayDescriptorId])
@@ -16742,6 +16843,34 @@ GO
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureProgramGateway_ProgramGatewayDescriptor]
 ON [extension].[PerformanceMeasureProgramGateway]([ProgramGatewayDescriptorId] ASC)
 GO
+
+ALTER TABLE [extension].[PerformanceMeasureReviewer] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewer_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureReviewer_PerformanceMeasure]
+ON [extension].[PerformanceMeasureReviewer]([PerformanceMeasureIdentifier] ASC)
+GO
+
+ALTER TABLE [extension].[PerformanceMeasureReviewer] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewer_Staff] FOREIGN KEY ([StaffUSI])
+REFERENCES [edfi].[Staff] ([StaffUSI])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureReviewer_Staff]
+ON [extension].[PerformanceMeasureReviewer]([StaffUSI] ASC)
+GO
+
+ALTER TABLE [extension].[PerformanceMeasureReviewerReceivedTraining] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewerReceivedTraining_PerformanceMeasureReviewer] FOREIGN KEY ([FirstName], [LastSurname], [PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasureReviewer] ([FirstName], [LastSurname], [PerformanceMeasureIdentifier])
+ON DELETE CASCADE
+
+GO
+
+
 
 ALTER TABLE [extension].[PerformanceMeasureTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureTypeDescriptor_Descriptor] FOREIGN KEY ([PerformanceMeasureTypeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
@@ -17291,14 +17420,14 @@ CREATE NONCLUSTERED INDEX [FK_RubricLevel_Rubric]
 ON [extension].[RubricLevel]([EducationOrganizationId] ASC, [RubricTitle] ASC, [RubricTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[RubricLevelResponse] WITH CHECK ADD CONSTRAINT [FK_RubricLevelResponse_PerformanceMeasure] FOREIGN KEY ([ObservationIdentifier])
-REFERENCES [extension].[PerformanceMeasure] ([ObservationIdentifier])
+ALTER TABLE [extension].[RubricLevelResponse] WITH CHECK ADD CONSTRAINT [FK_RubricLevelResponse_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
+REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_RubricLevelResponse_PerformanceMeasure]
-ON [extension].[RubricLevelResponse]([ObservationIdentifier] ASC)
+ON [extension].[RubricLevelResponse]([PerformanceMeasureIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[RubricLevelResponse] WITH CHECK ADD CONSTRAINT [FK_RubricLevelResponse_RubricLevel] FOREIGN KEY ([EducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
@@ -18233,28 +18362,28 @@ CREATE NONCLUSTERED INDEX [FK_SectionSurveyResponseFacts_Survey]
 ON [extension].[SectionSurveyResponseFacts]([SurveyIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFact_SectionSurveyResponseFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [SurveyIdentifier], [TermDescriptorId], [UniqueSectionCode])
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFacts_SectionSurveyResponseFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [SurveyIdentifier], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionSurveyResponseFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [SurveyIdentifier], [TermDescriptorId], [UniqueSectionCode])
 
 ON UPDATE CASCADE
 GO
 
-CREATE NONCLUSTERED INDEX [FK_SectionSurveySectionResponseRatingFact_SectionSurveyResponseFacts]
-ON [extension].[SectionSurveySectionResponseRatingFact]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactsAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [SurveyIdentifier] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
+CREATE NONCLUSTERED INDEX [FK_SectionSurveySectionResponseRatingFacts_SectionSurveyResponseFacts]
+ON [extension].[SectionSurveySectionResponseRatingFacts]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactsAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [SurveyIdentifier] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFact] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFact_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFacts] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFacts_SurveySection] FOREIGN KEY ([SurveyIdentifier], [SurveySectionTitle])
 REFERENCES [extension].[SurveySection] ([SurveyIdentifier], [SurveySectionTitle])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_SectionSurveySectionResponseRatingFact_SurveySection]
-ON [extension].[SectionSurveySectionResponseRatingFact]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
+CREATE NONCLUSTERED INDEX [FK_SectionSurveySectionResponseRatingFacts_SurveySection]
+ON [extension].[SectionSurveySectionResponseRatingFacts]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
 GO
 
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFactAggregatedNumericResponse_SectionSurveySectionResponseRatingFact] FOREIGN KEY ([SurveySectionTitle])
-REFERENCES [extension].[SectionSurveySectionResponseRatingFact] ([SurveySectionTitle])
+ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_SectionSurveySectionResponseRatingFacts] FOREIGN KEY ([SurveySectionTitle])
+REFERENCES [extension].[SectionSurveySectionResponseRatingFacts] ([SurveySectionTitle])
 ON DELETE CASCADE
 
 GO
@@ -19621,6 +19750,26 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateProfessionalDevelopmentEventAttend
 ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([TeacherCandidateUniqueId] ASC)
 GO
 
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_Staff] FOREIGN KEY ([StaffUSI])
+REFERENCES [edfi].[Staff] ([StaffUSI])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_Staff]
+ON [extension].[TeacherCandidateStaffAssociation]([StaffUSI] ASC)
+GO
+
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_TeacherCandidate]
+ON [extension].[TeacherCandidateStaffAssociation]([TeacherCandidateUniqueId] ASC)
+GO
+
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_ResultDatatypeType] FOREIGN KEY ([ResultDatatypeTypeId])
 REFERENCES [edfi].[ResultDatatypeType] ([ResultDatatypeTypeId])
 
@@ -20217,17 +20366,17 @@ FROM deleted;
 END
 GO
 
-/****** Trigger:  [extension].[CourseSurveySectionResponseRatingFact_TR_DeleteEvent] ******/
+/****** Trigger:  [extension].[CourseSurveySectionResponseRatingFacts_TR_DeleteEvent] ******/
 
-CREATE TRIGGER [extension].[CourseSurveySectionResponseRatingFact_TR_DeleteEvent]
-    ON [extension].[CourseSurveySectionResponseRatingFact]
+CREATE TRIGGER [extension].[CourseSurveySectionResponseRatingFacts_TR_DeleteEvent]
+    ON [extension].[CourseSurveySectionResponseRatingFacts]
     AFTER DELETE 
 AS
 BEGIN
     SET NOCOUNT ON;
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
-SELECT Id, GETUTCDATE(), 'CourseSurveySectionResponseRatingFact', 'extension'
+SELECT Id, GETUTCDATE(), 'CourseSurveySectionResponseRatingFacts', 'extension'
 FROM deleted;
 END
 GO
@@ -20337,17 +20486,17 @@ FROM deleted;
 END
 GO
 
-/****** Trigger:  [extension].[EducationOrganizationSurveySectionResponseRatingFact_TR_DeleteEvent] ******/
+/****** Trigger:  [extension].[EducationOrganizationSurveySectionResponseRatingFacts_TR_DeleteEvent] ******/
 
-CREATE TRIGGER [extension].[EducationOrganizationSurveySectionResponseRatingFact_TR_DeleteEvent]
-    ON [extension].[EducationOrganizationSurveySectionResponseRatingFact]
+CREATE TRIGGER [extension].[EducationOrganizationSurveySectionResponseRatingFacts_TR_DeleteEvent]
+    ON [extension].[EducationOrganizationSurveySectionResponseRatingFacts]
     AFTER DELETE 
 AS
 BEGIN
     SET NOCOUNT ON;
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
-SELECT Id, GETUTCDATE(), 'EducationOrganizationSurveySectionResponseRatingFact', 'extension'
+SELECT Id, GETUTCDATE(), 'EducationOrganizationSurveySectionResponseRatingFacts', 'extension'
 FROM deleted;
 END
 GO
@@ -20637,17 +20786,17 @@ FROM deleted;
 END
 GO
 
-/****** Trigger:  [extension].[SectionSurveySectionResponseRatingFact_TR_DeleteEvent] ******/
+/****** Trigger:  [extension].[SectionSurveySectionResponseRatingFacts_TR_DeleteEvent] ******/
 
-CREATE TRIGGER [extension].[SectionSurveySectionResponseRatingFact_TR_DeleteEvent]
-    ON [extension].[SectionSurveySectionResponseRatingFact]
+CREATE TRIGGER [extension].[SectionSurveySectionResponseRatingFacts_TR_DeleteEvent]
+    ON [extension].[SectionSurveySectionResponseRatingFacts]
     AFTER DELETE 
 AS
 BEGIN
     SET NOCOUNT ON;
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
-SELECT Id, GETUTCDATE(), 'SectionSurveySectionResponseRatingFact', 'extension'
+SELECT Id, GETUTCDATE(), 'SectionSurveySectionResponseRatingFacts', 'extension'
 FROM deleted;
 END
 GO
@@ -20914,6 +21063,21 @@ BEGIN
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
 SELECT Id, GETUTCDATE(), 'TeacherCandidateProfessionalDevelopmentEventAttendance', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[TeacherCandidateStaffAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[TeacherCandidateStaffAssociation_TR_DeleteEvent]
+    ON [extension].[TeacherCandidateStaffAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'TeacherCandidateStaffAssociation', 'extension'
 FROM deleted;
 END
 GO

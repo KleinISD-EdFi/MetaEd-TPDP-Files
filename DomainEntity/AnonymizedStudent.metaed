@@ -64,3 +64,9 @@ Domain Entity AnonymizedStudent
   bool TitleIEnrollment
     documentation "Data about the enrollment in Title I of the student"
     is optional
+  bool AtriskIndicator
+    documentation "An indicator that identifies if the student has been flagged as being at risk according to the District's definition of at risk."
+    is optional
+  integer Mobility
+    documentation "The number of times a student has moved schools during the current school year."
+    is optional

@@ -24,7 +24,7 @@ Domain Entity EducationOrganizationFacts
     percent PercentStudentsSpecialEducation
         documentation "Percent of students in education organization in special education program."
         is optional
-	domain entity EducationOrganization
+    domain entity EducationOrganization
         documentation "The Education Organization(s) associated with the facts."
         is part of identity
 
@@ -42,4 +42,7 @@ Domain Entity EducationOrganizationFacts
       is optional
     common AggregatedSalary
       documentation "(TPDP Extension) Salary information collected at the aggregate level."
+      is optional
+    shared decimal NumberOfYears named AverageYearsInDistrictEmployed
+      documentation "(TPDP Extension) The average number of years that all staff have been employed in the current district of employment."
       is optional

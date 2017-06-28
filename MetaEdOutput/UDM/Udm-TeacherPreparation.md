@@ -20,7 +20,7 @@
 | CourseStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching	AggregatedStudentFact |
 | CourseSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | CourseSurveyResponseFacts | Survey response data provided at the aggregate level. |
-| CourseSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| CourseSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | Credential | The legal document giving authorization to perform teaching assignment services. |
 | EducationOrganizationCourseTranscriptFacts | Data about the final letter grade earned of the group |
 | EducationOrganizationFacts | Selective fact(s) about the education organization used for comparative analysis. |
@@ -29,7 +29,7 @@
 | EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
 | EducationOrganizationSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | EducationOrganizationSurveyResponseFacts | Survey response data provided at the aggregate level. |
-| EducationOrganizationSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| EducationOrganizationSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | ExternalCourseTranscript | This entity is the final record of a student's performance in their courses at the end of a semester or school year of an ExternalEducationOrgnaization. |
 | ExternalEducationOrganization | This entity represents any external public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. This entity is provided to refer to organizations about which local school and districts have little to no information. |
 | ExternalStudentAcademicRecord | This educational entity represents the cumulative record of academic achievement for a student that is being collected from an extrnal education organization about which local school and districts have little to no information. |
@@ -51,7 +51,7 @@
 | SectionStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
 | SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
-| SectionSurveySectionResponseRatingFact | Responses to survey sections collected at the aggregate level. |
+| SectionSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | Staff |  |
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
@@ -79,6 +79,7 @@
 | StaffEducationOrganizationAssignmentAssociation | This association indicates the education organization to which a staff member provides services; also known as school of service. |
 | StaffTeacherPreparationProviderAssociation | Information about the association between the Staff and the TeacherPreparationProvider |
 | StaffTeacherPreparationProviderProgramAssociation | This association indicates the Staff associated with a teacher preparation provider program. |
+| TeacherCandidateStaffAssociation | This association associates teacher candidates to a staff member. |
 | TeacherCandidateTeacherPreparationProviderAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
 | TeacherCandidateTeacherPreparationProviderProgramAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
 

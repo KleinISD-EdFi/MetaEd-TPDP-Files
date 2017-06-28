@@ -1,13 +1,8 @@
 Interchange TeacherCandidate
   documentation "This interchange defines teacher candidates and contains all their identifying information."
-  domain entity AnonymizedStudentAcademicRecord
-  association AnonymizedStudentCourseAssociation
-  domain entity AnonymizedStudentCourseTranscript
-  association AnonymizedStudentEducationOrganizationAssociation
-  association AnonymizedStudentSectionAssociation
-  domain entity StaffFieldworkAbsenceEvent
   domain entity TeacherCandidate
   domain entity TeacherCandidateAcademicRecord
   domain entity TeacherCandidateFieldworkAbsenceEvent
   domain entity TeacherCandidateFieldworkExperience
+  association TeacherCandidateStaffAssociation
   association TeacherCandidateTeacherPreparationProviderProgramAssociation

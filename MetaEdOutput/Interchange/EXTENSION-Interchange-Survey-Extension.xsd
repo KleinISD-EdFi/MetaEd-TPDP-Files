@@ -12,13 +12,13 @@
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
         <xs:element name="CourseSurveyResponseFacts" type="EXTENSION-CourseSurveyResponseFacts" />
-        <xs:element name="CourseSurveySectionResponseRatingFact" type="EXTENSION-CourseSurveySectionResponseRatingFact" />
+        <xs:element name="CourseSurveySectionResponseRatingFacts" type="EXTENSION-CourseSurveySectionResponseRatingFacts" />
         <xs:element name="CourseSurveyQuestionResponseFacts" type="EXTENSION-CourseSurveyQuestionResponseFacts" />
         <xs:element name="EducationOrganizationSurveyResponseFacts" type="EXTENSION-EducationOrganizationSurveyResponseFacts" />
-        <xs:element name="EducationOrganizationSurveySectionResponseRatingFact" type="EXTENSION-EducationOrganizationSurveySectionResponseRatingFact" />
+        <xs:element name="EducationOrganizationSurveySectionResponseRatingFacts" type="EXTENSION-EducationOrganizationSurveySectionResponseRatingFacts" />
         <xs:element name="EducationOrganizationSurveyQuestionResponseFacts" type="EXTENSION-EducationOrganizationSurveyQuestionResponseFacts" />
         <xs:element name="SectionSurveyResponseFacts" type="EXTENSION-SectionSurveyResponseFacts" />
-        <xs:element name="SectionSurveySectionResponseRatingFact" type="EXTENSION-SectionSurveySectionResponseRatingFact" />
+        <xs:element name="SectionSurveySectionResponseRatingFacts" type="EXTENSION-SectionSurveySectionResponseRatingFacts" />
         <xs:element name="SectionSurveyQuestionResponseFacts" type="EXTENSION-SectionSurveyQuestionResponseFacts" />
         <xs:element name="Survey" type="EXTENSION-Survey" />
         <xs:element name="SurveyQuestion" type="EXTENSION-SurveyQuestion" />

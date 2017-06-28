@@ -12,9 +12,9 @@
     <Element name="TermDescriptor" />
     <Element name="AcademicSubjectDescriptor" />
     <Element name="GradeLevelDescriptor" />
+    <Element name="CompetencyLevelDescriptor" />
     <Element name="LevelDescriptor" />
     <Element name="ThemeTypeDescriptor" />
-    <Element name="CompetencyLevelDescriptor" />
     <Element name="SchoolFoodServicesEligibilityDescriptor" />
     <Element name="LanguageDescriptor" />
     <Element name="DisabilityDescriptor" />
@@ -30,7 +30,6 @@
     <Element name="SurveyCategoryDescriptor" />
     <Element name="ProgramCharacteristicDescriptor" />
     <Element name="ServiceDescriptor" />
-    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="TPPDegreeTypeDescriptor" />
     <Element name="FederalLocaleCodeDescriptor" />
     <Element name="AdministrativeFundingControlDescriptor" />
@@ -41,6 +40,7 @@
     <Element name="ProgramAssignmentDescriptor" />
     <Element name="EntryTypeDescriptor" />
     <Element name="ExitWithdrawTypeDescriptor" />
+    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="EmploymentStatusDescriptor" />
     <Element name="SeparationReasonDescriptor" />
     <Element name="StaffClassificationDescriptor" />
@@ -82,31 +82,18 @@
     <Element name="TeacherPreparationProgramTypeDescriptor" />
     <Element name="CredentialFieldDescriptor" />
   </Interchange>
-  <Interchange name="PerformanceMeasure" order="20">
-    <Element name="Rubric" />
-    <Element name="PerformanceMeasure" />
-    <Element name="PerformanceMeasureFacts" />
-    <Element name="RubricLevel" />
-    <Element name="RubricLevelResponse" />
-    <Element name="RubricLevelResponseFacts" />
+  <Interchange name="RecruitmentAndStaffing" order="20">
+    <Element name="RecruitmentEvent" />
+    <Element name="Prospect" />
+    <Element name="Applicant" />
   </Interchange>
   <Interchange name="Standards" order="20">
     <Element name="LearningStandard" />
     <Element name="LearningObjective" />
   </Interchange>
-  <Interchange name="RecruitmentAndStaffing" order="30">
-    <Element name="RecruitmentEvent" />
-    <Element name="Prospect" />
-    <Element name="Applicant" />
-  </Interchange>
-  <Interchange name="EducationOrgCalendar" order="30">
-    <Element name="GradingPeriod" />
-    <Element name="AcademicWeek" />
-    <Element name="Session" />
-    <Element name="CalendarDate" />
-  </Interchange>
-  <Interchange name="StaffAssociation" order="40">
+  <Interchange name="StaffAssociation" order="30">
     <Element name="Staff" />
+    <Element name="StaffFieldworkAbsenceEvent" />
     <Element name="StaffFieldworkExperience" />
     <Element name="StaffTeacherPreparationProviderProgramAssociation" />
     <Element name="StaffEducationOrganizationEmploymentAssociation" />
@@ -116,6 +103,20 @@
     <Element name="LeaveEvent" />
     <Element name="OpenStaffPosition" />
     <Element name="StaffProgramAssociation" />
+  </Interchange>
+  <Interchange name="EducationOrgCalendar" order="30">
+    <Element name="GradingPeriod" />
+    <Element name="AcademicWeek" />
+    <Element name="Session" />
+    <Element name="CalendarDate" />
+  </Interchange>
+  <Interchange name="TeacherCandidate" order="40">
+    <Element name="TeacherCandidate" />
+    <Element name="TeacherCandidateAcademicRecord" />
+    <Element name="TeacherCandidateFieldworkAbsenceEvent" />
+    <Element name="TeacherCandidateFieldworkExperience" />
+    <Element name="TeacherCandidateStaffAssociation" />
+    <Element name="TeacherCandidateTeacherPreparationProviderProgramAssociation" />
   </Interchange>
   <Interchange name="Student" order="40">
     <Element name="Student" />
@@ -166,18 +167,13 @@
     <Element name="EducationOrganizationNetwork" />
     <Element name="EducationOrganizationNetworkAssociation" />
   </Interchange>
-  <Interchange name="TeacherCandidate" order="80">
-    <Element name="TeacherCandidate" />
-    <Element name="AnonymizedStudentAcademicRecord" />
-    <Element name="AnonymizedStudentCourseAssociation" />
-    <Element name="AnonymizedStudentCourseTranscript" />
-    <Element name="AnonymizedStudentEducationOrganizationAssociation" />
-    <Element name="AnonymizedStudentSectionAssociation" />
-    <Element name="StaffFieldworkAbsenceEvent" />
-    <Element name="TeacherCandidateAcademicRecord" />
-    <Element name="TeacherCandidateFieldworkAbsenceEvent" />
-    <Element name="TeacherCandidateFieldworkExperience" />
-    <Element name="TeacherCandidateTeacherPreparationProviderProgramAssociation" />
+  <Interchange name="PerformanceMeasure" order="80">
+    <Element name="Rubric" />
+    <Element name="PerformanceMeasure" />
+    <Element name="PerformanceMeasureFacts" />
+    <Element name="RubricLevel" />
+    <Element name="RubricLevelResponse" />
+    <Element name="RubricLevelResponseFacts" />
   </Interchange>
   <Interchange name="StudentProgram" order="80">
     <Element name="StudentProgramAssociation" />
@@ -189,7 +185,12 @@
   </Interchange>
   <Interchange name="PK12StudentData" order="90">
     <Element name="AnonymizedStudent" />
+    <Element name="AnonymizedStudentAcademicRecord" />
     <Element name="AnonymizedStudentAssessment" />
+    <Element name="AnonymizedStudentCourseAssociation" />
+    <Element name="AnonymizedStudentCourseTranscript" />
+    <Element name="AnonymizedStudentEducationOrganizationAssociation" />
+    <Element name="AnonymizedStudentSectionAssociation" />
     <Element name="CourseStudentAcademicRecordFacts" />
     <Element name="CourseCourseTranscriptFacts" />
     <Element name="CourseStudentAssessmentFacts" />
@@ -217,14 +218,14 @@
     <Element name="Survey" />
     <Element name="CourseSurveyResponseFacts" />
     <Element name="SurveySection" />
-    <Element name="CourseSurveySectionResponseRatingFact" />
+    <Element name="CourseSurveySectionResponseRatingFacts" />
     <Element name="SurveyQuestion" />
     <Element name="CourseSurveyQuestionResponseFacts" />
     <Element name="EducationOrganizationSurveyResponseFacts" />
-    <Element name="EducationOrganizationSurveySectionResponseRatingFact" />
+    <Element name="EducationOrganizationSurveySectionResponseRatingFacts" />
     <Element name="EducationOrganizationSurveyQuestionResponseFacts" />
     <Element name="SectionSurveyResponseFacts" />
-    <Element name="SectionSurveySectionResponseRatingFact" />
+    <Element name="SectionSurveySectionResponseRatingFacts" />
     <Element name="SectionSurveyQuestionResponseFacts" />
     <Element name="SurveyResponse" />
     <Element name="SurveyQuestionResponse" />

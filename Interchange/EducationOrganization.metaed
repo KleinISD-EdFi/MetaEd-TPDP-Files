@@ -1,8 +1,8 @@
 Interchange EducationOrganization additions
-    domain entity EducationOrganizationFacts
-    association StaffTeacherPreparationProviderAssociation
-    association TeacherCandidateTeacherPreparationProviderAssociation
-    association TeacherCandidateTeacherPreparationProviderProgramAssociation
-    domain entity TeacherPreparationProvider
-    domain entity TeacherPreparationProviderProgram
-    domain entity University
+  domain entity EducationOrganizationFacts
+  association StaffTeacherPreparationProviderAssociation
+  association TeacherCandidateTeacherPreparationProviderAssociation
+  association TeacherCandidateTeacherPreparationProviderProgramAssociation
+  domain entity TeacherPreparationProvider
+  domain entity TeacherPreparationProviderProgram
+  domain entity University

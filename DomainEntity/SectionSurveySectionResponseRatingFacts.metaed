@@ -1,4 +1,4 @@
-Domain Entity SectionSurveySectionResponseRatingFact
+Domain Entity SectionSurveySectionResponseRatingFacts
   documentation "Responses to survey sections collected at the aggregate level."
   domain entity SectionSurveyResponseFacts
     documentation "Reference to the Aggregated Survey Response."

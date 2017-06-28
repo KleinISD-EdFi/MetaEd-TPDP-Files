@@ -57,6 +57,7 @@
     <Entity table="ApplicantLanguage" schema="extension"/>
     <Entity table="ApplicantLanguageUse" schema="extension"/>
     <Entity table="ApplicantRace" schema="extension"/>
+    <Entity table="ApplicantScoreResult" schema="extension"/>
     <Entity table="ApplicantStaffIdentificationCode" schema="extension"/>
     <Entity table="ApplicantTeacherPreparationProgram" schema="extension"/>
     <Entity table="ApplicantTeacherPreparationProgramAddress" schema="extension"/>
@@ -131,9 +132,9 @@
   <Aggregate root="CourseSurveyResponseFacts">
     <Entity table="CourseSurveyResponseFacts" schema="extension"/>
   </Aggregate>
-  <Aggregate root="CourseSurveySectionResponseRatingFact">
-    <Entity table="CourseSurveySectionResponseRatingFact" schema="extension"/>
-    <Entity table="CourseSurveySectionResponseRatingFactAggregatedNumericResponse" schema="extension"/>
+  <Aggregate root="CourseSurveySectionResponseRatingFacts">
+    <Entity table="CourseSurveySectionResponseRatingFacts" schema="extension"/>
+    <Entity table="CourseSurveySectionResponseRatingFactsAggregatedNumericResponse" schema="extension"/>
   </Aggregate>
   <Aggregate root="EducationOrganizationCourseTranscriptFacts">
     <Entity table="EducationOrganizationCourseTranscriptFacts" schema="extension"/>
@@ -184,9 +185,9 @@
   <Aggregate root="EducationOrganizationSurveyResponseFacts">
     <Entity table="EducationOrganizationSurveyResponseFacts" schema="extension"/>
   </Aggregate>
-  <Aggregate root="EducationOrganizationSurveySectionResponseRatingFact">
-    <Entity table="EducationOrganizationSurveySectionResponseRatingFact" schema="extension"/>
-    <Entity table="EducationOrganizationSurveySectionResponseRatingFactAggregatedNumericResponse" schema="extension"/>
+  <Aggregate root="EducationOrganizationSurveySectionResponseRatingFacts">
+    <Entity table="EducationOrganizationSurveySectionResponseRatingFacts" schema="extension"/>
+    <Entity table="EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse" schema="extension"/>
   </Aggregate>
   <Aggregate root="EnglishLanguageExamDescriptor">
     <Entity table="EnglishLanguageExamDescriptor" isA="Descriptor" schema="extension"/>
@@ -239,10 +240,10 @@
   <Aggregate root="PerformanceMeasure">
     <Entity table="PerformanceMeasure" schema="extension"/>
     <Entity table="PerformanceMeasureGradeLevel" schema="extension"/>
-    <Entity table="PerformanceMeasureObservee" schema="extension"/>
-    <Entity table="PerformanceMeasureObserver" schema="extension"/>
-    <Entity table="PerformanceMeasureObserverReceivedTraining" schema="extension"/>
+    <Entity table="PerformanceMeasurePersonBeingReviewed" schema="extension"/>
     <Entity table="PerformanceMeasureProgramGateway" schema="extension"/>
+    <Entity table="PerformanceMeasureReviewer" schema="extension"/>
+    <Entity table="PerformanceMeasureReviewerReceivedTraining" schema="extension"/>
   </Aggregate>
   <Aggregate root="PerformanceMeasureFacts">
     <Entity table="PerformanceMeasureFacts" schema="extension"/>
@@ -378,9 +379,9 @@
   <Aggregate root="SectionSurveyResponseFacts">
     <Entity table="SectionSurveyResponseFacts" schema="extension"/>
   </Aggregate>
-  <Aggregate root="SectionSurveySectionResponseRatingFact">
-    <Entity table="SectionSurveySectionResponseRatingFact" schema="extension"/>
-    <Entity table="SectionSurveySectionResponseRatingFactAggregatedNumericResponse" schema="extension"/>
+  <Aggregate root="SectionSurveySectionResponseRatingFacts">
+    <Entity table="SectionSurveySectionResponseRatingFacts" schema="extension"/>
+    <Entity table="SectionSurveySectionResponseRatingFactsAggregatedNumericResponse" schema="extension"/>
   </Aggregate>
   <Aggregate root="StaffFieldworkAbsenceEvent">
     <Entity table="StaffFieldworkAbsenceEvent" schema="extension"/>
@@ -469,6 +470,9 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateProfessionalDevelopmentEventAttendance">
     <Entity table="TeacherCandidateProfessionalDevelopmentEventAttendance" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateStaffAssociation">
+    <Entity table="TeacherCandidateStaffAssociation" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateStudentGrowthMeasure">
     <Entity table="TeacherCandidateStudentGrowthMeasure" schema="extension"/>

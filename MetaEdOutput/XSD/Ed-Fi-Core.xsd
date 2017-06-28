@@ -19998,6 +19998,11 @@
           <xs:documentation></xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="Mentor Teacher">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="StaffIdentificationSystemMapType">

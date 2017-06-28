@@ -34,6 +34,7 @@ The following table describes the primary entities of which the Staff Associatio
 
 | Name | Description |
 |----------|-----------------|
+| StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | StaffTeacherPreparationProviderProgramAssociation | This association indicates the Staff associated with a teacher preparation provider program. |
 | Staff | This entity represents an individual who performs specified activities for any public or private education institution or agency that provides instructional and/or support services to students or staff at the early childhood level through high school completion. For example, this includes:<br/>    1. An "employee" who performs services under the direction of the employing institution or agency is compensated for such services by the employer and is eligible for employee benefits and wage or salary tax withholdings<br/>    2. A "contractor" or "consultant" who performs services for an agreed upon fee or an employee of a management service contracted to work on site<br/>    3. A "volunteer" who performs services on a voluntary and uncompensated basis<br/>    4. An in-kind service provider<br/>    5. An independent contractor or businessperson working at a school site. |
@@ -73,6 +74,7 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 
 | Descriptor Name | Description |
 |---------------------|-----------------|
+| AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AcademicSubjectDescriptor | Optional.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
 | BackgroundCheckStatusDescriptor | Optional.  This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
 | BackgroundCheckTypeDescriptor | Optional.  The type of background check (e.g., online, criminal, employment). |

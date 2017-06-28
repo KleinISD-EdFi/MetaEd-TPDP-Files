@@ -1,11 +1,11 @@
-Common Observee
-  documentation "Information regarding the observee of the observation."
+Common PersonBeingReviewed
+  documentation "Information regarding the person taking the performance measure."
   shared string FirstName named FirstNameOfObservee
     documentation "A name given to an individual at birth, baptism, or during another naming ceremony, or through legal change."
     is required
   shared string LastSurname named LastNameOfObservee
     documentation "The name borne in common by members of a family."
     is required
-  choice ObserveeChoice
-    documentation "The reference to the observee."
+  choice PersonBeingReviewedChoice
+    documentation "The reference to the person being reviewed."
     is optional

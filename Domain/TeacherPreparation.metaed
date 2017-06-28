@@ -12,7 +12,7 @@ Domain TeacherPreparation
     domain entity CourseStudentFacts
     domain entity CourseSurveyQuestionResponseFacts
     domain entity CourseSurveyResponseFacts
-    domain entity CourseSurveySectionResponseRatingFact
+    domain entity CourseSurveySectionResponseRatingFacts
     domain entity Credential
     domain entity EducationOrganizationCourseTranscriptFacts
     domain entity EducationOrganizationFacts
@@ -21,7 +21,7 @@ Domain TeacherPreparation
     domain entity EducationOrganizationStudentFacts
     domain entity EducationOrganizationSurveyQuestionResponseFacts
     domain entity EducationOrganizationSurveyResponseFacts
-    domain entity EducationOrganizationSurveySectionResponseRatingFact
+    domain entity EducationOrganizationSurveySectionResponseRatingFacts
     domain entity ExternalCourseTranscript
     domain entity ExternalEducationOrganization
     domain entity ExternalStudentAcademicRecord
@@ -43,7 +43,7 @@ Domain TeacherPreparation
     domain entity SectionStudentFacts
     domain entity SectionSurveyQuestionResponseFacts
     domain entity SectionSurveyResponseFacts
-    domain entity SectionSurveySectionResponseRatingFact
+    domain entity SectionSurveySectionResponseRatingFacts
     domain entity Staff
     domain entity StaffFieldworkAbsenceEvent
     domain entity StaffFieldworkExperience
@@ -71,5 +71,6 @@ Domain TeacherPreparation
     association StaffEducationOrganizationAssignmentAssociation
     association StaffTeacherPreparationProviderAssociation
     association StaffTeacherPreparationProviderProgramAssociation
+    association TeacherCandidateStaffAssociation
     association TeacherCandidateTeacherPreparationProviderAssociation
     association TeacherCandidateTeacherPreparationProviderProgramAssociation

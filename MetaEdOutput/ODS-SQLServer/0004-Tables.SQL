@@ -27477,6 +27477,8 @@ INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDe
 
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Librarians/Media Specialists','Librarians/Media Specialists')
 
+INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Mentor Teacher','Mentor Teacher')
+
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Operational Support','Operational Support')
 
 INSERT INTO [edfi].[StaffClassificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')

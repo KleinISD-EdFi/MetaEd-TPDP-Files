@@ -94,3 +94,6 @@ Domain Entity Applicant
     common Aid
       documentation "(TPDP Extension) This entity represents the financial aid a person is awarded."
       is optional collection
+    common ScoreResult
+      documentation "(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc."
+      is optional collection

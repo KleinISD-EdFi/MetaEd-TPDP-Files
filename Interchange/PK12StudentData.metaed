@@ -1,7 +1,12 @@
 Interchange PK12StudentData
     documentation "?"
     domain entity AnonymizedStudent
+    domain entity AnonymizedStudentAcademicRecord
     domain entity AnonymizedStudentAssessment
+    association AnonymizedStudentCourseAssociation
+    domain entity AnonymizedStudentCourseTranscript
+    association AnonymizedStudentEducationOrganizationAssociation
+    association AnonymizedStudentSectionAssociation
     domain entity CourseCourseTranscriptFacts
     domain entity CourseStudentAcademicRecordFacts
     domain entity CourseStudentAssessmentFacts

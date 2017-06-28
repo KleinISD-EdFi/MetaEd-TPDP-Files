@@ -160,8 +160,8 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.CourseSurveySectionResponseRatingFact') AND name = N'UX_CourseSurveySectionResponseRatingFact_Id')
-CREATE UNIQUE NONCLUSTERED INDEX UX_CourseSurveySectionResponseRatingFact_Id ON extension.CourseSurveySectionResponseRatingFact
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.CourseSurveySectionResponseRatingFacts') AND name = N'UX_CourseSurveySectionResponseRatingFacts_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_CourseSurveySectionResponseRatingFacts_Id ON extension.CourseSurveySectionResponseRatingFacts
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
 GO
 COMMIT
@@ -224,8 +224,8 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.EducationOrganizationSurveySectionResponseRatingFact') AND name = N'UX_EducationOrganizationSurveySectionResponseRatingFact_Id')
-CREATE UNIQUE NONCLUSTERED INDEX UX_EducationOrganizationSurveySectionResponseRatingFact_Id ON extension.EducationOrganizationSurveySectionResponseRatingFact
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.EducationOrganizationSurveySectionResponseRatingFacts') AND name = N'UX_EducationOrganizationSurveySectionResponseRatingFacts_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_EducationOrganizationSurveySectionResponseRatingFacts_Id ON extension.EducationOrganizationSurveySectionResponseRatingFacts
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
 GO
 COMMIT
@@ -488,8 +488,8 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SectionSurveySectionResponseRatingFact') AND name = N'UX_SectionSurveySectionResponseRatingFact_Id')
-CREATE UNIQUE NONCLUSTERED INDEX UX_SectionSurveySectionResponseRatingFact_Id ON extension.SectionSurveySectionResponseRatingFact
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SectionSurveySectionResponseRatingFacts') AND name = N'UX_SectionSurveySectionResponseRatingFacts_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_SectionSurveySectionResponseRatingFacts_Id ON extension.SectionSurveySectionResponseRatingFacts
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
 GO
 COMMIT
@@ -634,6 +634,14 @@ BEGIN TRANSACTION
 GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TeacherCandidateProfessionalDevelopmentEventAttendance') AND name = N'UX_TeacherCandidateProfessionalDevelopmentEventAttendance_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_TeacherCandidateProfessionalDevelopmentEventAttendance_Id ON extension.TeacherCandidateProfessionalDevelopmentEventAttendance
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TeacherCandidateStaffAssociation') AND name = N'UX_TeacherCandidateStaffAssociation_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_TeacherCandidateStaffAssociation_Id ON extension.TeacherCandidateStaffAssociation
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
 GO
 COMMIT

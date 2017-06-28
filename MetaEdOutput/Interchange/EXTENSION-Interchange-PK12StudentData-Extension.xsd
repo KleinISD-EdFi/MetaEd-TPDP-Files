@@ -12,7 +12,12 @@
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
         <xs:element name="AnonymizedStudent" type="EXTENSION-AnonymizedStudent" />
+        <xs:element name="AnonymizedStudentAcademicRecord" type="EXTENSION-AnonymizedStudentAcademicRecord" />
         <xs:element name="AnonymizedStudentAssessment" type="EXTENSION-AnonymizedStudentAssessment" />
+        <xs:element name="AnonymizedStudentCourseAssociation" type="EXTENSION-AnonymizedStudentCourseAssociation" />
+        <xs:element name="AnonymizedStudentCourseTranscript" type="EXTENSION-AnonymizedStudentCourseTranscript" />
+        <xs:element name="AnonymizedStudentEducationOrganizationAssociation" type="EXTENSION-AnonymizedStudentEducationOrganizationAssociation" />
+        <xs:element name="AnonymizedStudentSectionAssociation" type="EXTENSION-AnonymizedStudentSectionAssociation" />
         <xs:element name="CourseCourseTranscriptFacts" type="EXTENSION-CourseCourseTranscriptFacts" />
         <xs:element name="CourseStudentAcademicRecordFacts" type="EXTENSION-CourseStudentAcademicRecordFacts" />
         <xs:element name="CourseStudentAssessmentFacts" type="EXTENSION-CourseStudentAssessmentFacts" />
