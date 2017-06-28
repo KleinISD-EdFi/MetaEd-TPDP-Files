@@ -10462,9 +10462,9 @@ StudentUSI
         &lt;xs:documentation&gt;The percent of students who have been identified as at risk.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;PercentMobility&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;PercentMobility&quot; type=&quot;Percent&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The average number of times a student moves schools during a school year.&lt;/xs:documentation&gt;
+        &lt;xs:documentation&gt;The percentage of students who have moved at least once during the school year.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -24442,7 +24442,7 @@ TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -24708,7 +24708,7 @@ TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -24910,7 +24910,7 @@ SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -25278,7 +25278,7 @@ SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -26638,7 +26638,7 @@ TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -26955,7 +26955,7 @@ TermDescriptorId [INT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27147,7 +27147,7 @@ SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27483,7 +27483,7 @@ SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33270,7 +33270,7 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33446,7 +33446,7 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33696,7 +33696,7 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -34237,7 +34237,7 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
-PercentMobility [INT] NULL
+PercentMobility [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -46862,33 +46862,6 @@ VisaTypeId
             </div>
         </p>
         <p>
-            <h2>PercentMobility</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The average number of times a student moves schools during a school year.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Integer Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentsEnrolled.PercentMobility (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre></pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>PercentMobility [INT]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>PerformanceLevelMetNumber</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -47724,7 +47697,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelTypePercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />DisabilityByType.Percentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />StudentsEnrolled.PercentAtRisk (as optional)<br />TotalStudentsDisabled.StudentsDisabledPercentage (as optional)</div>
+                <div><br />Used By:<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelTypePercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />DisabilityByType.Percentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />StudentsEnrolled.PercentAtRisk (as optional)<br />StudentsEnrolled.PercentMobility (as optional)<br />TotalStudentsDisabled.StudentsDisabledPercentage (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

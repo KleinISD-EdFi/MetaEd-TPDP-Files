@@ -9038,9 +9038,9 @@
           <xs:documentation>The percent of students who have been identified as at risk.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PercentMobility" type="xs:int" minOccurs="0">
+      <xs:element name="PercentMobility" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The average number of times a student moves schools during a school year.</xs:documentation>
+          <xs:documentation>The percentage of students who have moved at least once during the school year.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

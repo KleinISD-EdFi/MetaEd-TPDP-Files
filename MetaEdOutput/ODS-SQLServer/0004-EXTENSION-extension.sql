@@ -2243,7 +2243,7 @@ CREATE TABLE [extension].[CourseCourseTranscriptFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseCourseTranscriptFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2278,7 +2278,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -2425,7 +2425,7 @@ CREATE TABLE [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentAcademicRecordFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2457,7 +2457,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -2616,7 +2616,7 @@ CREATE TABLE [extension].[CourseStudentAssessmentFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentAssessmentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2647,7 +2647,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -3259,7 +3259,7 @@ CREATE TABLE [extension].[CourseStudentFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -3287,7 +3287,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -3678,7 +3678,7 @@ CREATE TABLE [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnro
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationCourseTranscriptFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -3710,7 +3710,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -3985,7 +3985,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsStudent
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -4014,7 +4014,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -4160,7 +4160,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnr
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentAssessmentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -4188,7 +4188,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -4739,7 +4739,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -4764,7 +4764,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -8126,7 +8126,7 @@ CREATE TABLE [extension].[SectionCourseTranscriptFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionCourseTranscriptFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8173,7 +8173,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -8372,7 +8372,7 @@ CREATE TABLE [extension].[SectionStudentAcademicRecordFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentAcademicRecordFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8416,7 +8416,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -8649,7 +8649,7 @@ CREATE TABLE [extension].[SectionStudentAssessmentFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentAssessmentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8696,7 +8696,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 
@@ -9629,7 +9629,7 @@ CREATE TABLE [extension].[SectionStudentFactsStudentsEnrolled](
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
-    [PercentMobility] [INT] NULL,
+    [PercentMobility] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentFactsStudentsEnrolled_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -9673,7 +9673,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total numb
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of times a student moves schools during a school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who have moved at least once during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentMobility'
 GO
 
 

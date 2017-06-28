@@ -15,6 +15,6 @@ Common StudentsEnrolled
   percent PercentAtRisk
     documentation "The percent of students who have been identified as at risk."
     is optional
-  integer PercentMobility
-    documentation "The average number of times a student moves schools during a school year."
+  percent PercentMobility
+    documentation "The percentage of students who have moved at least once during the school year."
     is optional
