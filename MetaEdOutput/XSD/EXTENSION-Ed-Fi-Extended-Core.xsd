@@ -6943,11 +6943,6 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="StudentReference" type="StudentReferenceType">
-        <xs:annotation>
-          <xs:documentation>The student associated.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
         <xs:annotation>
           <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>

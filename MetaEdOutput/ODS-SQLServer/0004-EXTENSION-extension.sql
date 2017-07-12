@@ -6180,7 +6180,6 @@ CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
     [ProspectIdentifier] [NVARCHAR](32) NULL,
     [EducationOrganizationId] [INT] NULL,
     [StaffUSI] [INT] NULL,
-    [StudentUSI] [INT] NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasurePersonBeingReviewed_PK] PRIMARY KEY CLUSTERED (
@@ -6204,8 +6203,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11056,8 +11053,8 @@ GO
 /****** Table: [extension].[TeacherCandidate] ******/
 
 CREATE TABLE [extension].[TeacherCandidate](
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [GenderTypeId] [INT] NULL,
     [TuitionCost] [MONEY] NULL,
     [EnglishLanguageExamDescriptorId] [INT] NULL,
@@ -11068,7 +11065,6 @@ CREATE TABLE [extension].[TeacherCandidate](
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidate_PK] PRIMARY KEY CLUSTERED (
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11082,9 +11078,9 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
@@ -11146,7 +11142,6 @@ GO
 CREATE TABLE [extension].[TeacherCandidateAid](
     [AidTypeDescriptorId] [INT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EndDate] [DATE] NULL,
     [AidConditionDescription] [NVARCHAR](1024) NULL,
@@ -11156,7 +11151,6 @@ CREATE TABLE [extension].[TeacherCandidateAid](
     CONSTRAINT [TeacherCandidateAid_PK] PRIMARY KEY CLUSTERED (
         [AidTypeDescriptorId] ASC,
         [BeginDate] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11169,8 +11163,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The classification of financial aid awarded to a person for the academic term/year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'AidTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the award was designated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'BeginDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11187,7 +11179,6 @@ GO
 /****** Table: [extension].[TeacherCandidateBackgroundCheck] ******/
 
 CREATE TABLE [extension].[TeacherCandidateBackgroundCheck](
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [BackgroundCheckTypeDescriptorId] [INT] NOT NULL,
     [BackgroundCheckRequestedDate] [DATE] NOT NULL,
@@ -11196,7 +11187,6 @@ CREATE TABLE [extension].[TeacherCandidateBackgroundCheck](
     [Fingerprint] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateBackgroundCheck_PK] PRIMARY KEY CLUSTERED (
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11205,8 +11195,6 @@ ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] ADD CONSTRAINT [Teache
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Applicant background check history and disposition.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateBackgroundCheck'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11281,13 +11269,11 @@ GO
 CREATE TABLE [extension].[TeacherCandidateCredential](
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateCredential_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
         [StateOfIssueStateAbbreviationTypeId] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11301,8 +11287,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
@@ -11310,7 +11294,6 @@ GO
 /****** Table: [extension].[TeacherCandidateFieldworkAbsenceEvent] ******/
 
 CREATE TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent](
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EventDate] [DATE] NOT NULL,
     [HoursAbsent] [DECIMAL](3, 2) NULL,
@@ -11318,7 +11301,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent](
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateFieldworkAbsenceEvent_PK] PRIMARY KEY CLUSTERED (
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11331,8 +11313,6 @@ ALTER TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent] ADD CONSTRAINT [
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the staff absence', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkAbsenceEvent'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11348,7 +11328,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
     [BeginDate] [DATE] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
     [SchoolId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NULL,
     [SequenceOfCourse] [INT] NULL,
@@ -11368,7 +11347,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
         [BeginDate] ASC,
         [FieldworkIdentifier] ASC,
         [SchoolId] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11387,8 +11365,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identifier for the fieldwork experience', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'FieldworkIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'SchoolId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11422,7 +11398,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching](
     [BeginDate] [DATE] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
     [SchoolId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -11430,7 +11405,6 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching](
         [BeginDate] ASC,
         [FieldworkIdentifier] ASC,
         [SchoolId] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11446,8 +11420,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique ide
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate stopped co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'EndDate'
@@ -11459,7 +11431,6 @@ GO
 CREATE TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance](
     [AttendanceDate] [DATE] NOT NULL,
     [ProfessionalDevelopmentTitle] [NVARCHAR](60) NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [AttendanceEventCategoryDescriptorId] [INT] NOT NULL,
     [AttendanceEventReason] [NVARCHAR](40) NULL,
@@ -11469,7 +11440,6 @@ CREATE TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance
     CONSTRAINT [TeacherCandidateProfessionalDevelopmentEventAttendance_PK] PRIMARY KEY CLUSTERED (
         [AttendanceDate] ASC,
         [ProfessionalDevelopmentTitle] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11487,8 +11457,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name for a professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProfessionalDevelopmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code describing the attendance event, for example:
@@ -11505,7 +11473,6 @@ GO
 
 CREATE TABLE [extension].[TeacherCandidateStaffAssociation](
     [StaffUSI] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [EndDate] [DATE] NULL,
@@ -11514,7 +11481,6 @@ CREATE TABLE [extension].[TeacherCandidateStaffAssociation](
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateStaffAssociation_PK] PRIMARY KEY CLUSTERED (
         [StaffUSI] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11530,8 +11496,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This associati
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate is associated to the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
@@ -11545,7 +11509,6 @@ GO
 CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [StudentGrowthMeasureDate] [DATE] NULL,
     [ResultDatatypeTypeId] [INT] NULL,
@@ -11560,7 +11523,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
     CONSTRAINT [TeacherCandidateStudentGrowthMeasure_PK] PRIMARY KEY CLUSTERED (
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11577,8 +11539,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11605,7 +11565,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourse_PK] PRIMARY KEY CLUSTERED (
@@ -11613,7 +11572,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11631,8 +11589,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
@@ -11643,14 +11599,12 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizat
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganization_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11666,8 +11620,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
@@ -11682,7 +11634,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
     [SchoolId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [SequenceOfCourse] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
@@ -11695,7 +11646,6 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
         [SchoolId] ASC,
         [SchoolYear] ASC,
         [SequenceOfCourse] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC,
         [TermDescriptorId] ASC,
         [UniqueSectionCode] ASC
@@ -11721,8 +11671,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
@@ -11735,7 +11683,6 @@ GO
 
 CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation](
     [EntryDate] [DATE] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [TeacherPreparationProviderId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NULL,
@@ -11748,7 +11695,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation]
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateTeacherPreparationProviderAssociation_PK] PRIMARY KEY CLUSTERED (
         [EntryDate] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC,
         [TeacherPreparationProviderId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -11764,8 +11710,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateTeacherPreparationProviderAssociation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Entry date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'EntryDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -11790,7 +11734,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
     [EducationOrganizationId] [INT] NOT NULL,
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [ServiceOutsideRegularSession] [BIT] NULL,
     [EndDate] [DATE] NULL,
@@ -11803,7 +11746,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
         [EducationOrganizationId] ASC,
         [ProgramName] ASC,
         [ProgramTypeId] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11825,8 +11767,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The formal nam
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ProgramTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates whether the Teacher Candidate received services during the summer session or between sessions.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ServiceOutsideRegularSession'
@@ -11845,7 +11785,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
     [ServiceDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [PrimaryIndicator] [BIT] NULL,
     [ServiceBeginDate] [DATE] NULL,
@@ -11857,7 +11796,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
         [ProgramName] ASC,
         [ProgramTypeId] ASC,
         [ServiceDescriptorId] ASC,
-        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11876,8 +11814,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ProgramTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates the Service being provided to the student by the Program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ServiceDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
@@ -15951,14 +15887,14 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Staff]
 ON [extension].[PerformanceMeasurePersonBeingReviewed]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate]
-ON [extension].[PerformanceMeasurePersonBeingReviewed]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasureProgramGateway] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureProgramGateway_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
@@ -18247,14 +18183,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateAid_AidTypeDescriptor]
 ON [extension].[TeacherCandidateAid]([AidTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateAid] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateAid_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateAid] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateAid_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateAid_TeacherCandidate]
-ON [extension].[TeacherCandidateAid]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateAid]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_BackgroundCheckStatusDescriptor] FOREIGN KEY ([BackgroundCheckStatusDescriptorId])
@@ -18277,8 +18213,8 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateBackgroundCheck_BackgroundCheckTyp
 ON [extension].[TeacherCandidateBackgroundCheck]([BackgroundCheckTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
@@ -18313,18 +18249,18 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_Credential]
 ON [extension].[TeacherCandidateCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_TeacherCandidate]
-ON [extension].[TeacherCandidateCredential]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateCredential]([TeacherCandidateUniqueId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkAbsenceEvent_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkAbsenceEvent_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
@@ -18371,18 +18307,18 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperience_Section]
 ON [extension].[TeacherCandidateFieldworkExperience]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperience] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperience_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperience] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperience_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperience_TeacherCandidate]
-ON [extension].[TeacherCandidateFieldworkExperience]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateFieldworkExperience]([TeacherCandidateUniqueId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoteaching_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkIdentifier], [SchoolId], [StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkIdentifier], [SchoolId], [StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoteaching_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkIdentifier], [SchoolId], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkIdentifier], [SchoolId], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
@@ -18409,14 +18345,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateProfessionalDevelopmentEventAttend
 ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([ProfessionalDevelopmentTitle] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate]
-ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_Staff] FOREIGN KEY ([StaffUSI])
@@ -18429,14 +18365,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_Staff]
 ON [extension].[TeacherCandidateStaffAssociation]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateStaffAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStaffAssociation]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_ResultDatatypeType] FOREIGN KEY ([ResultDatatypeTypeId])
@@ -18469,14 +18405,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_StudentGrowth
 ON [extension].[TeacherCandidateStudentGrowthMeasure]([StudentGrowthTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate]
-ON [extension].[TeacherCandidateStudentGrowthMeasure]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasure]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
@@ -18489,14 +18425,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_Course]
 ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([CourseCode] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
@@ -18509,14 +18445,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrgan
 ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -18529,14 +18465,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_Sectio
 ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_EntryTypeDescriptor] FOREIGN KEY ([EntryTypeDescriptorId])
@@ -18579,14 +18515,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderAssociat
 ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([ClassOfSchoolYear] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherPreparationProvider] FOREIGN KEY ([TeacherPreparationProviderId])
@@ -18609,14 +18545,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([ReasonExitedDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherPreparationProviderProgram] FOREIGN KEY ([EducationOrganizationId], [ProgramName], [ProgramTypeId])
@@ -18639,14 +18575,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([ServiceDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [StudentUSI], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [StudentUSI], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([BeginDate] ASC, [EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([BeginDate] ASC, [EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherPreparationProgramTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProgramTypeDescriptor_Descriptor] FOREIGN KEY ([TeacherPreparationProgramTypeDescriptorId])

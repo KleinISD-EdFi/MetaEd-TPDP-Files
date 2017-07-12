@@ -2330,7 +2330,6 @@ UniqueSectionCode
                 <div><pre>extension.TeacherCandidateStaffAssociation
 
 StaffUSI [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
@@ -2340,7 +2339,6 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 StaffUSI
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -2431,7 +2429,6 @@ TeacherCandidateUniqueId
                 <div><pre>extension.TeacherCandidateTeacherPreparationProviderAssociation
 
 EntryDate [DATE] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 TeacherPreparationProviderId [INT] NOT NULL
 SchoolYear [SMALLINT] NULL
@@ -2445,7 +2442,6 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EntryDate
-StudentUSI
 TeacherCandidateUniqueId
 TeacherPreparationProviderId
 </pre></div>
@@ -2532,7 +2528,6 @@ BeginDate [DATE] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 ServiceOutsideRegularSession [BIT] NULL
 EndDate [DATE] NULL
@@ -2546,7 +2541,6 @@ BeginDate
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateTeacherPreparationProviderProgramAssociationService
 
@@ -2555,7 +2549,6 @@ EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
 ServiceDescriptorId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 PrimaryIndicator [BIT] NULL
 ServiceBeginDate [DATE] NULL
@@ -2568,7 +2561,6 @@ EducationOrganizationId
 ProgramName
 ProgramTypeId
 ServiceDescriptorId
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -30967,7 +30959,6 @@ LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
-StudentUSI [INT] NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -35461,7 +35452,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />ProfileThumbnail (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />StudentCharacteristic (optional collection)<br />StudentIdentificationCode (optional collection)<br />StudentIndicator (optional collection)<br />StudentUniqueId (identity)<br />Telephone (optional collection)<br /><br />Used By:<br />StudentCohortAssociation.Student (as identity)<br />StudentDisciplineIncidentAssociation.Student (as identity)<br />StudentEducationOrganizationAssociation.Student (as identity)<br />StudentInterventionAssociation.Student (as identity)<br />StudentParentAssociation.Student (as identity)<br />StudentProgramAssociation.Student (as identity)<br />StudentSchoolAssociation.Student (as identity)<br />StudentSectionAssociation.Student (as identity)<br />SurveyResponderChoice.Student (as required)<br />DisciplineAction.Student (as identity)<br />PostSecondaryEvent.Student (as identity)<br />ReportCard.Student (as identity)<br />RestraintEvent.Student (as identity)<br />StudentAcademicRecord.Student (as identity)<br />StudentAssessment.Student (as identity)<br />StudentCompetencyObjective.Student (as identity)<br />StudentInterventionAttendanceEvent.Student (as identity)<br />StudentLearningObjective.Student (as identity)<br />StudentProgramAttendanceEvent.Student (as identity)<br />StudentSchoolAttendanceEvent.Student (as identity)<br />StudentSectionAttendanceEvent.Student (as identity)<br />ExternalStudentAcademicRecord.Student (as identity)<br />TeacherCandidate.Student (as identity)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />ProfileThumbnail (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />StudentCharacteristic (optional collection)<br />StudentIdentificationCode (optional collection)<br />StudentIndicator (optional collection)<br />StudentUniqueId (identity)<br />Telephone (optional collection)<br /><br />Used By:<br />StudentCohortAssociation.Student (as identity)<br />StudentDisciplineIncidentAssociation.Student (as identity)<br />StudentEducationOrganizationAssociation.Student (as identity)<br />StudentInterventionAssociation.Student (as identity)<br />StudentParentAssociation.Student (as identity)<br />StudentProgramAssociation.Student (as identity)<br />StudentSchoolAssociation.Student (as identity)<br />StudentSectionAssociation.Student (as identity)<br />SurveyResponderChoice.Student (as required)<br />DisciplineAction.Student (as identity)<br />PostSecondaryEvent.Student (as identity)<br />ReportCard.Student (as identity)<br />RestraintEvent.Student (as identity)<br />StudentAcademicRecord.Student (as identity)<br />StudentAssessment.Student (as identity)<br />StudentCompetencyObjective.Student (as identity)<br />StudentInterventionAttendanceEvent.Student (as identity)<br />StudentLearningObjective.Student (as identity)<br />StudentProgramAttendanceEvent.Student (as identity)<br />StudentSchoolAttendanceEvent.Student (as identity)<br />StudentSectionAttendanceEvent.Student (as identity)<br />ExternalStudentAcademicRecord.Student (as identity)<br />TeacherCandidate.Student (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37823,7 +37814,7 @@ SurveySectionTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />Credential (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />Student (identity)<br />TeacherCandidateUniqueId (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />Credential (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateUniqueId (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37907,8 +37898,8 @@ SurveySectionTitle
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidate
 
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+StudentUSI [INT] NOT NULL
 GenderTypeId [INT] NULL
 TuitionCost [MONEY] NULL
 EnglishLanguageExamDescriptorId [INT] NULL
@@ -37920,13 +37911,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateAid
 
 AidTypeDescriptorId [INT] NOT NULL
 BeginDate [DATE] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
@@ -37937,11 +37926,9 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AidTypeDescriptorId
 BeginDate
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateBackgroundCheck
 
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 BackgroundCheckTypeDescriptorId [INT] NOT NULL
 BackgroundCheckRequestedDate [DATE] NOT NULL
@@ -37951,20 +37938,17 @@ Fingerprint [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
 StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -38023,7 +38007,6 @@ TeacherCandidateUniqueId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidateFieldworkAbsenceEvent
 
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EventDate [DATE] NOT NULL
 HoursAbsent [DECIMAL](3, 2) NULL
@@ -38032,7 +38015,6 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -38135,7 +38117,6 @@ TeacherCandidateUniqueId
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
@@ -38156,14 +38137,12 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
@@ -38172,7 +38151,6 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -38250,7 +38228,6 @@ TeacherCandidateUniqueId
 
 AttendanceDate [DATE] NOT NULL
 ProfessionalDevelopmentTitle [NVARCHAR](60) NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 AttendanceEventCategoryDescriptorId [INT] NOT NULL
 AttendanceEventReason [NVARCHAR](40) NULL
@@ -38261,7 +38238,6 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 AttendanceDate
 ProfessionalDevelopmentTitle
-StudentUSI
 TeacherCandidateUniqueId
 </pre></div>
             </div>
@@ -38375,7 +38351,6 @@ TeacherCandidateUniqueId
 
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
@@ -38391,7 +38366,6 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 FactAsOfDate
 SchoolYear
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureCourse
 
@@ -38399,7 +38373,6 @@ CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -38408,14 +38381,12 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureEducationOrganization
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -38423,7 +38394,6 @@ Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-StudentUSI
 TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureSection
 
@@ -38434,7 +38404,6 @@ LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
-StudentUSI [INT] NOT NULL
 TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
@@ -38448,7 +38417,6 @@ LocalCourseCode
 SchoolId
 SchoolYear
 SequenceOfCourse
-StudentUSI
 TeacherCandidateUniqueId
 TermDescriptorId
 UniqueSectionCode
