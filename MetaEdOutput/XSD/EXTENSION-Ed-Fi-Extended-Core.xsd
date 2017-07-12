@@ -10702,18 +10702,6 @@
       <xs:maxLength value="1024" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-CredentialEndorsement">
-    <xs:annotation>
-      <xs:documentation>Endorsements are attachments to teaching certificates and indicate areas of specialization.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Simple</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="255" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="EXTENSION-EventDescription">
     <xs:annotation>
       <xs:documentation>The long description of the event.</xs:documentation>
