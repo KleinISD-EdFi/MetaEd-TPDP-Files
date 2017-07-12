@@ -317,7 +317,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term in wh
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a student assessment', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -2225,7 +2225,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -3945,7 +3945,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -8095,7 +8095,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique ident
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
