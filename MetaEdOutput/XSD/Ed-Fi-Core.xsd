@@ -1074,6 +1074,11 @@
               <xs:documentation>An indication of the pre-determined criteria for granting the teaching credential that an individual holds.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="CurrentCredential" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicator of whether this is the credential currently being used for employment.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

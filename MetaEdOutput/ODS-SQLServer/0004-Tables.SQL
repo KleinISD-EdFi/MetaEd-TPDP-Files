@@ -3336,6 +3336,7 @@ CREATE TABLE [edfi].[Credential](
     [GradeLevelDescriptorId] [INT] NOT NULL,
     [TeachingCredentialDescriptorId] [INT] NOT NULL,
     [TeachingCredentialBasisTypeId] [INT] NULL,
+    [CurrentCredential] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -3373,6 +3374,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator of whether this is the credential currently being used for employment.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CurrentCredential'
 GO
 
 

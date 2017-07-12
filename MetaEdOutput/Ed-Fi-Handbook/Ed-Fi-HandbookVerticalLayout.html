@@ -3362,6 +3362,37 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>CurrentCredential</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Indicator of whether this is the credential currently being used for employment.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Boolean Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Credential.CurrentCredential (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;CurrentCredential&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Indicator of whether this is the credential currently being used for employment.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CurrentCredential [BIT]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>EconomicDisadvantaged</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -25588,7 +25619,7 @@ TermDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CredentialEndorsement (optional collection)<br />CredentialField (required)<br />CredentialIdentifier (identity)<br />CredentialType (required)<br />EffectiveDate (optional)<br />ExpirationDate (optional)<br />GradeLevel (required)<br />IssuanceDate (required)<br />StateOfIssueStateAbbreviation (identity)<br />TeachingCredential (required)<br />TeachingCredentialBasis (optional)<br /><br />Used By:<br />Staff.Credential (as optional collection)<br />Applicant.Credential (as optional collection)<br />Prospect.Credential (as optional collection)<br />TeacherCandidate.Credential (as optional collection)</div>
+                <div><br />Contains:<br />CredentialEndorsement (optional collection)<br />CredentialField (required)<br />CredentialIdentifier (identity)<br />CredentialType (required)<br />CurrentCredential (optional)<br />EffectiveDate (optional)<br />ExpirationDate (optional)<br />GradeLevel (required)<br />IssuanceDate (required)<br />StateOfIssueStateAbbreviation (identity)<br />TeachingCredential (required)<br />TeachingCredentialBasis (optional)<br /><br />Used By:<br />Staff.Credential (as optional collection)<br />Applicant.Credential (as optional collection)<br />Prospect.Credential (as optional collection)<br />TeacherCandidate.Credential (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25666,6 +25697,11 @@ TermDescriptorId
             &lt;xs:documentation&gt;An indication of the pre-determined criteria for granting the teaching credential that an individual holds.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CurrentCredential&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicator of whether this is the credential currently being used for employment.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -25685,6 +25721,7 @@ CredentialTypeId [INT] NOT NULL
 GradeLevelDescriptorId [INT] NOT NULL
 TeachingCredentialDescriptorId [INT] NOT NULL
 TeachingCredentialBasisTypeId [INT] NULL
+CurrentCredential [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
