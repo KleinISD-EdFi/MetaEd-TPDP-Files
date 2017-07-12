@@ -9,10 +9,9 @@ Common RecommendingInstitution
   descriptor Country
     documentation "The country that the recommendation for a candidate was made in."
     is optional
-    with context RecommendingInstution
-    shorten to RecommendingInstitutionCountry
+    with context RecommendingInstitution
   enumeration StateAbbreviation
     documentation "The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued."
     is optional
     with context RecommendingInstitution
-    shorten to RecommendingInstutionState
+    shorten to RecommendingInstitutionState
