@@ -21,12 +21,13 @@
     <Element name="AssessmentCategoryDescriptor" />
     <Element name="PerformanceLevelDescriptor" />
     <Element name="LevelOfEducationDescriptor" />
+    <Element name="CredentialFieldDescriptor" />
+    <Element name="TeachingCredentialDescriptor" />
     <Element name="StudentGrowthTypeDescriptor" />
-    <Element name="StudentCharacteristicDescriptor" />
-    <Element name="LimitedEnglishProficiencyDescriptor" />
-    <Element name="CountryDescriptor" />
     <Element name="EnglishLanguageExamDescriptor" />
     <Element name="PreviousCareerDescriptor" />
+    <Element name="ProfessionalDevelopmentOfferedByDescriptor" />
+    <Element name="AttendanceEventCategoryDescriptor" />
     <Element name="SurveyCategoryDescriptor" />
     <Element name="ProgramCharacteristicDescriptor" />
     <Element name="ServiceDescriptor" />
@@ -50,24 +51,25 @@
     <Element name="AchievementCategoryDescriptor" />
     <Element name="AssessmentIdentificationSystemDescriptor" />
     <Element name="AssessmentPeriodDescriptor" />
-    <Element name="AttendanceEventCategoryDescriptor" />
     <Element name="BehaviorDescriptor" />
     <Element name="CalendarEventDescriptor" />
     <Element name="ContinuationOfServicesReasonDescriptor" />
+    <Element name="CountryDescriptor" />
     <Element name="CourseIdentificationSystemDescriptor" />
     <Element name="DiagnosisDescriptor" />
     <Element name="DisciplineDescriptor" />
     <Element name="EducationOrganizationIdentificationSystemDescriptor" />
     <Element name="GradingPeriodDescriptor" />
     <Element name="GraduationPlanTypeDescriptor" />
+    <Element name="LimitedEnglishProficiencyDescriptor" />
     <Element name="ReporterDescriptionDescriptor" />
     <Element name="ResidencyStatusDescriptor" />
     <Element name="ResponsibilityDescriptor" />
     <Element name="SectionCharacteristicDescriptor" />
     <Element name="SpecialEducationSettingDescriptor" />
     <Element name="StaffIdentificationSystemDescriptor" />
+    <Element name="StudentCharacteristicDescriptor" />
     <Element name="StudentIdentificationSystemDescriptor" />
-    <Element name="TeachingCredentialDescriptor" />
     <Element name="WeaponDescriptor" />
     <Element name="AidTypeDescriptor" />
     <Element name="BackgroundCheckStatusDescriptor" />
@@ -76,22 +78,12 @@
     <Element name="CertificationExamTypeDescriptor" />
     <Element name="LevelOfDegreeAwardedDescriptor" />
     <Element name="LevelTypeDescriptor" />
-    <Element name="ProfessionalDevelopmentOfferedByDescriptor" />
     <Element name="SalaryTypeDescriptor" />
     <Element name="TeacherCandidateCharacteristicDescriptor" />
     <Element name="TeacherPreparationProgramTypeDescriptor" />
-    <Element name="CredentialFieldDescriptor" />
   </Interchange>
-  <Interchange name="RecruitmentAndStaffing" order="20">
-    <Element name="RecruitmentEvent" />
-    <Element name="Prospect" />
-    <Element name="Applicant" />
-  </Interchange>
-  <Interchange name="Standards" order="20">
-    <Element name="LearningStandard" />
-    <Element name="LearningObjective" />
-  </Interchange>
-  <Interchange name="StaffAssociation" order="30">
+  <Interchange name="StaffAssociation" order="20">
+    <Element name="Credential" />
     <Element name="Staff" />
     <Element name="StaffFieldworkAbsenceEvent" />
     <Element name="StaffFieldworkExperience" />
@@ -104,6 +96,16 @@
     <Element name="OpenStaffPosition" />
     <Element name="StaffProgramAssociation" />
   </Interchange>
+  <Interchange name="Standards" order="20">
+    <Element name="LearningStandard" />
+    <Element name="LearningObjective" />
+  </Interchange>
+  <Interchange name="RecruitmentAndStaffing" order="30">
+    <Element name="Credential" />
+    <Element name="RecruitmentEvent" />
+    <Element name="Prospect" />
+    <Element name="Applicant" />
+  </Interchange>
   <Interchange name="EducationOrgCalendar" order="30">
     <Element name="GradingPeriod" />
     <Element name="AcademicWeek" />
@@ -111,6 +113,7 @@
     <Element name="CalendarDate" />
   </Interchange>
   <Interchange name="TeacherCandidate" order="40">
+    <Element name="Credential" />
     <Element name="TeacherCandidate" />
     <Element name="TeacherCandidateAcademicRecord" />
     <Element name="TeacherCandidateFieldworkAbsenceEvent" />
@@ -214,7 +217,13 @@
     <Element name="StudentLearningObjective" />
     <Element name="ReportCard" />
   </Interchange>
-  <Interchange name="Survey" order="100">
+  <Interchange name="ProfessionalDevelopment" order="100">
+    <Element name="ProfessionalDevelopmentEvent" />
+    <Element name="ProspectProfessionalDevelopmentEventAttendance" />
+    <Element name="StaffProfessionalDevelopmentEventAttendance" />
+    <Element name="TeacherCandidateProfessionalDevelopmentEventAttendance" />
+  </Interchange>
+  <Interchange name="Survey" order="110">
     <Element name="Survey" />
     <Element name="CourseSurveyResponseFacts" />
     <Element name="SurveySection" />

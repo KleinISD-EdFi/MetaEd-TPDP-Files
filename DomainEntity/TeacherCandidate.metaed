@@ -1,15 +1,19 @@
-Domain Entity TeacherCandidate based on Student
+Domain Entity TeacherCandidate
   documentation "This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program."
+  domain entity Student
+    documentation "The student associated."
+    is part of identity
   shared string UniqueId
-    documentation "A unique alphanumeric code assigned to a TeacherCandidate."
-    renames identity property StudentUniqueId
-    with context TeacherCandidate
-    is queryable field
+      documentation "A unique alphanumeric code assigned to a teacher candidate."
+      is part of identity
+      with context TeacherCandidate
+      is queryable field
+
   enumeration Gender
     documentation "The gender with which a person associates."
     is optional
     is queryable field
-  common Credential
+  domain entity Credential
     documentation "The legal document or authorization giving authorization to perform teaching assignment services."
     is optional collection
   currency TuitionCost

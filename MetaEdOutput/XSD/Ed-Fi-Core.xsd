@@ -1000,6 +1000,84 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="Credential">
+    <xs:annotation>
+      <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Domain Entity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="EffectiveDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The year, month and day on which an active credential held by an individual was issued.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialEndorsement" type="EXTENSION-CredentialEndorsement" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Endorsements are attachments to teaching certificates and indicate areas of specialization.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ExpirationDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which an active credential held by an individual will expire.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialField" type="CredentialFieldDescriptorReferenceType">
+            <xs:annotation>
+              <xs:documentation>The field of certification for the certificate (e.g., Mathematics, Music).</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>CredentialFieldDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialIdentifier" type="IdentificationCode">
+            <xs:annotation>
+              <xs:documentation>Identifier or serial number assigned to the credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="IssuanceDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which an active credential was issued to an individual.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialType" type="CredentialType">
+            <xs:annotation>
+              <xs:documentation>An indication of the category of credential an individual holds.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="GradeLevel" type="GradeLevelDescriptorReferenceType">
+            <xs:annotation>
+              <xs:documentation>The grade level(s) certified for teaching.</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>GradeLevelDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StateOfIssueStateAbbreviation" type="StateAbbreviationType">
+            <xs:annotation>
+              <xs:documentation>The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TeachingCredential" type="TeachingCredentialDescriptorReferenceType">
+            <xs:annotation>
+              <xs:documentation>An indication of the category of a legal document giving authorization to perform teaching assignment services.</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>TeachingCredentialDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TeachingCredentialBasis" type="TeachingCredentialBasisType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indication of the pre-determined criteria for granting the teaching credential that an individual holds.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="DisciplineAction">
     <xs:annotation>
       <xs:documentation>This event entity represents actions taken by an education organization after a disruptive event that is recorded as a discipline incident.</xs:documentation>
@@ -2990,7 +3068,7 @@
               <xs:documentation>The numbers, letters, and symbols used to identify an electronic mail (e-mail) user within the network to which the individual or organization belongs.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="HispanicLatinoEthnicity" type="xs:boolean">
+          <xs:element name="HispanicLatinoEthnicity" type="xs:boolean" minOccurs="0">
             <xs:annotation>
               <xs:documentation>An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."</xs:documentation>
             </xs:annotation>
@@ -3012,12 +3090,12 @@
           </xs:element>
           <xs:element name="Citizenship" type="Citizenship" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Contains information relative to citizenship status and its associated probationary documentation.</xs:documentation>
+              <xs:documentation>Contains information relative to U.S. citizenship status and its associated probationary documentation.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Language" type="Language" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>The language(s) the individual uses to communicate.</xs:documentation>
+              <xs:documentation>The language(s) the individual uses to communicate. It is strongly recommended that entries use only ISO 639-3 language codes.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="HighestCompletedLevelOfEducation" type="LevelOfEducationDescriptorReferenceType" minOccurs="0">
@@ -3038,11 +3116,6 @@
               <xs:documentation>The total number of years that an individual has previously held a teaching position in one or more education institutions.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="LoginId" type="IdentificationCode" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The login ID for the user; used for security access control interface.</xs:documentation>
@@ -3051,6 +3124,16 @@
           <xs:element name="HighlyQualifiedTeacher" type="xs:boolean" minOccurs="0">
             <xs:annotation>
               <xs:documentation>An indication of whether a teacher is classified as highly qualified for his/her assignment according to state definition. This attribute indicates the teacher is highly qualified for ALL Sections being taught.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Recognition" type="Recognition" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Recognitions given to the staff for accomplishments in a co-curricular or extracurricular activity.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -6783,6 +6866,45 @@
           <xs:element name="CourseTranscriptIdentity" type="CourseTranscriptIdentityType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Identity of a CourseTranscript.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CredentialIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a Credential.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CredentialIdentifier" type="IdentificationCode">
+        <xs:annotation>
+          <xs:documentation>Identifier or serial number assigned to the credential.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StateOfIssueStateAbbreviation" type="StateAbbreviationType">
+        <xs:annotation>
+          <xs:documentation>The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CredentialReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a Credential. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="CredentialIdentity" type="CredentialIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a Credential.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11387,65 +11509,6 @@
       <xs:element name="AssigningOrganizationIdentificationCode" type="IdentificationCode" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The organization code or name assigning the staff Identification Code.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Credential">
-    <xs:annotation>
-      <xs:documentation>The legal document giving authorization to perform teaching assignment services.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="CredentialType" type="CredentialType">
-        <xs:annotation>
-          <xs:documentation>An indication of the category of credential an individual holds.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialField" type="CredentialFieldDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>The field of certification for the certificate (e.g., Mathematics, Music).</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>CredentialFieldDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Level" type="LevelDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>The grade level(s) certified for teaching.</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>LevelDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TeachingCredential" type="TeachingCredentialDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>An indication of the category of a legal document giving authorization to perform teaching assignment services.</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>TeachingCredentialDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialIssuanceDate" type="xs:date">
-        <xs:annotation>
-          <xs:documentation>The month, day, and year on which an active credential was issued to an individual.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CredentialExpirationDate" type="xs:date" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The month, day, and year on which an active credential held by an individual will expire.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TeachingCredentialBasis" type="TeachingCredentialBasisType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>An indication of the pre-determined criteria for granting the teaching credential that an individual holds.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StateOfIssueStateAbbreviationType" type="StateAbbreviationType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

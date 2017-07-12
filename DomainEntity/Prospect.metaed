@@ -66,7 +66,7 @@ Domain Entity Prospect
         documentation "Content associated with different touchpoints with the prospect."
         is optional collection
 
-    common Credential
+    domain entity Credential
       documentation "(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services."
       is optional collection
     enumeration Gender

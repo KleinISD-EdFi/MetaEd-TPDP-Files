@@ -21,7 +21,7 @@
 | CourseSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | CourseSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | CourseSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
-| Credential | The legal document giving authorization to perform teaching assignment services. |
+| Credential |  |
 | EducationOrganizationCourseTranscriptFacts | Data about the final letter grade earned of the group |
 | EducationOrganizationFacts | Selective fact(s) about the education organization used for comparative analysis. |
 | EducationOrganizationStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |

@@ -1031,24 +1031,15 @@ GO
 
 CREATE TABLE [extension].[ApplicantCredential](
     [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CredentialExpirationDate] [DATE] NULL,
-    [TeachingCredentialBasisTypeId] [INT] NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ApplicantCredential_PK] PRIMARY KEY CLUSTERED (
         [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
+        [CredentialIdentifier] ASC,
         [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
+        [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -1059,281 +1050,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal docu
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual will expire.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'CredentialExpirationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
-/****** Table: [extension].[ApplicantCredentialExtension] ******/
-
-CREATE TABLE [extension].[ApplicantCredentialExtension](
-    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RevocationDate] [DATE] NULL,
-    [RevocationReason] [NVARCHAR](40) NULL,
-    [SuspensionDate] [DATE] NULL,
-    [SuspensionReason] [NVARCHAR](40) NULL,
-    [ValueTypeId] [INT] NOT NULL,
-    CONSTRAINT [ApplicantCredentialExtension_PK] PRIMARY KEY CLUSTERED (
-        [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantCredentialExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was revoked.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the revocation of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was suspended.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the suspension of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtension', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-
-
-/****** Table: [extension].[ApplicantCredentialExtensionBoardCertification] ******/
-
-CREATE TABLE [extension].[ApplicantCredentialExtensionBoardCertification](
-    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [BoardCertification] [BIT] NULL,
-    [BoardCertificationDate] [DATE] NULL,
-    [BoardCertificationTypeDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ApplicantCredentialExtensionBoardCertification_PK] PRIMARY KEY CLUSTERED (
-        [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ApplicantCredentialExtensionBoardCertification] ADD CONSTRAINT [ApplicantCredentialExtensionBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantCredentialExtensionBoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
-GO
-
-
-/****** Table: [extension].[ApplicantCredentialExtensionCertificationExam] ******/
-
-CREATE TABLE [extension].[ApplicantCredentialExtensionCertificationExam](
-    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CertificationExamTitle] [NVARCHAR](60) NOT NULL,
-    [CertificationExamTypeDescriptorId] [INT] NULL,
-    [CertificationExamOverallScore] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ApplicantCredentialExtensionCertificationExam_PK] PRIMARY KEY CLUSTERED (
-        [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ApplicantCredentialExtensionCertificationExam] ADD CONSTRAINT [ApplicantCredentialExtensionCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantCredentialExtensionCertificationExam'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
-GO
-
-
-/****** Table: [extension].[ApplicantCredentialExtensionRecommendation] ******/
-
-CREATE TABLE [extension].[ApplicantCredentialExtensionRecommendation](
-    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ApplicantCredentialExtensionRecommendation_PK] PRIMARY KEY CLUSTERED (
-        [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendation] ADD CONSTRAINT [ApplicantCredentialExtensionRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantCredentialExtensionRecommendation'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-
-
-/****** Table: [extension].[ApplicantCredentialExtensionRecommendingInstitution] ******/
-
-CREATE TABLE [extension].[ApplicantCredentialExtensionRecommendingInstitution](
-    [ApplicantIdentifier] [NVARCHAR](32) NOT NULL,
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RecommendingInstutionName] [NVARCHAR](75) NOT NULL,
-    [RecommendingDate] [DATE] NULL,
-    [RecommendingInstitutionCountryDescriptorId] [INT] NULL,
-    [RecommendingInstutionStateAbbreviationTypeId] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ApplicantCredentialExtensionRecommendingInstitution_PK] PRIMARY KEY CLUSTERED (
-        [ApplicantIdentifier] ASC,
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendingInstitution] ADD CONSTRAINT [ApplicantCredentialExtensionRecommendingInstitution_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the institution that is recommending a candidate for certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantCredentialExtensionRecommendingInstitution'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The full, legally accepted name of the institution.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a recommendation for a candidate is made.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the recommendation for a candidate was made in.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionCountryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionStateAbbreviationTypeId'
 GO
 
 
@@ -3531,6 +3252,173 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+GO
+
+
+/****** Table: [extension].[CredentialBoardCertification] ******/
+
+CREATE TABLE [extension].[CredentialBoardCertification](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [BoardCertification] [BIT] NULL,
+    [BoardCertificationDate] [DATE] NULL,
+    [BoardCertificationTypeDescriptorId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialBoardCertification_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialBoardCertification] ADD CONSTRAINT [CredentialBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialBoardCertification'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
+GO
+
+
+/****** Table: [extension].[CredentialCertificationExam] ******/
+
+CREATE TABLE [extension].[CredentialCertificationExam](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CertificationExamTitle] [NVARCHAR](60) NOT NULL,
+    [CertificationExamTypeDescriptorId] [INT] NULL,
+    [CertificationExamOverallScore] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialCertificationExam_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialCertificationExam] ADD CONSTRAINT [CredentialCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCertificationExam'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
+GO
+
+
+/****** Table: [extension].[CredentialExtension] ******/
+
+CREATE TABLE [extension].[CredentialExtension](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [RevocationDate] [DATE] NULL,
+    [RevocationReason] [NVARCHAR](40) NULL,
+    [SuspensionDate] [DATE] NULL,
+    [SuspensionReason] [NVARCHAR](40) NULL,
+    [ValueTypeId] [INT] NOT NULL,
+    CONSTRAINT [CredentialExtension_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialExtension'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was revoked.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the revocation of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationReason'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was suspended.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the suspension of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionReason'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialExtension', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
+GO
+
+
+/****** Table: [extension].[CredentialRecommendation] ******/
+
+CREATE TABLE [extension].[CredentialRecommendation](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CredentialFieldDescriptorId] [INT] NULL,
+    [LevelDescriptorId] [INT] NOT NULL,
+    [TeachingCredentialDescriptorId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialRecommendation_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialRecommendation] ADD CONSTRAINT [CredentialRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialRecommendation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
+GO
+
+
+/****** Table: [extension].[CredentialRecommendingInstitution] ******/
+
+CREATE TABLE [extension].[CredentialRecommendingInstitution](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [RecommendingInstutionName] [NVARCHAR](75) NOT NULL,
+    [RecommendingDate] [DATE] NULL,
+    [RecommendingInstitutionCountryDescriptorId] [INT] NULL,
+    [RecommendingInstitutionStateAbbreviationTypeId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialRecommendingInstitution_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CredentialRecommendingInstitution] ADD CONSTRAINT [CredentialRecommendingInstitution_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the institution that is recommending a candidate for certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialRecommendingInstitution'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The full, legally accepted name of the institution.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a recommendation for a candidate is made.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the recommendation for a candidate was made in.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionCountryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionStateAbbreviationTypeId'
 GO
 
 
@@ -6292,6 +6180,7 @@ CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
     [ProspectIdentifier] [NVARCHAR](32) NULL,
     [EducationOrganizationId] [INT] NULL,
     [StaffUSI] [INT] NULL,
+    [StudentUSI] [INT] NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasurePersonBeingReviewed_PK] PRIMARY KEY CLUSTERED (
@@ -6316,7 +6205,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
 
@@ -6748,25 +6639,16 @@ GO
 /****** Table: [extension].[ProspectCredential] ******/
 
 CREATE TABLE [extension].[ProspectCredential](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CredentialExpirationDate] [DATE] NULL,
-    [TeachingCredentialBasisTypeId] [INT] NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectCredential_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
+        [CredentialIdentifier] ASC,
         [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
         [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
+        [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -6775,283 +6657,13 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredential'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual will expire.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialExpirationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
-GO
-
-
-/****** Table: [extension].[ProspectCredentialExtension] ******/
-
-CREATE TABLE [extension].[ProspectCredentialExtension](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RevocationDate] [DATE] NULL,
-    [RevocationReason] [NVARCHAR](40) NULL,
-    [SuspensionDate] [DATE] NULL,
-    [SuspensionReason] [NVARCHAR](40) NULL,
-    [ValueTypeId] [INT] NOT NULL,
-    CONSTRAINT [ProspectCredentialExtension_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredentialExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was revoked.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the revocation of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was suspended.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the suspension of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtension', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-
-
-/****** Table: [extension].[ProspectCredentialExtensionBoardCertification] ******/
-
-CREATE TABLE [extension].[ProspectCredentialExtensionBoardCertification](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [BoardCertification] [BIT] NULL,
-    [BoardCertificationDate] [DATE] NULL,
-    [BoardCertificationTypeDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ProspectCredentialExtensionBoardCertification_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ProspectCredentialExtensionBoardCertification] ADD CONSTRAINT [ProspectCredentialExtensionBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredentialExtensionBoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
-GO
-
-
-/****** Table: [extension].[ProspectCredentialExtensionCertificationExam] ******/
-
-CREATE TABLE [extension].[ProspectCredentialExtensionCertificationExam](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CertificationExamTitle] [NVARCHAR](60) NOT NULL,
-    [CertificationExamTypeDescriptorId] [INT] NULL,
-    [CertificationExamOverallScore] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ProspectCredentialExtensionCertificationExam_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ProspectCredentialExtensionCertificationExam] ADD CONSTRAINT [ProspectCredentialExtensionCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredentialExtensionCertificationExam'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
-GO
-
-
-/****** Table: [extension].[ProspectCredentialExtensionRecommendation] ******/
-
-CREATE TABLE [extension].[ProspectCredentialExtensionRecommendation](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ProspectCredentialExtensionRecommendation_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendation] ADD CONSTRAINT [ProspectCredentialExtensionRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredentialExtensionRecommendation'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-
-
-/****** Table: [extension].[ProspectCredentialExtensionRecommendingInstitution] ******/
-
-CREATE TABLE [extension].[ProspectCredentialExtensionRecommendingInstitution](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RecommendingInstutionName] [NVARCHAR](75) NOT NULL,
-    [RecommendingDate] [DATE] NULL,
-    [RecommendingInstitutionCountryDescriptorId] [INT] NULL,
-    [RecommendingInstutionStateAbbreviationTypeId] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [ProspectCredentialExtensionRecommendingInstitution_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [EducationOrganizationId] ASC,
-        [LevelDescriptorId] ASC,
-        [ProspectIdentifier] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendingInstitution] ADD CONSTRAINT [ProspectCredentialExtensionRecommendingInstitution_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the institution that is recommending a candidate for certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredentialExtensionRecommendingInstitution'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The full, legally accepted name of the institution.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a recommendation for a candidate is made.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the recommendation for a candidate was made in.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionCountryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionStateAbbreviationTypeId'
 GO
 
 
@@ -10089,244 +9701,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extensio
 GO
 
 
-/****** Table: [extension].[StaffCredentialExtension] ******/
-
-CREATE TABLE [extension].[StaffCredentialExtension](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RevocationDate] [DATE] NULL,
-    [RevocationReason] [NVARCHAR](40) NULL,
-    [SuspensionDate] [DATE] NULL,
-    [SuspensionReason] [NVARCHAR](40) NULL,
-    [ValueTypeId] [INT] NOT NULL,
-    CONSTRAINT [StaffCredentialExtension_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffCredentialExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was revoked.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the revocation of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was suspended.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the suspension of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtension', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-
-
-/****** Table: [extension].[StaffCredentialExtensionBoardCertification] ******/
-
-CREATE TABLE [extension].[StaffCredentialExtensionBoardCertification](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [BoardCertification] [BIT] NULL,
-    [BoardCertificationDate] [DATE] NULL,
-    [BoardCertificationTypeDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffCredentialExtensionBoardCertification_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[StaffCredentialExtensionBoardCertification] ADD CONSTRAINT [StaffCredentialExtensionBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffCredentialExtensionBoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
-GO
-
-
-/****** Table: [extension].[StaffCredentialExtensionCertificationExam] ******/
-
-CREATE TABLE [extension].[StaffCredentialExtensionCertificationExam](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CertificationExamTitle] [NVARCHAR](60) NOT NULL,
-    [CertificationExamTypeDescriptorId] [INT] NULL,
-    [CertificationExamOverallScore] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffCredentialExtensionCertificationExam_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[StaffCredentialExtensionCertificationExam] ADD CONSTRAINT [StaffCredentialExtensionCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffCredentialExtensionCertificationExam'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
-GO
-
-
-/****** Table: [extension].[StaffCredentialExtensionRecommendation] ******/
-
-CREATE TABLE [extension].[StaffCredentialExtensionRecommendation](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffCredentialExtensionRecommendation_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendation] ADD CONSTRAINT [StaffCredentialExtensionRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffCredentialExtensionRecommendation'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-
-
-/****** Table: [extension].[StaffCredentialExtensionRecommendingInstitution] ******/
-
-CREATE TABLE [extension].[StaffCredentialExtensionRecommendingInstitution](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RecommendingInstutionName] [NVARCHAR](75) NOT NULL,
-    [RecommendingDate] [DATE] NULL,
-    [RecommendingInstitutionCountryDescriptorId] [INT] NULL,
-    [RecommendingInstutionStateAbbreviationTypeId] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffCredentialExtensionRecommendingInstitution_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendingInstitution] ADD CONSTRAINT [StaffCredentialExtensionRecommendingInstitution_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the institution that is recommending a candidate for certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffCredentialExtensionRecommendingInstitution'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The full, legally accepted name of the institution.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a recommendation for a candidate is made.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the recommendation for a candidate was made in.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionCountryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionStateAbbreviationTypeId'
-GO
-
-
 /****** Table: [extension].[StaffEducationOrganizationAssignmentAssociationExtension] ******/
 
 CREATE TABLE [extension].[StaffEducationOrganizationAssignmentAssociationExtension](
@@ -11682,6 +11056,7 @@ GO
 /****** Table: [extension].[TeacherCandidate] ******/
 
 CREATE TABLE [extension].[TeacherCandidate](
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [GenderTypeId] [INT] NULL,
     [TuitionCost] [MONEY] NULL,
@@ -11689,16 +11064,27 @@ CREATE TABLE [extension].[TeacherCandidate](
     [PreviousCareerDescriptorId] [INT] NULL,
     [ProgramComplete] [BIT] NULL,
     [StaffUSI] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidate_PK] PRIMARY KEY CLUSTERED (
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
+ALTER TABLE [extension].[TeacherCandidate] ADD CONSTRAINT [TeacherCandidate_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherCandidate] ADD CONSTRAINT [TeacherCandidate_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherCandidate] ADD CONSTRAINT [TeacherCandidate_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
@@ -11760,6 +11146,7 @@ GO
 CREATE TABLE [extension].[TeacherCandidateAid](
     [AidTypeDescriptorId] [INT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EndDate] [DATE] NULL,
     [AidConditionDescription] [NVARCHAR](1024) NULL,
@@ -11769,6 +11156,7 @@ CREATE TABLE [extension].[TeacherCandidateAid](
     CONSTRAINT [TeacherCandidateAid_PK] PRIMARY KEY CLUSTERED (
         [AidTypeDescriptorId] ASC,
         [BeginDate] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11782,7 +11170,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The classifica
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the award was designated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'BeginDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the award was removed.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateAid', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
@@ -11797,6 +11187,7 @@ GO
 /****** Table: [extension].[TeacherCandidateBackgroundCheck] ******/
 
 CREATE TABLE [extension].[TeacherCandidateBackgroundCheck](
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [BackgroundCheckTypeDescriptorId] [INT] NOT NULL,
     [BackgroundCheckRequestedDate] [DATE] NOT NULL,
@@ -11805,6 +11196,7 @@ CREATE TABLE [extension].[TeacherCandidateBackgroundCheck](
     [Fingerprint] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateBackgroundCheck_PK] PRIMARY KEY CLUSTERED (
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -11814,7 +11206,9 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Applicant background check history and disposition.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateBackgroundCheck'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of background check (e.g., online, criminal, employment).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'BackgroundCheckTypeDescriptorId'
 GO
@@ -11885,23 +11279,16 @@ GO
 /****** Table: [extension].[TeacherCandidateCredential] ******/
 
 CREATE TABLE [extension].[TeacherCandidateCredential](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CredentialExpirationDate] [DATE] NULL,
-    [TeachingCredentialBasisTypeId] [INT] NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateCredential_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC,
+        [StudentUSI] ASC,
+        [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -11910,267 +11297,20 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredential'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual will expire.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'CredentialExpirationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
-
-
-/****** Table: [extension].[TeacherCandidateCredentialExtension] ******/
-
-CREATE TABLE [extension].[TeacherCandidateCredentialExtension](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RevocationDate] [DATE] NULL,
-    [RevocationReason] [NVARCHAR](40) NULL,
-    [SuspensionDate] [DATE] NULL,
-    [SuspensionReason] [NVARCHAR](40) NULL,
-    [ValueTypeId] [INT] NOT NULL,
-    CONSTRAINT [TeacherCandidateCredentialExtension_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredentialExtension'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was revoked.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the revocation of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'RevocationReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual was suspended.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the suspension of credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'SuspensionReason'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtension', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateCredentialExtensionBoardCertification] ******/
-
-CREATE TABLE [extension].[TeacherCandidateCredentialExtensionBoardCertification](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [BoardCertification] [BIT] NULL,
-    [BoardCertificationDate] [DATE] NULL,
-    [BoardCertificationTypeDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateCredentialExtensionBoardCertification_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionBoardCertification] ADD CONSTRAINT [TeacherCandidateCredentialExtensionBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredentialExtensionBoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateCredentialExtensionCertificationExam] ******/
-
-CREATE TABLE [extension].[TeacherCandidateCredentialExtensionCertificationExam](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CertificationExamTitle] [NVARCHAR](60) NOT NULL,
-    [CertificationExamTypeDescriptorId] [INT] NULL,
-    [CertificationExamOverallScore] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateCredentialExtensionCertificationExam_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionCertificationExam] ADD CONSTRAINT [TeacherCandidateCredentialExtensionCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredentialExtensionCertificationExam'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateCredentialExtensionRecommendation] ******/
-
-CREATE TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateCredentialExtensionRecommendation_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation] ADD CONSTRAINT [TeacherCandidateCredentialExtensionRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredentialExtensionRecommendation'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendation', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution] ******/
-
-CREATE TABLE [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [RecommendingInstutionName] [NVARCHAR](75) NOT NULL,
-    [RecommendingDate] [DATE] NULL,
-    [RecommendingInstitutionCountryDescriptorId] [INT] NULL,
-    [RecommendingInstutionStateAbbreviationTypeId] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateCredentialExtensionRecommendingInstitution_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
-        [TeacherCandidateUniqueId] ASC,
-        [TeachingCredentialDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution] ADD CONSTRAINT [TeacherCandidateCredentialExtensionRecommendingInstitution_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information regarding the institution that is recommending a candidate for certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The full, legally accepted name of the institution.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a recommendation for a candidate is made.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the recommendation for a candidate was made in.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstitutionCountryDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredentialExtensionRecommendingInstitution', @level2type=N'COLUMN', @level2name=N'RecommendingInstutionStateAbbreviationTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateCredential', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
 
 /****** Table: [extension].[TeacherCandidateFieldworkAbsenceEvent] ******/
 
 CREATE TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent](
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EventDate] [DATE] NOT NULL,
     [HoursAbsent] [DECIMAL](3, 2) NULL,
@@ -12178,6 +11318,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent](
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateFieldworkAbsenceEvent_PK] PRIMARY KEY CLUSTERED (
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12191,7 +11332,9 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the staff absence', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateFieldworkAbsenceEvent'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this absence event', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'EventDate'
 GO
@@ -12205,6 +11348,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
     [BeginDate] [DATE] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
     [SchoolId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NULL,
     [SequenceOfCourse] [INT] NULL,
@@ -12224,6 +11368,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperience](
         [BeginDate] ASC,
         [FieldworkIdentifier] ASC,
         [SchoolId] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12243,7 +11388,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique ide
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperience', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
 GO
@@ -12275,6 +11422,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching](
     [BeginDate] [DATE] NOT NULL,
     [FieldworkIdentifier] [NVARCHAR](20) NOT NULL,
     [SchoolId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -12282,6 +11430,7 @@ CREATE TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching](
         [BeginDate] ASC,
         [FieldworkIdentifier] ASC,
         [SchoolId] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12297,7 +11446,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique ide
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate stopped co-teaching.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkExperienceCoteaching', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
@@ -12308,6 +11459,7 @@ GO
 CREATE TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance](
     [AttendanceDate] [DATE] NOT NULL,
     [ProfessionalDevelopmentTitle] [NVARCHAR](60) NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [AttendanceEventCategoryDescriptorId] [INT] NOT NULL,
     [AttendanceEventReason] [NVARCHAR](40) NULL,
@@ -12317,6 +11469,7 @@ CREATE TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance
     CONSTRAINT [TeacherCandidateProfessionalDevelopmentEventAttendance_PK] PRIMARY KEY CLUSTERED (
         [AttendanceDate] ASC,
         [ProfessionalDevelopmentTitle] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12334,7 +11487,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name for a professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProfessionalDevelopmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code describing the attendance event, for example:
        Present
@@ -12350,6 +11505,7 @@ GO
 
 CREATE TABLE [extension].[TeacherCandidateStaffAssociation](
     [StaffUSI] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [EndDate] [DATE] NULL,
@@ -12358,6 +11514,7 @@ CREATE TABLE [extension].[TeacherCandidateStaffAssociation](
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateStaffAssociation_PK] PRIMARY KEY CLUSTERED (
         [StaffUSI] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12373,7 +11530,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This associati
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which the teacher candidate is associated to the staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStaffAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
 GO
@@ -12386,6 +11545,7 @@ GO
 CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [StudentGrowthMeasureDate] [DATE] NULL,
     [ResultDatatypeTypeId] [INT] NULL,
@@ -12400,6 +11560,7 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasure](
     CONSTRAINT [TeacherCandidateStudentGrowthMeasure_PK] PRIMARY KEY CLUSTERED (
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12417,7 +11578,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the student growth is measured', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMeasureDate'
 GO
@@ -12442,6 +11605,7 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourse_PK] PRIMARY KEY CLUSTERED (
@@ -12449,6 +11613,7 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12466,7 +11631,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
 
@@ -12476,12 +11643,14 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizat
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganization_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12497,7 +11666,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 
 
@@ -12511,6 +11682,7 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
     [SchoolId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [SequenceOfCourse] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
@@ -12523,6 +11695,7 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
         [SchoolId] ASC,
         [SchoolYear] ASC,
         [SequenceOfCourse] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC,
         [TermDescriptorId] ASC,
         [UniqueSectionCode] ASC
@@ -12548,7 +11721,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
 GO
@@ -12560,6 +11735,7 @@ GO
 
 CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation](
     [EntryDate] [DATE] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [TeacherPreparationProviderId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NULL,
@@ -12572,6 +11748,7 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation]
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherCandidateTeacherPreparationProviderAssociation_PK] PRIMARY KEY CLUSTERED (
         [EntryDate] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC,
         [TeacherPreparationProviderId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -12588,7 +11765,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information ab
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Entry date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'EntryDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique identification code for the Teacher Preparation Provider', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderAssociation', @level2type=N'COLUMN', @level2name=N'TeacherPreparationProviderId'
 GO
@@ -12611,6 +11790,7 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
     [EducationOrganizationId] [INT] NOT NULL,
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [ServiceOutsideRegularSession] [BIT] NULL,
     [EndDate] [DATE] NULL,
@@ -12623,6 +11803,7 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
         [EducationOrganizationId] ASC,
         [ProgramName] ASC,
         [ProgramTypeId] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12644,7 +11825,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The formal nam
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ProgramTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates whether the Teacher Candidate received services during the summer session or between sessions.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ServiceOutsideRegularSession'
 GO
@@ -12662,6 +11845,7 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
     [ServiceDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
     [TeacherCandidateUniqueId] [NVARCHAR](32) NOT NULL,
     [PrimaryIndicator] [BIT] NULL,
     [ServiceBeginDate] [DATE] NULL,
@@ -12673,6 +11857,7 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
         [ProgramName] ASC,
         [ProgramTypeId] ASC,
         [ServiceDescriptorId] ASC,
+        [StudentUSI] ASC,
         [TeacherCandidateUniqueId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -12692,7 +11877,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of pr
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates the Service being provided to the student by the Program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ServiceDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a TeacherCandidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'StudentUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'TeacherCandidateUniqueId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'True if service is a primary service.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'PrimaryIndicator'
 GO
@@ -13694,184 +12881,14 @@ CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_Applicant]
 ON [extension].[ApplicantCredential]([ApplicantIdentifier] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_CredentialFieldDescriptor]
-ON [extension].[ApplicantCredential]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_CredentialType] FOREIGN KEY ([CredentialTypeId])
-REFERENCES [edfi].[CredentialType] ([CredentialTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_CredentialType]
-ON [extension].[ApplicantCredential]([CredentialTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_LevelDescriptor]
-ON [extension].[ApplicantCredential]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_StateAbbreviationType] FOREIGN KEY ([StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_StateAbbreviationType]
-ON [extension].[ApplicantCredential]([StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_TeachingCredentialBasisType] FOREIGN KEY ([TeachingCredentialBasisTypeId])
-REFERENCES [edfi].[TeachingCredentialBasisType] ([TeachingCredentialBasisTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_TeachingCredentialBasisType]
-ON [extension].[ApplicantCredential]([TeachingCredentialBasisTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredential] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredential_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_TeachingCredentialDescriptor]
-ON [extension].[ApplicantCredential]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtension_ApplicantCredential] FOREIGN KEY ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ApplicantCredential] ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ApplicantCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtension_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtension_ValueType]
-ON [extension].[ApplicantCredentialExtension]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionBoardCertification_ApplicantCredentialExtension] FOREIGN KEY ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ApplicantCredentialExtension] ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor] FOREIGN KEY ([BoardCertificationTypeDescriptorId])
-REFERENCES [extension].[BoardCertificationTypeDescriptor] ([BoardCertificationTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor]
-ON [extension].[ApplicantCredentialExtensionBoardCertification]([BoardCertificationTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionCertificationExam_ApplicantCredentialExtension] FOREIGN KEY ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ApplicantCredentialExtension] ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionCertificationExam_CertificationExamTypeDescriptor] FOREIGN KEY ([CertificationExamTypeDescriptorId])
-REFERENCES [extension].[CertificationExamTypeDescriptor] ([CertificationExamTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionCertificationExam_CertificationExamTypeDescriptor]
-ON [extension].[ApplicantCredentialExtensionCertificationExam]([CertificationExamTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendation_ApplicantCredentialExtension] FOREIGN KEY ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ApplicantCredentialExtension] ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendation_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionRecommendation_CredentialFieldDescriptor]
-ON [extension].[ApplicantCredentialExtensionRecommendation]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendation_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionRecommendation_LevelDescriptor]
-ON [extension].[ApplicantCredentialExtensionRecommendation]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendation_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionRecommendation_TeachingCredentialDescriptor]
-ON [extension].[ApplicantCredentialExtensionRecommendation]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendingInstitution_ApplicantCredentialExtension] FOREIGN KEY ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ApplicantCredentialExtension] ([ApplicantIdentifier], [CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendingInstitution_CountryDescriptor] FOREIGN KEY ([RecommendingInstitutionCountryDescriptorId])
-REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionRecommendingInstitution_CountryDescriptor]
-ON [extension].[ApplicantCredentialExtensionRecommendingInstitution]([RecommendingInstitutionCountryDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ApplicantCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ApplicantCredentialExtensionRecommendingInstitution_StateAbbreviationType] FOREIGN KEY ([RecommendingInstutionStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ApplicantCredentialExtensionRecommendingInstitution_StateAbbreviationType]
-ON [extension].[ApplicantCredentialExtensionRecommendingInstitution]([RecommendingInstutionStateAbbreviationTypeId] ASC)
+CREATE NONCLUSTERED INDEX [FK_ApplicantCredential_Credential]
+ON [extension].[ApplicantCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[ApplicantDisability] WITH CHECK ADD CONSTRAINT [FK_ApplicantDisability_Applicant] FOREIGN KEY ([ApplicantIdentifier], [EducationOrganizationId])
@@ -15161,6 +14178,126 @@ ON DELETE CASCADE
 GO
 
 
+
+ALTER TABLE [extension].[CredentialBoardCertification] WITH CHECK ADD CONSTRAINT [FK_CredentialBoardCertification_BoardCertificationTypeDescriptor] FOREIGN KEY ([BoardCertificationTypeDescriptorId])
+REFERENCES [extension].[BoardCertificationTypeDescriptor] ([BoardCertificationTypeDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialBoardCertification_BoardCertificationTypeDescriptor]
+ON [extension].[CredentialBoardCertification]([BoardCertificationTypeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialBoardCertification] WITH CHECK ADD CONSTRAINT [FK_CredentialBoardCertification_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[CredentialCertificationExam] WITH CHECK ADD CONSTRAINT [FK_CredentialCertificationExam_CertificationExamTypeDescriptor] FOREIGN KEY ([CertificationExamTypeDescriptorId])
+REFERENCES [extension].[CertificationExamTypeDescriptor] ([CertificationExamTypeDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialCertificationExam_CertificationExamTypeDescriptor]
+ON [extension].[CredentialCertificationExam]([CertificationExamTypeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialCertificationExam] WITH CHECK ADD CONSTRAINT [FK_CredentialCertificationExam_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[CredentialExtension] WITH CHECK ADD CONSTRAINT [FK_CredentialExtension_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[CredentialExtension] WITH CHECK ADD CONSTRAINT [FK_CredentialExtension_ValueType] FOREIGN KEY ([ValueTypeId])
+REFERENCES [extension].[ValueType] ([ValueTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialExtension_ValueType]
+ON [extension].[CredentialExtension]([ValueTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialRecommendation] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendation_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[CredentialRecommendation] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendation_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
+REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialRecommendation_CredentialFieldDescriptor]
+ON [extension].[CredentialRecommendation]([CredentialFieldDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialRecommendation] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendation_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
+REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialRecommendation_LevelDescriptor]
+ON [extension].[CredentialRecommendation]([LevelDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialRecommendation] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendation_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
+REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialRecommendation_TeachingCredentialDescriptor]
+ON [extension].[CredentialRecommendation]([TeachingCredentialDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendingInstitution_CountryDescriptor] FOREIGN KEY ([RecommendingInstitutionCountryDescriptorId])
+REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialRecommendingInstitution_CountryDescriptor]
+ON [extension].[CredentialRecommendingInstitution]([RecommendingInstitutionCountryDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CredentialRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendingInstitution_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[CredentialRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_CredentialRecommendingInstitution_StateAbbreviationType] FOREIGN KEY ([RecommendingInstitutionStateAbbreviationTypeId])
+REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialRecommendingInstitution_StateAbbreviationType]
+ON [extension].[CredentialRecommendingInstitution]([RecommendingInstitutionStateAbbreviationTypeId] ASC)
+GO
 
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFacts] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFacts_EducationOrganizationStudentAcademicRecordFacts] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[EducationOrganizationStudentAcademicRecordFacts] ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
@@ -16814,14 +15951,14 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Staff]
 ON [extension].[PerformanceMeasurePersonBeingReviewed]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate]
-ON [extension].[PerformanceMeasurePersonBeingReviewed]([TeacherCandidateUniqueId] ASC)
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasureProgramGateway] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureProgramGateway_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
@@ -16984,34 +16121,14 @@ CREATE NONCLUSTERED INDEX [FK_Prospect_SexType]
 ON [extension].[Prospect]([SexTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_CredentialFieldDescriptor]
-ON [extension].[ProspectCredential]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_CredentialType] FOREIGN KEY ([CredentialTypeId])
-REFERENCES [edfi].[CredentialType] ([CredentialTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_CredentialType]
-ON [extension].[ProspectCredential]([CredentialTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_LevelDescriptor]
-ON [extension].[ProspectCredential]([LevelDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_ProspectCredential_Credential]
+ON [extension].[ProspectCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
@@ -17022,156 +16139,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectCredential_Prospect]
 ON [extension].[ProspectCredential]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_StateAbbreviationType] FOREIGN KEY ([StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_StateAbbreviationType]
-ON [extension].[ProspectCredential]([StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_TeachingCredentialBasisType] FOREIGN KEY ([TeachingCredentialBasisTypeId])
-REFERENCES [edfi].[TeachingCredentialBasisType] ([TeachingCredentialBasisTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_TeachingCredentialBasisType]
-ON [extension].[ProspectCredential]([TeachingCredentialBasisTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredential_TeachingCredentialDescriptor]
-ON [extension].[ProspectCredential]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtension_ProspectCredential] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ProspectCredential] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ProspectCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtension_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtension_ValueType]
-ON [extension].[ProspectCredentialExtension]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor] FOREIGN KEY ([BoardCertificationTypeDescriptorId])
-REFERENCES [extension].[BoardCertificationTypeDescriptor] ([BoardCertificationTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor]
-ON [extension].[ProspectCredentialExtensionBoardCertification]([BoardCertificationTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionBoardCertification_ProspectCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ProspectCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ProspectCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionCertificationExam_CertificationExamTypeDescriptor] FOREIGN KEY ([CertificationExamTypeDescriptorId])
-REFERENCES [extension].[CertificationExamTypeDescriptor] ([CertificationExamTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionCertificationExam_CertificationExamTypeDescriptor]
-ON [extension].[ProspectCredentialExtensionCertificationExam]([CertificationExamTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionCertificationExam_ProspectCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ProspectCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendation_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionRecommendation_CredentialFieldDescriptor]
-ON [extension].[ProspectCredentialExtensionRecommendation]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendation_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionRecommendation_LevelDescriptor]
-ON [extension].[ProspectCredentialExtensionRecommendation]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendation_ProspectCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ProspectCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendation_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionRecommendation_TeachingCredentialDescriptor]
-ON [extension].[ProspectCredentialExtensionRecommendation]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendingInstitution_CountryDescriptor] FOREIGN KEY ([RecommendingInstitutionCountryDescriptorId])
-REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionRecommendingInstitution_CountryDescriptor]
-ON [extension].[ProspectCredentialExtensionRecommendingInstitution]([RecommendingInstitutionCountryDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendingInstitution_ProspectCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[ProspectCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [EducationOrganizationId], [LevelDescriptorId], [ProspectIdentifier], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[ProspectCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_ProspectCredentialExtensionRecommendingInstitution_StateAbbreviationType] FOREIGN KEY ([RecommendingInstutionStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_ProspectCredentialExtensionRecommendingInstitution_StateAbbreviationType]
-ON [extension].[ProspectCredentialExtensionRecommendingInstitution]([RecommendingInstutionStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectCurrentPosition] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPosition_AcademicSubjectDescriptor] FOREIGN KEY ([AcademicSubjectDescriptorId])
@@ -18440,126 +17407,6 @@ CREATE NONCLUSTERED INDEX [FK_StaffBackgroundCheck_Staff]
 ON [extension].[StaffBackgroundCheck]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[StaffCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtension_StaffCredential] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-REFERENCES [edfi].[StaffCredential] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[StaffCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtension_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtension_ValueType]
-ON [extension].[StaffCredentialExtension]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor] FOREIGN KEY ([BoardCertificationTypeDescriptorId])
-REFERENCES [extension].[BoardCertificationTypeDescriptor] ([BoardCertificationTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor]
-ON [extension].[StaffCredentialExtensionBoardCertification]([BoardCertificationTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionBoardCertification_StaffCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[StaffCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[StaffCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionCertificationExam_CertificationExamTypeDescriptor] FOREIGN KEY ([CertificationExamTypeDescriptorId])
-REFERENCES [extension].[CertificationExamTypeDescriptor] ([CertificationExamTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionCertificationExam_CertificationExamTypeDescriptor]
-ON [extension].[StaffCredentialExtensionCertificationExam]([CertificationExamTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionCertificationExam_StaffCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[StaffCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendation_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionRecommendation_CredentialFieldDescriptor]
-ON [extension].[StaffCredentialExtensionRecommendation]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendation_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionRecommendation_LevelDescriptor]
-ON [extension].[StaffCredentialExtensionRecommendation]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendation_StaffCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[StaffCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendation_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionRecommendation_TeachingCredentialDescriptor]
-ON [extension].[StaffCredentialExtensionRecommendation]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendingInstitution_CountryDescriptor] FOREIGN KEY ([RecommendingInstitutionCountryDescriptorId])
-REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionRecommendingInstitution_CountryDescriptor]
-ON [extension].[StaffCredentialExtensionRecommendingInstitution]([RecommendingInstitutionCountryDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendingInstitution_StaffCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[StaffCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [StaffUSI], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[StaffCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_StaffCredentialExtensionRecommendingInstitution_StateAbbreviationType] FOREIGN KEY ([RecommendingInstutionStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredentialExtensionRecommendingInstitution_StateAbbreviationType]
-ON [extension].[StaffCredentialExtensionRecommendingInstitution]([RecommendingInstutionStateAbbreviationTypeId] ASC)
-GO
-
 ALTER TABLE [extension].[StaffEducationOrganizationAssignmentAssociationExtension] WITH CHECK ADD CONSTRAINT [FK_StaffEducationOrganizationAssignmentAssociationExtension_StaffEducationOrganizationAssignmentAssociation] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [StaffClassificationDescriptorId], [StaffUSI])
 REFERENCES [edfi].[StaffEducationOrganizationAssignmentAssociation] ([BeginDate], [EducationOrganizationId], [StaffClassificationDescriptorId], [StaffUSI])
 ON DELETE CASCADE
@@ -19352,13 +18199,15 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidate_Staff]
 ON [extension].[TeacherCandidate]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidate] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidate_Student] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [edfi].[Student] ([StudentUniqueId])
-ON DELETE CASCADE
+ALTER TABLE [extension].[TeacherCandidate] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidate_Student] FOREIGN KEY ([StudentUSI])
+REFERENCES [edfi].[Student] ([StudentUSI])
+
 
 GO
 
-
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidate_Student]
+ON [extension].[TeacherCandidate]([StudentUSI] ASC)
+GO
 
 ALTER TABLE [extension].[TeacherCandidateAcademicRecord] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateAcademicRecord_ProgramGatewayDescriptor] FOREIGN KEY ([ProgramGatewayDescriptorId])
 REFERENCES [extension].[ProgramGatewayDescriptor] ([ProgramGatewayDescriptorId])
@@ -19398,14 +18247,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateAid_AidTypeDescriptor]
 ON [extension].[TeacherCandidateAid]([AidTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateAid] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateAid_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateAid] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateAid_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateAid_TeacherCandidate]
-ON [extension].[TeacherCandidateAid]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateAid]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_BackgroundCheckStatusDescriptor] FOREIGN KEY ([BackgroundCheckStatusDescriptorId])
@@ -19428,8 +18277,8 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateBackgroundCheck_BackgroundCheckTyp
 ON [extension].[TeacherCandidateBackgroundCheck]([BackgroundCheckTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateBackgroundCheck] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateBackgroundCheck_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
@@ -19454,198 +18303,28 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCharacteristicDescriptor_TeacherCa
 ON [extension].[TeacherCandidateCharacteristicDescriptor]([TeacherCandidateCharacteristicTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_CredentialFieldDescriptor]
-ON [extension].[TeacherCandidateCredential]([CredentialFieldDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_Credential]
+ON [extension].[TeacherCandidateCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_CredentialType] FOREIGN KEY ([CredentialTypeId])
-REFERENCES [edfi].[CredentialType] ([CredentialTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_CredentialType]
-ON [extension].[TeacherCandidateCredential]([CredentialTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_LevelDescriptor]
-ON [extension].[TeacherCandidateCredential]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_StateAbbreviationType] FOREIGN KEY ([StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_StateAbbreviationType]
-ON [extension].[TeacherCandidateCredential]([StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_TeacherCandidate]
-ON [extension].[TeacherCandidateCredential]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateCredential]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeachingCredentialBasisType] FOREIGN KEY ([TeachingCredentialBasisTypeId])
-REFERENCES [edfi].[TeachingCredentialBasisType] ([TeachingCredentialBasisTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_TeachingCredentialBasisType]
-ON [extension].[TeacherCandidateCredential]([TeachingCredentialBasisTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredential] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredential_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredential_TeachingCredentialDescriptor]
-ON [extension].[TeacherCandidateCredential]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtension_TeacherCandidateCredential] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[TeacherCandidateCredential] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtension] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtension_ValueType] FOREIGN KEY ([ValueTypeId])
-REFERENCES [extension].[ValueType] ([ValueTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtension_ValueType]
-ON [extension].[TeacherCandidateCredentialExtension]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor] FOREIGN KEY ([BoardCertificationTypeDescriptorId])
-REFERENCES [extension].[BoardCertificationTypeDescriptor] ([BoardCertificationTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionBoardCertification_BoardCertificationTypeDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionBoardCertification]([BoardCertificationTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionBoardCertification] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionBoardCertification_TeacherCandidateCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[TeacherCandidateCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionCertificationExam_CertificationExamTypeDescriptor] FOREIGN KEY ([CertificationExamTypeDescriptorId])
-REFERENCES [extension].[CertificationExamTypeDescriptor] ([CertificationExamTypeDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionCertificationExam_CertificationExamTypeDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionCertificationExam]([CertificationExamTypeDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionCertificationExam] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionCertificationExam_TeacherCandidateCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[TeacherCandidateCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendation_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionRecommendation_CredentialFieldDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionRecommendation]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendation_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionRecommendation_LevelDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionRecommendation]([LevelDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendation_TeacherCandidateCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[TeacherCandidateCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendation_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionRecommendation_TeachingCredentialDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionRecommendation]([TeachingCredentialDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendingInstitution_CountryDescriptor] FOREIGN KEY ([RecommendingInstitutionCountryDescriptorId])
-REFERENCES [edfi].[CountryDescriptor] ([CountryDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionRecommendingInstitution_CountryDescriptor]
-ON [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution]([RecommendingInstitutionCountryDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendingInstitution_StateAbbreviationType] FOREIGN KEY ([RecommendingInstutionStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateCredentialExtensionRecommendingInstitution_StateAbbreviationType]
-ON [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution]([RecommendingInstutionStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateCredentialExtensionRecommendingInstitution] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateCredentialExtensionRecommendingInstitution_TeacherCandidateCredentialExtension] FOREIGN KEY ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-REFERENCES [extension].[TeacherCandidateCredentialExtension] ([CredentialFieldDescriptorId], [CredentialIssuanceDate], [CredentialTypeId], [LevelDescriptorId], [TeacherCandidateUniqueId], [TeachingCredentialDescriptorId])
-ON DELETE CASCADE
-
-GO
-
-
-
-ALTER TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkAbsenceEvent_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkAbsenceEvent] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkAbsenceEvent_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
@@ -19692,18 +18371,18 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperience_Section]
 ON [extension].[TeacherCandidateFieldworkExperience]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperience] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperience_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperience] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperience_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateFieldworkExperience_TeacherCandidate]
-ON [extension].[TeacherCandidateFieldworkExperience]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateFieldworkExperience]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoteaching_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkIdentifier], [SchoolId], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkIdentifier], [SchoolId], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateFieldworkExperienceCoteaching] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateFieldworkExperienceCoteaching_TeacherCandidateFieldworkExperience] FOREIGN KEY ([BeginDate], [FieldworkIdentifier], [SchoolId], [StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateFieldworkExperience] ([BeginDate], [FieldworkIdentifier], [SchoolId], [StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
@@ -19730,14 +18409,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateProfessionalDevelopmentEventAttend
 ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([ProfessionalDevelopmentTitle] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateProfessionalDevelopmentEventAttendance_TeacherCandidate]
-ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateProfessionalDevelopmentEventAttendance]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_Staff] FOREIGN KEY ([StaffUSI])
@@ -19750,14 +18429,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_Staff]
 ON [extension].[TeacherCandidateStaffAssociation]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStaffAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStaffAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStaffAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateStaffAssociation]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStaffAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_ResultDatatypeType] FOREIGN KEY ([ResultDatatypeTypeId])
@@ -19790,14 +18469,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_StudentGrowth
 ON [extension].[TeacherCandidateStudentGrowthMeasure]([StudentGrowthTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandidate]
-ON [extension].[TeacherCandidateStudentGrowthMeasure]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasure]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
@@ -19810,14 +18489,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_Course]
 ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([CourseCode] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
@@ -19830,14 +18509,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrgan
 ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -19850,14 +18529,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_Sectio
 ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_EntryTypeDescriptor] FOREIGN KEY ([EntryTypeDescriptorId])
@@ -19900,14 +18579,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderAssociat
 ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([ClassOfSchoolYear] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_TeacherPreparationProvider] FOREIGN KEY ([TeacherPreparationProviderId])
@@ -19930,14 +18609,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([ReasonExitedDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate] FOREIGN KEY ([TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidate] ([TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate] FOREIGN KEY ([StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidate] ([StudentUSI], [TeacherCandidateUniqueId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherCandidate]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherPreparationProviderProgram] FOREIGN KEY ([EducationOrganizationId], [ProgramName], [ProgramTypeId])
@@ -19960,14 +18639,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([ServiceDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateUniqueId])
-REFERENCES [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateUniqueId])
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [StudentUSI], [TeacherCandidateUniqueId])
+REFERENCES [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [StudentUSI], [TeacherCandidateUniqueId])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([BeginDate] ASC, [EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC, [TeacherCandidateUniqueId] ASC)
+ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([BeginDate] ASC, [EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC, [StudentUSI] ASC, [TeacherCandidateUniqueId] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherPreparationProgramTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProgramTypeDescriptor_Descriptor] FOREIGN KEY ([TeacherPreparationProgramTypeDescriptorId])
@@ -20972,11 +19651,7 @@ BEGIN
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
 SELECT Id, GETUTCDATE(), 'TeacherCandidate', 'extension'
-FROM deleted d
-    INNER JOIN [edfi].[Student] base
-        ON
-            d.TeacherCandidateUniqueId = base.StudentUniqueId
-;
+FROM deleted;
 END
 GO
 

@@ -45,11 +45,6 @@
     <Entity table="ApplicantAid" schema="extension"/>
     <Entity table="ApplicantBackgroundCheck" schema="extension"/>
     <Entity table="ApplicantCredential" schema="extension"/>
-    <Entity table="ApplicantCredentialExtension" schema="extension"/>
-    <Entity table="ApplicantCredentialExtensionBoardCertification" schema="extension"/>
-    <Entity table="ApplicantCredentialExtensionCertificationExam" schema="extension"/>
-    <Entity table="ApplicantCredentialExtensionRecommendation" schema="extension"/>
-    <Entity table="ApplicantCredentialExtensionRecommendingInstitution" schema="extension"/>
     <Entity table="ApplicantDisability" schema="extension"/>
     <Entity table="ApplicantElectronicMail" schema="extension"/>
     <Entity table="ApplicantIdentificationDocument" schema="extension"/>
@@ -279,11 +274,6 @@
   <Aggregate root="Prospect">
     <Entity table="Prospect" schema="extension"/>
     <Entity table="ProspectCredential" schema="extension"/>
-    <Entity table="ProspectCredentialExtension" schema="extension"/>
-    <Entity table="ProspectCredentialExtensionBoardCertification" schema="extension"/>
-    <Entity table="ProspectCredentialExtensionCertificationExam" schema="extension"/>
-    <Entity table="ProspectCredentialExtensionRecommendation" schema="extension"/>
-    <Entity table="ProspectCredentialExtensionRecommendingInstitution" schema="extension"/>
     <Entity table="ProspectCurrentPosition" schema="extension"/>
     <Entity table="ProspectCurrentPositionGradeLevel" schema="extension"/>
     <Entity table="ProspectDisability" schema="extension"/>
@@ -442,15 +432,10 @@
     <Entity table="SurveySectionResponseRating" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidate">
-    <Entity table="TeacherCandidate" isA="Student" schema="extension"/>
+    <Entity table="TeacherCandidate" schema="extension"/>
     <Entity table="TeacherCandidateAid" schema="extension"/>
     <Entity table="TeacherCandidateBackgroundCheck" schema="extension"/>
     <Entity table="TeacherCandidateCredential" schema="extension"/>
-    <Entity table="TeacherCandidateCredentialExtension" schema="extension"/>
-    <Entity table="TeacherCandidateCredentialExtensionBoardCertification" schema="extension"/>
-    <Entity table="TeacherCandidateCredentialExtensionCertificationExam" schema="extension"/>
-    <Entity table="TeacherCandidateCredentialExtensionRecommendation" schema="extension"/>
-    <Entity table="TeacherCandidateCredentialExtensionRecommendingInstitution" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateAcademicRecord">
     <Entity table="TeacherCandidateAcademicRecord" isA="StudentAcademicRecord" schema="extension"/>
@@ -526,6 +511,12 @@
     <Entity table="ValueType" schema="extension"/>
   </Aggregate>
 
+  <AggregateExtension root="Credential">
+    <Entity table="CredentialBoardCertification" schema="extension"/>
+    <Entity table="CredentialCertificationExam" schema="extension"/>
+    <Entity table="CredentialRecommendation" schema="extension"/>
+    <Entity table="CredentialRecommendingInstitution" schema="extension"/>
+  </AggregateExtension>
   <AggregateExtension root="Staff">
     <Entity table="StaffApplicant" schema="extension"/>
     <Entity table="StaffBackgroundCheck" schema="extension"/>

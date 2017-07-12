@@ -224,6 +224,10 @@
     <Entity table="CourseTranscript"/>
     <Entity table="CourseTranscriptEarnedAdditionalCredits"/>
   </Aggregate>
+  <Aggregate root="Credential">
+    <Entity table="Credential"/>
+    <Entity table="CredentialEndorsement"/>
+  </Aggregate>
   <Aggregate root="CredentialFieldDescriptor">
     <Entity table="CredentialFieldDescriptor" isA="Descriptor"/>
   </Aggregate>
@@ -773,6 +777,7 @@
     <Entity table="StaffLanguageUse"/>
     <Entity table="StaffOtherName"/>
     <Entity table="StaffRace"/>
+    <Entity table="StaffRecognition"/>
     <Entity table="StaffTelephone"/>
     <Entity table="StaffVisa"/>
   </Aggregate>

@@ -424,7 +424,7 @@
               <xs:documentation>The login ID for the user; used for security access control interface.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
             </xs:annotation>
@@ -870,6 +870,65 @@
           <xs:element name="AggregatedNumericResponse" type="EXTENSION-AggregatedNumericResponse">
             <xs:annotation>
               <xs:documentation>The average of the numeric responses to survey sections collected at the aggregate level.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-CredentialExtension">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Domain Entity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Credential">
+        <xs:sequence>
+          <xs:element name="BoardCertification" type="EXTENSION-BoardCertification" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Board certification information for a individual.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CertificationExam" type="EXTENSION-CertificationExam" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Certification information for a individual.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Recommendation" type="EXTENSION-Recommendation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The information about the recommenation for the credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RecommendingInstitution" type="EXTENSION-RecommendingInstitution" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Information regarding the institution that is recommending a candidate for certification.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RevocationDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which an active credential held by an individual was revoked.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RevocationReason" type="EXTENSION-RevocationReason" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Expanded reason for the revocation of credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SuspensionDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The month, day, and year on which an active credential held by an individual was suspended.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SuspensionReason" type="EXTENSION-SuspensionReason" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Expanded reason for the suspension of credential.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ValueType" type="EXTENSION-ValueType">
+            <xs:annotation>
+              <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1979,7 +2038,7 @@
               <xs:documentation>Content associated with different touchpoints with the prospect.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
             </xs:annotation>
@@ -3240,11 +3299,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="Student">
+      <xs:extension base="ComplexObjectType">
         <xs:sequence>
+          <xs:element name="StudentReference" type="StudentReferenceType">
+            <xs:annotation>
+              <xs:documentation>The student associated.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
             <xs:annotation>
-              <xs:documentation>A unique alphanumeric code assigned to a TeacherCandidate.</xs:documentation>
+              <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Gender" type="EXTENSION-GenderType" minOccurs="0">
@@ -3252,7 +3316,7 @@
               <xs:documentation>The gender with which a person associates.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
             </xs:annotation>
@@ -6879,14 +6943,14 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
+      <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
-          <xs:documentation>A unique alphanumeric code assigned to a TeacherCandidate.</xs:documentation>
+          <xs:documentation>The student associated.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="StudentUniqueId" type="UniqueId">
+      <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
         <xs:annotation>
-          <xs:documentation>A unique alphanumeric code assigned to a student.</xs:documentation>
+          <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8408,65 +8472,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-CredentialExtension">
-    <xs:annotation>
-      <xs:documentation></xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Credential">
-        <xs:sequence>
-          <xs:element name="BoardCertification" type="EXTENSION-BoardCertification" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Board certification information for a individual.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="CertificationExam" type="EXTENSION-CertificationExam" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Certification information for a individual.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Recommendation" type="EXTENSION-Recommendation" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The information about the recommenation for the credential.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="RecommendingInstitution" type="EXTENSION-RecommendingInstitution" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Information regarding the institution that is recommending a candidate for certification.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="RevocationDate" type="xs:date" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The month, day, and year on which an active credential held by an individual was revoked.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="RevocationReason" type="EXTENSION-RevocationReason" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Expanded reason for the revocation of credential.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="SuspensionDate" type="xs:date" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The month, day, and year on which an active credential held by an individual was suspended.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="SuspensionReason" type="EXTENSION-SuspensionReason" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Expanded reason for the suspension of credential.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ValueType" type="EXTENSION-ValueType">
-            <xs:annotation>
-              <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="EXTENSION-CurrentPosition">
     <xs:annotation>
       <xs:documentation>The current position of the prospect.</xs:documentation>
@@ -8874,7 +8879,7 @@
           <xs:documentation>The month, day, and year on which a recommendation for a candidate is made.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="RecommendingInstutionCountry" type="CountryDescriptorReferenceType" minOccurs="0">
+      <xs:element name="RecommendingInstitutionCountry" type="CountryDescriptorReferenceType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The country that the recommendation for a candidate was made in.</xs:documentation>
           <xs:appinfo>

@@ -45,6 +45,7 @@ The following table describes the primary entities of which the Staff Associatio
 | LeaveEvent | This event entity represents the recording of the dates of staff leave (e.g., sick leave, personal time, vacation). |
 | OpenStaffPosition | This entity represents an open staff position that the education organization is seeking to fill. |
 | StaffProgramAssociation | This association indicates the Staff associated with a program. |
+| Credential | The legal document giving authorization to perform teaching assignment services. |
 
 
 
@@ -76,14 +77,17 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 |---------------------|-----------------|
 | AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AcademicSubjectDescriptor | Optional.  This descriptor holds the description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language). |
+| AchievementCategoryDescriptor | Optional.  This descriptor defines the category of achievement attributed to the learner. |
 | BackgroundCheckStatusDescriptor | Optional.  This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
 | BackgroundCheckTypeDescriptor | Optional.  The type of background check (e.g., online, criminal, employment). |
+| BoardCertificationTypeDescriptor | Optional.  The descriptor holds the  type of board certification awarded to an individual. |
+| CertificationExamTypeDescriptor | Optional.  The descriptor holds the  type of certification exam that was taken. |
 | ClassroomPositionDescriptor | Required.  This descriptor defines the type of position the staff member holds in a specific class/section. |
 | CountryDescriptor | Optional.  This descriptor defines the name and code of the country. |
-| CredentialFieldDescriptor | Optional.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
+| CredentialFieldDescriptor | Required.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
 | EmploymentStatusDescriptor | Required.  This descriptor defines the type of employment or contract. |
 | FieldworkTypeDescriptor | Required.  The descriptor holds the type of fieldwork being executed by a teacher candidate. |
-| GradeLevelDescriptor | Optional.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
+| GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |
 | LevelDescriptor | Optional.  This descriptor defines the grade level(s) certified for teaching. |
 | LevelOfDegreeAwardedDescriptor | Optional.  The descriptor holds the level of degree awarded by the teacher prep program to the person (e.g., Certificate Only, Bachelor's, Master's, etc.). |
@@ -95,6 +99,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | StaffClassificationDescriptor | Required.  This descriptor defines an individual's title of employment, official status or rank. |
 | StaffIdentificationSystemDescriptor | Optional.  This descriptor defines the originating record system and code that is used for record-keeping purposes of the staff. |
 | TeacherPreparationProgramTypeDescriptor | Optional.  The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.). |
-| TeachingCredentialDescriptor | Optional.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |
+| TeachingCredentialDescriptor | Required.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |
 
 

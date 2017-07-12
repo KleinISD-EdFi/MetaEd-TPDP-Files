@@ -3323,6 +3323,86 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of c
 GO
 
 
+/****** Table: [edfi].[Credential] ******/
+
+CREATE TABLE [edfi].[Credential](
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [EffectiveDate] [DATE] NULL,
+    [ExpirationDate] [DATE] NULL,
+    [CredentialFieldDescriptorId] [INT] NOT NULL,
+    [IssuanceDate] [DATE] NOT NULL,
+    [CredentialTypeId] [INT] NOT NULL,
+    [GradeLevelDescriptorId] [INT] NOT NULL,
+    [TeachingCredentialDescriptorId] [INT] NOT NULL,
+    [TeachingCredentialBasisTypeId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [Credential_PK] PRIMARY KEY CLUSTERED (
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[Credential] ADD CONSTRAINT [Credential_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [edfi].[Credential] ADD CONSTRAINT [Credential_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [edfi].[Credential] ADD CONSTRAINT [Credential_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'Credential'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The year, month and day on which an active credential held by an individual was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'EffectiveDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual will expire.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'ExpirationDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'IssuanceDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'GradeLevelDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'Credential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
+GO
+
+
+/****** Table: [edfi].[CredentialEndorsement] ******/
+
+CREATE TABLE [edfi].[CredentialEndorsement](
+    [CredentialEndorsement] [NVARCHAR](255) NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [CredentialEndorsement_PK] PRIMARY KEY CLUSTERED (
+        [CredentialEndorsement] ASC,
+        [CredentialIdentifier] ASC,
+        [StateOfIssueStateAbbreviationTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[CredentialEndorsement] ADD CONSTRAINT [CredentialEndorsement_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Endorsements are attachments to teaching certificates and indicate areas of specialization.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'CredentialEndorsement'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Endorsements are attachments to teaching certificates and indicate areas of specialization.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialEndorsement', @level2type=N'COLUMN', @level2name=N'CredentialEndorsement'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialEndorsement', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'CredentialEndorsement', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
+GO
+
+
 /****** Table: [edfi].[CredentialFieldDescriptor] ******/
 
 CREATE TABLE [edfi].[CredentialFieldDescriptor](
@@ -11722,7 +11802,7 @@ CREATE TABLE [edfi].[Staff](
     [MaidenName] [NVARCHAR](75) NULL,
     [SexTypeId] [INT] NULL,
     [BirthDate] [DATE] NULL,
-    [HispanicLatinoEthnicity] [BIT] NOT NULL,
+    [HispanicLatinoEthnicity] [BIT] NULL,
     [OldEthnicityTypeId] [INT] NULL,
     [CitizenshipStatusTypeId] [INT] NULL,
     [HighestCompletedLevelOfEducationDescriptorId] [INT] NULL,
@@ -11962,46 +12042,25 @@ GO
 /****** Table: [edfi].[StaffCredential] ******/
 
 CREATE TABLE [edfi].[StaffCredential](
-    [CredentialFieldDescriptorId] [INT] NOT NULL,
-    [CredentialIssuanceDate] [DATE] NOT NULL,
-    [CredentialTypeId] [INT] NOT NULL,
-    [LevelDescriptorId] [INT] NOT NULL,
+    [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
     [StaffUSI] [INT] NOT NULL,
-    [TeachingCredentialDescriptorId] [INT] NOT NULL,
-    [CredentialExpirationDate] [DATE] NULL,
-    [TeachingCredentialBasisTypeId] [INT] NULL,
-    [StateOfIssueStateAbbreviationTypeId] [INT] NULL,
+    [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffCredential_PK] PRIMARY KEY CLUSTERED (
-        [CredentialFieldDescriptorId] ASC,
-        [CredentialIssuanceDate] ASC,
-        [CredentialTypeId] ASC,
-        [LevelDescriptorId] ASC,
+        [CredentialIdentifier] ASC,
         [StaffUSI] ASC,
-        [TeachingCredentialDescriptorId] ASC
+        [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[StaffCredential] ADD CONSTRAINT [StaffCredential_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffCredential'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffCredential'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The field of certification for the certificate (e.g., Mathematics, Music).', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'CredentialFieldDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential was issued to an individual.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'CredentialIssuanceDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of credential an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'CredentialTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade level(s) certified for teaching.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'LevelDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'StaffUSI'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the category of a legal document giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which an active credential held by an individual will expire.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'CredentialExpirationDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the pre-determined criteria for granting the teaching credential that an individual holds.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'TeachingCredentialBasisTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffCredential', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
@@ -12358,7 +12417,7 @@ GO
 ALTER TABLE [edfi].[StaffLanguage] ADD CONSTRAINT [StaffLanguage_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The language(s) the individual uses to communicate.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffLanguage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The language(s) the individual uses to communicate. It is strongly recommended that entries use only ISO 639-3 language codes.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffLanguage'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A specification of which written or spoken communication is being used.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffLanguage', @level2type=N'COLUMN', @level2name=N'LanguageDescriptorId'
 GO
@@ -12498,6 +12557,65 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general racial category which most clearly reflects the individual''s recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRace', @level2type=N'COLUMN', @level2name=N'RaceTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRace', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+
+
+/****** Table: [edfi].[StaffRecognition] ******/
+
+CREATE TABLE [edfi].[StaffRecognition](
+    [RecognitionTypeId] [INT] NOT NULL,
+    [StaffUSI] [INT] NOT NULL,
+    [AchievementTitle] [NVARCHAR](60) NULL,
+    [AchievementCategoryDescriptorId] [INT] NULL,
+    [AchievementCategorySystem] [NVARCHAR](60) NULL,
+    [IssuerName] [NVARCHAR](150) NULL,
+    [IssuerOriginURL] [NVARCHAR](255) NULL,
+    [Criteria] [NVARCHAR](150) NULL,
+    [CriteriaURL] [NVARCHAR](255) NULL,
+    [EvidenceStatement] [NVARCHAR](150) NULL,
+    [ImageURL] [NVARCHAR](255) NULL,
+    [RecognitionDescription] [NVARCHAR](80) NULL,
+    [RecognitionAwardDate] [DATE] NULL,
+    [RecognitionAwardExpiresDate] [DATE] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [StaffRecognition_PK] PRIMARY KEY CLUSTERED (
+        [RecognitionTypeId] ASC,
+        [StaffUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StaffRecognition] ADD CONSTRAINT [StaffRecognition_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Recognitions given to the staff for accomplishments in a co-curricular or extracurricular activity.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'StaffRecognition'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The nature of recognition given to the student for accomplishments in a co-curricular, or extra-curricular activity.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'RecognitionTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title assigned to the achievement.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'AchievementTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of achievement attributed to the learner.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'AchievementCategoryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The system that defines the categories by which an achievement is attributed to the learner.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'AchievementCategorySystem'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name of the agent, entity, or institution issuing the element.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'IssuerName'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Uniform Resource Locator (URL) from which the award was issued.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'IssuerOriginURL'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The criteria for competency-based completion of the achievement/award.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'Criteria'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Uniform Resource Locator (URL) for the unique address of a web page describing the competency-based completion criteria for the achievement/award.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'CriteriaURL'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A statement or reference describing the evidence that the learner met the criteria for attainment of the Achievement.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'EvidenceStatement'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Uniform Resource Locator (URL) for the unique address of an image representing an award or badge associated with the Achievement.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'ImageURL'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A description of the type of academic distinctions earned by or awarded to the individual.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'RecognitionDescription'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the recognition was awarded or earned.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'RecognitionAwardDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date on which the award expires.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'StaffRecognition', @level2type=N'COLUMN', @level2name=N'RecognitionAwardExpiresDate'
 GO
 
 
@@ -17744,6 +17862,76 @@ CREATE NONCLUSTERED INDEX [FK_CourseTranscriptEarnedAdditionalCredits_CourseTran
 ON [edfi].[CourseTranscriptEarnedAdditionalCredits]([CourseAttemptResultTypeId] ASC, [CourseCode] ASC, [CourseEducationOrganizationId] ASC, [EducationOrganizationId] ASC, [SchoolYear] ASC, [StudentUSI] ASC, [TermDescriptorId] ASC)
 GO
 
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
+REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_CredentialFieldDescriptor]
+ON [edfi].[Credential]([CredentialFieldDescriptorId] ASC)
+GO
+
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_CredentialType] FOREIGN KEY ([CredentialTypeId])
+REFERENCES [edfi].[CredentialType] ([CredentialTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_CredentialType]
+ON [edfi].[Credential]([CredentialTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_GradeLevelDescriptor] FOREIGN KEY ([GradeLevelDescriptorId])
+REFERENCES [edfi].[GradeLevelDescriptor] ([GradeLevelDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_GradeLevelDescriptor]
+ON [edfi].[Credential]([GradeLevelDescriptorId] ASC)
+GO
+
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_StateAbbreviationType] FOREIGN KEY ([StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_StateAbbreviationType]
+ON [edfi].[Credential]([StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_TeachingCredentialBasisType] FOREIGN KEY ([TeachingCredentialBasisTypeId])
+REFERENCES [edfi].[TeachingCredentialBasisType] ([TeachingCredentialBasisTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_TeachingCredentialBasisType]
+ON [edfi].[Credential]([TeachingCredentialBasisTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[Credential] WITH CHECK ADD CONSTRAINT [FK_Credential_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
+REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_Credential_TeachingCredentialDescriptor]
+ON [edfi].[Credential]([TeachingCredentialDescriptorId] ASC)
+GO
+
+ALTER TABLE [edfi].[CredentialEndorsement] WITH CHECK ADD CONSTRAINT [FK_CredentialEndorsement_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CredentialEndorsement_Credential]
+ON [edfi].[CredentialEndorsement]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
+GO
+
 ALTER TABLE [edfi].[CredentialFieldDescriptor] WITH CHECK ADD CONSTRAINT [FK_CredentialFieldDescriptor_AcademicSubjectDescriptor] FOREIGN KEY ([AcademicSubjectDescriptorId])
 REFERENCES [edfi].[AcademicSubjectDescriptor] ([AcademicSubjectDescriptorId])
 
@@ -21392,34 +21580,14 @@ CREATE NONCLUSTERED INDEX [FK_StaffCohortAssociation_Staff]
 ON [edfi].[StaffCohortAssociation]([StaffUSI] ASC)
 GO
 
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_CredentialFieldDescriptor] FOREIGN KEY ([CredentialFieldDescriptorId])
-REFERENCES [edfi].[CredentialFieldDescriptor] ([CredentialFieldDescriptorId])
+ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_Credential] FOREIGN KEY ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
+REFERENCES [edfi].[Credential] ([CredentialIdentifier], [StateOfIssueStateAbbreviationTypeId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_CredentialFieldDescriptor]
-ON [edfi].[StaffCredential]([CredentialFieldDescriptorId] ASC)
-GO
-
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_CredentialType] FOREIGN KEY ([CredentialTypeId])
-REFERENCES [edfi].[CredentialType] ([CredentialTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_CredentialType]
-ON [edfi].[StaffCredential]([CredentialTypeId] ASC)
-GO
-
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_LevelDescriptor] FOREIGN KEY ([LevelDescriptorId])
-REFERENCES [edfi].[LevelDescriptor] ([LevelDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_LevelDescriptor]
-ON [edfi].[StaffCredential]([LevelDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffCredential_Credential]
+ON [edfi].[StaffCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
 ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_Staff] FOREIGN KEY ([StaffUSI])
@@ -21430,36 +21598,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_StaffCredential_Staff]
 ON [edfi].[StaffCredential]([StaffUSI] ASC)
-GO
-
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_StateAbbreviationType] FOREIGN KEY ([StateOfIssueStateAbbreviationTypeId])
-REFERENCES [edfi].[StateAbbreviationType] ([StateAbbreviationTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_StateAbbreviationType]
-ON [edfi].[StaffCredential]([StateOfIssueStateAbbreviationTypeId] ASC)
-GO
-
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_TeachingCredentialBasisType] FOREIGN KEY ([TeachingCredentialBasisTypeId])
-REFERENCES [edfi].[TeachingCredentialBasisType] ([TeachingCredentialBasisTypeId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_TeachingCredentialBasisType]
-ON [edfi].[StaffCredential]([TeachingCredentialBasisTypeId] ASC)
-GO
-
-ALTER TABLE [edfi].[StaffCredential] WITH CHECK ADD CONSTRAINT [FK_StaffCredential_TeachingCredentialDescriptor] FOREIGN KEY ([TeachingCredentialDescriptorId])
-REFERENCES [edfi].[TeachingCredentialDescriptor] ([TeachingCredentialDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_StaffCredential_TeachingCredentialDescriptor]
-ON [edfi].[StaffCredential]([TeachingCredentialDescriptorId] ASC)
 GO
 
 ALTER TABLE [edfi].[StaffEducationOrganizationAssignmentAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffEducationOrganizationAssignmentAssociation_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
@@ -21780,6 +21918,36 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_StaffRace_Staff]
 ON [edfi].[StaffRace]([StaffUSI] ASC)
+GO
+
+ALTER TABLE [edfi].[StaffRecognition] WITH CHECK ADD CONSTRAINT [FK_StaffRecognition_AchievementCategoryDescriptor] FOREIGN KEY ([AchievementCategoryDescriptorId])
+REFERENCES [edfi].[AchievementCategoryDescriptor] ([AchievementCategoryDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StaffRecognition_AchievementCategoryDescriptor]
+ON [edfi].[StaffRecognition]([AchievementCategoryDescriptorId] ASC)
+GO
+
+ALTER TABLE [edfi].[StaffRecognition] WITH CHECK ADD CONSTRAINT [FK_StaffRecognition_RecognitionType] FOREIGN KEY ([RecognitionTypeId])
+REFERENCES [edfi].[RecognitionType] ([RecognitionTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StaffRecognition_RecognitionType]
+ON [edfi].[StaffRecognition]([RecognitionTypeId] ASC)
+GO
+
+ALTER TABLE [edfi].[StaffRecognition] WITH CHECK ADD CONSTRAINT [FK_StaffRecognition_Staff] FOREIGN KEY ([StaffUSI])
+REFERENCES [edfi].[Staff] ([StaffUSI])
+ON DELETE CASCADE
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StaffRecognition_Staff]
+ON [edfi].[StaffRecognition]([StaffUSI] ASC)
 GO
 
 ALTER TABLE [edfi].[StaffSchoolAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffSchoolAssociation_ProgramAssignmentDescriptor] FOREIGN KEY ([ProgramAssignmentDescriptorId])
@@ -24159,6 +24327,21 @@ BEGIN
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
 SELECT Id, GETUTCDATE(), 'CourseTranscript', 'edfi'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [edfi].[Credential_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [edfi].[Credential_TR_DeleteEvent]
+    ON [edfi].[Credential]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'Credential', 'edfi'
 FROM deleted;
 END
 GO

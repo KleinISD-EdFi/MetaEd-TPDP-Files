@@ -608,6 +608,14 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TeacherCandidate') AND name = N'UX_TeacherCandidate_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_TeacherCandidate_Id ON extension.TeacherCandidate
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TeacherCandidateCharacteristicType') AND name = N'UX_TeacherCandidateCharacteristicType_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_TeacherCandidateCharacteristicType_Id ON extension.TeacherCandidateCharacteristicType
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
