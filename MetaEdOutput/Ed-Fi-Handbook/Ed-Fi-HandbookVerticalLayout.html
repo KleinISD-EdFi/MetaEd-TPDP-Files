@@ -2330,7 +2330,7 @@ UniqueSectionCode
                 <div><pre>extension.TeacherCandidateStaffAssociation
 
 StaffUSI [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
@@ -2339,7 +2339,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 StaffUSI
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -2429,7 +2429,7 @@ TeacherCandidateUniqueId
                 <div><pre>extension.TeacherCandidateTeacherPreparationProviderAssociation
 
 EntryDate [DATE] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TeacherPreparationProviderId [INT] NOT NULL
 SchoolYear [SMALLINT] NULL
 EntryTypeDescriptorId [INT] NULL
@@ -2442,7 +2442,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EntryDate
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TeacherPreparationProviderId
 </pre></div>
             </div>
@@ -2528,7 +2528,7 @@ BeginDate [DATE] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 ServiceOutsideRegularSession [BIT] NULL
 EndDate [DATE] NULL
 ReasonExitedDescriptorId [INT] NULL
@@ -2541,7 +2541,7 @@ BeginDate
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateTeacherPreparationProviderProgramAssociationService
 
 BeginDate [DATE] NOT NULL
@@ -2549,7 +2549,7 @@ EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
 ServiceDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 PrimaryIndicator [BIT] NULL
 ServiceBeginDate [DATE] NULL
 ServiceEndDate [DATE] NULL
@@ -2561,7 +2561,7 @@ EducationOrganizationId
 ProgramName
 ProgramTypeId
 ServiceDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -30996,7 +30996,7 @@ LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -37851,7 +37851,7 @@ SurveySectionTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />Credential (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateUniqueId (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />Credential (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateIdentifier (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37870,7 +37870,7 @@ SurveySectionTitle
             &lt;xs:documentation&gt;The student associated.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TeacherCandidateUniqueId&quot; type=&quot;UniqueId&quot;&gt;
+        &lt;xs:element name=&quot;TeacherCandidateIdentifier&quot; type=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;A unique alphanumeric code assigned to a teacher candidate.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -37935,7 +37935,7 @@ SurveySectionTitle
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidate
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 StudentUSI [INT] NOT NULL
 GenderTypeId [INT] NULL
 TuitionCost [MONEY] NULL
@@ -37948,12 +37948,12 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateAid
 
 AidTypeDescriptorId [INT] NOT NULL
 BeginDate [DATE] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
 AidAmount [MONEY] NULL
@@ -37963,10 +37963,10 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AidTypeDescriptorId
 BeginDate
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateBackgroundCheck
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BackgroundCheckTypeDescriptorId [INT] NOT NULL
 BackgroundCheckRequestedDate [DATE] NOT NULL
 BackgroundCheckStatusDescriptorId [INT] NULL
@@ -37975,18 +37975,18 @@ Fingerprint [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
 StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -38044,7 +38044,7 @@ TeacherCandidateUniqueId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidateFieldworkAbsenceEvent
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EventDate [DATE] NOT NULL
 HoursAbsent [DECIMAL](3, 2) NULL
 CreateDate [DATETIME] NOT NULL
@@ -38052,7 +38052,7 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -38154,7 +38154,7 @@ TeacherCandidateUniqueId
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
 LocalCourseCode [NVARCHAR](60) NULL
@@ -38174,13 +38174,13 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -38188,7 +38188,7 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -38265,7 +38265,7 @@ TeacherCandidateUniqueId
 
 AttendanceDate [DATE] NOT NULL
 ProfessionalDevelopmentTitle [NVARCHAR](60) NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 AttendanceEventCategoryDescriptorId [INT] NOT NULL
 AttendanceEventReason [NVARCHAR](40) NULL
 CreateDate [DATETIME] NOT NULL
@@ -38275,7 +38275,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 AttendanceDate
 ProfessionalDevelopmentTitle
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -38388,7 +38388,7 @@ TeacherCandidateUniqueId
 
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
 StudentGrowthTypeDescriptorId [INT] NULL
@@ -38403,14 +38403,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureCourse
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -38418,20 +38418,20 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureEducationOrganization
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureSection
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -38441,7 +38441,7 @@ LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -38454,7 +38454,7 @@ LocalCourseCode
 SchoolId
 SchoolYear
 SequenceOfCourse
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 UniqueSectionCode
 </pre></div>
@@ -52628,6 +52628,48 @@ VisaTypeId
             </div>
         </p>
         <p>
+            <h2>TeacherCandidateIdentifier</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>A unique alphanumeric code assigned to a teacher candidate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 32</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidate.TeacherCandidateIdentifier (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;A unique alphanumeric code assigned to a teacher candidate.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;32&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>TeacherCandidateIdentifier [NVARCHAR](32)</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>TeacherPreparationProgramIdentifier</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -52899,7 +52941,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)<br />TeacherCandidate.TeacherCandidateUniqueId (as identity)</div>
+                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

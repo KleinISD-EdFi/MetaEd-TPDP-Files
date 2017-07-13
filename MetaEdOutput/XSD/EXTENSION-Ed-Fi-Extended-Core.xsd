@@ -3306,7 +3306,7 @@
               <xs:documentation>The student associated.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
+          <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
             <xs:annotation>
               <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
             </xs:annotation>
@@ -6943,7 +6943,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
+      <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
         <xs:annotation>
           <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
         </xs:annotation>
@@ -11054,6 +11054,18 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="40" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-TeacherCandidateIdentifier">
+    <xs:annotation>
+      <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="32" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-TeacherPreparationProgramIdentifier">

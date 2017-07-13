@@ -3,10 +3,9 @@ Domain Entity TeacherCandidate
   domain entity Student
     documentation "The student associated."
     is required
-  shared string UniqueId
+  shared string TeacherCandidateIdentifier
       documentation "A unique alphanumeric code assigned to a teacher candidate."
       is part of identity
-      with context TeacherCandidate
       is queryable field
 
   enumeration Gender
