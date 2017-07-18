@@ -1,11 +1,5 @@
 Common AggregatedSchoolFoodServicesEligibility
   documentation "Identifies if the student is eligible for Free and Reduce Price Lunch"
-  enumeration SchoolYear
-    documentation "The school year for which the data is associated"
-    is part of identity
-  date FactAsOfDate
-    documentation "The date for which the data element is relevant"
-    is part of identity
   enumeration ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional

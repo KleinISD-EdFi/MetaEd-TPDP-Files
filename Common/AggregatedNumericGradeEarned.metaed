@@ -1,11 +1,5 @@
 Common AggregatedNumericGradeEarned
   documentation "Data about the numeric grade received by the group	Numeric Grade"
-  enumeration SchoolYear
-    documentation "The school year for which the data is associated"
-    is part of identity
-  date FactAsOfDate
-    documentation "The date for which the data element is relevant"
-    is part of identity
   shared decimal NumericGrade named AverageFinalNumericGradeEarned
     documentation "The average final numeric grade for the group"
     is required

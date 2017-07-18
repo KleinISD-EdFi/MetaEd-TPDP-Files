@@ -2337,7 +2337,6 @@ CREATE TABLE [extension].[CourseStudentAssessmentFactsStudentsEnrolled](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
@@ -2363,8 +2362,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -2416,7 +2413,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType](
     [DisabilityDescriptorId] [INT] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TypeNumber] [INT] NULL,
     [Percentage] [DECIMAL](5, 4) NULL,
@@ -2425,8 +2421,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType](
         [CourseCode] ASC,
         [DisabilityDescriptorId] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2443,8 +2438,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability by disability type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'TypeNumber'
@@ -2459,7 +2452,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedDisabilityTotalStudentsDis
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [StudentsDisabledNumber] [INT] NULL,
     [StudentsDisabledPercentage] [DECIMAL](5, 4) NULL,
@@ -2482,8 +2474,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
@@ -2498,7 +2488,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedELLEnrollment](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [ELLEnrollmentNumber] [INT] NULL,
     [ELLEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -2521,8 +2510,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
@@ -2537,7 +2524,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedESLEnrollment](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [ESLEnrollmentNumber] [INT] NULL,
     [ESLEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -2560,8 +2546,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
@@ -2577,7 +2561,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedGender](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [GenderTypeId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [GenderTypeNumber] [INT] NULL,
     [GenderTypePercentage] [DECIMAL](5, 4) NULL,
@@ -2586,8 +2569,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedGender](
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [GenderTypeId] ASC,
-        [SchoolYear] ASC
+        [GenderTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2604,8 +2586,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who identify by each gender type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'GenderTypeNumber'
@@ -2621,7 +2601,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [HispanicLatinoEthnicity] [BIT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [HispanicLatinoEthnicityNumber] [INT] NULL,
     [HispanicLatinoEthnicityPercentage] [DECIMAL](5, 4) NULL,
@@ -2630,8 +2609,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity](
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [HispanicLatinoEthnicity] ASC,
-        [SchoolYear] ASC
+        [HispanicLatinoEthnicity] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2648,8 +2626,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
@@ -2665,7 +2641,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedLanguage](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [LanguageDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [LanguageTypeNumber] [INT] NULL,
     [LanguageTypePercentage] [DECIMAL](5, 4) NULL,
@@ -2674,8 +2649,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedLanguage](
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [LanguageDescriptorId] ASC,
-        [SchoolYear] ASC
+        [LanguageDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2692,8 +2666,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the language of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student by each lanugage type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
@@ -2709,7 +2681,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedRace](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [RaceTypeId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [RaceTypeNumber] [INT] NULL,
     [RaceTypePercentage] [DECIMAL](5, 4) NULL,
@@ -2718,8 +2689,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedRace](
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [RaceTypeId] ASC,
-        [SchoolYear] ASC
+        [RaceTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2736,8 +2706,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general racial category which most clearly reflects the individual''s recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'RaceTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each race type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'RaceTypeNumber'
@@ -2753,7 +2721,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibil
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolFoodServicesEligibilityDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TypeNumber] [INT] NULL,
     [TypePercentage] [INT] NULL,
@@ -2762,8 +2729,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibil
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [SchoolFoodServicesEligibilityDescriptorId] ASC,
-        [SchoolYear] ASC
+        [SchoolFoodServicesEligibilityDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2780,8 +2746,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the students who are enrolled based on School Food Services Eligibility', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolFoodServicesEligibilityDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligibile for SchoolFoodServicesEligibility by category', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypeNumber'
@@ -2796,7 +2760,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSection504Enrollment](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [Number504Enrolled] [INT] NULL,
     [Percentage504Enrolled] [DECIMAL](5, 4) NULL,
@@ -2819,8 +2782,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are enrolled in a 504 program', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'Number504Enrolled'
@@ -2835,7 +2796,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSex](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [SexTypeId] [INT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [SexTypeNumber] [INT] NULL,
@@ -2845,7 +2805,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSex](
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [SchoolYear] ASC,
         [SexTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -2860,8 +2819,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A person''s gender.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypeId'
 GO
@@ -2879,7 +2836,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedSPED](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [SPEDEnrollmentNumber] [INT] NULL,
     [SPEDEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -2902,8 +2858,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students enrolled in SPED', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentNumber'
@@ -2918,7 +2872,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedTitleIEnrollment](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TitleIEnrollmentNumber] [INT] NULL,
     [TitleIEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -2941,8 +2894,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligible for Title I', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentNumber'
@@ -2957,7 +2908,6 @@ CREATE TABLE [extension].[CourseStudentFactsStudentsEnrolled](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
@@ -2980,8 +2930,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4029,7 +3977,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnr
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
@@ -4052,8 +3999,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4100,7 +4045,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityB
     [DisabilityDescriptorId] [INT] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TypeNumber] [INT] NULL,
     [Percentage] [DECIMAL](5, 4) NULL,
@@ -4108,8 +4052,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityB
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedDisabilityByType_PK] PRIMARY KEY CLUSTERED (
         [DisabilityDescriptorId] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4124,8 +4067,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability by disability type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'TypeNumber'
@@ -4139,7 +4080,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [StudentsDisabledNumber] [INT] NULL,
     [StudentsDisabledPercentage] [DECIMAL](5, 4) NULL,
@@ -4159,8 +4099,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
@@ -4174,7 +4112,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedELLEnrollment](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [ELLEnrollmentNumber] [INT] NULL,
     [ELLEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -4194,8 +4131,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
@@ -4209,7 +4144,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedESLEnrollment](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [ESLEnrollmentNumber] [INT] NULL,
     [ESLEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -4229,8 +4163,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
@@ -4245,7 +4177,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedGender](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [GenderTypeId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [GenderTypeNumber] [INT] NULL,
     [GenderTypePercentage] [DECIMAL](5, 4) NULL,
@@ -4253,8 +4184,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedGender](
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedGender_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [GenderTypeId] ASC,
-        [SchoolYear] ASC
+        [GenderTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4268,8 +4198,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4285,7 +4213,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLat
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [HispanicLatinoEthnicity] [BIT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [HispanicLatinoEthnicityNumber] [INT] NULL,
     [HispanicLatinoEthnicityPercentage] [DECIMAL](5, 4) NULL,
@@ -4293,8 +4220,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLat
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [HispanicLatinoEthnicity] ASC,
-        [SchoolYear] ASC
+        [HispanicLatinoEthnicity] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4308,8 +4234,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4325,7 +4249,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedLanguage](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [LanguageDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [LanguageTypeNumber] [INT] NULL,
     [LanguageTypePercentage] [DECIMAL](5, 4) NULL,
@@ -4333,8 +4256,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedLanguage](
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedLanguage_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [LanguageDescriptorId] ASC,
-        [SchoolYear] ASC
+        [LanguageDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4348,8 +4270,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the language of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4365,7 +4285,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedRace](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [RaceTypeId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [RaceTypeNumber] [INT] NULL,
     [RaceTypePercentage] [DECIMAL](5, 4) NULL,
@@ -4373,8 +4292,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedRace](
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedRace_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [RaceTypeId] ASC,
-        [SchoolYear] ASC
+        [RaceTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4388,8 +4306,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general racial category which most clearly reflects the individual''s recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'RaceTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -4405,7 +4321,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodS
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolFoodServicesEligibilityDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TypeNumber] [INT] NULL,
     [TypePercentage] [INT] NULL,
@@ -4413,8 +4328,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodS
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [SchoolFoodServicesEligibilityDescriptorId] ASC,
-        [SchoolYear] ASC
+        [SchoolFoodServicesEligibilityDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4429,8 +4343,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the students who are enrolled based on School Food Services Eligibility', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolFoodServicesEligibilityDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligibile for SchoolFoodServicesEligibility by category', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypeNumber'
@@ -4444,7 +4356,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSection504Enrollment](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [Number504Enrolled] [INT] NULL,
     [Percentage504Enrolled] [DECIMAL](5, 4) NULL,
@@ -4464,8 +4375,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are enrolled in a 504 program', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'Number504Enrolled'
@@ -4479,7 +4388,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSex](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [SexTypeId] [INT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [SexTypeNumber] [INT] NULL,
@@ -4488,7 +4396,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSex](
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedSex_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
-        [SchoolYear] ASC,
         [SexTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -4501,8 +4408,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A person''s gender.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypeId'
 GO
@@ -4519,7 +4424,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedSPED](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [SPEDEnrollmentNumber] [INT] NULL,
     [SPEDEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -4539,8 +4443,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students enrolled in SPED', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentNumber'
@@ -4554,7 +4456,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedTitleIEnrollment](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [TitleIEnrollmentNumber] [INT] NULL,
     [TitleIEnrollmentPercentage] [DECIMAL](5, 4) NULL,
@@ -4574,8 +4475,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligible for Title I', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentNumber'
@@ -4589,7 +4488,6 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsStudentsEnrolled](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
     [NumberStudentsEnrolled] [INT] NULL,
     [PercentAtRisk] [DECIMAL](5, 4) NULL,
@@ -4609,8 +4507,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
@@ -7653,7 +7549,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -7715,7 +7611,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedNumericGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedNumericGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedNumericGradeEarned', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedNumericGradeEarned', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -7780,7 +7676,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -7902,7 +7798,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -7962,7 +7858,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8023,7 +7919,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8305,7 +8201,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
 GO
@@ -8430,7 +8326,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8490,7 +8386,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8550,7 +8446,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8610,7 +8506,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8674,7 +8570,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedGender', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8738,7 +8634,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8802,7 +8698,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8866,7 +8762,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general ra
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedRace', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8930,7 +8826,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information ab
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -8990,7 +8886,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSection504Enrollment', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -9052,7 +8948,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -9114,7 +9010,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -9174,7 +9070,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -9235,7 +9131,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
@@ -14389,16 +14285,6 @@ CREATE NONCLUSTERED INDEX [FK_CourseCourseTranscriptFactsAggregatedFinalLetterGr
 ON [extension].[CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC, [TermDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType]
-ON [extension].[CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsAggregatedNumericGradeEarned_CourseCourseTranscriptFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[CourseCourseTranscriptFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -14407,16 +14293,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType]
-ON [extension].[CourseCourseTranscriptFactsAggregatedNumericGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsStudentsEnrolled_CourseCourseTranscriptFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[CourseCourseTranscriptFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -14424,16 +14300,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseCourseTranscriptFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[CourseCourseTranscriptFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -14483,16 +14349,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType]
-ON [extension].[CourseStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage_CourseStudentAcademicRecordFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[CourseStudentAcademicRecordFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -14501,16 +14357,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType]
-ON [extension].[CourseStudentAcademicRecordFactsAggregatedSessionGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsStudentsEnrolled_CourseStudentAcademicRecordFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[CourseStudentAcademicRecordFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -14518,16 +14364,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAcademicRecordFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -14655,16 +14491,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAssessmentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentAssessmentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[CourseStudentAssessmentFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentAssessmentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -14705,16 +14531,6 @@ CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisabilityByType_Disab
 ON [extension].[CourseStudentFactsAggregatedDisabilityByType]([DisabilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityByType_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisabilityByType_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedDisabilityByType]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityByType_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -14732,16 +14548,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -14761,16 +14567,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedELLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedELLEnrollment_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedELLEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedELLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -14788,16 +14584,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedESLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedESLEnrollment_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedESLEnrollment]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedESLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -14829,16 +14615,6 @@ CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedGender_GenderType]
 ON [extension].[CourseStudentFactsAggregatedGender]([GenderTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedGender_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedGender_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedGender]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedGender_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -14857,16 +14633,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_CourseStudentFacts]
 ON [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC)
-GO
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
@@ -14899,16 +14665,6 @@ CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedLanguage_LanguageDescr
 ON [extension].[CourseStudentFactsAggregatedLanguage]([LanguageDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedLanguage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedLanguage_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedLanguage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedLanguage_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -14937,16 +14693,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedRace_RaceType]
 ON [extension].[CourseStudentFactsAggregatedRace]([RaceTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedRace_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedRace_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedRace]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedRace_ValueType] FOREIGN KEY ([ValueTypeId])
@@ -14979,16 +14725,6 @@ CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSchoolFoodServicesElig
 ON [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolFoodServicesEligibilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSchoolFoodServicesEligibility_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15006,16 +14742,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSection504Enrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSection504Enrollment_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedSection504Enrollment]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSection504Enrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15035,16 +14761,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSex_CourseStudentFacts]
 ON [extension].[CourseStudentFactsAggregatedSex]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC)
-GO
-
-ALTER TABLE [extension].[CourseStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSex_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSex_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedSex]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSex_SexType] FOREIGN KEY ([SexTypeId])
@@ -15075,16 +14791,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSPED_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedSPED_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedSPED]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedSPED_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15103,16 +14809,6 @@ GO
 
 
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedTitleIEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedTitleIEnrollment_SchoolYearType]
-ON [extension].[CourseStudentFactsAggregatedTitleIEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[CourseStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedTitleIEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15130,16 +14826,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[CourseStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[CourseStudentFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[CourseStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15385,16 +15071,6 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationCourseTranscriptFactsAggregat
 ON [extension].[EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([EducationOrganizationId] ASC, [FactAsOfDate] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC, [TermDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType]
-ON [extension].[EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned_EducationOrganizationCourseTranscriptFacts] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[EducationOrganizationCourseTranscriptFacts] ([EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -15403,16 +15079,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType]
-ON [extension].[EducationOrganizationCourseTranscriptFactsAggregatedNumericGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsStudentsEnrolled_EducationOrganizationCourseTranscriptFacts] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[EducationOrganizationCourseTranscriptFacts] ([EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -15420,16 +15086,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationCourseTranscriptFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationCourseTranscriptFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15535,16 +15191,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType]
-ON [extension].[EducationOrganizationStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage_EducationOrganizationStudentAcademicRecordF] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[EducationOrganizationStudentAcademicRecordFacts] ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -15553,16 +15199,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType]
-ON [extension].[EducationOrganizationStudentAcademicRecordFactsAggregatedSessionGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_EducationOrganizationStudentAcademicRecordFacts] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[EducationOrganizationStudentAcademicRecordFacts] ([EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 ON DELETE CASCADE
@@ -15570,16 +15206,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15707,16 +15333,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAssessmentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentAssessmentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAssessmentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15757,16 +15373,6 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabil
 ON [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType]([EducationOrganizationId] ASC, [FactAsOfDate] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15784,16 +15390,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15813,16 +15409,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedELLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedELLEnrollment_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedELLEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedELLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15840,16 +15426,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedESLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedESLEnrollment_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedESLEnrollment]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedESLEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -15881,16 +15457,6 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedGender_
 ON [extension].[EducationOrganizationStudentFactsAggregatedGender]([GenderTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedGender_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedGender_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedGender]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedGender_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15909,16 +15475,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_EducationOrganizationStudentFacts]
 ON [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity]([EducationOrganizationId] ASC, [FactAsOfDate] ASC)
-GO
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
@@ -15951,16 +15507,6 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedLanguag
 ON [extension].[EducationOrganizationStudentFactsAggregatedLanguage]([LanguageDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedLanguage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedLanguage_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedLanguage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedLanguage_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -15989,16 +15535,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedRace_RaceType]
 ON [extension].[EducationOrganizationStudentFactsAggregatedRace]([RaceTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedRace_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedRace_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedRace]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedRace_ValueType] FOREIGN KEY ([ValueTypeId])
@@ -16031,16 +15567,6 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSchoolF
 ON [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolFoodServicesEligibilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -16058,16 +15584,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSection504Enrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSection504Enrollment_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedSection504Enrollment]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSection504Enrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -16087,16 +15603,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSex_EducationOrganizationStudentFacts]
 ON [extension].[EducationOrganizationStudentFactsAggregatedSex]([EducationOrganizationId] ASC, [FactAsOfDate] ASC)
-GO
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSex_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSex_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedSex]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSex_SexType] FOREIGN KEY ([SexTypeId])
@@ -16127,16 +15633,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSPED_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedSPED_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedSPED]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedSPED_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -16155,16 +15651,6 @@ GO
 
 
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedTitleIEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedTitleIEnrollment_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsAggregatedTitleIEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedTitleIEnrollment_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
 
@@ -16182,16 +15668,6 @@ ON DELETE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[EducationOrganizationStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[EducationOrganizationStudentFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsStudentsEnrolled_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
@@ -17629,16 +17105,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionCourseTranscriptFacts_SectionStudentAcademi
 ON [extension].[SectionCourseTranscriptFacts]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SchoolYearType]
-ON [extension].[SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned_SectionCourseTranscriptFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionCourseTranscriptFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17649,16 +17115,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionCourseTranscriptFactsAggregatedFinalLetterG
 ON [extension].[SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactAsOfDate] ASC, [FactsAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[SectionCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionCourseTranscriptFactsAggregatedNumericGradeEarned_SchoolYearType]
-ON [extension].[SectionCourseTranscriptFactsAggregatedNumericGradeEarned]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionCourseTranscriptFactsAggregatedNumericGradeEarned] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsAggregatedNumericGradeEarned_SectionCourseTranscriptFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionCourseTranscriptFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17666,16 +17122,6 @@ ON UPDATE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[SectionCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionCourseTranscriptFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[SectionCourseTranscriptFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[SectionCourseTranscriptFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFactsStudentsEnrolled_SectionCourseTranscriptFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionCourseTranscriptFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [FactsAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -17705,16 +17151,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentAcademicRecordFacts_Section]
 ON [extension].[SectionStudentAcademicRecordFacts]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SchoolYearType]
-ON [extension].[SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsAggregatedCumulativeGradePointAverage_SectionStudentAcademicRecordFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentAcademicRecordFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17723,16 +17159,6 @@ GO
 
 
 
-ALTER TABLE [extension].[SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SchoolYearType]
-ON [extension].[SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsAggregatedSessionGradePointAverage_SectionStudentAcademicRecordFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentAcademicRecordFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17740,16 +17166,6 @@ ON UPDATE CASCADE
 GO
 
 
-
-ALTER TABLE [extension].[SectionStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentAcademicRecordFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[SectionStudentAcademicRecordFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
 
 ALTER TABLE [extension].[SectionStudentAcademicRecordFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAcademicRecordFactsStudentsEnrolled_SectionStudentAcademicRecordFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentAcademicRecordFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -17867,16 +17283,6 @@ GO
 
 
 
-ALTER TABLE [extension].[SectionStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAssessmentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentAssessmentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[SectionStudentAssessmentFactsStudentsEnrolled]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentAssessmentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentAssessmentFactsStudentsEnrolled_SectionStudentAssessmentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SchoolYearTakenSchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentAssessmentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SchoolYearTakenSchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17915,16 +17321,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_Disa
 ON [extension].[SectionStudentFactsAggregatedDisabilityByType]([DisabilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityByType_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedDisabilityByType]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityByType_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17945,16 +17341,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_Valu
 ON [extension].[SectionStudentFactsAggregatedDisabilityByType]([ValueTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17973,16 +17359,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityTotalStuden
 ON [extension].[SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled]([ValueTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedELLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedELLEnrollment_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedELLEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedELLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedELLEnrollment_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -17999,16 +17375,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedELLEnrollment_ValueType]
 ON [extension].[SectionStudentFactsAggregatedELLEnrollment]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[SectionStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedESLEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedESLEnrollment_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedESLEnrollment]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedESLEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedESLEnrollment_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -18039,16 +17405,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedGender_GenderType]
 ON [extension].[SectionStudentFactsAggregatedGender]([GenderTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedGender_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedGender_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedGender]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedGender] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedGender_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18067,16 +17423,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedGender_ValueType]
 ON [extension].[SectionStudentFactsAggregatedGender]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -18109,16 +17455,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedLanguage_LanguageDesc
 ON [extension].[SectionStudentFactsAggregatedLanguage]([LanguageDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedLanguage_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedLanguage_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedLanguage]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedLanguage] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedLanguage_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18147,16 +17483,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedRace_RaceType]
 ON [extension].[SectionStudentFactsAggregatedRace]([RaceTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[SectionStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedRace_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedRace_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedRace]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedRace] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedRace_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -18189,16 +17515,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSchoolFoodServicesEli
 ON [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolFoodServicesEligibilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSchoolFoodServicesEligibility_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSchoolFoodServicesEligibility_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18219,16 +17535,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSchoolFoodServicesEli
 ON [extension].[SectionStudentFactsAggregatedSchoolFoodServicesEligibility]([ValueTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSection504Enrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSection504Enrollment_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedSection504Enrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSection504Enrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSection504Enrollment_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18245,16 +17551,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSection504Enrollment_ValueType]
 ON [extension].[SectionStudentFactsAggregatedSection504Enrollment]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[SectionStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSex_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSex_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedSex]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSex] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSex_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -18287,16 +17583,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSex_ValueType]
 ON [extension].[SectionStudentFactsAggregatedSex]([ValueTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSPED_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSPED_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedSPED]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedSPED] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedSPED_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18315,16 +17601,6 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedSPED_ValueType]
 ON [extension].[SectionStudentFactsAggregatedSPED]([ValueTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedTitleIEnrollment_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedTitleIEnrollment_SchoolYearType]
-ON [extension].[SectionStudentFactsAggregatedTitleIEnrollment]([SchoolYear] ASC)
-GO
-
 ALTER TABLE [extension].[SectionStudentFactsAggregatedTitleIEnrollment] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedTitleIEnrollment_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
@@ -18341,16 +17617,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedTitleIEnrollment_ValueType]
 ON [extension].[SectionStudentFactsAggregatedTitleIEnrollment]([ValueTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[SectionStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsStudentsEnrolled_SchoolYearType] FOREIGN KEY ([SchoolYear])
-REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsStudentsEnrolled_SchoolYearType]
-ON [extension].[SectionStudentFactsStudentsEnrolled]([SchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[SectionStudentFactsStudentsEnrolled] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsStudentsEnrolled_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
