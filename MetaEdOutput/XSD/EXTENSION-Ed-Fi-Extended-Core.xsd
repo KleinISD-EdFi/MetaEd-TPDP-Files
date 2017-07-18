@@ -3301,7 +3301,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
+          <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
             <xs:annotation>
               <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
             </xs:annotation>
@@ -7348,7 +7348,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="TeacherCandidateUniqueId" type="UniqueId">
+      <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
         <xs:annotation>
           <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
         </xs:annotation>

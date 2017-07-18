@@ -2330,7 +2330,7 @@ UniqueSectionCode
                 <div><pre>extension.TeacherCandidateStaffAssociation
 
 StaffUSI [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
@@ -2339,7 +2339,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 StaffUSI
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -2429,7 +2429,7 @@ TeacherCandidateUniqueId
                 <div><pre>extension.TeacherCandidateTeacherPreparationProviderAssociation
 
 EntryDate [DATE] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TeacherPreparationProviderId [INT] NOT NULL
 SchoolYear [SMALLINT] NULL
 EntryTypeDescriptorId [INT] NULL
@@ -2442,7 +2442,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EntryDate
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TeacherPreparationProviderId
 </pre></div>
             </div>
@@ -2528,7 +2528,7 @@ BeginDate [DATE] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 ServiceOutsideRegularSession [BIT] NULL
 EndDate [DATE] NULL
 ReasonExitedDescriptorId [INT] NULL
@@ -2541,7 +2541,7 @@ BeginDate
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateTeacherPreparationProviderProgramAssociationService
 
 BeginDate [DATE] NOT NULL
@@ -2549,7 +2549,7 @@ EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
 ServiceDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 PrimaryIndicator [BIT] NULL
 ServiceBeginDate [DATE] NULL
 ServiceEndDate [DATE] NULL
@@ -2561,7 +2561,7 @@ EducationOrganizationId
 ProgramName
 ProgramTypeId
 ServiceDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -31349,7 +31349,7 @@ LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -38204,7 +38204,7 @@ SurveySectionTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Credential (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />PreviousCareer (optional)<br />ProfileThumbnail (optional)<br />ProgramComplete (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateCharacteristic (optional collection)<br />TeacherCandidateIdentificationCode (optional collection)<br />TeacherCandidateIndicator (optional collection)<br />TeacherCandidateUniqueId (identity)<br />Telephone (optional collection)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateAcademicRecord.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Credential (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />PreviousCareer (optional)<br />ProfileThumbnail (optional)<br />ProgramComplete (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateCharacteristic (optional collection)<br />TeacherCandidateIdentificationCode (optional collection)<br />TeacherCandidateIdentifier (identity)<br />TeacherCandidateIndicator (optional collection)<br />Telephone (optional collection)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateAcademicRecord.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -38218,7 +38218,7 @@ SurveySectionTitle
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;TeacherCandidateUniqueId&quot; type=&quot;UniqueId&quot;&gt;
+        &lt;xs:element name=&quot;TeacherCandidateIdentifier&quot; type=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;A unique alphanumeric code assigned to a teacher candidate.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -38430,7 +38430,7 @@ SurveySectionTitle
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidate
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 PersonalTitlePrefix [NVARCHAR](30) NULL
 FirstName [NVARCHAR](75) NOT NULL
 MiddleName [NVARCHAR](75) NULL
@@ -38466,11 +38466,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateAddress
 
 AddressTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 StreetNumberName [NVARCHAR](150) NOT NULL
 ApartmentRoomSuiteNumber [NVARCHAR](50) NULL
 BuildingSiteNumber [NVARCHAR](20) NULL
@@ -38487,12 +38487,12 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 AddressTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateAid
 
 AidTypeDescriptorId [INT] NOT NULL
 BeginDate [DATE] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
 AidAmount [MONEY] NULL
@@ -38502,10 +38502,10 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AidTypeDescriptorId
 BeginDate
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateBackgroundCheck
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BackgroundCheckTypeDescriptorId [INT] NOT NULL
 BackgroundCheckRequestedDate [DATE] NOT NULL
 BackgroundCheckStatusDescriptorId [INT] NULL
@@ -38514,11 +38514,11 @@ Fingerprint [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateCharacteristic
 
 StudentCharacteristicDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NULL
 EndDate [DATE] NULL
 DesignatedBy [NVARCHAR](60) NULL
@@ -38526,33 +38526,33 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 StudentCharacteristicDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateCohortYear
 
 CohortYearTypeId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CohortYearTypeId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
 StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateDisability
 
 DisabilityDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 DisabilityDiagnosis [NVARCHAR](80) NULL
 OrderOfDisability [INT] NULL
 DisabilityDeterminationSourceTypeId [INT] NULL
@@ -38560,35 +38560,35 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 DisabilityDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateElectronicMail
 
 ElectronicMailTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 ElectronicMailAddress [NVARCHAR](128) NOT NULL
 PrimaryEmailAddressIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 ElectronicMailTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIdentificationCode
 
 AssigningOrganizationIdentificationCode [NVARCHAR](60) NOT NULL
 StudentIdentificationSystemDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 IdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 AssigningOrganizationIdentificationCode
 StudentIdentificationSystemDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIdentificationDocument
 
 IdentificationDocumentUseTypeId [INT] NOT NULL
 PersonalInformationVerificationTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 DocumentTitle [NVARCHAR](60) NULL
 DocumentExpirationDate [DATE] NULL
 IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
@@ -38599,12 +38599,12 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIdentificationDocument
 
 IdentificationDocumentUseTypeId [INT] NOT NULL
 PersonalInformationVerificationTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 DocumentTitle [NVARCHAR](60) NULL
 DocumentExpirationDate [DATE] NULL
 IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
@@ -38615,10 +38615,10 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIdentificationDocument
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 DocumentTitle [NVARCHAR](60) NULL
 PersonalInformationVerificationTypeId [INT] NULL
 DocumentExpirationDate [DATE] NULL
@@ -38629,11 +38629,11 @@ IdentificationDocumentUseTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIndicator
 
 IndicatorName [NVARCHAR](60) NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 IndicatorGroup [NVARCHAR](60) NULL
 Indicator [NVARCHAR](35) NOT NULL
 BeginDate [DATE] NULL
@@ -38643,11 +38643,11 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 IndicatorName
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateInternationalAddress
 
 AddressTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 AddressLine1 [NVARCHAR](150) NOT NULL
 AddressLine2 [NVARCHAR](150) NULL
 AddressLine3 [NVARCHAR](150) NULL
@@ -38661,41 +38661,41 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 AddressTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateLanguage
 
 LanguageDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 LanguageDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateLanguageUse
 
 LanguageDescriptorId [INT] NOT NULL
 LanguageUseTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 LanguageDescriptorId
 LanguageUseTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateLearningStyle
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 VisualLearning [DECIMAL](5, 4) NOT NULL
 AuditoryLearning [DECIMAL](5, 4) NOT NULL
 TactileLearning [DECIMAL](5, 4) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateOtherName
 
 OtherNameTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 PersonalTitlePrefix [NVARCHAR](30) NULL
 FirstName [NVARCHAR](75) NOT NULL
 MiddleName [NVARCHAR](75) NULL
@@ -38705,11 +38705,11 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 OtherNameTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateProgramParticipation
 
 ProgramTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NULL
 EndDate [DATE] NULL
 DesignatedBy [NVARCHAR](60) NULL
@@ -38717,30 +38717,30 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 ProgramTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateProgramParticipationProgramCharacteristic
 
 ProgramCharacteristicDescriptorId [INT] NOT NULL
 ProgramTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 ProgramCharacteristicDescriptorId
 ProgramTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateRace
 
 RaceTypeId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 RaceTypeId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateTelephone
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TelephoneNumberTypeId [INT] NOT NULL
 TelephoneNumber [NVARCHAR](24) NOT NULL
 OrderOfPriority [INT] NULL
@@ -38748,16 +38748,16 @@ TextMessageCapabilityIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TelephoneNumberTypeId
 <br />extension.TeacherCandidateVisa
 
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 VisaTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 VisaTypeId
 </pre></div>
             </div>
@@ -38927,7 +38927,7 @@ VisaTypeId
 
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 CumulativeEarnedCredits [DECIMAL](9, 2) NULL
 CumulativeEarnedCreditTypeId [INT] NULL
@@ -38958,14 +38958,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateAcademicRecordAcademicHonor
 
 AcademicHonorCategoryTypeId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AchievementTitle [NVARCHAR](60) NULL
 AchievementCategoryDescriptorId [INT] NULL
@@ -38985,13 +38985,13 @@ Primary Keys:
 AcademicHonorCategoryTypeId
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateAcademicRecordClassRanking
 
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 ClassRank [INT] NOT NULL
 TotalNumberInClass [INT] NOT NULL
@@ -39002,7 +39002,7 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateAcademicRecordDiploma
 
@@ -39010,7 +39010,7 @@ DiplomaAwardDate [DATE] NOT NULL
 DiplomaTypeId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AchievementTitle [NVARCHAR](60) NULL
 AchievementCategoryDescriptorId [INT] NULL
@@ -39032,14 +39032,14 @@ DiplomaAwardDate
 DiplomaTypeId
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateAcademicRecordRecognition
 
 EducationOrganizationId [INT] NOT NULL
 RecognitionTypeId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AchievementTitle [NVARCHAR](60) NULL
 AchievementCategoryDescriptorId [INT] NULL
@@ -39059,7 +39059,7 @@ Primary Keys:
 EducationOrganizationId
 RecognitionTypeId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateAcademicRecordReportCard
 
@@ -39069,7 +39069,7 @@ GradingPeriodDescriptorId [INT] NOT NULL
 GradingPeriodSchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 StudentUSI [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -39080,7 +39080,7 @@ GradingPeriodDescriptorId
 GradingPeriodSchoolId
 SchoolYear
 StudentUSI
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 </pre></div>
             </div>
@@ -39211,7 +39211,7 @@ CourseCode [NVARCHAR](60) NOT NULL
 CourseEducationOrganizationId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AttemptedCredits [DECIMAL](9, 2) NULL
 AttemptedCreditTypeId [INT] NULL
@@ -39238,7 +39238,7 @@ CourseCode
 CourseEducationOrganizationId
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 <br />extension.TeacherCandidateCourseTranscriptEarnedAdditionalCredits
 
@@ -39248,7 +39248,7 @@ CourseCode [NVARCHAR](60) NOT NULL
 CourseEducationOrganizationId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 Credits [DECIMAL](9, 2) NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -39260,7 +39260,7 @@ CourseCode
 CourseEducationOrganizationId
 EducationOrganizationId
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 </pre></div>
             </div>
@@ -39333,7 +39333,7 @@ TermDescriptorId
                 <div><pre>extension.TeacherCandidateFieldworkAbsenceEvent
 
 AbsenceEventCategoryDescriptorId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EventDate [DATE] NOT NULL
 AbsenceEventReason [NVARCHAR](40) NULL
 HoursAbsent [DECIMAL](3, 2) NULL
@@ -39343,7 +39343,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 AbsenceEventCategoryDescriptorId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -39445,7 +39445,7 @@ TeacherCandidateUniqueId
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
 LocalCourseCode [NVARCHAR](60) NULL
@@ -39465,13 +39465,13 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -39479,7 +39479,7 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -39556,7 +39556,7 @@ TeacherCandidateUniqueId
 
 AttendanceDate [DATE] NOT NULL
 ProfessionalDevelopmentTitle [NVARCHAR](60) NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 AttendanceEventCategoryDescriptorId [INT] NOT NULL
 AttendanceEventReason [NVARCHAR](40) NULL
 CreateDate [DATETIME] NOT NULL
@@ -39566,7 +39566,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 AttendanceDate
 ProfessionalDevelopmentTitle
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 </pre></div>
             </div>
         </p>
@@ -39679,7 +39679,7 @@ TeacherCandidateUniqueId
 
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
 StudentGrowthTypeDescriptorId [INT] NULL
@@ -39694,14 +39694,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureCourse
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -39709,20 +39709,20 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureEducationOrganization
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 <br />extension.TeacherCandidateStudentGrowthMeasureSection
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -39732,7 +39732,7 @@ LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
-TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -39745,7 +39745,7 @@ LocalCourseCode
 SchoolId
 SchoolYear
 SequenceOfCourse
-TeacherCandidateUniqueId
+TeacherCandidateIdentifier
 TermDescriptorId
 UniqueSectionCode
 </pre></div>
@@ -53855,6 +53855,10 @@ VisaTypeId
                 <div>min length: 1<br />max length: 32</div>
             </div>
             <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidate.TeacherCandidateIdentifier (as identity)</div>
+            </div>
+            <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
   &lt;xs:annotation&gt;
@@ -54146,7 +54150,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)<br />TeacherCandidate.TeacherCandidateUniqueId (as identity)</div>
+                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
