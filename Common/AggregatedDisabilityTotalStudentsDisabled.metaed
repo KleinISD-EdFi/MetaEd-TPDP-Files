@@ -1,5 +1,5 @@
-Common AggregatedDisability
-  documentation "Information about the total number of students with a disability.  "
+Common AggregatedDisabilityTotalStudentsDisabled
+  documentation "Information about the total number of students with a disability."
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
     is part of identity

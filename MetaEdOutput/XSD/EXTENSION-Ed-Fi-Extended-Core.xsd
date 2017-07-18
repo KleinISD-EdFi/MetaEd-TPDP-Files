@@ -681,7 +681,7 @@
               <xs:documentation>Data about the score from an assessment of the group</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0">
+          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Data about the performance level for an assessment of a group</xs:documentation>
             </xs:annotation>
@@ -745,12 +745,12 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisability" type="EXTENSION-AggregatedDisability" minOccurs="0">
+          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedDisabilityTotalStudentsDisabled" type="EXTENSION-AggregatedDisabilityTotalStudentsDisabled" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -1207,7 +1207,7 @@
               <xs:documentation>Data about the score from an assessment of the group</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0">
+          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Data about the performance level for an assessment of a group</xs:documentation>
             </xs:annotation>
@@ -1271,12 +1271,12 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisability" type="EXTENSION-AggregatedDisability" minOccurs="0">
+          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedDisabilityTotalStudentsDisabled" type="EXTENSION-AggregatedDisabilityTotalStudentsDisabled" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -2488,7 +2488,7 @@
               <xs:documentation>Data about the score from an assessment of the group</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0">
+          <xs:element name="AggregatedPerformanceLevel" type="EXTENSION-AggregatedPerformanceLevel" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Data about the performance level for an assessment of a group</xs:documentation>
             </xs:annotation>
@@ -2552,12 +2552,12 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisability" type="EXTENSION-AggregatedDisability" minOccurs="0">
+          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedDisabilityTotalStudentsDisabled" type="EXTENSION-AggregatedDisabilityTotalStudentsDisabled" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -8016,41 +8016,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-AggregatedDisability">
-    <xs:annotation>
-      <xs:documentation>Information about the total number of students with a disability.  </xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="SchoolYear" type="SchoolYearType">
-        <xs:annotation>
-          <xs:documentation>The school year for which the data is associated</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="FactAsOfDate" type="xs:date">
-        <xs:annotation>
-          <xs:documentation>The date for which the data element is relevant</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentsDisabledNumber" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The number of student who have a disability</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentsDisabledPercentage" type="Percent" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Percentage of students who have a disability</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedDisabilityByType">
     <xs:annotation>
       <xs:documentation>Students in the course who have a disability by disability type</xs:documentation>
@@ -8090,6 +8055,41 @@
       <xs:element name="Percentage" type="Percent" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The percentage of students who have a disability by each specific disability type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-AggregatedDisabilityTotalStudentsDisabled">
+    <xs:annotation>
+      <xs:documentation>Information about the total number of students with a disability.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentsDisabledNumber" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The number of student who have a disability</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentsDisabledPercentage" type="Percent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Percentage of students who have a disability</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8390,9 +8390,12 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="PerformanceLevel" type="PerformanceLevel" minOccurs="0">
+      <xs:element name="PerformanceLevel" type="PerformanceLevelDescriptorReferenceType">
         <xs:annotation>
           <xs:documentation>A specification of which performance level value describes the Student proficiency.</xs:documentation>
+          <xs:appinfo>
+            <ann:Descriptor>PerformanceLevelDescriptor</ann:Descriptor>
+          </xs:appinfo>
         </xs:annotation>
       </xs:element>
       <xs:element name="PerformanceLevelMetNumber" type="xs:int" minOccurs="0">
@@ -8403,16 +8406,6 @@
       <xs:element name="PerformanceLevelMetPercentage" type="Percent" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The percentage of student who met the performance level</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="PerformanceLevelTypeNumber" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The number of students who achieved each performance level by performance level type</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="PerformanceLevelTypePercentage" type="Percent" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The percentage of student who achieved perfromance level by each performance level type</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

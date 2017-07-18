@@ -37,4 +37,4 @@ Domain Entity CourseStudentAssessmentFacts
     is optional
   common AggregatedPerformanceLevel
     documentation "Data about the performance level for an assessment of a group"
-    is optional
+    is optional collection
