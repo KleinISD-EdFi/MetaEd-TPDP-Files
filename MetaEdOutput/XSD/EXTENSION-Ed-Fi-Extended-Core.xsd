@@ -8018,7 +8018,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedDisability">
     <xs:annotation>
-      <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
+      <xs:documentation>Information about the total number of students with a disability.  </xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -8034,9 +8034,19 @@
           <xs:documentation>The date for which the data element is relevant</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="TotalStudentsDisabled" type="EXTENSION-TotalStudentsDisabled" minOccurs="0">
+      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Information about the total number of students with a disability.</xs:documentation>
+          <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentsDisabledNumber" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The number of student who have a disability</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StudentsDisabledPercentage" type="Percent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Percentage of students who have a disability</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9721,41 +9731,6 @@
           <xs:appinfo>
             <ann:Descriptor>EXTENSION-LevelOfDegreeAwardedDescriptor</ann:Descriptor>
           </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-TotalStudentsDisabled">
-    <xs:annotation>
-      <xs:documentation>Information about the total number of students with a disability.  </xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="SchoolYear" type="SchoolYearType">
-        <xs:annotation>
-          <xs:documentation>The school year for which the data is associated</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="FactAsOfDate" type="xs:date">
-        <xs:annotation>
-          <xs:documentation>The date for which the data element is relevant</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentsDisabledNumber" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The number of student who have a disability</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="StudentsDisabledPercentage" type="Percent" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Percentage of students who have a disability</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

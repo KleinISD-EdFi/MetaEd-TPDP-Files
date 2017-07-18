@@ -105,7 +105,6 @@
     <Entity table="CourseStudentFacts" schema="extension"/>
     <Entity table="CourseStudentFactsAggregatedDisability" schema="extension"/>
     <Entity table="CourseStudentFactsAggregatedDisabilityByType" schema="extension"/>
-    <Entity table="CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled" schema="extension"/>
     <Entity table="CourseStudentFactsAggregatedELLEnrollment" schema="extension"/>
     <Entity table="CourseStudentFactsAggregatedESLEnrollment" schema="extension"/>
     <Entity table="CourseStudentFactsAggregatedGender" schema="extension"/>
@@ -158,7 +157,6 @@
     <Entity table="EducationOrganizationStudentFacts" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsAggregatedDisability" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsAggregatedDisabilityByType" schema="extension"/>
-    <Entity table="EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsAggregatedELLEnrollment" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsAggregatedESLEnrollment" schema="extension"/>
     <Entity table="EducationOrganizationStudentFactsAggregatedGender" schema="extension"/>
@@ -347,7 +345,6 @@
     <Entity table="SectionStudentFacts" schema="extension"/>
     <Entity table="SectionStudentFactsAggregatedDisability" schema="extension"/>
     <Entity table="SectionStudentFactsAggregatedDisabilityByType" schema="extension"/>
-    <Entity table="SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled" schema="extension"/>
     <Entity table="SectionStudentFactsAggregatedELLEnrollment" schema="extension"/>
     <Entity table="SectionStudentFactsAggregatedESLEnrollment" schema="extension"/>
     <Entity table="SectionStudentFactsAggregatedGender" schema="extension"/>

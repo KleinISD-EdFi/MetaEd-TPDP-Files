@@ -1,11 +1,17 @@
 Common AggregatedDisability
-  documentation "Information about the disability of a group aggregated by course."
+  documentation "Information about the total number of students with a disability.  "
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
     is part of identity
   date FactAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity
-  common TotalStudentsDisabled
-    documentation "Information about the total number of students with a disability."
+  enumeration ValueType
+    documentation "The value of the data, i.e., is the data projected, actual or other"
+    is optional
+  integer StudentsDisabledNumber
+    documentation "The number of student who have a disability"
+    is optional
+  percent StudentsDisabledPercentage
+    documentation "Percentage of students who have a disability"
     is optional
