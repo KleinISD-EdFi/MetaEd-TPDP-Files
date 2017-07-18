@@ -461,7 +461,6 @@
     <Entity table="TeacherCandidateAcademicRecordClassRanking" schema="extension"/>
     <Entity table="TeacherCandidateAcademicRecordDiploma" schema="extension"/>
     <Entity table="TeacherCandidateAcademicRecordRecognition" schema="extension"/>
-    <Entity table="TeacherCandidateAcademicRecordReportCard" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateCharacteristicDescriptor">
     <Entity table="TeacherCandidateCharacteristicDescriptor" isA="Descriptor" schema="extension"/>

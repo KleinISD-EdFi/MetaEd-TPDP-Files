@@ -44,7 +44,6 @@ This interchange includes the following Extended References.
 |-----------------------------|-----------------|
 | CourseReference (in TeacherCandidateCourseTranscript) | Required.  The course recorded in the course transcript entry. |
 | EducationOrganizationReference (in TeacherCandidateAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
-| ReportCardReference (in TeacherCandidateAcademicRecord) | Optional.  Report cards for the student. |
 | SchoolReference (in TeacherCandidateCourseTranscript) | Optional.  The School that provided the reported instruction. |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
