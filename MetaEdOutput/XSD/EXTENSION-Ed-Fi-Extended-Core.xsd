@@ -8029,6 +8029,11 @@
           <xs:documentation>Information about the total number of students with a disability.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="Dummy" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Dummy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedELLEnrollment">

@@ -3393,6 +3393,37 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>Dummy</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Dummy</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Boolean Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />AggregatedDisability.Dummy (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;Dummy&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Dummy&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>Dummy [BIT]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>EconomicDisadvantaged</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -5685,7 +5716,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />DisabilityByType (optional collection)<br />FactAsOfDate (identity)<br />SchoolYear (identity)<br />TotalStudentsDisabled (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisability (as optional)<br />EducationOrganizationStudentFacts.AggregatedDisability (as optional)<br />SectionStudentFacts.AggregatedDisability (as optional)</div>
+                <div><br />Contains:<br />DisabilityByType (optional collection)<br />Dummy (optional)<br />FactAsOfDate (identity)<br />SchoolYear (identity)<br />TotalStudentsDisabled (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisability (as optional)<br />EducationOrganizationStudentFacts.AggregatedDisability (as optional)<br />SectionStudentFacts.AggregatedDisability (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5715,6 +5746,11 @@ StudentUSI
     &lt;xs:element name=&quot;TotalStudentsDisabled&quot; type=&quot;EXTENSION-TotalStudentsDisabled&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;Information about the total number of students with a disability.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;Dummy&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;Dummy&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -10944,7 +10980,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactAsOfDate (required)<br />SchoolYear (required)<br />StudentsDisabledNumber (optional)<br />StudentsDisabledPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />AggregatedDisability.TotalStudentsDisabled (as optional)</div>
+                <div><br />Contains:<br />FactAsOfDate (required)<br />SchoolYear (identity)<br />StudentsDisabledNumber (optional)<br />StudentsDisabledPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />AggregatedDisability.TotalStudentsDisabled (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25278,6 +25314,7 @@ CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
+Dummy [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27654,6 +27691,7 @@ FactAsOfDate
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
+Dummy [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -34115,6 +34153,7 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+Dummy [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -45094,7 +45133,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as identity)<br />AggregatedDisability.SchoolYear (as identity)<br />AggregatedELLEnrollment.SchoolYear (as identity)<br />AggregatedESLEnrollment.SchoolYear (as identity)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as identity)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as identity)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as identity)<br />AggregatedSessionGradePointAverage.SchoolYear (as identity)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as identity)<br />AggregatedTitleIEnrollment.SchoolYear (as identity)<br />DisabilityByType.SchoolYear (as identity)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as identity)<br />AggregatedDisability.SchoolYear (as identity)<br />AggregatedELLEnrollment.SchoolYear (as identity)<br />AggregatedESLEnrollment.SchoolYear (as identity)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as identity)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as identity)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as identity)<br />AggregatedSessionGradePointAverage.SchoolYear (as identity)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as identity)<br />AggregatedTitleIEnrollment.SchoolYear (as identity)<br />DisabilityByType.SchoolYear (as identity)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as identity)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

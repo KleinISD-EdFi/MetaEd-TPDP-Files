@@ -12,3 +12,6 @@ Common AggregatedDisability
   common TotalStudentsDisabled
     documentation "Information about the total number of students with a disability."
     is optional
+  bool Dummy
+    documentation "Dummy"
+    is optional

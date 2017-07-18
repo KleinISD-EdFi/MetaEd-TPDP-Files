@@ -2412,6 +2412,7 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedDisability](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
+    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2432,6 +2433,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
 GO
 
 
@@ -4120,6 +4123,7 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisability]
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
+    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -4137,6 +4141,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
 GO
 
 
@@ -8388,6 +8394,7 @@ CREATE TABLE [extension].[SectionStudentFactsAggregatedDisability](
     [SequenceOfCourse] [INT] NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
+    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8424,6 +8431,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
 GO
 
 
