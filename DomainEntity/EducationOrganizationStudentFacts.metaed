@@ -16,8 +16,8 @@ Domain Entity EducationOrganizationStudentFacts
     documentation "The information about the gender"
     is optional collection
   common AggregatedHispanicLatinoEthnicity
-    documentation "Data about the Eth ethnicity of the group"
-    is optional
+    documentation "Data about the ethnicity of the group"
+    is optional collection
   common AggregatedRace
     documentation "Data about the race of the group"
     is optional collection
@@ -30,6 +30,9 @@ Domain Entity EducationOrganizationStudentFacts
   common AggregatedDisability
     documentation "Information about the disability of a group aggregated by course."
     is optional
+  common AggregatedDisabilityByType
+    documentation "Information about the disability of a group aggregated by course."
+    is optional collection
   common AggregatedELLEnrollment
     documentation "Data about the ELL enrollment of the group"
     is optional

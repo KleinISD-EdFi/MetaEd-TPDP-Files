@@ -2412,7 +2412,6 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedDisability](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2433,8 +2432,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
 GO
 
 
@@ -2462,7 +2459,7 @@ GO
 ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType] ADD CONSTRAINT [CourseStudentFactsAggregatedDisabilityByType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Students in the course who have a disability by disability type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseStudentFactsAggregatedDisabilityByType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the disability of a group aggregated by course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseStudentFactsAggregatedDisabilityByType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
@@ -2649,16 +2646,18 @@ CREATE TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
+    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [HispanicLatinoEthnicityNumber] [INT] NULL,
     [HispanicLatinoEthnicityPercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentFactsAggregatedHispanicLatinoEthnicity_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [HispanicLatinoEthnicity] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -2673,11 +2672,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
@@ -4123,7 +4122,6 @@ CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisability]
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -4141,8 +4139,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'SchoolYear'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
 GO
 
 
@@ -4168,7 +4164,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType] ADD CONSTRAINT [EducationOrganizationStudentFactsAggregatedDisabilityByType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Students in the course who have a disability by disability type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the disability of a group aggregated by course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
@@ -4336,32 +4332,34 @@ GO
 CREATE TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
+    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [HispanicLatinoEthnicityNumber] [INT] NULL,
     [HispanicLatinoEthnicityPercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
-        [FactAsOfDate] ASC
+        [FactAsOfDate] ASC,
+        [HispanicLatinoEthnicity] ASC,
+        [SchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity] ADD CONSTRAINT [EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the Eth ethnicity of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the ethnicity of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
@@ -8394,7 +8392,6 @@ CREATE TABLE [extension].[SectionStudentFactsAggregatedDisability](
     [SequenceOfCourse] [INT] NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
-    [Dummy] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentFactsAggregatedDisability_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8432,8 +8429,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dummy', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisability', @level2type=N'COLUMN', @level2name=N'Dummy'
-GO
 
 
 /****** Table: [extension].[SectionStudentFactsAggregatedDisabilityByType] ******/
@@ -8470,7 +8465,7 @@ GO
 ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityByType] ADD CONSTRAINT [SectionStudentFactsAggregatedDisabilityByType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Students in the course who have a disability by disability type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFactsAggregatedDisabilityByType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the disability of a group aggregated by course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFactsAggregatedDisabilityByType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityByType', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
@@ -8750,6 +8745,7 @@ CREATE TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [ClassroomIdentificationCode] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
+    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [LocalCourseCode] [NVARCHAR](60) NOT NULL,
     [SchoolId] [INT] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
@@ -8757,7 +8753,6 @@ CREATE TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity](
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [HispanicLatinoEthnicity] [BIT] NOT NULL,
     [HispanicLatinoEthnicityNumber] [INT] NULL,
     [HispanicLatinoEthnicityPercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -8765,6 +8760,7 @@ CREATE TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity](
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
+        [HispanicLatinoEthnicity] ASC,
         [LocalCourseCode] ASC,
         [SchoolId] ASC,
         [SchoolYear] ASC,
@@ -8777,13 +8773,15 @@ GO
 ALTER TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity] ADD CONSTRAINT [SectionStudentFactsAggregatedHispanicLatinoEthnicity_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the Eth ethnicity of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the ethnicity of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
 GO
@@ -8798,8 +8796,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino."', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
@@ -14744,13 +14740,13 @@ CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisability_SchoolYearT
 ON [extension].[CourseStudentFactsAggregatedDisability]([SchoolYear] ASC)
 GO
 
-ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityByType_CourseStudentFactsAggregatedDisability] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate])
-REFERENCES [extension].[CourseStudentFactsAggregatedDisability] ([CourseCode], [EducationOrganizationId], [FactAsOfDate])
+ALTER TABLE [extension].[CourseStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedDisabilityByType_CourseStudentFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate])
+REFERENCES [extension].[CourseStudentFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisabilityByType_CourseStudentFactsAggregatedDisability]
+CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedDisabilityByType_CourseStudentFacts]
 ON [extension].[CourseStudentFactsAggregatedDisabilityByType]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC)
 GO
 
@@ -14914,7 +14910,9 @@ ON DELETE CASCADE
 
 GO
 
-
+CREATE NONCLUSTERED INDEX [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_CourseStudentFacts]
+ON [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity]([CourseCode] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC)
+GO
 
 ALTER TABLE [extension].[CourseStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_CourseStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType] FOREIGN KEY ([SchoolYear])
 REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
@@ -15810,13 +15808,13 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabil
 ON [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType]([DisabilityDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_EducationOrganizationStudentFactsAggregatedDisability] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate])
-REFERENCES [extension].[EducationOrganizationStudentFactsAggregatedDisability] ([EducationOrganizationId], [FactAsOfDate])
+ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_EducationOrganizationStudentFacts] FOREIGN KEY ([EducationOrganizationId], [FactAsOfDate])
+REFERENCES [extension].[EducationOrganizationStudentFacts] ([EducationOrganizationId], [FactAsOfDate])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_EducationOrganizationStudentFactsAggregatedDisability]
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedDisabilityByType_EducationOrganizationStudentFacts]
 ON [extension].[EducationOrganizationStudentFactsAggregatedDisabilityByType]([EducationOrganizationId] ASC, [FactAsOfDate] ASC)
 GO
 
@@ -15970,7 +15968,9 @@ ON DELETE CASCADE
 
 GO
 
-
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_EducationOrganizationStudentFacts]
+ON [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity]([EducationOrganizationId] ASC, [FactAsOfDate] ASC)
+GO
 
 ALTER TABLE [extension].[EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity_SchoolYearType] FOREIGN KEY ([SchoolYear])
 REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
@@ -17974,13 +17974,13 @@ CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_Scho
 ON [extension].[SectionStudentFactsAggregatedDisabilityByType]([SchoolYear] ASC)
 GO
 
-ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityByType_SectionStudentFactsAggregatedDisability] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
-REFERENCES [extension].[SectionStudentFactsAggregatedDisability] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
+ALTER TABLE [extension].[SectionStudentFactsAggregatedDisabilityByType] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedDisabilityByType_SectionStudentFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
+REFERENCES [extension].[SectionStudentFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 ON DELETE CASCADE
-
+ON UPDATE CASCADE
 GO
 
-CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_SectionStudentFactsAggregatedDisability]
+CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedDisabilityByType_SectionStudentFacts]
 ON [extension].[SectionStudentFactsAggregatedDisabilityByType]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
@@ -18134,7 +18134,9 @@ ON DELETE CASCADE
 ON UPDATE CASCADE
 GO
 
-
+CREATE NONCLUSTERED INDEX [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_SectionStudentFacts]
+ON [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [FactAsOfDate] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
+GO
 
 ALTER TABLE [extension].[SectionStudentFactsAggregatedHispanicLatinoEthnicity] WITH CHECK ADD CONSTRAINT [FK_SectionStudentFactsAggregatedHispanicLatinoEthnicity_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])

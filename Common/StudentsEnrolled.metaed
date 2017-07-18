@@ -2,10 +2,10 @@ Common StudentsEnrolled
   documentation "This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments."
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
-    is required
+    is part of identity
   date FactAsOfDate
     documentation "The date for which the data element is relevant"
-    is required
+    is part of identity
   enumeration ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
