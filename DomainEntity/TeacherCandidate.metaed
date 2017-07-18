@@ -1,9 +1,5 @@
 Domain Entity TeacherCandidate
   documentation "This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program."
-  shared string TeacherCandidateIdentifier
-      documentation "A unique alphanumeric code assigned to a teacher candidate."
-      is part of identity
-      is queryable field
   common TeacherCandidateIdentificationCode
       documentation "A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a teacher candidate."
       is optional collection
@@ -126,7 +122,7 @@ Domain Entity TeacherCandidate
     is optional
   domain entity Student
     documentation "The student associated."
-    is required
+    is part of identity
   domain entity Staff
     documentation "The staff associated."
     is optional

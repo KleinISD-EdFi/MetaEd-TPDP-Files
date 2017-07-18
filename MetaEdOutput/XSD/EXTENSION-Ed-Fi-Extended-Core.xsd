@@ -3301,11 +3301,6 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
-            <xs:annotation>
-              <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="TeacherCandidateIdentificationCode" type="EXTENSION-TeacherCandidateIdentificationCode" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a teacher candidate.</xs:documentation>
@@ -7348,9 +7343,9 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="TeacherCandidateIdentifier" type="EXTENSION-TeacherCandidateIdentifier">
+      <xs:element name="StudentReference" type="StudentReferenceType">
         <xs:annotation>
-          <xs:documentation>A unique alphanumeric code assigned to a teacher candidate.</xs:documentation>
+          <xs:documentation>The student associated.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
