@@ -7466,7 +7466,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (required)<br />EndDate (optional)<br /><br />Used By:<br />FieldworkExperience.Coteaching (as optional collection)<br />StaffFieldworkExperience.Coteaching (as optional)<br />TeacherCandidateFieldworkExperience.Coteaching (as optional)</div>
+                <div><br />Contains:<br />CoteachingBeginDate (required)<br />CoteachingEndDate (optional)<br /><br />Used By:<br />FieldworkExperience.Coteaching (as optional collection)<br />StaffFieldworkExperience.Coteaching (as optional)<br />TeacherCandidateFieldworkExperience.Coteaching (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7478,12 +7478,12 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
+    &lt;xs:element name=&quot;CoteachingBeginDate&quot; type=&quot;xs:date&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate first starts co-teaching.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;CoteachingEndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate stopped co-teaching.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -11552,37 +11552,6 @@ StudentUSI
             </div>
         </p>
         <p>
-            <h2>BeginDate (Coteaching)</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The month, day, and year on which the teacher candidate first starts co-teaching.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Coteaching.BeginDate (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate first starts co-teaching.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>BeginDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>BeginDate (EducationOrganizationInterventionPrescriptionAssociation)</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -12513,6 +12482,68 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>CoteachingBeginDate</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The month, day, and year on which the teacher candidate first starts co-teaching.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Coteaching.CoteachingBeginDate (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;CoteachingBeginDate&quot; type=&quot;xs:date&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate first starts co-teaching.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CoteachingBeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>CoteachingEndDate</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The month, day, and year on which the teacher candidate stopped co-teaching.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />Coteaching.CoteachingEndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;CoteachingEndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate stopped co-teaching.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>CoteachingEndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>Date</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -13217,37 +13248,6 @@ StudentUSI
                 <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The end of the period during which this learning standard document is intended for use.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>EndDate [DATE]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>EndDate (Coteaching)</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>The month, day, and year on which the teacher candidate stopped co-teaching.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Date Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Coteaching.EndDate (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate stopped co-teaching.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -35217,7 +35217,8 @@ BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
 StaffUSI [INT] NOT NULL
-EndDate [DATE] NULL
+CoteachingBeginDate [DATE] NOT NULL
+CoteachingEndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -39116,7 +39117,8 @@ BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-EndDate [DATE] NULL
+CoteachingBeginDate [DATE] NOT NULL
+CoteachingEndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
