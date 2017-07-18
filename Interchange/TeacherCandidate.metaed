@@ -1,8 +1,10 @@
 Interchange TeacherCandidate
   documentation "This interchange defines teacher candidates and contains all their identifying information."
   domain entity Credential
+  domain entity Student
   domain entity TeacherCandidate
   domain entity TeacherCandidateAcademicRecord
+  domain entity TeacherCandidateCourseTranscript
   domain entity TeacherCandidateFieldworkAbsenceEvent
   domain entity TeacherCandidateFieldworkExperience
   association TeacherCandidateStaffAssociation

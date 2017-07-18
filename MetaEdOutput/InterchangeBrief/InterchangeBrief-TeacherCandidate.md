@@ -24,8 +24,10 @@ The following table describes the primary entities of which the Teacher Candidat
 | Name | Description |
 |----------|-----------------|
 | Credential | The legal document giving authorization to perform teaching assignment services. |
+| Student | This entity represents an individual for whom instruction, services, and/or care are provided in an early childhood, elementary, or secondary educational program under the jurisdiction of a school, education agency or other institution or program. A student is a person who has been enrolled in a school or other educational institution. |
 | TeacherCandidate | This entity represents an individual for whom instruction and/or services in a Teacher Preparation Program are provided under the jurisdiction of a Teacher Preparation Provider.  A teacher candidate is a person who has been enrolled in a teacher preparation program. |
 | TeacherCandidateAcademicRecord | This educational entity represents the cumulative record of academic achievement for a teacher candidate. |
+| TeacherCandidateCourseTranscript | This entity is the final record of a student's performance in their courses at the end of a semester or school year. |
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | TeacherCandidateStaffAssociation | This association associates teacher candidates to a staff member. |
@@ -40,13 +42,14 @@ This interchange includes the following Extended References.
 
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
+| CourseReference (in TeacherCandidateCourseTranscript) | Required.  The course recorded in the course transcript entry. |
 | EducationOrganizationReference (in TeacherCandidateAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
 | ReportCardReference (in TeacherCandidateAcademicRecord) | Optional.  Report cards for the student. |
+| SchoolReference (in TeacherCandidateCourseTranscript) | Optional.  The School that provided the reported instruction. |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
 | StaffReference (in TeacherCandidateStaffAssociation) | Required.  The staff associated with the teacher candidate. |
-| StudentReference (in TeacherCandidate) | Required.  The student associated. |
 | TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Reference to the Teacher Preparation Provider Program |
 
 

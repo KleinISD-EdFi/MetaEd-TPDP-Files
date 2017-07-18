@@ -28,6 +28,7 @@
     <Element name="LimitedEnglishProficiencyDescriptor" />
     <Element name="EnglishLanguageExamDescriptor" />
     <Element name="PreviousCareerDescriptor" />
+    <Element name="StudentCharacteristicDescriptor" />
     <Element name="CountryDescriptor" />
     <Element name="ProfessionalDevelopmentOfferedByDescriptor" />
     <Element name="AttendanceEventCategoryDescriptor" />
@@ -35,10 +36,10 @@
     <Element name="ProgramCharacteristicDescriptor" />
     <Element name="ServiceDescriptor" />
     <Element name="TPPDegreeTypeDescriptor" />
-    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="FederalLocaleCodeDescriptor" />
     <Element name="AdministrativeFundingControlDescriptor" />
     <Element name="SchoolStatusDescriptor" />
+    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="FieldworkTypeDescriptor" />
     <Element name="TPPProgramPathwayDescriptor" />
     <Element name="ReasonExitedDescriptor" />
@@ -69,7 +70,6 @@
     <Element name="SectionCharacteristicDescriptor" />
     <Element name="SpecialEducationSettingDescriptor" />
     <Element name="StaffIdentificationSystemDescriptor" />
-    <Element name="StudentCharacteristicDescriptor" />
     <Element name="StudentIdentificationSystemDescriptor" />
     <Element name="WeaponDescriptor" />
     <Element name="AidTypeDescriptor" />
@@ -114,8 +114,10 @@
   </Interchange>
   <Interchange name="TeacherCandidate" order="40">
     <Element name="Credential" />
+    <Element name="Student" />
     <Element name="TeacherCandidate" />
     <Element name="TeacherCandidateAcademicRecord" />
+    <Element name="TeacherCandidateCourseTranscript" />
     <Element name="TeacherCandidateFieldworkAbsenceEvent" />
     <Element name="TeacherCandidateFieldworkExperience" />
     <Element name="TeacherCandidateStaffAssociation" />
