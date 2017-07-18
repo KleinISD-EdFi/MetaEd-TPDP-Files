@@ -24,14 +24,18 @@
     <Element name="CredentialFieldDescriptor" />
     <Element name="TeachingCredentialDescriptor" />
     <Element name="StudentGrowthTypeDescriptor" />
+    <Element name="TeacherCandidateCharacteristicDescriptor" />
+    <Element name="LimitedEnglishProficiencyDescriptor" />
     <Element name="EnglishLanguageExamDescriptor" />
     <Element name="PreviousCareerDescriptor" />
+    <Element name="CountryDescriptor" />
     <Element name="ProfessionalDevelopmentOfferedByDescriptor" />
     <Element name="AttendanceEventCategoryDescriptor" />
     <Element name="SurveyCategoryDescriptor" />
     <Element name="ProgramCharacteristicDescriptor" />
     <Element name="ServiceDescriptor" />
     <Element name="TPPDegreeTypeDescriptor" />
+    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="FederalLocaleCodeDescriptor" />
     <Element name="AdministrativeFundingControlDescriptor" />
     <Element name="SchoolStatusDescriptor" />
@@ -41,7 +45,6 @@
     <Element name="ProgramAssignmentDescriptor" />
     <Element name="EntryTypeDescriptor" />
     <Element name="ExitWithdrawTypeDescriptor" />
-    <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="EmploymentStatusDescriptor" />
     <Element name="SeparationReasonDescriptor" />
     <Element name="StaffClassificationDescriptor" />
@@ -54,14 +57,12 @@
     <Element name="BehaviorDescriptor" />
     <Element name="CalendarEventDescriptor" />
     <Element name="ContinuationOfServicesReasonDescriptor" />
-    <Element name="CountryDescriptor" />
     <Element name="CourseIdentificationSystemDescriptor" />
     <Element name="DiagnosisDescriptor" />
     <Element name="DisciplineDescriptor" />
     <Element name="EducationOrganizationIdentificationSystemDescriptor" />
     <Element name="GradingPeriodDescriptor" />
     <Element name="GraduationPlanTypeDescriptor" />
-    <Element name="LimitedEnglishProficiencyDescriptor" />
     <Element name="ReporterDescriptionDescriptor" />
     <Element name="ResidencyStatusDescriptor" />
     <Element name="ResponsibilityDescriptor" />
@@ -79,7 +80,6 @@
     <Element name="LevelOfDegreeAwardedDescriptor" />
     <Element name="LevelTypeDescriptor" />
     <Element name="SalaryTypeDescriptor" />
-    <Element name="TeacherCandidateCharacteristicDescriptor" />
     <Element name="TeacherPreparationProgramTypeDescriptor" />
   </Interchange>
   <Interchange name="StaffAssociation" order="20">

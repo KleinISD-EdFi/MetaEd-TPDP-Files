@@ -40,13 +40,12 @@ This interchange includes the following Extended References.
 
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
-| EducationOrganizationReference (in StudentAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
-| ReportCardReference (in StudentAcademicRecord) | Optional.  Report cards for the student. |
+| EducationOrganizationReference (in TeacherCandidateAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
+| ReportCardReference (in TeacherCandidateAcademicRecord) | Optional.  Report cards for the student. |
 | SchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
 | StaffReference (in TeacherCandidateStaffAssociation) | Required.  The staff associated with the teacher candidate. |
-| StudentReference (in StudentAcademicRecord) | Required.  Identifies the student who is associated with the StudentAcademicRecord. |
 | StudentReference (in TeacherCandidate) | Required.  The student associated. |
 | TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Reference to the Teacher Preparation Provider Program |
 
@@ -58,18 +57,27 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 
 | Descriptor Name | Description |
 |---------------------|-----------------|
+| AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AchievementCategoryDescriptor | Optional.  This descriptor defines the category of achievement attributed to the learner. |
 | AidTypeDescriptor | Optional.  The classification of financial aid awarded to a person for the academic term/year. |
 | BackgroundCheckStatusDescriptor | Optional.  This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
 | BackgroundCheckTypeDescriptor | Optional.  The type of background check (e.g., online, criminal, employment). |
+| CountryDescriptor | Optional.  This descriptor defines the name and code of the country. |
 | CredentialFieldDescriptor | Required.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
+| DisabilityDescriptor | Optional.  This descriptor defines a student's impairment. |
 | EnglishLanguageExamDescriptor | Optional.  Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL). |
 | FieldworkTypeDescriptor | Required.  The descriptor holds the type of fieldwork being executed by a teacher candidate. |
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
+| LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |
+| LimitedEnglishProficiencyDescriptor | Optional.  This descriptor defines the indications that the student has been identified as limited English proficient by the Language Proficiency Assessment Committee (LPAC), or English proficient. The mapping of descriptor values to known Ed-Fi enumeration values is required. |
 | PreviousCareerDescriptor | Optional.  The descriptor holds the previous career of an individual. |
+| ProgramCharacteristicDescriptor | Optional.  This descriptor defines important characteristics of the Program, such as categories or particular indications. |
 | ProgramGatewayDescriptor | Required.  The descriptor holds the program gateway that is associated with continuation in a program. |
 | ReasonExitedDescriptor | Optional.  This descriptor defines the reason a student exited a program. |
+| SchoolFoodServicesEligibilityDescriptor | Optional.  This descriptor defines indications of a student's level of eligibility for breakfast, lunch, snack, supper, and milk programs. |
 | ServiceDescriptor | Optional.  This descriptor defines the services provided by an education organization to populations of students associated with a program. |
+| StudentCharacteristicDescriptor | Optional.  This descriptor defines the set of important characteristics of the student. |
+| StudentIdentificationSystemDescriptor | Optional.  This descriptor defines the originating record system and code that is used for record-keeping purposes of the student. |
 | TeachingCredentialDescriptor | Required.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |
 | TermDescriptor | Required.  This descriptor defines the term of a session during the school year (e.g., Fall Semester). |
 | TPPDegreeTypeDescriptor | Required.  The descriptor holds the degree that a teacher candidate accomplishes. |

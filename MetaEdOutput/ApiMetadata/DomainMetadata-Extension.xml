@@ -433,18 +433,45 @@
   </Aggregate>
   <Aggregate root="TeacherCandidate">
     <Entity table="TeacherCandidate" schema="extension"/>
+    <Entity table="TeacherCandidateAddress" schema="extension"/>
     <Entity table="TeacherCandidateAid" schema="extension"/>
     <Entity table="TeacherCandidateBackgroundCheck" schema="extension"/>
+    <Entity table="TeacherCandidateCharacteristic" schema="extension"/>
+    <Entity table="TeacherCandidateCohortYear" schema="extension"/>
     <Entity table="TeacherCandidateCredential" schema="extension"/>
+    <Entity table="TeacherCandidateDisability" schema="extension"/>
+    <Entity table="TeacherCandidateElectronicMail" schema="extension"/>
+    <Entity table="TeacherCandidateIdentificationCode" schema="extension"/>
+    <Entity table="TeacherCandidateIdentificationDocument" schema="extension"/>
+    <Entity table="TeacherCandidateIndicator" schema="extension"/>
+    <Entity table="TeacherCandidateInternationalAddress" schema="extension"/>
+    <Entity table="TeacherCandidateLanguage" schema="extension"/>
+    <Entity table="TeacherCandidateLanguageUse" schema="extension"/>
+    <Entity table="TeacherCandidateLearningStyle" schema="extension"/>
+    <Entity table="TeacherCandidateOtherName" schema="extension"/>
+    <Entity table="TeacherCandidateProgramParticipation" schema="extension"/>
+    <Entity table="TeacherCandidateProgramParticipationProgramCharacteristic" schema="extension"/>
+    <Entity table="TeacherCandidateRace" schema="extension"/>
+    <Entity table="TeacherCandidateTelephone" schema="extension"/>
+    <Entity table="TeacherCandidateVisa" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateAcademicRecord">
-    <Entity table="TeacherCandidateAcademicRecord" isA="StudentAcademicRecord" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecord" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecordAcademicHonor" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecordClassRanking" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecordDiploma" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecordRecognition" schema="extension"/>
+    <Entity table="TeacherCandidateAcademicRecordReportCard" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateCharacteristicDescriptor">
     <Entity table="TeacherCandidateCharacteristicDescriptor" isA="Descriptor" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateCharacteristicType">
     <Entity table="TeacherCandidateCharacteristicType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateCourseTranscript">
+    <Entity table="TeacherCandidateCourseTranscript" schema="extension"/>
+    <Entity table="TeacherCandidateCourseTranscriptEarnedAdditionalCredits" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateFieldworkAbsenceEvent">
     <Entity table="TeacherCandidateFieldworkAbsenceEvent" schema="extension"/>

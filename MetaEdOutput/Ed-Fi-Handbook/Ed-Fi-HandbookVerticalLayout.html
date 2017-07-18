@@ -2330,7 +2330,7 @@ UniqueSectionCode
                 <div><pre>extension.TeacherCandidateStaffAssociation
 
 StaffUSI [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 BeginDate [DATE] NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
@@ -2339,7 +2339,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 StaffUSI
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 </pre></div>
             </div>
         </p>
@@ -2429,7 +2429,7 @@ TeacherCandidateIdentifier
                 <div><pre>extension.TeacherCandidateTeacherPreparationProviderAssociation
 
 EntryDate [DATE] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 TeacherPreparationProviderId [INT] NOT NULL
 SchoolYear [SMALLINT] NULL
 EntryTypeDescriptorId [INT] NULL
@@ -2442,7 +2442,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EntryDate
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 TeacherPreparationProviderId
 </pre></div>
             </div>
@@ -2528,7 +2528,7 @@ BeginDate [DATE] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 ServiceOutsideRegularSession [BIT] NULL
 EndDate [DATE] NULL
 ReasonExitedDescriptorId [INT] NULL
@@ -2541,7 +2541,7 @@ BeginDate
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateTeacherPreparationProviderProgramAssociationService
 
 BeginDate [DATE] NOT NULL
@@ -2549,7 +2549,7 @@ EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
 ServiceDescriptorId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 PrimaryIndicator [BIT] NULL
 ServiceBeginDate [DATE] NULL
 ServiceEndDate [DATE] NULL
@@ -2561,7 +2561,7 @@ EducationOrganizationId
 ProgramName
 ProgramTypeId
 ServiceDescriptorId
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 </pre></div>
             </div>
         </p>
@@ -3409,6 +3409,37 @@ StudentUSI
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
                 <div><br />Used By:<br />Student.EconomicDisadvantaged (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EconomicDisadvantaged&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EconomicDisadvantaged [BIT]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EconomicDisadvantaged</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Boolean Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidate.EconomicDisadvantaged (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5400,7 +5431,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicHonorCategory (identity)<br />Achievement (required)<br />HonorAwardDate (optional)<br />HonorAwardExpiresDate (optional)<br />HonorDescription (optional)<br /><br />Used By:<br />StudentAcademicRecord.AcademicHonor (as optional collection)<br />ExternalStudentAcademicRecord.AcademicHonor (as optional collection)</div>
+                <div><br />Contains:<br />AcademicHonorCategory (identity)<br />Achievement (required)<br />HonorAwardDate (optional)<br />HonorAwardExpiresDate (optional)<br />HonorDescription (optional)<br /><br />Used By:<br />StudentAcademicRecord.AcademicHonor (as optional collection)<br />ExternalStudentAcademicRecord.AcademicHonor (as optional collection)<br />TeacherCandidateAcademicRecord.AcademicHonor (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5457,7 +5488,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AdditionalCreditType (identity)<br />Credits (required)<br /><br />Used By:<br />CourseTranscript.EarnedAdditionalCredits (as optional collection)<br />ExternalCourseTranscript.EarnedAdditionalCredits (as optional collection)</div>
+                <div><br />Contains:<br />AdditionalCreditType (identity)<br />Credits (required)<br /><br />Used By:<br />CourseTranscript.EarnedAdditionalCredits (as optional collection)<br />ExternalCourseTranscript.EarnedAdditionalCredits (as optional collection)<br />TeacherCandidateCourseTranscript.EarnedAdditionalCredits (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5499,7 +5530,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AddressType (identity)<br />ApartmentRoomSuiteNumber (optional)<br />BeginDate (optional)<br />BuildingSiteNumber (optional)<br />City (required)<br />CountyFIPSCode (optional)<br />EndDate (optional)<br />Latitude (optional)<br />Longitude (optional)<br />NameOfCounty (optional)<br />PostalCode (required)<br />StateAbbreviation (required)<br />StreetNumberName (required)<br /><br />Used By:<br />TeacherPreparationProgram.Address (as optional collection)<br />EducationOrganization.Address (as required collection)<br />Parent.Address (as optional collection)<br />Staff.Address (as optional collection)<br />Student.Address (as optional collection)<br />Applicant.Address (as optional collection)<br />ExternalEducationOrganization.Address (as optional collection)</div>
+                <div><br />Contains:<br />AddressType (identity)<br />ApartmentRoomSuiteNumber (optional)<br />BeginDate (optional)<br />BuildingSiteNumber (optional)<br />City (required)<br />CountyFIPSCode (optional)<br />EndDate (optional)<br />Latitude (optional)<br />Longitude (optional)<br />NameOfCounty (optional)<br />PostalCode (required)<br />StateAbbreviation (required)<br />StreetNumberName (required)<br /><br />Used By:<br />TeacherPreparationProgram.Address (as optional collection)<br />EducationOrganization.Address (as required collection)<br />Parent.Address (as optional collection)<br />Staff.Address (as optional collection)<br />Student.Address (as optional collection)<br />Applicant.Address (as optional collection)<br />ExternalEducationOrganization.Address (as optional collection)<br />TeacherCandidate.Address (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7342,7 +7373,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ClassRank (required)<br />ClassRankingDate (optional)<br />PercentageRanking (optional)<br />TotalNumberInClass (required)<br /><br />Used By:<br />StudentAcademicRecord.ClassRanking (as optional)<br />ExternalStudentAcademicRecord.ClassRanking (as optional)</div>
+                <div><br />Contains:<br />ClassRank (required)<br />ClassRankingDate (optional)<br />PercentageRanking (optional)<br />TotalNumberInClass (required)<br /><br />Used By:<br />StudentAcademicRecord.ClassRanking (as optional)<br />ExternalStudentAcademicRecord.ClassRanking (as optional)<br />TeacherCandidateAcademicRecord.ClassRanking (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7394,7 +7425,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CohortYearType (identity)<br />SchoolYear (identity)<br /><br />Used By:<br />Student.CohortYear (as optional collection)</div>
+                <div><br />Contains:<br />CohortYearType (identity)<br />SchoolYear (identity)<br /><br />Used By:<br />Student.CohortYear (as optional collection)<br />TeacherCandidate.CohortYear (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7829,7 +7860,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Achievement (required)<br />CTECompleter (optional)<br />DiplomaAwardDate (identity)<br />DiplomaAwardExpiresDate (optional)<br />DiplomaDescription (optional)<br />DiplomaLevel (optional)<br />DiplomaType (identity)<br /><br />Used By:<br />StudentAcademicRecord.Diploma (as optional collection)<br />ExternalStudentAcademicRecord.Diploma (as optional collection)</div>
+                <div><br />Contains:<br />Achievement (required)<br />CTECompleter (optional)<br />DiplomaAwardDate (identity)<br />DiplomaAwardExpiresDate (optional)<br />DiplomaDescription (optional)<br />DiplomaLevel (optional)<br />DiplomaType (identity)<br /><br />Used By:<br />StudentAcademicRecord.Diploma (as optional collection)<br />ExternalStudentAcademicRecord.Diploma (as optional collection)<br />TeacherCandidateAcademicRecord.Diploma (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -7899,7 +7930,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Disability (identity)<br />DisabilityDeterminationSourceType (optional)<br />DisabilityDiagnosis (optional)<br />OrderOfDisability (optional)<br /><br />Used By:<br />Student.Disability (as optional collection)<br />AnonymizedStudent.Disability (as optional collection)<br />Applicant.Disability (as optional collection)<br />Prospect.Disability (as optional collection)</div>
+                <div><br />Contains:<br />Disability (identity)<br />DisabilityDeterminationSourceType (optional)<br />DisabilityDiagnosis (optional)<br />OrderOfDisability (optional)<br /><br />Used By:<br />Student.Disability (as optional collection)<br />AnonymizedStudent.Disability (as optional collection)<br />Applicant.Disability (as optional collection)<br />Prospect.Disability (as optional collection)<br />TeacherCandidate.Disability (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8064,7 +8095,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ElectronicMailAddress (required)<br />ElectronicMailType (identity)<br />PrimaryEmailAddressIndicator (optional)<br /><br />Used By:<br />Parent.ElectronicMail (as optional collection)<br />Staff.ElectronicMail (as optional collection)<br />Student.ElectronicMail (as optional collection)<br />Applicant.ElectronicMail (as optional collection)</div>
+                <div><br />Contains:<br />ElectronicMailAddress (required)<br />ElectronicMailType (identity)<br />PrimaryEmailAddressIndicator (optional)<br /><br />Used By:<br />Parent.ElectronicMail (as optional collection)<br />Staff.ElectronicMail (as optional collection)<br />Student.ElectronicMail (as optional collection)<br />Applicant.ElectronicMail (as optional collection)<br />TeacherCandidate.ElectronicMail (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8303,7 +8334,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AddressLine1 (required)<br />AddressLine2 (optional)<br />AddressLine3 (optional)<br />AddressLine4 (optional)<br />AddressType (identity)<br />BeginDate (optional)<br />Country (required)<br />EndDate (optional)<br />Latitude (optional)<br />Longitude (optional)<br /><br />Used By:<br />EducationOrganization.InternationalAddress (as optional collection)<br />Parent.InternationalAddress (as optional collection)<br />Staff.InternationalAddress (as optional collection)<br />Student.InternationalAddress (as optional collection)<br />Applicant.InternationalAddress (as optional collection)<br />ExternalEducationOrganization.InternationalAddress (as optional collection)</div>
+                <div><br />Contains:<br />AddressLine1 (required)<br />AddressLine2 (optional)<br />AddressLine3 (optional)<br />AddressLine4 (optional)<br />AddressType (identity)<br />BeginDate (optional)<br />Country (required)<br />EndDate (optional)<br />Latitude (optional)<br />Longitude (optional)<br /><br />Used By:<br />EducationOrganization.InternationalAddress (as optional collection)<br />Parent.InternationalAddress (as optional collection)<br />Staff.InternationalAddress (as optional collection)<br />Student.InternationalAddress (as optional collection)<br />Applicant.InternationalAddress (as optional collection)<br />ExternalEducationOrganization.InternationalAddress (as optional collection)<br />TeacherCandidate.InternationalAddress (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8451,7 +8482,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Language (identity)<br />LanguageUse (optional collection)<br /><br />Used By:<br />Staff.Language (as optional collection)<br />Student.Language (as optional collection)<br />AnonymizedStudent.Language (as optional collection)<br />Applicant.Language (as optional collection)</div>
+                <div><br />Contains:<br />Language (identity)<br />LanguageUse (optional collection)<br /><br />Used By:<br />Staff.Language (as optional collection)<br />Student.Language (as optional collection)<br />AnonymizedStudent.Language (as optional collection)<br />Applicant.Language (as optional collection)<br />TeacherCandidate.Language (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8538,7 +8569,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AuditoryLearning (required)<br />TactileLearning (required)<br />VisualLearning (required)<br /><br />Used By:<br />Student.LearningStyle (as optional)</div>
+                <div><br />Contains:<br />AuditoryLearning (required)<br />TactileLearning (required)<br />VisualLearning (required)<br /><br />Used By:<br />Student.LearningStyle (as optional)<br />TeacherCandidate.LearningStyle (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -8873,7 +8904,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MiddleName (optional)<br />OtherNameType (identity)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.OtherName (as optional collection)<br />Staff.OtherName (as optional collection)<br />Student.OtherName (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MiddleName (optional)<br />OtherNameType (identity)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.OtherName (as optional collection)<br />Staff.OtherName (as optional collection)<br />Student.OtherName (as optional collection)<br />TeacherCandidate.OtherName (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9234,7 +9265,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (optional)<br />DesignatedBy (optional)<br />EndDate (optional)<br />ProgramCharacteristic (optional collection)<br />ProgramType (identity)<br /><br />Used By:<br />Student.ProgramParticipation (as optional collection)</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />DesignatedBy (optional)<br />EndDate (optional)<br />ProgramCharacteristic (optional collection)<br />ProgramType (identity)<br /><br />Used By:<br />Student.ProgramParticipation (as optional collection)<br />TeacherCandidate.ProgramParticipation (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9388,7 +9419,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Achievement (required)<br />RecognitionAwardDate (optional)<br />RecognitionAwardExpiresDate (optional)<br />RecognitionDescription (optional)<br />RecognitionType (identity)<br /><br />Used By:<br />Staff.Recognition (as optional collection)<br />StudentAcademicRecord.Recognition (as optional collection)<br />ExternalStudentAcademicRecord.Recognition (as optional collection)</div>
+                <div><br />Contains:<br />Achievement (required)<br />RecognitionAwardDate (optional)<br />RecognitionAwardExpiresDate (optional)<br />RecognitionDescription (optional)<br />RecognitionType (identity)<br /><br />Used By:<br />Staff.Recognition (as optional collection)<br />StudentAcademicRecord.Recognition (as optional collection)<br />ExternalStudentAcademicRecord.Recognition (as optional collection)<br />TeacherCandidateAcademicRecord.Recognition (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10544,6 +10575,173 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>TeacherCandidateCharacteristic</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Reflects important characteristics of the teacher candidate's home situation: Displaced Homemaker, Homeless, Immigrant, Migratory, Military Parent, Pregnant Teen, Single Parent, Unaccompanied Youth.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />DesignatedBy (optional)<br />EndDate (optional)<br />StudentCharacteristic (identity)<br /><br />Used By:<br />TeacherCandidate.TeacherCandidateCharacteristic (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateCharacteristic&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Reflects important characteristics of the teacher candidate's home situation: Displaced Homemaker, Homeless, Immigrant, Migratory, Military Parent, Pregnant Teen, Single Parent, Unaccompanied Youth.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;StudentCharacteristic&quot; type=&quot;StudentCharacteristicDescriptorReferenceType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The characteristic designated for the Student.&lt;/xs:documentation&gt;
+        &lt;xs:appinfo&gt;
+          &lt;ann:Descriptor&gt;StudentCharacteristicDescriptor&lt;/ann:Descriptor&gt;
+        &lt;/xs:appinfo&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date the characteristic was designated.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date the characteristic was removed.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;DesignatedBy&quot; type=&quot;DesignatedBy&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The person, organization, or department that designated the characteristic.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateIdentificationCode</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>A coding scheme that is used for identification and record-keeping purposes by schools, social services or other agencies to refer to a teacher candidate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />AssigningOrganizationIdentificationCode (identity)<br />IdentificationCode (required)<br />StudentIdentificationSystem (identity)<br /><br />Used By:<br />TeacherCandidate.TeacherCandidateIdentificationCode (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateIdentificationCode&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;A coding scheme that is used for identification and record-keeping purposes by schools, social services or other agencies to refer to a teacher candidate.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;IdentificationCode&quot; type=&quot;IdentificationCode&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;A unique number or alphanumeric code assigned to a student by a school, school system, a state, or other agency or entity.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;StudentIdentificationSystem&quot; type=&quot;StudentIdentificationSystemDescriptorReferenceType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a student.&lt;/xs:documentation&gt;
+        &lt;xs:appinfo&gt;
+          &lt;ann:Descriptor&gt;StudentIdentificationSystemDescriptor&lt;/ann:Descriptor&gt;
+        &lt;/xs:appinfo&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AssigningOrganizationIdentificationCode&quot; type=&quot;IdentificationCode&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The organization code or name assigning the StudentIdentificationCode.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateIndicator</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>An indicator or metric computed for the student (e.g., at risk) to influence more effective education or direct specific interventions.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />DesignatedBy (optional)<br />EndDate (optional)<br />Indicator (required)<br />IndicatorGroup (optional)<br />IndicatorName (identity)<br /><br />Used By:<br />TeacherCandidate.TeacherCandidateIndicator (as optional collection)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateIndicator&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;An indicator or metric computed for the student (e.g., at risk) to influence more effective education or direct specific interventions.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;IndicatorGroup&quot; type=&quot;IndicatorName&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The name for a group of indicators.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;IndicatorName&quot; type=&quot;IndicatorName&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The name of the indicator or metric.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;Indicator&quot; type=&quot;Indicator&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The value of the indicator or metric.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date when the indicator was assigned or computed.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date the indicator or metric was sunset or removed.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;DesignatedBy&quot; type=&quot;DesignatedBy&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The person, organization, or department that designated the program association.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>TeacherEducatorResearch</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -10684,7 +10882,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />OrderOfPriority (optional)<br />TelephoneNumber (required)<br />TelephoneNumberType (identity)<br />TextMessageCapabilityIndicator (optional)<br /><br />Used By:<br />Parent.Telephone (as optional collection)<br />Staff.Telephone (as optional collection)<br />Student.Telephone (as optional collection)<br />Applicant.Telephone (as optional collection)<br />Prospect.Telephone (as optional collection)</div>
+                <div><br />Contains:<br />OrderOfPriority (optional)<br />TelephoneNumber (required)<br />TelephoneNumberType (identity)<br />TextMessageCapabilityIndicator (optional)<br /><br />Used By:<br />Parent.Telephone (as optional collection)<br />Staff.Telephone (as optional collection)<br />Student.Telephone (as optional collection)<br />Applicant.Telephone (as optional collection)<br />Prospect.Telephone (as optional collection)<br />TeacherCandidate.Telephone (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -12224,6 +12422,37 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>BeginDate (TeacherCandidateCharacteristic)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The date the characteristic was designated.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateCharacteristic.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The date the characteristic was designated.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>BeginDate (TeacherCandidateFieldworkExperience)</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -12246,6 +12475,37 @@ StudentUSI
                 <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate first starts fieldwork.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (TeacherCandidateIndicator)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The date when the indicator was assigned or computed.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateIndicator.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The date when the indicator was assigned or computed.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -13898,6 +14158,37 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>EndDate (TeacherCandidateCharacteristic)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The date the characteristic was removed.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateCharacteristic.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The date the characteristic was removed.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>EndDate (TeacherCandidateFieldworkExperience)</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -13920,6 +14211,37 @@ StudentUSI
                 <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate ends fieldwork.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (TeacherCandidateIndicator)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The date the indicator or metric was sunset or removed.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateIndicator.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The date the indicator or metric was sunset or removed.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -14890,6 +15212,37 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>ProjectedGraduationDate</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The month and year the student is projected to graduate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateAcademicRecord.ProjectedGraduationDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;ProjectedGraduationDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The month and year the student is projected to graduate.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>ProjectedGraduationDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>PublicationDate</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -15698,7 +16051,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
+                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.GradePointAverage (as required)<br />AggregatedSessionGradePointAverage.GradePointAverage (as required)<br />AnonymizedStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />AnonymizedStudentAcademicRecord.GPAMax (as optional)<br />AnonymizedStudentAcademicRecord.SessionGradePointAverage (as optional)<br />CourseStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointAverage (as optional)<br />ExternalStudentAcademicRecord.SessionGradePointsEarned (as optional)<br />ReportCard.GPACumulative (as optional)<br />ReportCard.GPAGivenGradingPeriod (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedGPAMax (as optional)<br />StudentAcademicRecord.CumulativeGradePointAverage (as optional)<br />StudentAcademicRecord.CumulativeGradePointsEarned (as optional)<br />StudentAcademicRecord.SessionGradePointAverage (as optional)<br />StudentAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.ContentGradePointEarned (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.CumulativeGradePointsEarned (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointAverage (as optional)<br />TeacherCandidateAcademicRecord.SessionGradePointsEarned (as optional)<br />TeacherPreparationProgram.GPA (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -16039,7 +16392,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedNumericGradeEarned.AverageFinalNumericGradeEarned (as required)<br />AnonymizedStudentCourseTranscript.FinalNumericGradeEarned (as optional)<br />CourseTranscript.FinalNumericGradeEarned (as optional)<br />ExternalCourseTranscript.FinalNumericGradeEarned (as optional)<br />Grade.NumericGradeEarned (as optional)<br />StudentGradebookEntry.NumericGradeEarned (as optional)</div>
+                <div><br />Used By:<br />AggregatedNumericGradeEarned.AverageFinalNumericGradeEarned (as required)<br />AnonymizedStudentCourseTranscript.FinalNumericGradeEarned (as optional)<br />CourseTranscript.FinalNumericGradeEarned (as optional)<br />ExternalCourseTranscript.FinalNumericGradeEarned (as optional)<br />Grade.NumericGradeEarned (as optional)<br />StudentGradebookEntry.NumericGradeEarned (as optional)<br />TeacherCandidateCourseTranscript.FinalNumericGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -16204,7 +16557,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidateAbsenceEvent.AbsenceEventCategory (as required)<br />StaffFieldworkAbsenceEvent.AbsenceEventCategory (as identity)</div>
+                <div><br />Used By:<br />TeacherCandidateAbsenceEvent.AbsenceEventCategory (as required)<br />StaffFieldworkAbsenceEvent.AbsenceEventCategory (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.AbsenceEventCategory (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -18386,7 +18739,7 @@ FieldworkTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.GradeLevel (as optional collection)<br />StudentSchoolAssociation.EntryGradeLevel (as required)<br />StaffTeacherPreparationProviderAssociation.GradeLevel (as optional collection)<br />CreditsByCourse.WhenTakenGradeLevel (as optional)<br />InterventionEffectiveness.GradeLevel (as identity)<br />CurrentPosition.GradeLevel (as optional collection)<br />Level.GradeLevel (as optional collection)<br />School.GradeLevel (as required collection)<br />TeacherPreparationProviderProgram.GradeLevel (as optional collection)<br />Assessment.AssessedGradeLevel (as identity)<br />Assessment.LowestAssessedGradeLevel (as optional)<br />AssessmentFamily.AssessedGradeLevel (as optional)<br />AssessmentFamily.LowestAssessedGradeLevel (as optional)<br />BellSchedule.GradeLevel (as identity)<br />CompetencyObjective.ObjectiveGradeLevel (as identity)<br />Course.OfferedGradeLevel (as optional collection)<br />CourseTranscript.WhenTakenGradeLevel (as optional)<br />Credential.GradeLevel (as required)<br />Intervention.AppropriateGradeLevel (as optional collection)<br />InterventionPrescription.AppropriateGradeLevel (as optional collection)<br />InterventionStudy.AppropriateGradeLevel (as optional collection)<br />LearningObjective.ObjectiveGradeLevel (as identity)<br />LearningStandard.GradeLevel (as required collection)<br />OpenStaffPosition.InstructionalGradeLevel (as optional collection)<br />StudentAssessment.WhenAssessedGradeLevel (as optional)<br />AnonymizedStudentAssessment.GradeLevel (as optional)<br />CourseStudentAssessmentFacts.GradeLevel (as optional)<br />EducationOrganizationStudentAssessmentFacts.GradeLevel (as optional)<br />ExternalCourseTranscript.WhenTakenGradeLevel (as optional)<br />ExternalCourseTranscript.OfferedGradeLevel (as optional)<br />PerformanceMeasure.GradeLevel (as optional collection)<br />PerformanceMeasureFacts.GradeLevel (as required collection)<br />SectionStudentAssessmentFacts.GradeLevel (as optional)<br />LearningResource.AppropriateGradeLevel (as optional collection)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.GradeLevel (as optional collection)<br />StudentSchoolAssociation.EntryGradeLevel (as required)<br />StaffTeacherPreparationProviderAssociation.GradeLevel (as optional collection)<br />CreditsByCourse.WhenTakenGradeLevel (as optional)<br />InterventionEffectiveness.GradeLevel (as identity)<br />CurrentPosition.GradeLevel (as optional collection)<br />Level.GradeLevel (as optional collection)<br />School.GradeLevel (as required collection)<br />TeacherPreparationProviderProgram.GradeLevel (as optional collection)<br />Assessment.AssessedGradeLevel (as identity)<br />Assessment.LowestAssessedGradeLevel (as optional)<br />AssessmentFamily.AssessedGradeLevel (as optional)<br />AssessmentFamily.LowestAssessedGradeLevel (as optional)<br />BellSchedule.GradeLevel (as identity)<br />CompetencyObjective.ObjectiveGradeLevel (as identity)<br />Course.OfferedGradeLevel (as optional collection)<br />CourseTranscript.WhenTakenGradeLevel (as optional)<br />Credential.GradeLevel (as required)<br />Intervention.AppropriateGradeLevel (as optional collection)<br />InterventionPrescription.AppropriateGradeLevel (as optional collection)<br />InterventionStudy.AppropriateGradeLevel (as optional collection)<br />LearningObjective.ObjectiveGradeLevel (as identity)<br />LearningStandard.GradeLevel (as required collection)<br />OpenStaffPosition.InstructionalGradeLevel (as optional collection)<br />StudentAssessment.WhenAssessedGradeLevel (as optional)<br />AnonymizedStudentAssessment.GradeLevel (as optional)<br />CourseStudentAssessmentFacts.GradeLevel (as optional)<br />EducationOrganizationStudentAssessmentFacts.GradeLevel (as optional)<br />ExternalCourseTranscript.WhenTakenGradeLevel (as optional)<br />ExternalCourseTranscript.OfferedGradeLevel (as optional)<br />PerformanceMeasure.GradeLevel (as optional collection)<br />PerformanceMeasureFacts.GradeLevel (as required collection)<br />SectionStudentAssessmentFacts.GradeLevel (as optional)<br />TeacherCandidateCourseTranscript.WhenTakenGradeLevel (as optional)<br />LearningResource.AppropriateGradeLevel (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -18926,7 +19279,7 @@ LevelTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Student.LimitedEnglishProficiency (as optional)</div>
+                <div><br />Used By:<br />Student.LimitedEnglishProficiency (as optional)<br />TeacherCandidate.LimitedEnglishProficiency (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -19386,7 +19739,7 @@ ProgramCharacteristicTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Assessment.ProgramGateway (as optional)<br />GradebookEntry.ProgramGateway (as optional)<br />TeacherCandidateAcademicRecord.ProgramGateway (as required)<br />PerformanceMeasure.ProgramGateway (as optional collection)<br />StaffFieldworkExperience.ProgramGateway (as optional)<br />TeacherCandidateFieldworkExperience.ProgramGateway (as optional)</div>
+                <div><br />Used By:<br />Assessment.ProgramGateway (as optional)<br />GradebookEntry.ProgramGateway (as optional)<br />PerformanceMeasure.ProgramGateway (as optional collection)<br />StaffFieldworkExperience.ProgramGateway (as optional)<br />TeacherCandidateAcademicRecord.ProgramGateway (as required)<br />TeacherCandidateFieldworkExperience.ProgramGateway (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -19862,7 +20215,7 @@ SalaryTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedSchoolFoodServicesEligibility.SchoolFoodServicesEligibility (as identity)<br />Student.SchoolFoodServicesEligibility (as optional)<br />AnonymizedStudent.SchoolFoodServicesEligibility (as optional)</div>
+                <div><br />Used By:<br />AggregatedSchoolFoodServicesEligibility.SchoolFoodServicesEligibility (as identity)<br />Student.SchoolFoodServicesEligibility (as optional)<br />AnonymizedStudent.SchoolFoodServicesEligibility (as optional)<br />TeacherCandidate.SchoolFoodServicesEligibility (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -20390,7 +20743,7 @@ StaffIdentificationSystemTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentCharacteristic.StudentCharacteristic (as identity)</div>
+                <div><br />Used By:<br />StudentCharacteristic.StudentCharacteristic (as identity)<br />TeacherCandidateCharacteristic.StudentCharacteristic (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -20526,7 +20879,7 @@ StudentGrowthTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentIdentificationCode.StudentIdentificationSystem (as identity)</div>
+                <div><br />Used By:<br />StudentIdentificationCode.StudentIdentificationSystem (as identity)<br />TeacherCandidateIdentificationCode.StudentIdentificationSystem (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -20862,7 +21215,7 @@ TeachingCredentialTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Session.Term (as identity)<br />StudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAssessment.Term (as optional)<br />CourseStudentAcademicRecordFacts.Term (as identity)<br />CourseStudentAssessmentFacts.Term (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.Term (as identity)<br />EducationOrganizationStudentAssessmentFacts.Term (as optional)<br />PerformanceMeasure.Term (as required)<br />Survey.Term (as optional)</div>
+                <div><br />Used By:<br />Session.Term (as identity)<br />StudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAcademicRecord.Term (as identity)<br />AnonymizedStudentAssessment.Term (as optional)<br />CourseStudentAcademicRecordFacts.Term (as identity)<br />CourseStudentAssessmentFacts.Term (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.Term (as identity)<br />EducationOrganizationStudentAssessmentFacts.Term (as optional)<br />PerformanceMeasure.Term (as required)<br />Survey.Term (as optional)<br />TeacherCandidateAcademicRecord.Term (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -23934,7 +24287,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFacts.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />PerformanceMeasure.Course (as optional)<br />StaffStudentGrowthMeasure.Course (as optional collection)<br />Survey.Course (as optional)<br />TeacherCandidateStudentGrowthMeasure.Course (as optional collection)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFacts.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />PerformanceMeasure.Course (as optional)<br />StaffStudentGrowthMeasure.Course (as optional collection)<br />Survey.Course (as optional)<br />TeacherCandidateCourseTranscript.Course (as identity)<br />TeacherCandidateStudentGrowthMeasure.Course (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -26344,7 +26697,7 @@ LanguageDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.EducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
+                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.EducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -30996,7 +31349,7 @@ LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -32012,7 +32365,7 @@ EventTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />EducationOrganization (identity)<br />GPACumulative (optional)<br />GPAGivenGradingPeriod (optional)<br />Grade (optional collection)<br />GradingPeriod (identity)<br />NumberOfDaysAbsent (optional)<br />NumberOfDaysInAttendance (optional)<br />NumberOfDaysTardy (optional)<br />Student (identity)<br />StudentCompetencyObjective (optional collection)<br />StudentLearningObjective (optional collection)<br /><br />Used By:<br />StudentAcademicRecord.ReportCard (as optional collection)</div>
+                <div><br />Contains:<br />EducationOrganization (identity)<br />GPACumulative (optional)<br />GPAGivenGradingPeriod (optional)<br />Grade (optional collection)<br />GradingPeriod (identity)<br />NumberOfDaysAbsent (optional)<br />NumberOfDaysInAttendance (optional)<br />NumberOfDaysTardy (optional)<br />Student (identity)<br />StudentCompetencyObjective (optional collection)<br />StudentLearningObjective (optional collection)<br /><br />Used By:<br />StudentAcademicRecord.ReportCard (as optional collection)<br />TeacherCandidateAcademicRecord.ReportCard (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37851,7 +38204,7 @@ SurveySectionTitle
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />Credential (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />PreviousCareer (optional)<br />ProgramComplete (optional)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateIdentifier (identity)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />Aid (optional collection)<br />BackgroundCheck (optional)<br />BirthData (required)<br />Citizenship (optional)<br />CohortYear (optional collection)<br />Credential (optional collection)<br />Disability (optional collection)<br />DisplacementStatus (optional)<br />EconomicDisadvantaged (optional)<br />ElectronicMail (optional collection)<br />EnglishLanguageExam (optional)<br />Gender (optional)<br />HispanicLatinoEthnicity (required)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LearningStyle (optional)<br />LimitedEnglishProficiency (optional)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />PreviousCareer (optional)<br />ProfileThumbnail (optional)<br />ProgramComplete (optional)<br />ProgramParticipation (optional collection)<br />Race (optional collection)<br />SchoolFoodServicesEligibility (optional)<br />Sex (required)<br />Staff (optional)<br />Student (required)<br />TeacherCandidateCharacteristic (optional collection)<br />TeacherCandidateIdentificationCode (optional collection)<br />TeacherCandidateIndicator (optional collection)<br />TeacherCandidateUniqueId (identity)<br />Telephone (optional collection)<br />TuitionCost (optional)<br /><br />Used By:<br />TeacherCandidateStaffAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderAssociation.TeacherCandidate (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherCandidate (as identity)<br />PersonBeingReviewedChoice.TeacherCandidate (as required)<br />FieldworkExperience.TeacherCandidate (as optional)<br />ProfessionalDevelopmentAttendanceEvent.TeacherCandidate (as optional)<br />TeacherCandidateAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateAcademicRecord.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkAbsenceEvent.TeacherCandidate (as identity)<br />TeacherCandidateFieldworkExperience.TeacherCandidate (as identity)<br />TeacherCandidateProfessionalDevelopmentEventAttendance.TeacherCandidate (as identity)<br />TeacherCandidateStudentGrowthMeasure.TeacherCandidate (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -37865,14 +38218,151 @@ SurveySectionTitle
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;StudentReference&quot; type=&quot;StudentReferenceType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The student associated.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TeacherCandidateIdentifier&quot; type=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
+        &lt;xs:element name=&quot;TeacherCandidateUniqueId&quot; type=&quot;UniqueId&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;A unique alphanumeric code assigned to a teacher candidate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherCandidateIdentificationCode&quot; type=&quot;EXTENSION-TeacherCandidateIdentificationCode&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a teacher candidate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Name&quot; type=&quot;Name&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Full legal name of the person.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;OtherName&quot; type=&quot;OtherName&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Other names (e.g., alias, nickname, previous legal name) associated with a person.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Sex&quot; type=&quot;SexType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A person's gender.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BirthData&quot; type=&quot;BirthData&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The set of elements that capture relevant data regarding a person's birth, including birth date and place of birth.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Address&quot; type=&quot;Address&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The set of elements that describes an address, including the street address, city, state, and ZIP code.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;InternationalAddress&quot; type=&quot;InternationalAddress&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The set of elements that describes an international address.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Telephone&quot; type=&quot;Telephone&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The 10-digit telephone number, including the area code, for the person.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ElectronicMail&quot; type=&quot;ElectronicMail&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The numbers, letters, and symbols used to identify an electronic mail (e-mail) user within the network to which the individual or organization belongs.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProfileThumbnail&quot; type=&quot;ProfileThumbnail&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Locator for the student photo.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;HispanicLatinoEthnicity&quot; type=&quot;xs:boolean&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, &quot;Spanish origin,&quot; can be used in addition to &quot;Hispanic or Latino.&quot;&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;OldEthnicity&quot; type=&quot;OldEthnicityType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Previous definition of Ethnicity combining Hispanic/Latino and race:
+    1 - American Indian or Alaskan Native
+    2 - Asian or Pacific Islander
+    3 - Black, not of Hispanic origin
+    4 - Hispanic
+    5 - White, not of Hispanic origin.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Race&quot; type=&quot;RaceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The data model allows for multiple entries so that each individual can specify all appropriate races.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Citizenship&quot; type=&quot;Citizenship&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Contains information relative to citizenship status and its associated probationary documentation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EconomicDisadvantaged&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SchoolFoodServicesEligibility&quot; type=&quot;SchoolFoodServicesEligibilityDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication of a student's level of eligibility for breakfast, lunch, snack, supper, and milk programs.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;SchoolFoodServicesEligibilityDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherCandidateCharacteristic&quot; type=&quot;EXTENSION-TeacherCandidateCharacteristic&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Reflects important characteristics of the teacher candidate's home situation:
+    Displaced Homemaker, Immigrant, Migratory, Military Parent, Pregnant Teen, Single Parent, and Unaccompanied Youth.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;LimitedEnglishProficiency&quot; type=&quot;LimitedEnglishProficiencyDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An indication that the student has been identified as limited English proficient by the Language Proficiency Assessment Committee (LPAC), or English proficient.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;LimitedEnglishProficiencyDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Language&quot; type=&quot;Language&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The language(s) the individual uses to communicate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Disability&quot; type=&quot;Disability&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The disability condition(s) that best describes an individual's impairment.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;DisplacementStatus&quot; type=&quot;DisplacementStatus&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicates a state health or weather related event that displaces a group of students, and may require additional funding, educational, or social services.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramParticipation&quot; type=&quot;ProgramParticipation&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Key programs the student is participating in or receives services from.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;LearningStyle&quot; type=&quot;LearningStyle&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The student's relative preference to visual, auditory, and tactile learning expressed as percentages.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CohortYear&quot; type=&quot;CohortYear&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The type and year of a cohort (e.g., 9th grade) the student belongs to as determined by the year that student entered a specific grade.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherCandidateIndicator&quot; type=&quot;EXTENSION-TeacherCandidateIndicator&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicator(s) or metric(s) computed for the student (e.g., at risk) to influence more effective education or direct specific interventions.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;LoginId&quot; type=&quot;IdentificationCode&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The login ID for the user; used for security access control interface.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;Gender&quot; type=&quot;EXTENSION-GenderType&quot; minOccurs=&quot;0&quot;&gt;
@@ -37921,6 +38411,11 @@ SurveySectionTitle
             &lt;xs:documentation&gt;An indication of whether a teacher candidate has completed the teacher prepartion program.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;StudentReference&quot; type=&quot;StudentReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The student associated.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
         &lt;xs:element name=&quot;StaffReference&quot; type=&quot;StaffReferenceType&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The staff associated.&lt;/xs:documentation&gt;
@@ -37935,25 +38430,69 @@ SurveySectionTitle
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidate
 
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-StudentUSI [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+PersonalTitlePrefix [NVARCHAR](30) NULL
+FirstName [NVARCHAR](75) NOT NULL
+MiddleName [NVARCHAR](75) NULL
+LastSurname [NVARCHAR](75) NOT NULL
+GenerationCodeSuffix [NVARCHAR](10) NULL
+MaidenName [NVARCHAR](75) NULL
+SexTypeId [INT] NOT NULL
+BirthDate [DATE] NOT NULL
+BirthCity [NVARCHAR](30) NULL
+BirthStateAbbreviationTypeId [INT] NULL
+BirthInternationalProvince [NVARCHAR](150) NULL
+BirthCountryDescriptorId [INT] NULL
+DateEnteredUS [DATE] NULL
+MultipleBirthStatus [BIT] NULL
+ProfileThumbnail [NVARCHAR](59) NULL
+HispanicLatinoEthnicity [BIT] NOT NULL
+OldEthnicityTypeId [INT] NULL
+CitizenshipStatusTypeId [INT] NULL
+EconomicDisadvantaged [BIT] NULL
+SchoolFoodServicesEligibilityDescriptorId [INT] NULL
+LimitedEnglishProficiencyDescriptorId [INT] NULL
+DisplacementStatus [NVARCHAR](30) NULL
+LoginId [NVARCHAR](60) NULL
 GenderTypeId [INT] NULL
 TuitionCost [MONEY] NULL
 EnglishLanguageExamDescriptorId [INT] NULL
 PreviousCareerDescriptorId [INT] NULL
 ProgramComplete [BIT] NULL
+StudentUSI [INT] NOT NULL
 StaffUSI [INT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateAddress
+
+AddressTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+StreetNumberName [NVARCHAR](150) NOT NULL
+ApartmentRoomSuiteNumber [NVARCHAR](50) NULL
+BuildingSiteNumber [NVARCHAR](20) NULL
+City [NVARCHAR](30) NOT NULL
+StateAbbreviationTypeId [INT] NOT NULL
+PostalCode [NVARCHAR](17) NOT NULL
+NameOfCounty [NVARCHAR](30) NULL
+CountyFIPSCode [NVARCHAR](5) NULL
+Latitude [NVARCHAR](20) NULL
+Longitude [NVARCHAR](20) NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AddressTypeId
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateAid
 
 AidTypeDescriptorId [INT] NOT NULL
 BeginDate [DATE] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 AidConditionDescription [NVARCHAR](1024) NULL
 AidAmount [MONEY] NULL
@@ -37963,10 +38502,10 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AidTypeDescriptorId
 BeginDate
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateBackgroundCheck
 
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 BackgroundCheckTypeDescriptorId [INT] NOT NULL
 BackgroundCheckRequestedDate [DATE] NOT NULL
 BackgroundCheckStatusDescriptorId [INT] NULL
@@ -37975,18 +38514,754 @@ Fingerprint [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateCharacteristic
+
+StudentCharacteristicDescriptorId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+DesignatedBy [NVARCHAR](60) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+StudentCharacteristicDescriptorId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateCohortYear
+
+CohortYearTypeId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CohortYearTypeId
+SchoolYear
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
 StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateDisability
+
+DisabilityDescriptorId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+DisabilityDiagnosis [NVARCHAR](80) NULL
+OrderOfDisability [INT] NULL
+DisabilityDeterminationSourceTypeId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+DisabilityDescriptorId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateElectronicMail
+
+ElectronicMailTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+ElectronicMailAddress [NVARCHAR](128) NOT NULL
+PrimaryEmailAddressIndicator [BIT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+ElectronicMailTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateIdentificationCode
+
+AssigningOrganizationIdentificationCode [NVARCHAR](60) NOT NULL
+StudentIdentificationSystemDescriptorId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+IdentificationCode [NVARCHAR](60) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AssigningOrganizationIdentificationCode
+StudentIdentificationSystemDescriptorId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateIdentificationDocument
+
+IdentificationDocumentUseTypeId [INT] NOT NULL
+PersonalInformationVerificationTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+DocumentTitle [NVARCHAR](60) NULL
+DocumentExpirationDate [DATE] NULL
+IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerCountryDescriptorId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+IdentificationDocumentUseTypeId
+PersonalInformationVerificationTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateIdentificationDocument
+
+IdentificationDocumentUseTypeId [INT] NOT NULL
+PersonalInformationVerificationTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+DocumentTitle [NVARCHAR](60) NULL
+DocumentExpirationDate [DATE] NULL
+IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerCountryDescriptorId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+IdentificationDocumentUseTypeId
+PersonalInformationVerificationTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateIdentificationDocument
+
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+DocumentTitle [NVARCHAR](60) NULL
+PersonalInformationVerificationTypeId [INT] NULL
+DocumentExpirationDate [DATE] NULL
+IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerCountryDescriptorId [INT] NULL
+IdentificationDocumentUseTypeId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateIndicator
+
+IndicatorName [NVARCHAR](60) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+IndicatorGroup [NVARCHAR](60) NULL
+Indicator [NVARCHAR](35) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+DesignatedBy [NVARCHAR](60) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+IndicatorName
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateInternationalAddress
+
+AddressTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+AddressLine1 [NVARCHAR](150) NOT NULL
+AddressLine2 [NVARCHAR](150) NULL
+AddressLine3 [NVARCHAR](150) NULL
+AddressLine4 [NVARCHAR](150) NULL
+CountryDescriptorId [INT] NOT NULL
+Latitude [NVARCHAR](20) NULL
+Longitude [NVARCHAR](20) NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AddressTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateLanguage
+
+LanguageDescriptorId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+LanguageDescriptorId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateLanguageUse
+
+LanguageDescriptorId [INT] NOT NULL
+LanguageUseTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+LanguageDescriptorId
+LanguageUseTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateLearningStyle
+
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+VisualLearning [DECIMAL](5, 4) NOT NULL
+AuditoryLearning [DECIMAL](5, 4) NOT NULL
+TactileLearning [DECIMAL](5, 4) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateOtherName
+
+OtherNameTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+PersonalTitlePrefix [NVARCHAR](30) NULL
+FirstName [NVARCHAR](75) NOT NULL
+MiddleName [NVARCHAR](75) NULL
+LastSurname [NVARCHAR](75) NOT NULL
+GenerationCodeSuffix [NVARCHAR](10) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+OtherNameTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateProgramParticipation
+
+ProgramTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+DesignatedBy [NVARCHAR](60) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+ProgramTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateProgramParticipationProgramCharacteristic
+
+ProgramCharacteristicDescriptorId [INT] NOT NULL
+ProgramTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+ProgramCharacteristicDescriptorId
+ProgramTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateRace
+
+RaceTypeId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+RaceTypeId
+TeacherCandidateUniqueId
+<br />extension.TeacherCandidateTelephone
+
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TelephoneNumberTypeId [INT] NOT NULL
+TelephoneNumber [NVARCHAR](24) NOT NULL
+OrderOfPriority [INT] NULL
+TextMessageCapabilityIndicator [BIT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+TeacherCandidateUniqueId
+TelephoneNumberTypeId
+<br />extension.TeacherCandidateVisa
+
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+VisaTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+TeacherCandidateUniqueId
+VisaTypeId
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateAcademicRecord</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>This educational entity represents the cumulative record of academic achievement for a teacher candidate.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Domain Entity</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />AcademicHonor (optional collection)<br />ClassRanking (optional)<br />ContentGradePointAverage (optional)<br />ContentGradePointEarned (optional)<br />CumulativeAttemptedCredits (optional)<br />CumulativeEarnedCredits (optional)<br />CumulativeGradePointAverage (optional)<br />CumulativeGradePointsEarned (optional)<br />Diploma (optional collection)<br />EducationOrganization (identity)<br />GradeValueQualifier (optional)<br />ProgramGateway (required)<br />ProjectedGraduationDate (optional)<br />Recognition (optional collection)<br />ReportCard (optional collection)<br />SchoolYear (identity)<br />SessionAttemptedCredits (optional)<br />SessionEarnedCredits (optional)<br />SessionGradePointAverage (optional)<br />SessionGradePointsEarned (optional)<br />TeacherCandidate (identity)<br />Term (identity)<br />TPPDegreeType (required)<br /><br />Used By:<br />TeacherCandidateCourseTranscript.TeacherCandidateAcademicRecord (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateAcademicRecord&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;This educational entity represents the cumulative record of academic achievement for a teacher candidate.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;CumulativeEarnedCredits&quot; type=&quot;Credits&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The cumulative number of credits an individual earns by completing courses or examinations during his or her enrollment in the current school as well as those credits transferred from schools in which the individual had been previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CumulativeAttemptedCredits&quot; type=&quot;Credits&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The cumulative number of credits an individual attempts to earn by taking courses during his or her enrollment in the current school as well as those credits transferred from schools in which the individual had been previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CumulativeGradePointsEarned&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The cumulative number of grade points an individual earns by successfully completing courses or examinations during his or her enrollment in the current school as well as those transferred from schools in which the individual had been previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CumulativeGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A measure of average performance in all courses taken by an individual during his or her school career as determined for record-keeping purposes. This is obtained by dividing the total grade points received by the total number of credits attempted. This usually includes grade points received and credits attempted in his or her current school as well as those transferred from schools in which the individual was previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;GradeValueQualifier&quot; type=&quot;GradeValueQualifier&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The scale of equivalents, if applicable, for grades awarded as indicators of performance in schoolwork. For example, numerical equivalents for letter grades used in determining a student's Grade Point Average (A=4, B=3, C=2, D=1 in a four-point system) or letter equivalents for percentage grades (90-100%=A, 80-90%=B, etc.)&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ClassRanking&quot; type=&quot;ClassRanking&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The academic rank information of a student in relation to his or her graduating class.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AcademicHonor&quot; type=&quot;AcademicHonor&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Academic distinctions earned by or awarded to the student.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Recognition&quot; type=&quot;Recognition&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Recognitions given to the student for accomplishments in a co-curricular or extracurricular activity.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProjectedGraduationDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The month and year the student is projected to graduate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SessionEarnedCredits&quot; type=&quot;Credits&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of credits an individual earned in this session.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SessionAttemptedCredits&quot; type=&quot;Credits&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of credits an individual attempted to earn in this session.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SessionGradePointsEarned&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of grade points an individual earned for this session.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SessionGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The grade point average for an individual computed as the grade points earned during the session divided by the number of credits attempted.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Diploma&quot; type=&quot;Diploma&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Diploma(s) earned by the student.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Provides user information to lookup and link to an existing educational organization record.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The identifier for the school year.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;Term&quot; type=&quot;TermDescriptorReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The term for the session during the school year.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;TermDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ReportCardReference&quot; type=&quot;ReportCardReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Report cards for the student.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherCandidateReference&quot; type=&quot;EXTENSION-TeacherCandidateReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Identifies the teacher candidate who is associated with the TeacherCandidateAcademicRecord.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ContentGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A measure of average performance in all courses taken by an individual within a given content area during his or her school career as determined for record-keeping purposes. This is obtained by dividing the total grade points received by the total number of credits attempted. This usually includes grade points received and credits attempted in his or her current school as well as those transferred from schools in which the individual was previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ContentGradePointEarned&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The cumulative number of grade points an individual earns within a given content area by successfully completing courses or examinations during his or her enrollment in the current school as well as those transferred from schools in which the individual had been previously enrolled.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramGateway&quot; type=&quot;EXTENSION-ProgramGatewayDescriptorReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Identifies the program gateway that may be associated for continuation in the program.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-ProgramGatewayDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TPPDegreeType&quot; type=&quot;EXTENSION-TPPDegreeTypeDescriptorReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The degree type that a teacher candidate accomplishes.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-TPPDegreeTypeDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherCandidateAcademicRecord
+
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+CumulativeEarnedCredits [DECIMAL](9, 2) NULL
+CumulativeEarnedCreditTypeId [INT] NULL
+CumulativeEarnedCreditConversion [DECIMAL](9, 2) NULL
+CumulativeAttemptedCredits [DECIMAL](9, 2) NULL
+CumulativeAttemptedCreditTypeId [INT] NULL
+CumulativeAttemptedCreditConversion [DECIMAL](9, 2) NULL
+CumulativeGradePointsEarned [DECIMAL](18, 4) NULL
+CumulativeGradePointAverage [DECIMAL](18, 4) NULL
+GradeValueQualifier [NVARCHAR](80) NULL
+ProjectedGraduationDate [DATE] NULL
+SessionEarnedCredits [DECIMAL](9, 2) NULL
+SessionEarnedCreditTypeId [INT] NULL
+SessionEarnedCreditConversion [DECIMAL](9, 2) NULL
+SessionAttemptedCredits [DECIMAL](9, 2) NULL
+SessionAttemptedCreditTypeId [INT] NULL
+SessionAttemptedCreditConversion [DECIMAL](9, 2) NULL
+SessionGradePointsEarned [DECIMAL](18, 4) NULL
+SessionGradePointAverage [DECIMAL](18, 4) NULL
+ContentGradePointAverage [DECIMAL](18, 4) NULL
+ContentGradePointEarned [DECIMAL](18, 4) NULL
+ProgramGatewayDescriptorId [INT] NOT NULL
+TPPDegreeTypeDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateAcademicRecordAcademicHonor
+
+AcademicHonorCategoryTypeId [INT] NOT NULL
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+AchievementTitle [NVARCHAR](60) NULL
+AchievementCategoryDescriptorId [INT] NULL
+AchievementCategorySystem [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerOriginURL [NVARCHAR](255) NULL
+Criteria [NVARCHAR](150) NULL
+CriteriaURL [NVARCHAR](255) NULL
+EvidenceStatement [NVARCHAR](150) NULL
+ImageURL [NVARCHAR](255) NULL
+HonorDescription [NVARCHAR](80) NULL
+HonorAwardDate [DATE] NULL
+HonorAwardExpiresDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AcademicHonorCategoryTypeId
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateAcademicRecordClassRanking
+
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+ClassRank [INT] NOT NULL
+TotalNumberInClass [INT] NOT NULL
+PercentageRanking [INT] NULL
+ClassRankingDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateAcademicRecordDiploma
+
+DiplomaAwardDate [DATE] NOT NULL
+DiplomaTypeId [INT] NOT NULL
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+AchievementTitle [NVARCHAR](60) NULL
+AchievementCategoryDescriptorId [INT] NULL
+AchievementCategorySystem [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerOriginURL [NVARCHAR](255) NULL
+Criteria [NVARCHAR](150) NULL
+CriteriaURL [NVARCHAR](255) NULL
+EvidenceStatement [NVARCHAR](150) NULL
+ImageURL [NVARCHAR](255) NULL
+DiplomaLevelTypeId [INT] NULL
+CTECompleter [BIT] NULL
+DiplomaDescription [NVARCHAR](80) NULL
+DiplomaAwardExpiresDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+DiplomaAwardDate
+DiplomaTypeId
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateAcademicRecordRecognition
+
+EducationOrganizationId [INT] NOT NULL
+RecognitionTypeId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+AchievementTitle [NVARCHAR](60) NULL
+AchievementCategoryDescriptorId [INT] NULL
+AchievementCategorySystem [NVARCHAR](60) NULL
+IssuerName [NVARCHAR](150) NULL
+IssuerOriginURL [NVARCHAR](255) NULL
+Criteria [NVARCHAR](150) NULL
+CriteriaURL [NVARCHAR](255) NULL
+EvidenceStatement [NVARCHAR](150) NULL
+ImageURL [NVARCHAR](255) NULL
+RecognitionDescription [NVARCHAR](80) NULL
+RecognitionAwardDate [DATE] NULL
+RecognitionAwardExpiresDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+RecognitionTypeId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateAcademicRecordReportCard
+
+EducationOrganizationId [INT] NOT NULL
+GradingPeriodBeginDate [DATE] NOT NULL
+GradingPeriodDescriptorId [INT] NOT NULL
+GradingPeriodSchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+StudentUSI [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+GradingPeriodBeginDate
+GradingPeriodDescriptorId
+GradingPeriodSchoolId
+SchoolYear
+StudentUSI
+TeacherCandidateUniqueId
+TermDescriptorId
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateCourseTranscript</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>This entity is the final record of a student's performance in their courses at the end of a semester or school year.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Domain Entity</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />AlternativeCourseCode (optional)<br />AlternativeCourseTitle (optional)<br />AttemptedCredits (optional)<br />Course (identity)<br />CourseAttemptResult (identity)<br />CourseRepeatCode (optional)<br />CourseTitle (optional)<br />EarnedAdditionalCredits (optional collection)<br />EarnedCredits (required)<br />FinalLetterGradeEarned (optional)<br />FinalNumericGradeEarned (optional)<br />MethodCreditEarned (optional)<br />School (optional)<br />TeacherCandidateAcademicRecord (identity)<br />WhenTakenGradeLevel (optional)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateCourseTranscript&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;This entity is the final record of a student's performance in their courses at the end of a semester or school year.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;CourseAttemptResult&quot; type=&quot;CourseAttemptResultType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The result from the student's attempt to take the course, for example:
+      Pass
+      Fail
+      Incomplete
+      Withdrawn.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AttemptedCredits&quot; type=&quot;Credits&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of credits a student attempted and could earn for successfully completing a given course.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EarnedCredits&quot; type=&quot;Credits&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of credits a student earned for completing a given course.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EarnedAdditionalCredits&quot; type=&quot;AdditionalCredits&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The number of additional credits a student attempted and could earn for successfully completing a given course (e.g., dual credit, AP, IB).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;WhenTakenGradeLevel&quot; type=&quot;GradeLevelDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Student's grade level at time of course.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;GradeLevelDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;MethodCreditEarned&quot; type=&quot;MethodCreditEarnedType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The method the credits were earned (e.g., Classroom, Examination, Transfer).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;FinalLetterGradeEarned&quot; type=&quot;GradeEarned&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The final indicator of student performance in a class as submitted by the instructor.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;FinalNumericGradeEarned&quot; type=&quot;NumericGrade&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The final indicator of student performance in a class as submitted by the instructor.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CourseRepeatCode&quot; type=&quot;CourseRepeatCodeType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student's academic grade average.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CourseReference&quot; type=&quot;CourseReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The course recorded in the course transcript entry.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SchoolReference&quot; type=&quot;SchoolReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The School that provided the reported instruction.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherCandidateAcademicRecordReference&quot; type=&quot;EXTENSION-TeacherCandidateAcademicRecordReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Link to the student's academic record for a semester/school year.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CourseTitle&quot; type=&quot;CourseTitle&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, language arts).&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AlternativeCourseTitle&quot; type=&quot;CourseTitle&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The descriptive name given to a course of study offered in the school, if different from the CourseTitle.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AlternativeCourseCode&quot; type=&quot;LocalCourseCode&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The local code assigned by the school that identifies the course offering, the code from an external educational organization, or other alternate course code.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherCandidateCourseTranscript
+
+CourseAttemptResultTypeId [INT] NOT NULL
+CourseCode [NVARCHAR](60) NOT NULL
+CourseEducationOrganizationId [INT] NOT NULL
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+AttemptedCredits [DECIMAL](9, 2) NULL
+AttemptedCreditTypeId [INT] NULL
+AttemptedCreditConversion [DECIMAL](9, 2) NULL
+EarnedCredits [DECIMAL](9, 2) NOT NULL
+EarnedCreditTypeId [INT] NULL
+EarnedCreditConversion [DECIMAL](9, 2) NULL
+WhenTakenGradeLevelDescriptorId [INT] NULL
+MethodCreditEarnedTypeId [INT] NULL
+FinalLetterGradeEarned [NVARCHAR](20) NULL
+FinalNumericGradeEarned [DECIMAL](9, 2) NULL
+CourseRepeatCodeTypeId [INT] NULL
+SchoolId [INT] NULL
+CourseTitle [NVARCHAR](60) NULL
+AlternativeCourseTitle [NVARCHAR](60) NULL
+AlternativeCourseCode [NVARCHAR](60) NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+CourseAttemptResultTypeId
+CourseCode
+CourseEducationOrganizationId
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
+<br />extension.TeacherCandidateCourseTranscriptEarnedAdditionalCredits
+
+AdditionalCreditTypeId [INT] NOT NULL
+CourseAttemptResultTypeId [INT] NOT NULL
+CourseCode [NVARCHAR](60) NOT NULL
+CourseEducationOrganizationId [INT] NOT NULL
+EducationOrganizationId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+Credits [DECIMAL](9, 2) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AdditionalCreditTypeId
+CourseAttemptResultTypeId
+CourseCode
+CourseEducationOrganizationId
+EducationOrganizationId
+SchoolYear
+TeacherCandidateUniqueId
+TermDescriptorId
 </pre></div>
             </div>
         </p>
@@ -38006,7 +39281,7 @@ TeacherCandidateIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />EventDate (required)<br />HoursAbsent (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />AbsenceEventCategory (identity)<br />AbsenceEventReason (optional)<br />EventDate (required)<br />HoursAbsent (optional)<br />TeacherCandidate (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -38030,6 +39305,19 @@ TeacherCandidateIdentifier
             &lt;xs:documentation&gt;Date for this absence event&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AbsenceEventCategory&quot; type=&quot;EXTENSION-AbsenceEventCategoryDescriptorReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-AbsenceEventCategoryDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AbsenceEventReason&quot; type=&quot;EXTENSION-AbsenceEventReason&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Expanded reason for the teacher candidate absence&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
         &lt;xs:element name=&quot;HoursAbsent&quot; type=&quot;EXTENSION-HoursPerDay&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;he hours the staff was absence if not the entire working day&lt;/xs:documentation&gt;
@@ -38044,15 +39332,18 @@ TeacherCandidateIdentifier
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.TeacherCandidateFieldworkAbsenceEvent
 
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+AbsenceEventCategoryDescriptorId [INT] NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EventDate [DATE] NOT NULL
+AbsenceEventReason [NVARCHAR](40) NULL
 HoursAbsent [DECIMAL](3, 2) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-TeacherCandidateIdentifier
+AbsenceEventCategoryDescriptorId
+TeacherCandidateUniqueId
 </pre></div>
             </div>
         </p>
@@ -38154,7 +39445,7 @@ TeacherCandidateIdentifier
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
 LocalCourseCode [NVARCHAR](60) NULL
@@ -38174,13 +39465,13 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
 SchoolId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -38188,7 +39479,7 @@ Primary Keys:
 BeginDate
 FieldworkIdentifier
 SchoolId
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 </pre></div>
             </div>
         </p>
@@ -38265,7 +39556,7 @@ TeacherCandidateIdentifier
 
 AttendanceDate [DATE] NOT NULL
 ProfessionalDevelopmentTitle [NVARCHAR](60) NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 AttendanceEventCategoryDescriptorId [INT] NOT NULL
 AttendanceEventReason [NVARCHAR](40) NULL
 CreateDate [DATETIME] NOT NULL
@@ -38275,7 +39566,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 AttendanceDate
 ProfessionalDevelopmentTitle
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 </pre></div>
             </div>
         </p>
@@ -38388,7 +39679,7 @@ TeacherCandidateIdentifier
 
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 StudentGrowthMeasureDate [DATE] NULL
 ResultDatatypeTypeId [INT] NULL
 StudentGrowthTypeDescriptorId [INT] NULL
@@ -38403,14 +39694,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 FactAsOfDate
 SchoolYear
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureCourse
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -38418,20 +39709,20 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureEducationOrganization
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 SchoolYear
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 <br />extension.TeacherCandidateStudentGrowthMeasureSection
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -38441,7 +39732,7 @@ LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TeacherCandidateUniqueId [NVARCHAR](32) NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -38454,7 +39745,7 @@ LocalCourseCode
 SchoolId
 SchoolYear
 SequenceOfCourse
-TeacherCandidateIdentifier
+TeacherCandidateUniqueId
 TermDescriptorId
 UniqueSectionCode
 </pre></div>
@@ -38711,7 +40002,7 @@ LocalEducationAgencyId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AdministrativeFundingControl (optional)<br />CharterApprovalAgencyType (optional)<br />CharterApprovalSchoolYear (optional)<br />CharterStatus (optional)<br />GradeLevel (required collection)<br />InternetAccess (optional)<br />LocalEducationAgency (optional)<br />MagnetSpecialProgramEmphasisSchool (optional)<br />SchoolCategory (optional collection)<br />SchoolId (identity)<br />SchoolType (optional)<br />TitleIPartASchoolDesignation (optional)<br /><br />Used By:<br />FeederSchoolAssociation.FeederSchool (as identity)<br />FeederSchoolAssociation.School (as identity)<br />StaffSchoolAssociation.School (as identity)<br />StudentSchoolAssociation.School (as identity)<br />FieldworkExperience.School (as optional)<br />ProfessionalDevelopmentAttendanceEvent.School (as optional)<br />AcademicWeek.School (as identity)<br />BellSchedule.School (as identity)<br />CalendarDate.School (as identity)<br />ClassPeriod.School (as identity)<br />CourseOffering.School (as identity)<br />CourseTranscript.School (as optional)<br />DisciplineAction.ResponsibilitySchool (as required)<br />DisciplineAction.AssignmentSchool (as optional)<br />DisciplineIncident.School (as identity)<br />GradingPeriod.School (as identity)<br />Location.School (as identity)<br />RestraintEvent.School (as identity)<br />Section.School (as required)<br />Session.School (as identity)<br />StudentSchoolAttendanceEvent.School (as identity)<br />StaffFieldworkExperience.School (as identity)<br />TeacherCandidateFieldworkExperience.School (as identity)</div>
+                <div><br />Contains:<br />AdministrativeFundingControl (optional)<br />CharterApprovalAgencyType (optional)<br />CharterApprovalSchoolYear (optional)<br />CharterStatus (optional)<br />GradeLevel (required collection)<br />InternetAccess (optional)<br />LocalEducationAgency (optional)<br />MagnetSpecialProgramEmphasisSchool (optional)<br />SchoolCategory (optional collection)<br />SchoolId (identity)<br />SchoolType (optional)<br />TitleIPartASchoolDesignation (optional)<br /><br />Used By:<br />FeederSchoolAssociation.FeederSchool (as identity)<br />FeederSchoolAssociation.School (as identity)<br />StaffSchoolAssociation.School (as identity)<br />StudentSchoolAssociation.School (as identity)<br />FieldworkExperience.School (as optional)<br />ProfessionalDevelopmentAttendanceEvent.School (as optional)<br />AcademicWeek.School (as identity)<br />BellSchedule.School (as identity)<br />CalendarDate.School (as identity)<br />ClassPeriod.School (as identity)<br />CourseOffering.School (as identity)<br />CourseTranscript.School (as optional)<br />DisciplineAction.ResponsibilitySchool (as required)<br />DisciplineAction.AssignmentSchool (as optional)<br />DisciplineIncident.School (as identity)<br />GradingPeriod.School (as identity)<br />Location.School (as identity)<br />RestraintEvent.School (as identity)<br />Section.School (as required)<br />Session.School (as identity)<br />StudentSchoolAttendanceEvent.School (as identity)<br />StaffFieldworkExperience.School (as identity)<br />TeacherCandidateCourseTranscript.School (as optional)<br />TeacherCandidateFieldworkExperience.School (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -39120,88 +40411,6 @@ Primary Keys:
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>TeacherCandidateAcademicRecord</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>This educational entity represents the cumulative record of academic achievement for a teacher candidate.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Domain Entity Subclass extending StudentAcademicRecord</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ContentGradePointAverage (optional)<br />ContentGradePointEarned (optional)<br />ProgramGateway (required)<br />TPPDegreeType (required)<br /></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateAcademicRecord&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;This educational entity represents the cumulative record of academic achievement for a teacher candidate.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:complexContent&gt;
-    &lt;xs:extension base=&quot;StudentAcademicRecord&quot;&gt;
-      &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;ContentGradePointAverage&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;A measure of average performance in all courses taken by an individual within a given content area during his or her school career as determined for record-keeping purposes. This is obtained by dividing the total grade points received by the total number of credits attempted. This usually includes grade points received and credits attempted in his or her current school as well as those transferred from schools in which the individual was previously enrolled.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ContentGradePointEarned&quot; type=&quot;GPA&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The cumulative number of grade points an individual earns within a given content area by successfully completing courses or examinations during his or her enrollment in the current school as well as those transferred from schools in which the individual had been previously enrolled.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ProgramGateway&quot; type=&quot;EXTENSION-ProgramGatewayDescriptorReferenceType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Identifies the program gateway that may be associated for continuation in the program.&lt;/xs:documentation&gt;
-            &lt;xs:appinfo&gt;
-              &lt;ann:Descriptor&gt;EXTENSION-ProgramGatewayDescriptor&lt;/ann:Descriptor&gt;
-            &lt;/xs:appinfo&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TPPDegreeType&quot; type=&quot;EXTENSION-TPPDegreeTypeDescriptorReferenceType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The degree type that a teacher candidate accomplishes.&lt;/xs:documentation&gt;
-            &lt;xs:appinfo&gt;
-              &lt;ann:Descriptor&gt;EXTENSION-TPPDegreeTypeDescriptor&lt;/ann:Descriptor&gt;
-            &lt;/xs:appinfo&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-      &lt;/xs:sequence&gt;
-    &lt;/xs:extension&gt;
-  &lt;/xs:complexContent&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.TeacherCandidateAcademicRecord
-
-EducationOrganizationId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-StudentUSI [INT] NOT NULL
-TermDescriptorId [INT] NOT NULL
-ContentGradePointAverage [DECIMAL](18, 4) NULL
-ContentGradePointEarned [DECIMAL](18, 4) NULL
-ProgramGatewayDescriptorId [INT] NOT NULL
-TPPDegreeTypeDescriptorId [INT] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-SchoolYear
-StudentUSI
-TermDescriptorId
 </pre></div>
             </div>
         </p>
@@ -40329,7 +41538,7 @@ CostRateTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CourseTranscript.CourseAttemptResult (as identity)<br />ExternalCourseTranscript.CourseAttemptResult (as required)</div>
+                <div><br />Used By:<br />CourseTranscript.CourseAttemptResult (as identity)<br />ExternalCourseTranscript.CourseAttemptResult (as required)<br />TeacherCandidateCourseTranscript.CourseAttemptResult (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40524,7 +41733,7 @@ CourseLevelCharacteristicTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CourseTranscript.CourseRepeatCode (as optional)<br />AnonymizedStudentCourseTranscript.CourseRepeatCode (as optional)<br />ExternalCourseTranscript.CourseRepeatCode (as optional)</div>
+                <div><br />Used By:<br />CourseTranscript.CourseRepeatCode (as optional)<br />AnonymizedStudentCourseTranscript.CourseRepeatCode (as optional)<br />ExternalCourseTranscript.CourseRepeatCode (as optional)<br />TeacherCandidateCourseTranscript.CourseRepeatCode (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -42394,7 +43603,7 @@ MeetingDayTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CourseTranscript.MethodCreditEarned (as optional)<br />ExternalCourseTranscript.MethodCreditEarned (as optional)</div>
+                <div><br />Used By:<br />CourseTranscript.MethodCreditEarned (as optional)<br />ExternalCourseTranscript.MethodCreditEarned (as optional)<br />TeacherCandidateCourseTranscript.MethodCreditEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -42480,7 +43689,7 @@ NetworkPurposeTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Staff.OldEthnicity (as optional)<br />Student.OldEthnicity (as optional)</div>
+                <div><br />Used By:<br />Staff.OldEthnicity (as optional)<br />Student.OldEthnicity (as optional)<br />TeacherCandidate.OldEthnicity (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -43177,7 +44386,7 @@ QuestionFormTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedRace.Race (as identity)<br />Staff.Race (as optional collection)<br />Student.Race (as optional collection)<br />AnonymizedStudent.Race (as optional collection)<br />Applicant.Race (as optional collection)<br />Prospect.Race (as optional collection)</div>
+                <div><br />Used By:<br />AggregatedRace.Race (as identity)<br />Staff.Race (as optional collection)<br />Student.Race (as optional collection)<br />AnonymizedStudent.Race (as optional collection)<br />Applicant.Race (as optional collection)<br />Prospect.Race (as optional collection)<br />TeacherCandidate.Race (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -43894,7 +45103,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.SchoolYear (as required)<br />AggregatedELLEnrollment.SchoolYear (as required)<br />AggregatedESLEnrollment.SchoolYear (as required)<br />AggregatedFinalLetterGradeEarned.SchoolYear (as identity)<br />AggregatedGender.SchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.SchoolYear (as required)<br />AggregatedLanguage.SchoolYear (as identity)<br />AggregatedNumericGradeEarned.SchoolYear (as required)<br />AggregatedRace.SchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.SchoolYear (as identity)<br />AggregatedSection504Enrollment.SchoolYear (as required)<br />AggregatedSessionGradePointAverage.SchoolYear (as required)<br />AggregatedSex.SchoolYear (as identity)<br />AggregatedSPED.SchoolYear (as required)<br />AggregatedTitleIEnrollment.SchoolYear (as required)<br />DisabilityByType.SchoolYear (as required)<br />StudentsEnrolled.SchoolYear (as required)<br />TotalStudentsDisabled.SchoolYear (as required)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -44025,7 +45234,7 @@ SeparationTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedSex.Sex (as identity)<br />Intervention.AppropriateSex (as optional collection)<br />InterventionPrescription.AppropriateSex (as optional collection)<br />InterventionStudy.AppropriateSex (as optional collection)<br />Parent.Sex (as optional)<br />Staff.Sex (as optional)<br />Student.Sex (as required)<br />AnonymizedStudent.Sex (as optional)<br />Applicant.Sex (as optional)<br />Prospect.Sex (as optional)<br />LearningResource.AppropriateSex (as optional collection)</div>
+                <div><br />Used By:<br />AggregatedSex.Sex (as identity)<br />Intervention.AppropriateSex (as optional collection)<br />InterventionPrescription.AppropriateSex (as optional collection)<br />InterventionStudy.AppropriateSex (as optional collection)<br />Parent.Sex (as optional)<br />Staff.Sex (as optional)<br />Student.Sex (as required)<br />AnonymizedStudent.Sex (as optional)<br />Applicant.Sex (as optional)<br />Prospect.Sex (as optional)<br />TeacherCandidate.Sex (as required)<br />LearningResource.AppropriateSex (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -44892,7 +46101,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BirthCity (optional)<br />BirthCountry (optional)<br />BirthDate (required)<br />BirthInternationalProvince (optional)<br />BirthStateAbbreviation (optional)<br />DateEnteredUS (optional)<br />MultipleBirthStatus (optional)<br /><br />Used By:<br />Student.BirthData (as required)</div>
+                <div><br />Contains:<br />BirthCity (optional)<br />BirthCountry (optional)<br />BirthDate (required)<br />BirthInternationalProvince (optional)<br />BirthStateAbbreviation (optional)<br />DateEnteredUS (optional)<br />MultipleBirthStatus (optional)<br /><br />Used By:<br />Student.BirthData (as required)<br />TeacherCandidate.BirthData (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -44962,7 +46171,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CitizenshipDocumentationChoice (optional)<br />CitizenshipStatus (required)<br />ForeignCitizenshipIdentificationDocument (optional collection)<br /><br />Used By:<br />Staff.Citizenship (as optional)<br />Student.Citizenship (as optional)<br />Applicant.Citizenship (as optional)</div>
+                <div><br />Contains:<br />CitizenshipDocumentationChoice (optional)<br />CitizenshipStatus (required)<br />ForeignCitizenshipIdentificationDocument (optional collection)<br /><br />Used By:<br />Staff.Citizenship (as optional)<br />Student.Citizenship (as optional)<br />Applicant.Citizenship (as optional)<br />TeacherCandidate.Citizenship (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -45016,7 +46225,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />CreditConversion (optional)<br />Credits (required)<br />CreditType (optional)<br /><br />Used By:<br />CreditsByCourse.Credits (as required)<br />CreditsBySubject.Credits (as required)<br />Course.MinimumAvailableCredits (as optional)<br />Course.MaximumAvailableCredits (as optional)<br />CourseTranscript.AttemptedCredits (as optional)<br />CourseTranscript.EarnedCredits (as required)<br />GraduationPlan.TotalRequiredCredits (as required)<br />Section.AvailableCredits (as optional)<br />StudentAcademicRecord.CumulativeEarnedCredits (as optional)<br />StudentAcademicRecord.CumulativeAttemptedCredits (as optional)<br />StudentAcademicRecord.SessionEarnedCredits (as optional)<br />StudentAcademicRecord.SessionAttemptedCredits (as optional)<br />ExternalCourseTranscript.AttemptedCredits (as optional)<br />ExternalCourseTranscript.EarnedCredits (as required)<br />ExternalStudentAcademicRecord.CumulativeEarnedCredits (as optional)<br />ExternalStudentAcademicRecord.CumulativeAttemptedCredits (as optional)<br />ExternalStudentAcademicRecord.SessionEarnedCredits (as optional)<br />ExternalStudentAcademicRecord.SessionAttemptedCredits (as optional)</div>
+                <div><br />Contains:<br />CreditConversion (optional)<br />Credits (required)<br />CreditType (optional)<br /><br />Used By:<br />CreditsByCourse.Credits (as required)<br />CreditsBySubject.Credits (as required)<br />Course.MinimumAvailableCredits (as optional)<br />Course.MaximumAvailableCredits (as optional)<br />CourseTranscript.AttemptedCredits (as optional)<br />CourseTranscript.EarnedCredits (as required)<br />GraduationPlan.TotalRequiredCredits (as required)<br />Section.AvailableCredits (as optional)<br />StudentAcademicRecord.CumulativeEarnedCredits (as optional)<br />StudentAcademicRecord.CumulativeAttemptedCredits (as optional)<br />StudentAcademicRecord.SessionEarnedCredits (as optional)<br />StudentAcademicRecord.SessionAttemptedCredits (as optional)<br />ExternalCourseTranscript.AttemptedCredits (as optional)<br />ExternalCourseTranscript.EarnedCredits (as required)<br />ExternalStudentAcademicRecord.CumulativeEarnedCredits (as optional)<br />ExternalStudentAcademicRecord.CumulativeAttemptedCredits (as optional)<br />ExternalStudentAcademicRecord.SessionEarnedCredits (as optional)<br />ExternalStudentAcademicRecord.SessionAttemptedCredits (as optional)<br />TeacherCandidateAcademicRecord.CumulativeEarnedCredits (as optional)<br />TeacherCandidateAcademicRecord.CumulativeAttemptedCredits (as optional)<br />TeacherCandidateAcademicRecord.SessionEarnedCredits (as optional)<br />TeacherCandidateAcademicRecord.SessionAttemptedCredits (as optional)<br />TeacherCandidateCourseTranscript.AttemptedCredits (as optional)<br />TeacherCandidateCourseTranscript.EarnedCredits (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -45195,7 +46404,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MaidenName (optional)<br />MiddleName (optional)<br />PersonalIdentificationDocument (optional collection)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.Name (as required)<br />Staff.Name (as required)<br />Student.Name (as required)<br />Applicant.Name (as required)<br />Prospect.Name (as required)</div>
+                <div><br />Contains:<br />FirstName (required)<br />GenerationCodeSuffix (optional)<br />LastSurname (required)<br />MaidenName (optional)<br />MiddleName (optional)<br />PersonalIdentificationDocument (optional collection)<br />PersonalTitlePrefix (optional)<br /><br />Used By:<br />Parent.Name (as required)<br />Staff.Name (as required)<br />Student.Name (as required)<br />Applicant.Name (as required)<br />Prospect.Name (as required)<br />TeacherCandidate.Name (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -47445,7 +48654,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffFieldworkAbsenceEvent.AbsenceEventReason (as optional)<br />TeacherCandidateAbsenceEvent.AbsenceEventReason (as optional)</div>
+                <div><br />Used By:<br />StaffFieldworkAbsenceEvent.AbsenceEventReason (as optional)<br />TeacherCandidateAbsenceEvent.AbsenceEventReason (as optional)<br />TeacherCandidateFieldworkAbsenceEvent.AbsenceEventReason (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -49082,7 +50291,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AnonymizedStudentCourseTranscript.CourseTitle (as required)<br />Course.CourseTitle (as required)<br />CourseCourseTranscriptFacts.CourseTitle (as optional)<br />CourseOffering.LocalCourseTitle (as optional)<br />CourseTranscript.AlternativeCourseTitle (as optional)<br />CourseTranscript.CourseTitle (as optional)<br />EducationOrganizationCourseTranscriptFacts.CourseTitle (as optional)<br />ExternalCourseTranscript.AlternativeCourseTitle (as optional)<br />ExternalCourseTranscript.ExternalCourseTitle (as required)<br />LearningStandard.CourseTitle (as optional)<br />SectionCourseTranscriptFacts.CourseTitle (as optional)</div>
+                <div><br />Used By:<br />AnonymizedStudentCourseTranscript.CourseTitle (as required)<br />Course.CourseTitle (as required)<br />CourseCourseTranscriptFacts.CourseTitle (as optional)<br />CourseOffering.LocalCourseTitle (as optional)<br />CourseTranscript.AlternativeCourseTitle (as optional)<br />CourseTranscript.CourseTitle (as optional)<br />EducationOrganizationCourseTranscriptFacts.CourseTitle (as optional)<br />ExternalCourseTranscript.AlternativeCourseTitle (as optional)<br />ExternalCourseTranscript.ExternalCourseTitle (as required)<br />LearningStandard.CourseTitle (as optional)<br />SectionCourseTranscriptFacts.CourseTitle (as optional)<br />TeacherCandidateCourseTranscript.AlternativeCourseTitle (as optional)<br />TeacherCandidateCourseTranscript.CourseTitle (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -49292,7 +50501,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />ProgramParticipation.DesignatedBy (as optional)<br />StudentCharacteristic.DesignatedBy (as optional)<br />StudentIndicator.DesignatedBy (as optional)</div>
+                <div><br />Used By:<br />ProgramParticipation.DesignatedBy (as optional)<br />StudentCharacteristic.DesignatedBy (as optional)<br />StudentIndicator.DesignatedBy (as optional)<br />TeacherCandidateCharacteristic.DesignatedBy (as optional)<br />TeacherCandidateIndicator.DesignatedBy (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -49502,7 +50711,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Student.DisplacementStatus (as optional)</div>
+                <div><br />Used By:<br />Student.DisplacementStatus (as optional)<br />TeacherCandidate.DisplacementStatus (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50003,7 +51212,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as identity)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)</div>
+                <div><br />Used By:<br />AggregatedFinalLetterGradeEarned.FinalLetterGrade (as identity)<br />AnonymizedStudentCourseTranscript.FinalLetterGradeEarned (as optional)<br />CourseTranscript.FinalLetterGradeEarned (as optional)<br />ExternalCourseTranscript.FinalLetterGradeEarned (as optional)<br />Grade.LetterGradeEarned (as optional)<br />StudentGradebookEntry.LetterGradeEarned (as optional)<br />TeacherCandidateCourseTranscript.FinalLetterGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50045,7 +51254,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />ExternalStudentAcademicRecord.GradeValueQualifier (as optional)<br />StudentAcademicRecord.GradeValueQualifier (as optional)</div>
+                <div><br />Used By:<br />ExternalStudentAcademicRecord.GradeValueQualifier (as optional)<br />StudentAcademicRecord.GradeValueQualifier (as optional)<br />TeacherCandidateAcademicRecord.GradeValueQualifier (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50129,7 +51338,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Applicant.LoginId (as optional)<br />AssessmentFamilyIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />AssessmentFamilyIdentificationCode.IdentificationCode (as required)<br />AssessmentIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />AssessmentIdentificationCode.IdentificationCode (as required)<br />AssessmentItem.IdentificationCode (as identity)<br />CompetencyObjective.CompetencyObjectiveId (as optional)<br />Course.CourseCode (as identity)<br />CourseIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />CourseIdentificationCode.IdentificationCode (as required)<br />Credential.CredentialIdentifier (as identity)<br />EducationOrganization.StateOrganizationId (as required)<br />EducationOrganizationIdentificationCode.IdentificationCode (as required)<br />ExternalCourseTranscript.ExternalCourseCode (as identity)<br />IdentificationDocument.IssuerDocumentIdentificationCode (as optional)<br />Intervention.InterventionIdentificationCode (as identity)<br />InterventionPrescription.InterventionPrescriptionIdentificationCode (as identity)<br />InterventionStudy.InterventionStudyIdentificationCode (as identity)<br />LearningStandard.LearningStandardItemCode (as optional)<br />LearningStandardIdentificationCode.IdentificationCode (as identity)<br />ObjectiveAssessment.IdentificationCode (as identity)<br />Parent.LoginId (as optional)<br />PostSecondaryInstitutionIdentificationCode.IdentificationCode (as required)<br />Session.SessionName (as required)<br />Staff.LoginId (as optional)<br />StaffIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />StaffIdentificationCode.IdentificationCode (as required)<br />Student.LoginId (as optional)<br />StudentAssessment.SerialNumber (as optional)<br />StudentIdentificationCode.AssigningOrganizationIdentificationCode (as identity)<br />StudentIdentificationCode.IdentificationCode (as required)</div>
+                <div><br />Used By:<br />Applicant.LoginId (as optional)<br />AssessmentFamilyIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />AssessmentFamilyIdentificationCode.IdentificationCode (as required)<br />AssessmentIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />AssessmentIdentificationCode.IdentificationCode (as required)<br />AssessmentItem.IdentificationCode (as identity)<br />CompetencyObjective.CompetencyObjectiveId (as optional)<br />Course.CourseCode (as identity)<br />CourseIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />CourseIdentificationCode.IdentificationCode (as required)<br />Credential.CredentialIdentifier (as identity)<br />EducationOrganization.StateOrganizationId (as required)<br />EducationOrganizationIdentificationCode.IdentificationCode (as required)<br />ExternalCourseTranscript.ExternalCourseCode (as identity)<br />IdentificationDocument.IssuerDocumentIdentificationCode (as optional)<br />Intervention.InterventionIdentificationCode (as identity)<br />InterventionPrescription.InterventionPrescriptionIdentificationCode (as identity)<br />InterventionStudy.InterventionStudyIdentificationCode (as identity)<br />LearningStandard.LearningStandardItemCode (as optional)<br />LearningStandardIdentificationCode.IdentificationCode (as identity)<br />ObjectiveAssessment.IdentificationCode (as identity)<br />Parent.LoginId (as optional)<br />PostSecondaryInstitutionIdentificationCode.IdentificationCode (as required)<br />Session.SessionName (as required)<br />Staff.LoginId (as optional)<br />StaffIdentificationCode.AssigningOrganizationIdentificationCode (as optional)<br />StaffIdentificationCode.IdentificationCode (as required)<br />Student.LoginId (as optional)<br />StudentAssessment.SerialNumber (as optional)<br />StudentIdentificationCode.AssigningOrganizationIdentificationCode (as identity)<br />StudentIdentificationCode.IdentificationCode (as required)<br />TeacherCandidate.LoginId (as optional)<br />TeacherCandidateIdentificationCode.AssigningOrganizationIdentificationCode (as identity)<br />TeacherCandidateIdentificationCode.IdentificationCode (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50213,7 +51422,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentIndicator.Indicator (as required)</div>
+                <div><br />Used By:<br />StudentIndicator.Indicator (as required)<br />TeacherCandidateIndicator.Indicator (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50255,7 +51464,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StudentIndicator.IndicatorGroup (as optional)<br />StudentIndicator.IndicatorName (as identity)</div>
+                <div><br />Used By:<br />StudentIndicator.IndicatorGroup (as optional)<br />StudentIndicator.IndicatorName (as identity)<br />TeacherCandidateIndicator.IndicatorGroup (as optional)<br />TeacherCandidateIndicator.IndicatorName (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -50590,7 +51799,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />CourseOffering.LocalCourseCode (as identity)<br />CourseTranscript.AlternativeCourseCode (as optional)<br />ExternalCourseTranscript.AlternativeCourseCode (as optional)</div>
+                <div><br />Used By:<br />CourseOffering.LocalCourseCode (as identity)<br />CourseTranscript.AlternativeCourseCode (as optional)<br />ExternalCourseTranscript.AlternativeCourseCode (as optional)<br />TeacherCandidateCourseTranscript.AlternativeCourseCode (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51262,7 +52471,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Student.ProfileThumbnail (as optional)</div>
+                <div><br />Used By:<br />Student.ProfileThumbnail (as optional)<br />TeacherCandidate.ProfileThumbnail (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52646,10 +53855,6 @@ VisaTypeId
                 <div>min length: 1<br />max length: 32</div>
             </div>
             <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidate.TeacherCandidateIdentifier (as identity)</div>
-            </div>
-            <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-TeacherCandidateIdentifier&quot;&gt;
   &lt;xs:annotation&gt;
@@ -52941,7 +54146,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)</div>
+                <div><br />Used By:<br />Parent.ParentUniqueId (as identity)<br />Staff.StaffUniqueId (as identity)<br />Student.StudentUniqueId (as identity)<br />TeacherCandidate.TeacherCandidateUniqueId (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

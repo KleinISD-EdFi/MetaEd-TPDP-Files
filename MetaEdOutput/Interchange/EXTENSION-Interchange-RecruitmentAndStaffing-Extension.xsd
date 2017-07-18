@@ -11,7 +11,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
-        <xs:element name="Credential" type="EXTENSION-CredentialExtension" />
+        <xs:element name="Credential" type="Credential" />
         <xs:element name="Applicant" type="EXTENSION-Applicant" />
         <xs:element name="Prospect" type="EXTENSION-Prospect" />
         <xs:element name="RecruitmentEvent" type="EXTENSION-RecruitmentEvent" />
