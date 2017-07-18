@@ -1,5 +1,11 @@
 Common AggregatedDisability
   documentation "Information about the disability of a group aggregated by course."
+  enumeration SchoolYear
+    documentation "The school year for which the data is associated"
+    is part of identity
+  date FactAsOfDate
+    documentation "The date for which the data element is relevant"
+    is part of identity
   common DisabilityByType
     documentation "Students in the course who have a disability by disability type"
     is optional collection

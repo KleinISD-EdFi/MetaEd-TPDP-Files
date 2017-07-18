@@ -2,16 +2,16 @@ Common AggregatedHispanicLatinoEthnicity
   documentation "Data about the Eth ethnicity of the group"
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
-    is required
+    is part of identity
   date FactAsOfDate
     documentation "The date for which the data element is relevant"
-    is required
+    is part of identity
   enumeration ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   bool HispanicLatinoEthnicity
     documentation "An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, ""Spanish origin,"" can be used in addition to ""Hispanic or Latino."""
-    is required
+    is part of identity
   integer HispanicLatinoEthnicityNumber
     documentation "The number of students who are hispanic/latino"
     is optional
