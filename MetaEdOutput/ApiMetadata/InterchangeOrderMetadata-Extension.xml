@@ -13,7 +13,6 @@
     <Element name="AcademicSubjectDescriptor" />
     <Element name="GradeLevelDescriptor" />
     <Element name="CompetencyLevelDescriptor" />
-    <Element name="LevelDescriptor" />
     <Element name="ThemeTypeDescriptor" />
     <Element name="SchoolFoodServicesEligibilityDescriptor" />
     <Element name="LanguageDescriptor" />
@@ -81,6 +80,7 @@
     <Element name="LevelTypeDescriptor" />
     <Element name="SalaryTypeDescriptor" />
     <Element name="TeacherPreparationProgramTypeDescriptor" />
+    <Element name="LevelDescriptor" />
   </Interchange>
   <Interchange name="StaffAssociation" order="20">
     <Element name="Credential" />

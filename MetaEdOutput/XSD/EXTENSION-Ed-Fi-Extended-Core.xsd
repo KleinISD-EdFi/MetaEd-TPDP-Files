@@ -2214,7 +2214,7 @@
               <xs:documentation>The identifying code for the question, unique for the rubric.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Level" type="EXTENSION-Level">
+          <xs:element name="Experimental" type="EXTENSION-Experimental">
             <xs:annotation>
               <xs:documentation>Information about the level of the rubric at which the data is captured.</xs:documentation>
             </xs:annotation>
@@ -8408,6 +8408,16 @@
           <xs:documentation>The percentage of student who met the performance level</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="PerformanceLevelTypeNumber" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The number of students who achieved each performance level by performance level type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PerformanceLevelTypePercentage" type="Percent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The percentage of student who achieved perfromance level by each performance level type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedRace">
@@ -8974,6 +8984,44 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-Experimental">
+    <xs:annotation>
+      <xs:documentation>Information about the level of the rubric at which the data is captured.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LevelType" type="EXTENSION-LevelTypeDescriptorReferenceType">
+        <xs:annotation>
+          <xs:documentation>The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.</xs:documentation>
+          <xs:appinfo>
+            <ann:Descriptor>EXTENSION-LevelTypeDescriptor</ann:Descriptor>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LevelTitle" type="EXTENSION-LevelTitle">
+        <xs:annotation>
+          <xs:documentation>The title of the level of the rubric at which the data is captured.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LevelDescription" type="EXTENSION-LevelDescription" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The description of the level of the rubric at which the data is captured.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MinimumScore" type="Result" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The minimum score for the level of the rubic.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MaximumScore" type="Result" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The maximum score for the level of the rubic.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-FieldworkExperience">
     <xs:annotation>
       <xs:documentation>The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students.</xs:documentation>
@@ -9028,44 +9076,6 @@
       <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The teacher candidate associated with the fieldwork experience.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-Level">
-    <xs:annotation>
-      <xs:documentation>Information about the level of the rubric at which the data is captured.</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="LevelType" type="EXTENSION-LevelTypeDescriptorReferenceType">
-        <xs:annotation>
-          <xs:documentation>The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.</xs:documentation>
-          <xs:appinfo>
-            <ann:Descriptor>EXTENSION-LevelTypeDescriptor</ann:Descriptor>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="LevelTitle" type="EXTENSION-LevelTitle">
-        <xs:annotation>
-          <xs:documentation>The title of the level of the rubric at which the data is captured.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="LevelDescription" type="EXTENSION-LevelDescription" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The description of the level of the rubric at which the data is captured.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="MinimumScore" type="Result" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The minimum score for the level of the rubic.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="MaximumScore" type="Result" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The maximum score for the level of the rubic.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

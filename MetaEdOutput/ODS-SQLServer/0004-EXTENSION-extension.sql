@@ -2247,6 +2247,8 @@ CREATE TABLE [extension].[CourseStudentAssessmentFactsAggregatedPerformanceLevel
     [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
     [PerformanceLevelMetNumber] [INT] NULL,
     [PerformanceLevelMetPercentage] [DECIMAL](5, 4) NULL,
+    [PerformanceLevelTypeNumber] [INT] NULL,
+    [PerformanceLevelTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [CourseStudentAssessmentFactsAggregatedPerformanceLevel_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
@@ -2275,6 +2277,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -3941,6 +3947,8 @@ CREATE TABLE [extension].[EducationOrganizationStudentAssessmentFactsAggregatedP
     [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
     [PerformanceLevelMetNumber] [INT] NULL,
     [PerformanceLevelMetPercentage] [DECIMAL](5, 4) NULL,
+    [PerformanceLevelTypeNumber] [INT] NULL,
+    [PerformanceLevelTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
@@ -3966,6 +3974,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -7114,6 +7126,52 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of ru
 GO
 
 
+/****** Table: [extension].[RubricLevelExperimental] ******/
+
+CREATE TABLE [extension].[RubricLevelExperimental](
+    [EducationOrganizationId] [INT] NOT NULL,
+    [RubricLevelCode] [NVARCHAR](20) NOT NULL,
+    [RubricTitle] [NVARCHAR](15) NOT NULL,
+    [RubricTypeDescriptorId] [INT] NOT NULL,
+    [LevelTypeDescriptorId] [INT] NOT NULL,
+    [LevelTitle] [NVARCHAR](15) NOT NULL,
+    [LevelDescription] [NVARCHAR](255) NULL,
+    [MinimumScore] [NVARCHAR](35) NULL,
+    [MaximumScore] [NVARCHAR](35) NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    CONSTRAINT [RubricLevelExperimental_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [RubricLevelCode] ASC,
+        [RubricTitle] ASC,
+        [RubricTypeDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[RubricLevelExperimental] ADD CONSTRAINT [RubricLevelExperimental_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'RubricLevelExperimental'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of rubric used to conduct the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricTypeDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelTypeDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelDescription'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'MinimumScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'MaximumScore'
+GO
+
+
 /****** Table: [extension].[RubricLevelResponse] ******/
 
 CREATE TABLE [extension].[RubricLevelResponse](
@@ -8075,6 +8133,8 @@ CREATE TABLE [extension].[SectionStudentAssessmentFactsAggregatedPerformanceLeve
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
     [PerformanceLevelMetNumber] [INT] NULL,
     [PerformanceLevelMetPercentage] [DECIMAL](5, 4) NULL,
+    [PerformanceLevelTypeNumber] [INT] NULL,
+    [PerformanceLevelTypePercentage] [DECIMAL](5, 4) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [SectionStudentAssessmentFactsAggregatedPerformanceLevel_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
@@ -8121,6 +8181,10 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -17396,6 +17460,24 @@ GO
 CREATE NONCLUSTERED INDEX [FK_RubricLevel_Rubric]
 ON [extension].[RubricLevel]([EducationOrganizationId] ASC, [RubricTitle] ASC, [RubricTypeDescriptorId] ASC)
 GO
+
+ALTER TABLE [extension].[RubricLevelExperimental] WITH CHECK ADD CONSTRAINT [FK_RubricLevelExperimental_LevelTypeDescriptor] FOREIGN KEY ([LevelTypeDescriptorId])
+REFERENCES [extension].[LevelTypeDescriptor] ([LevelTypeDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_RubricLevelExperimental_LevelTypeDescriptor]
+ON [extension].[RubricLevelExperimental]([LevelTypeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[RubricLevelExperimental] WITH CHECK ADD CONSTRAINT [FK_RubricLevelExperimental_RubricLevel] FOREIGN KEY ([EducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
+REFERENCES [extension].[RubricLevel] ([EducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
+ON DELETE CASCADE
+
+GO
+
+
 
 ALTER TABLE [extension].[RubricLevelResponse] WITH CHECK ADD CONSTRAINT [FK_RubricLevelResponse_PerformanceMeasure] FOREIGN KEY ([PerformanceMeasureIdentifier])
 REFERENCES [extension].[PerformanceMeasure] ([PerformanceMeasureIdentifier])

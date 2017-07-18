@@ -9,3 +9,9 @@ Common AggregatedPerformanceLevel
   percent PerformanceLevelMetPercentage
     documentation "The percentage of student who met the performance level"
     is optional
+  integer PerformanceLevelTypeNumber
+    documentation "The number of students who achieved each performance level by performance level type"
+    is optional
+  percent PerformanceLevelTypePercentage
+    documentation "The percentage of student who achieved perfromance level by each performance level type"
+    is optional

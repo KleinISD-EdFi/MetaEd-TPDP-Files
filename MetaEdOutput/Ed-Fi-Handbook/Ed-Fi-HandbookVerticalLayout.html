@@ -6271,7 +6271,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />PerformanceLevel (identity)<br />PerformanceLevelMetNumber (optional)<br />PerformanceLevelMetPercentage (optional)<br /><br />Used By:<br />CourseStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)<br />EducationOrganizationStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)<br />SectionStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)</div>
+                <div><br />Contains:<br />PerformanceLevel (identity)<br />PerformanceLevelMetNumber (optional)<br />PerformanceLevelMetPercentage (optional)<br />PerformanceLevelTypeNumber (optional)<br />PerformanceLevelTypePercentage (optional)<br /><br />Used By:<br />CourseStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)<br />EducationOrganizationStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)<br />SectionStudentAssessmentFacts.AggregatedPerformanceLevel (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6299,6 +6299,16 @@ StudentUSI
     &lt;xs:element name=&quot;PerformanceLevelMetPercentage&quot; type=&quot;Percent&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The percentage of student who met the performance level&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;PerformanceLevelTypeNumber&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The number of students who achieved each performance level by performance level type&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;PerformanceLevelTypePercentage&quot; type=&quot;Percent&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The percentage of student who achieved perfromance level by each performance level type&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -8135,6 +8145,66 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>Experimental</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Information about the level of the rubric at which the data is captured.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.Experimental (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-Experimental&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;LevelType&quot; type=&quot;EXTENSION-LevelTypeDescriptorReferenceType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+        &lt;xs:appinfo&gt;
+          &lt;ann:Descriptor&gt;EXTENSION-LevelTypeDescriptor&lt;/ann:Descriptor&gt;
+        &lt;/xs:appinfo&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;LevelTitle&quot; type=&quot;EXTENSION-LevelTitle&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The title of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;LevelDescription&quot; type=&quot;EXTENSION-LevelDescription&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The description of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;MinimumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The minimum score for the level of the rubic.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;MaximumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The maximum score for the level of the rubic.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>FieldworkExperience</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -8602,66 +8672,6 @@ StudentUSI
     &lt;xs:element name=&quot;TactileLearning&quot; type=&quot;Learning&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The student's relative preference expressed as a percent to kinesthetic or tactile learning.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-  &lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>Level</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Information about the level of the rubric at which the data is captured.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Common Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.Level (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-Level&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;LevelType&quot; type=&quot;EXTENSION-LevelTypeDescriptorReferenceType&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-        &lt;xs:appinfo&gt;
-          &lt;ann:Descriptor&gt;EXTENSION-LevelTypeDescriptor&lt;/ann:Descriptor&gt;
-        &lt;/xs:appinfo&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LevelTitle&quot; type=&quot;EXTENSION-LevelTitle&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The title of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LevelDescription&quot; type=&quot;EXTENSION-LevelDescription&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The description of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;MinimumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The minimum score for the level of the rubic.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;MaximumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The maximum score for the level of the rubic.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
   &lt;/xs:sequence&gt;
@@ -19162,7 +19172,7 @@ LevelOfEducationTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Level.LevelType (as required)</div>
+                <div><br />Used By:<br />Experimental.LevelType (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25026,6 +25036,8 @@ PerformanceLevelDescriptorId [INT] NOT NULL
 SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 PerformanceLevelMetNumber [INT] NULL
 PerformanceLevelMetPercentage [DECIMAL](5, 4) NULL
+PerformanceLevelTypeNumber [INT] NULL
+PerformanceLevelTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -27392,6 +27404,8 @@ PerformanceLevelDescriptorId [INT] NOT NULL
 SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 PerformanceLevelMetNumber [INT] NULL
 PerformanceLevelMetPercentage [DECIMAL](5, 4) NULL
+PerformanceLevelTypeNumber [INT] NULL
+PerformanceLevelTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -32686,7 +32700,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Level (required)<br />Rubric (identity)<br />RubricLevelCode (identity)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
+                <div><br />Contains:<br />Experimental (required)<br />Rubric (identity)<br />RubricLevelCode (identity)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32710,7 +32724,7 @@ RubricTypeDescriptorId
             &lt;xs:documentation&gt;The identifying code for the question, unique for the rubric.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Level&quot; type=&quot;EXTENSION-Level&quot;&gt;
+        &lt;xs:element name=&quot;Experimental&quot; type=&quot;EXTENSION-Experimental&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -32745,7 +32759,7 @@ EducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
-<br />extension.RubricLevel
+<br />extension.RubricLevelExperimental
 
 EducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
@@ -33769,6 +33783,8 @@ TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 PerformanceLevelMetNumber [INT] NULL
 PerformanceLevelMetPercentage [DECIMAL](5, 4) NULL
+PerformanceLevelTypeNumber [INT] NULL
+PerformanceLevelTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -47654,6 +47670,33 @@ VisaTypeId
             </div>
         </p>
         <p>
+            <h2>PerformanceLevelTypeNumber</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The number of students who achieved each performance level by performance level type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Integer Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />AggregatedPerformanceLevel.PerformanceLevelTypeNumber (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre></pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>PerformanceLevelTypeNumber [INT]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>PeriodSequence</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -48435,7 +48478,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedDisabilityByType.Percentage (as optional)<br />AggregatedDisabilityTotalStudentsDisabled.StudentsDisabledPercentage (as optional)<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />StudentsEnrolled.PercentAtRisk (as optional)<br />StudentsEnrolled.PercentMobility (as optional)</div>
+                <div><br />Used By:<br />AggregatedDisabilityByType.Percentage (as optional)<br />AggregatedDisabilityTotalStudentsDisabled.StudentsDisabledPercentage (as optional)<br />AggregatedELLEnrollment.ELLEnrollmentPercentage (as optional)<br />AggregatedESLEnrollment.ESLEnrollmentPercentage (as optional)<br />AggregatedFinalLetterGradeEarned.LetterGradeTypePercentage (as optional)<br />AggregatedGender.GenderTypePercentage (as optional)<br />AggregatedHispanicLatinoEthnicity.HispanicLatinoEthnicityPercentage (as optional)<br />AggregatedLanguage.LanguageTypePercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelMetPercentage (as optional)<br />AggregatedPerformanceLevel.PerformanceLevelTypePercentage (as optional)<br />AggregatedRace.RaceTypePercentage (as optional)<br />AggregatedSection504Enrollment.Percentage504Enrolled (as optional)<br />AggregatedSex.SexTypePercentage (as optional)<br />AggregatedSPED.SPEDEnrollmentPercentage (as optional)<br />AggregatedTitleIEnrollment.TitleIEnrollmentPercentage (as optional)<br />EducationOrganizationFacts.HiringRate (as optional)<br />EducationOrganizationFacts.PercentStudentsFreeReducedLunch (as optional)<br />EducationOrganizationFacts.PercentStudentsLimitedEnglishProficiency (as optional)<br />EducationOrganizationFacts.PercentStudentsSpecialEducation (as optional)<br />EducationOrganizationFacts.RetentionRate (as optional)<br />EducationOrganizationFacts.RetirementRate (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementReservedFundsPercentage (as optional)<br />LocalEducationAgencyFederalFunds.StateAssessmentAdministrationFunding (as optional)<br />ObjectiveAssessment.PercentOfAssessment (as optional)<br />StaffEducationOrganizationEmploymentAssociation.FullTimeEquivalency (as optional)<br />StaffSectionAssociation.PercentageContribution (as optional)<br />StudentsEnrolled.PercentAtRisk (as optional)<br />StudentsEnrolled.PercentMobility (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51541,7 +51584,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Level.LevelDescription (as optional)</div>
+                <div><br />Used By:<br />Experimental.LevelDescription (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51582,7 +51625,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Level.LevelTitle (as required)</div>
+                <div><br />Used By:<br />Experimental.LevelTitle (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53010,7 +53053,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedScoreResult.AverageScoreResult (as required)<br />AssessmentPerformanceLevel.MaximumScore (as optional)<br />AssessmentPerformanceLevel.MinimumScore (as optional)<br />AssessmentScore.MaximumScore (as optional)<br />AssessmentScore.MinimumScore (as optional)<br />Level.MaximumScore (as optional)<br />Level.MinimumScore (as optional)<br />ScoreResult.Result (as required)</div>
+                <div><br />Used By:<br />AggregatedScoreResult.AverageScoreResult (as required)<br />AssessmentPerformanceLevel.MaximumScore (as optional)<br />AssessmentPerformanceLevel.MinimumScore (as optional)<br />AssessmentScore.MaximumScore (as optional)<br />AssessmentScore.MinimumScore (as optional)<br />Experimental.MaximumScore (as optional)<br />Experimental.MinimumScore (as optional)<br />ScoreResult.Result (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
