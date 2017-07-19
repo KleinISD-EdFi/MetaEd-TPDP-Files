@@ -3104,6 +3104,11 @@
               <xs:documentation>For radio buttons, checkboxes, dropdowns, matrix of drop downs - the list of choices.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="Mom" type="EXTENSION-Mom" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>(TPDP Extension) Information about the matrix element in the survey</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="SurveyReference" type="EXTENSION-SurveyReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Survey.</xs:documentation>
@@ -3112,11 +3117,6 @@
           <xs:element name="SurveySectionReference" type="EXTENSION-SurveySectionReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Survey Section.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Matri" type="EXTENSION-Matri" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>(TPDP Extension) Information about the matrix element in the survey</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -9450,7 +9450,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-Matri">
+  <xs:complexType name="EXTENSION-Mom">
     <xs:annotation>
       <xs:documentation>Information about the matrix element in the survey</xs:documentation>
       <xs:appinfo>
