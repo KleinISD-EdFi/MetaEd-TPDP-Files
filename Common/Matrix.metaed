@@ -1,4 +1,4 @@
-Common Matrixx
+Common Matri
   documentation "Information about the matrix element in the survey"
   shared string MatrixElement
     documentation "For matrix questions, the text identifying each row of the matrix."

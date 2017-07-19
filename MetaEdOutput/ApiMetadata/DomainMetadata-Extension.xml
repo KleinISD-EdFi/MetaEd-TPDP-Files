@@ -418,7 +418,7 @@
   </Aggregate>
   <Aggregate root="SurveyQuestion">
     <Entity table="SurveyQuestion" schema="extension"/>
-    <Entity table="SurveyQuestionMatrixx" schema="extension"/>
+    <Entity table="SurveyQuestionMatri" schema="extension"/>
     <Entity table="SurveyQuestionNumericChoice" schema="extension"/>
     <Entity table="SurveyQuestionTextChoice" schema="extension"/>
   </Aggregate>

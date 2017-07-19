@@ -9233,7 +9233,7 @@ StudentUSI
             </div>
         </p>
         <p>
-            <h2>Matrixx</h2>
+            <h2>Matri</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -9248,11 +9248,11 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />MatrixElement (optional)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Matrixx (as optional collection)</div>
+                <div><br />Contains:<br />MatrixElement (optional)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Matri (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-Matrixx&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-Matri&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;Information about the matrix element in the survey&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -38577,7 +38577,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Matrixx (optional collection)<br />NumericChoice (optional collection)<br />QuestionCode (identity)<br />QuestionForm (required)<br />QuestionText (required)<br />Survey (identity)<br />SurveySection (required)<br />TextChoice (optional collection)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />EducationOrganizationSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SectionSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SurveyQuestionResponse.SurveyQuestion (as identity)</div>
+                <div><br />Contains:<br />Matri (optional collection)<br />NumericChoice (optional collection)<br />QuestionCode (identity)<br />QuestionForm (required)<br />QuestionText (required)<br />Survey (identity)<br />SurveySection (required)<br />TextChoice (optional collection)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />EducationOrganizationSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SectionSurveyQuestionResponseFacts.SurveyQuestion (as identity)<br />SurveyQuestionResponse.SurveyQuestion (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -38626,7 +38626,7 @@ SurveyIdentifier
             &lt;xs:documentation&gt;Reference to the Survey Section.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Matrixx&quot; type=&quot;EXTENSION-Matrixx&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+        &lt;xs:element name=&quot;Matri&quot; type=&quot;EXTENSION-Matri&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;(TPDP Extension) Information about the matrix element in the survey&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -38652,7 +38652,7 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 QuestionCode
 SurveyIdentifier
-<br />extension.SurveyQuestionMatrixx
+<br />extension.SurveyQuestionMatri
 
 QuestionCode [NVARCHAR](20) NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
@@ -47868,7 +47868,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Assessment.MaxRawScore (as optional)<br />AssessmentItem.MaxRawScore (as optional)<br />Matrixx.MaxRawScore (as optional)<br />ObjectiveAssessment.MaxRawScore (as optional)</div>
+                <div><br />Used By:<br />Assessment.MaxRawScore (as optional)<br />AssessmentItem.MaxRawScore (as optional)<br />Matri.MaxRawScore (as optional)<br />ObjectiveAssessment.MaxRawScore (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -47922,7 +47922,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Matrixx.MinRawScore (as optional)</div>
+                <div><br />Used By:<br />Matri.MinRawScore (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -52645,7 +52645,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Matrixx.MatrixElement (as optional)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
+                <div><br />Used By:<br />Matri.MatrixElement (as optional)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
