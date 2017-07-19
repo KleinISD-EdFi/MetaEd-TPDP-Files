@@ -8,7 +8,7 @@ Domain Entity RubricLevel
     documentation "The identifying code for the question, unique for the rubric."
     is part of identity
     is queryable field
-  common Experimental
+  common RubricLevelInformation
     documentation "Information about the level of the rubric at which the data is captured."
     is required
   descriptor ThemeType

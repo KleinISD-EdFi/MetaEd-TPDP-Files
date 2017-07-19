@@ -296,7 +296,7 @@
   </Aggregate>
   <Aggregate root="RubricLevel">
     <Entity table="RubricLevel" schema="extension"/>
-    <Entity table="RubricLevelExperimental" schema="extension"/>
+    <Entity table="RubricLevelInformation" schema="extension"/>
     <Entity table="RubricLevelThemeType" schema="extension"/>
   </Aggregate>
   <Aggregate root="RubricLevelResponse">

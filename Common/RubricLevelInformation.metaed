@@ -1,4 +1,4 @@
-Common Experimental
+Common RubricLevelInformation
   documentation "Information about the level of the rubric at which the data is captured."
   descriptor LevelType
     documentation "The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured."

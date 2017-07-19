@@ -7309,9 +7309,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of ru
 GO
 
 
-/****** Table: [extension].[RubricLevelExperimental] ******/
+/****** Table: [extension].[RubricLevelInformation] ******/
 
-CREATE TABLE [extension].[RubricLevelExperimental](
+CREATE TABLE [extension].[RubricLevelInformation](
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
     [RubricTitle] [NVARCHAR](15) NOT NULL,
@@ -7322,7 +7322,7 @@ CREATE TABLE [extension].[RubricLevelExperimental](
     [MinimumScore] [NVARCHAR](35) NULL,
     [MaximumScore] [NVARCHAR](35) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [RubricLevelExperimental_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [RubricLevelInformation_PK] PRIMARY KEY CLUSTERED (
         [RubricEducationOrganizationId] ASC,
         [RubricLevelCode] ASC,
         [RubricTitle] ASC,
@@ -7330,28 +7330,28 @@ CREATE TABLE [extension].[RubricLevelExperimental](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[RubricLevelExperimental] ADD CONSTRAINT [RubricLevelExperimental_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[RubricLevelInformation] ADD CONSTRAINT [RubricLevelInformation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'RubricLevelExperimental'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'RubricLevelInformation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricEducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'RubricEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'RubricTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of rubric used to conduct the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'RubricTypeDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of rubric used to conduct the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'RubricTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelTypeDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'LevelTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'LevelTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'LevelDescription'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the level of the rubric at which the data is captured.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'LevelDescription'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'MinimumScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'MinimumScore'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelExperimental', @level2type=N'COLUMN', @level2name=N'MaximumScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum score for the level of the rubic.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelInformation', @level2type=N'COLUMN', @level2name=N'MaximumScore'
 GO
 
 
@@ -10273,7 +10273,7 @@ CREATE TABLE [extension].[StaffSalary](
     [SalaryMinRange] [INT] NULL,
     [SalaryMaxRange] [INT] NULL,
     [SalaryTypeDescriptorId] [INT] NULL,
-    [StaffSalary] [MONEY] NULL,
+    [SalaryAmount] [MONEY] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [StaffSalary_PK] PRIMARY KEY CLUSTERED (
         [StaffUSI] ASC
@@ -10293,7 +10293,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum sa
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of salary that a staff member is receiving.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffSalary', @level2type=N'COLUMN', @level2name=N'SalaryTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The salary of a staff member.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffSalary', @level2type=N'COLUMN', @level2name=N'StaffSalary'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The salary of a staff member.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffSalary', @level2type=N'COLUMN', @level2name=N'SalaryAmount'
 GO
 
 
@@ -17798,17 +17798,17 @@ CREATE NONCLUSTERED INDEX [FK_RubricLevel_Rubric]
 ON [extension].[RubricLevel]([RubricEducationOrganizationId] ASC, [RubricTitle] ASC, [RubricTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[RubricLevelExperimental] WITH CHECK ADD CONSTRAINT [FK_RubricLevelExperimental_LevelTypeDescriptor] FOREIGN KEY ([LevelTypeDescriptorId])
+ALTER TABLE [extension].[RubricLevelInformation] WITH CHECK ADD CONSTRAINT [FK_RubricLevelInformation_LevelTypeDescriptor] FOREIGN KEY ([LevelTypeDescriptorId])
 REFERENCES [extension].[LevelTypeDescriptor] ([LevelTypeDescriptorId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_RubricLevelExperimental_LevelTypeDescriptor]
-ON [extension].[RubricLevelExperimental]([LevelTypeDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_RubricLevelInformation_LevelTypeDescriptor]
+ON [extension].[RubricLevelInformation]([LevelTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[RubricLevelExperimental] WITH CHECK ADD CONSTRAINT [FK_RubricLevelExperimental_RubricLevel] FOREIGN KEY ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
+ALTER TABLE [extension].[RubricLevelInformation] WITH CHECK ADD CONSTRAINT [FK_RubricLevelInformation_RubricLevel] FOREIGN KEY ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
 REFERENCES [extension].[RubricLevel] ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
 ON DELETE CASCADE
 

@@ -8145,66 +8145,6 @@ StudentUSI
             </div>
         </p>
         <p>
-            <h2>Experimental</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Information about the level of the rubric at which the data is captured.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Common Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.Experimental (as required)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-Experimental&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;LevelType&quot; type=&quot;EXTENSION-LevelTypeDescriptorReferenceType&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-        &lt;xs:appinfo&gt;
-          &lt;ann:Descriptor&gt;EXTENSION-LevelTypeDescriptor&lt;/ann:Descriptor&gt;
-        &lt;/xs:appinfo&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LevelTitle&quot; type=&quot;EXTENSION-LevelTitle&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The title of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;LevelDescription&quot; type=&quot;EXTENSION-LevelDescription&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The description of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;MinimumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The minimum score for the level of the rubic.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;MaximumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
-      &lt;xs:annotation&gt;
-        &lt;xs:documentation&gt;The maximum score for the level of the rubic.&lt;/xs:documentation&gt;
-      &lt;/xs:annotation&gt;
-    &lt;/xs:element&gt;
-  &lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-        </p>
-        <p>
             <h2>FieldworkExperience</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -9689,6 +9629,66 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>RubricLevelInformation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Information about the level of the rubric at which the data is captured.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Common Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />LevelDescription (optional)<br />LevelTitle (required)<br />LevelType (required)<br />MaximumScore (optional)<br />MinimumScore (optional)<br /><br />Used By:<br />RubricLevel.RubricLevelInformation (as required)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-RubricLevelInformation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;LevelType&quot; type=&quot;EXTENSION-LevelTypeDescriptorReferenceType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+        &lt;xs:appinfo&gt;
+          &lt;ann:Descriptor&gt;EXTENSION-LevelTypeDescriptor&lt;/ann:Descriptor&gt;
+        &lt;/xs:appinfo&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;LevelTitle&quot; type=&quot;EXTENSION-LevelTitle&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The title of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;LevelDescription&quot; type=&quot;EXTENSION-LevelDescription&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The description of the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;MinimumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The minimum score for the level of the rubic.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;MaximumScore&quot; type=&quot;Result&quot; minOccurs=&quot;0&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The maximum score for the level of the rubic.&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>Salary</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -9704,7 +9704,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />SalaryMaxRange (optional)<br />SalaryMinRange (optional)<br />SalaryType (optional)<br />StaffSalary (optional)<br /><br />Used By:<br />Staff.Salary (as optional)</div>
+                <div><br />Contains:<br />SalaryAmount (optional)<br />SalaryMaxRange (optional)<br />SalaryMinRange (optional)<br />SalaryType (optional)<br /><br />Used By:<br />Staff.Salary (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9734,7 +9734,7 @@ StudentUSI
         &lt;/xs:appinfo&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;StaffSalary&quot; type=&quot;Currency&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;SalaryAmount&quot; type=&quot;Currency&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The salary of a staff member.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -11092,7 +11092,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Actual.AmountToDate (as required)<br />AggregatedSalary.AverageSalary (as required)<br />Aid.AidAmount (as optional)<br />Budget.Amount (as required)<br />ContractedStaff.AmountToDate (as required)<br />DisciplineIncident.IncidentCost (as optional)<br />EducationContent.Cost (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeDollarsSpent (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeDollarsSpentStrategicPriorities (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeProgramsFundsReceived (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementAllocation (as optional)<br />LocalEducationAgencyFederalFunds.SupplementalEducationalServicesFundsSpent (as optional)<br />LocalEducationAgencyFederalFunds.SupplementalEducationalServicesPerPupilExpenditure (as optional)<br />Payroll.AmountToDate (as required)<br />Salary.StaffSalary (as optional)<br />StaffEducationOrganizationEmploymentAssociation.HourlyWage (as optional)<br />StateEducationAgencyFederalFunds.FederalProgramsFundingAllocation (as optional)<br />TeacherCandidate.TuitionCost (as optional)</div>
+                <div><br />Used By:<br />Actual.AmountToDate (as required)<br />AggregatedSalary.AverageSalary (as required)<br />Aid.AidAmount (as optional)<br />Budget.Amount (as required)<br />ContractedStaff.AmountToDate (as required)<br />DisciplineIncident.IncidentCost (as optional)<br />EducationContent.Cost (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeDollarsSpent (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeDollarsSpentStrategicPriorities (as optional)<br />LocalEducationAgencyFederalFunds.InnovativeProgramsFundsReceived (as optional)<br />LocalEducationAgencyFederalFunds.SchoolImprovementAllocation (as optional)<br />LocalEducationAgencyFederalFunds.SupplementalEducationalServicesFundsSpent (as optional)<br />LocalEducationAgencyFederalFunds.SupplementalEducationalServicesPerPupilExpenditure (as optional)<br />Payroll.AmountToDate (as required)<br />Salary.SalaryAmount (as optional)<br />StaffEducationOrganizationEmploymentAssociation.HourlyWage (as optional)<br />StateEducationAgencyFederalFunds.FederalProgramsFundingAllocation (as optional)<br />TeacherCandidate.TuitionCost (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -19203,7 +19203,7 @@ LevelOfEducationTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Experimental.LevelType (as required)</div>
+                <div><br />Used By:<br />RubricLevelInformation.LevelType (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32804,7 +32804,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Experimental (required)<br />Rubric (identity)<br />RubricLevelCode (identity)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
+                <div><br />Contains:<br />Rubric (identity)<br />RubricLevelCode (identity)<br />RubricLevelInformation (required)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32828,7 +32828,7 @@ RubricTypeDescriptorId
             &lt;xs:documentation&gt;The identifying code for the question, unique for the rubric.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Experimental&quot; type=&quot;EXTENSION-Experimental&quot;&gt;
+        &lt;xs:element name=&quot;RubricLevelInformation&quot; type=&quot;EXTENSION-RubricLevelInformation&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -32863,7 +32863,7 @@ RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
-<br />extension.RubricLevelExperimental
+<br />extension.RubricLevelInformation
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
@@ -51750,7 +51750,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Experimental.LevelDescription (as optional)</div>
+                <div><br />Used By:<br />RubricLevelInformation.LevelDescription (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -51791,7 +51791,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Experimental.LevelTitle (as required)</div>
+                <div><br />Used By:<br />RubricLevelInformation.LevelTitle (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53219,7 +53219,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedScoreResult.AverageScoreResult (as required)<br />AssessmentPerformanceLevel.MaximumScore (as optional)<br />AssessmentPerformanceLevel.MinimumScore (as optional)<br />AssessmentScore.MaximumScore (as optional)<br />AssessmentScore.MinimumScore (as optional)<br />Experimental.MaximumScore (as optional)<br />Experimental.MinimumScore (as optional)<br />ScoreResult.Result (as required)</div>
+                <div><br />Used By:<br />AggregatedScoreResult.AverageScoreResult (as required)<br />AssessmentPerformanceLevel.MaximumScore (as optional)<br />AssessmentPerformanceLevel.MinimumScore (as optional)<br />AssessmentScore.MaximumScore (as optional)<br />AssessmentScore.MinimumScore (as optional)<br />RubricLevelInformation.MaximumScore (as optional)<br />RubricLevelInformation.MinimumScore (as optional)<br />ScoreResult.Result (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
