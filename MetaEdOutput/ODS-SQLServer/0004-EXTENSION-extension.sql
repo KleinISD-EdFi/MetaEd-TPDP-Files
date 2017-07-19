@@ -265,7 +265,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessment](
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
+    [TakenSchoolYear] [SMALLINT] NOT NULL,
     [TermDescriptorId] [INT] NULL,
     [AssessmentTitle] [NVARCHAR](60) NULL,
     [AssessmentCategoryDescriptorId] [INT] NULL,
@@ -288,7 +288,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessment](
         [AssessmentIdentifier] ASC,
         [FactsAsOfDate] ASC,
         [SchoolYear] ASC,
-        [SchoolYearTakenSchoolYear] ASC
+        [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -311,7 +311,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'TakenSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term in which the assessment was administered', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessment', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
 GO
@@ -349,7 +349,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel](
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
+    [TakenSchoolYear] [SMALLINT] NOT NULL,
     [PerformanceLevelMet] [BIT] NOT NULL,
     [PerformanceLevelDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -359,7 +359,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel](
         [AssessmentIdentifier] ASC,
         [FactsAsOfDate] ASC,
         [SchoolYear] ASC,
-        [SchoolYearTakenSchoolYear] ASC
+        [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -378,7 +378,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentPerformanceLevel', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentPerformanceLevel', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentPerformanceLevel', @level2type=N'COLUMN', @level2name=N'TakenSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Optional indicator of whether the performance level was met.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMet'
 GO
@@ -394,7 +394,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentScoreResult](
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
-    [SchoolYearTakenSchoolYear] [SMALLINT] NOT NULL,
+    [TakenSchoolYear] [SMALLINT] NOT NULL,
     [Result] [NVARCHAR](35) NOT NULL,
     [ResultDatatypeTypeId] [INT] NOT NULL,
     [AssessmentReportingMethodTypeId] [INT] NOT NULL,
@@ -405,7 +405,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentScoreResult](
         [AssessmentIdentifier] ASC,
         [FactsAsOfDate] ASC,
         [SchoolYear] ASC,
-        [SchoolYearTakenSchoolYear] ASC
+        [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -424,7 +424,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentScoreResult', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentScoreResult', @level2type=N'COLUMN', @level2name=N'SchoolYearTakenSchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentScoreResult', @level2type=N'COLUMN', @level2name=N'TakenSchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of a meaningful raw score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentAssessmentScoreResult', @level2type=N'COLUMN', @level2name=N'Result'
 GO
@@ -13851,14 +13851,14 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_GradeLevelDescriptor]
 ON [extension].[AnonymizedStudentAssessment]([GradeLevelDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_SchoolYearType] FOREIGN KEY ([SchoolYearTakenSchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_SchoolYearType] FOREIGN KEY ([TakenSchoolYear])
 REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_SchoolYearType]
-ON [extension].[AnonymizedStudentAssessment]([SchoolYearTakenSchoolYear] ASC)
+ON [extension].[AnonymizedStudentAssessment]([TakenSchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
@@ -13881,8 +13881,8 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_TermDescriptor]
 ON [extension].[AnonymizedStudentAssessment]([TermDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentPerformanceLevel_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [SchoolYearTakenSchoolYear])
-REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [SchoolYearTakenSchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentPerformanceLevel_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
+REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
 ON DELETE CASCADE
 
 GO
@@ -13899,8 +13899,8 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessmentPerformanceLevel_Perfor
 ON [extension].[AnonymizedStudentAssessmentPerformanceLevel]([PerformanceLevelDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessmentScoreResult] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentScoreResult_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [SchoolYearTakenSchoolYear])
-REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [SchoolYearTakenSchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessmentScoreResult] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentScoreResult_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
+REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
 ON DELETE CASCADE
 
 GO
