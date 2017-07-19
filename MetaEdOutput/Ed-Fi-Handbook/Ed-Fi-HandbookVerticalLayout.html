@@ -9305,7 +9305,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />MatrixElement (required)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Mom (as optional collection)</div>
+                <div><br />Contains:<br />MatrixElement (identity)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Mom (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -38654,14 +38654,15 @@ QuestionCode
 SurveyIdentifier
 <br />extension.SurveyQuestionMom
 
+MatrixElement [NVARCHAR](50) NOT NULL
 QuestionCode [NVARCHAR](20) NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
-MatrixElement [NVARCHAR](50) NOT NULL
 MinRawScore [INT] NULL
 MaxRawScore [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+MatrixElement
 QuestionCode
 SurveyIdentifier
 <br />extension.SurveyQuestionNumericChoice
@@ -52645,7 +52646,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Mom.MatrixElement (as required)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
+                <div><br />Used By:<br />Mom.MatrixElement (as identity)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

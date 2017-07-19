@@ -2,7 +2,7 @@ Common Mom
   documentation "Information about the matrix element in the survey"
   shared string MatrixElement
     documentation "For matrix questions, the text identifying each row of the matrix."
-    is required
+    is part of identity
   integer MinRawScore
     documentation "The minimum score possible on a survey."
     is optional
