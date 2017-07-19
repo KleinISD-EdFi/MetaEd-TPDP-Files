@@ -15,9 +15,6 @@ Domain Entity SurveyQuestion
     shared string TextChoice
         documentation "For radio buttons, checkboxes, dropdowns, matrix of drop downs - the list of choices."
         is optional collection
-    common Mom
-        documentation "(TPDP Extension) Information about the matrix element in the survey"
-        is optional collection
   	domain entity Survey
         documentation "Reference to the Survey."
         is part of identity
@@ -25,3 +22,7 @@ Domain Entity SurveyQuestion
         documentation "Reference to the Survey Section."
         is required
         merge SurveySection.Survey with Survey
+
+    common Matrix
+        documentation "(TPDP Extension) Information about the matrix element in the survey"
+        is optional collection
