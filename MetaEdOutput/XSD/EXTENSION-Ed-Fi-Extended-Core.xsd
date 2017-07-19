@@ -9458,7 +9458,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="MatrixElement" type="EXTENSION-MatrixElement" minOccurs="0">
+      <xs:element name="MatrixElement" type="EXTENSION-MatrixElement">
         <xs:annotation>
           <xs:documentation>For matrix questions, the text identifying each row of the matrix.</xs:documentation>
         </xs:annotation>

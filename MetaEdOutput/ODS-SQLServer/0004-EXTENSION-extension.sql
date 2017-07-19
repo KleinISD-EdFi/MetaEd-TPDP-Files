@@ -11094,7 +11094,7 @@ GO
 CREATE TABLE [extension].[SurveyQuestionMom](
     [QuestionCode] [NVARCHAR](20) NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
-    [MatrixElement] [NVARCHAR](50) NULL,
+    [MatrixElement] [NVARCHAR](50) NOT NULL,
     [MinRawScore] [INT] NULL,
     [MaxRawScore] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 

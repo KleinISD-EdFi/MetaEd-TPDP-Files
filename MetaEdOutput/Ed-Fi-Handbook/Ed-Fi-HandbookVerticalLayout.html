@@ -9305,7 +9305,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />MatrixElement (optional)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Mom (as optional collection)</div>
+                <div><br />Contains:<br />MatrixElement (required)<br />MaxRawScore (optional)<br />MinRawScore (optional)<br /><br />Used By:<br />SurveyQuestion.Mom (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9317,7 +9317,7 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;MatrixElement&quot; type=&quot;EXTENSION-MatrixElement&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;MatrixElement&quot; type=&quot;EXTENSION-MatrixElement&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;For matrix questions, the text identifying each row of the matrix.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -38656,7 +38656,7 @@ SurveyIdentifier
 
 QuestionCode [NVARCHAR](20) NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
-MatrixElement [NVARCHAR](50) NULL
+MatrixElement [NVARCHAR](50) NOT NULL
 MinRawScore [INT] NULL
 MaxRawScore [INT] NULL
 CreateDate [DATETIME] NOT NULL
@@ -52645,7 +52645,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Mom.MatrixElement (as optional)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
+                <div><br />Used By:<br />Mom.MatrixElement (as required)<br />SurveyQuestionMatrixElementResponse.MatrixElement (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
