@@ -5628,7 +5628,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />GradePointAverage (required)<br />GradePointNCount (optional)<br />GradePointStandardDeviation (optional)<br /><br />Used By:<br />CourseStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />GradePointAverage (required)<br />GradePointNCount (optional)<br />GradePointStandardDeviation (optional)<br /><br />Used By:<br />CourseStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedCumulativeGradePointAverage (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5640,6 +5640,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;GradePointAverage&quot; type=&quot;GPA&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The average cumulative grade point average for a group&lt;/xs:documentation&gt;
@@ -5675,7 +5685,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Disability (identity)<br />Percentage (optional)<br />TypeNumber (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisabilityByType (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedDisabilityByType (as optional collection)<br />SectionStudentFacts.AggregatedDisabilityByType (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Disability (identity)<br />Percentage (optional)<br />TypeNumber (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisabilityByType (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedDisabilityByType (as optional collection)<br />SectionStudentFacts.AggregatedDisabilityByType (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5687,6 +5697,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -5730,7 +5750,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />StudentsDisabledNumber (optional)<br />StudentsDisabledPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)<br />EducationOrganizationStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)<br />SectionStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />StudentsDisabledNumber (optional)<br />StudentsDisabledPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)<br />EducationOrganizationStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)<br />SectionStudentFacts.AggregatedDisabilityTotalStudentsDisabled (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5742,6 +5762,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -5777,7 +5807,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ELLEnrollmentNumber (optional)<br />ELLEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedELLEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedELLEnrollment (as optional)<br />SectionStudentFacts.AggregatedELLEnrollment (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />ELLEnrollmentNumber (optional)<br />ELLEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedELLEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedELLEnrollment (as optional)<br />SectionStudentFacts.AggregatedELLEnrollment (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5789,6 +5819,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -5824,7 +5864,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />ESLEnrollmentNumber (optional)<br />ESLEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedESLEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedESLEnrollment (as optional)<br />SectionStudentFacts.AggregatedESLEnrollment (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />ESLEnrollmentNumber (optional)<br />ESLEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedESLEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedESLEnrollment (as optional)<br />SectionStudentFacts.AggregatedESLEnrollment (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5836,6 +5876,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -5871,7 +5921,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FinalLetterGrade (identity)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />EducationOrganizationCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />FinalLetterGrade (identity)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />EducationOrganizationCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5883,6 +5933,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;FinalLetterGrade&quot; type=&quot;GradeEarned&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The final indicator of student performance in a class as submitted by the instructor.&lt;/xs:documentation&gt;
@@ -5918,7 +5978,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Gender (identity)<br />GenderTypeNumber (optional)<br />GenderTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedGender (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedGender (as optional collection)<br />SectionStudentFacts.AggregatedGender (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Gender (identity)<br />GenderTypeNumber (optional)<br />GenderTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedGender (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedGender (as optional collection)<br />SectionStudentFacts.AggregatedGender (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -5930,6 +5990,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -5962,7 +6032,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>Data about the ethnicity of the group</div>
+                <div>Data about the Eth ethnicity of the group</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -5970,18 +6040,28 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />HispanicLatinoEthnicity (identity)<br />HispanicLatinoEthnicityNumber (optional)<br />HispanicLatinoEthnicityPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)<br />SectionStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />HispanicLatinoEthnicity (identity)<br />HispanicLatinoEthnicityNumber (optional)<br />HispanicLatinoEthnicityPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)<br />SectionStudentFacts.AggregatedHispanicLatinoEthnicity (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:complexType name=&quot;EXTENSION-AggregatedHispanicLatinoEthnicity&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Data about the ethnicity of the group&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;Data about the Eth ethnicity of the group&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
       &lt;ann:TypeGroup&gt;Common&lt;/ann:TypeGroup&gt;
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6022,7 +6102,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Language (identity)<br />LanguageTypeNumber (optional)<br />LanguageTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedLanguage (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedLanguage (as optional collection)<br />SectionStudentFacts.AggregatedLanguage (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Language (identity)<br />LanguageTypeNumber (optional)<br />LanguageTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedLanguage (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedLanguage (as optional collection)<br />SectionStudentFacts.AggregatedLanguage (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6034,6 +6114,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6077,7 +6167,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageFinalNumericGradeEarned (required)<br />NumericGradeNCount (optional)<br />NumericGradeStandardDeviation (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />EducationOrganizationCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />SectionCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />AverageFinalNumericGradeEarned (required)<br />NumericGradeNCount (optional)<br />NumericGradeStandardDeviation (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />EducationOrganizationCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />SectionCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6089,6 +6179,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;AverageFinalNumericGradeEarned&quot; type=&quot;NumericGrade&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The average final numeric grade for the group&lt;/xs:documentation&gt;
@@ -6231,7 +6331,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Race (identity)<br />RaceTypeNumber (optional)<br />RaceTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedRace (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedRace (as optional collection)<br />SectionStudentFacts.AggregatedRace (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Race (identity)<br />RaceTypeNumber (optional)<br />RaceTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedRace (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedRace (as optional collection)<br />SectionStudentFacts.AggregatedRace (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6243,6 +6343,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6340,7 +6450,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />SchoolFoodServicesEligibility (identity)<br />TypeNumber (optional)<br />TypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />SectionStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />SchoolFoodServicesEligibility (identity)<br />TypeNumber (optional)<br />TypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)<br />SectionStudentFacts.AggregatedSchoolFoodServicesEligibility (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6352,6 +6462,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6452,7 +6572,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Number504Enrolled (optional)<br />Percentage504Enrolled (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSection504Enrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedSection504Enrollment (as optional)<br />SectionStudentFacts.AggregatedSection504Enrollment (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Number504Enrolled (optional)<br />Percentage504Enrolled (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSection504Enrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedSection504Enrollment (as optional)<br />SectionStudentFacts.AggregatedSection504Enrollment (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6464,6 +6584,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6499,7 +6629,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />GradePointAverage (required)<br />GradePointNCount (optional)<br />GradePointStandardDeviation (optional)<br /><br />Used By:<br />CourseStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />GradePointAverage (required)<br />GradePointNCount (optional)<br />GradePointStandardDeviation (optional)<br /><br />Used By:<br />CourseStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)<br />SectionStudentAcademicRecordFacts.AggregatedSessionGradePointAverage (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6511,6 +6641,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;GradePointAverage&quot; type=&quot;GPA&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The average cumulative grade point average for a group&lt;/xs:documentation&gt;
@@ -6546,7 +6686,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Sex (identity)<br />SexTypeNumber (optional)<br />SexTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSex (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedSex (as optional collection)<br />SectionStudentFacts.AggregatedSex (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />Sex (identity)<br />SexTypeNumber (optional)<br />SexTypePercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSex (as optional collection)<br />EducationOrganizationStudentFacts.AggregatedSex (as optional collection)<br />SectionStudentFacts.AggregatedSex (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6558,6 +6698,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6598,7 +6748,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />SPEDEnrollmentNumber (optional)<br />SPEDEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSPED (as optional)<br />EducationOrganizationStudentFacts.AggregatedSPED (as optional)<br />SectionStudentFacts.AggregatedSPED (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />SPEDEnrollmentNumber (optional)<br />SPEDEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedSPED (as optional)<br />EducationOrganizationStudentFacts.AggregatedSPED (as optional)<br />SectionStudentFacts.AggregatedSPED (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6610,6 +6760,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -6697,7 +6857,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />TitleIEnrollmentNumber (optional)<br />TitleIEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedTitleIEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedTitleIEnrollment (as optional)<br />SectionStudentFacts.AggregatedTitleIEnrollment (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />TitleIEnrollmentNumber (optional)<br />TitleIEnrollmentPercentage (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseStudentFacts.AggregatedTitleIEnrollment (as optional)<br />EducationOrganizationStudentFacts.AggregatedTitleIEnrollment (as optional)<br />SectionStudentFacts.AggregatedTitleIEnrollment (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6709,6 +6869,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -10254,7 +10424,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />NumberStudentsEnrolled (optional)<br />PercentAtRisk (optional)<br />PercentMobility (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.StudentsEnrolled (as optional)<br />CourseStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />CourseStudentAssessmentFacts.StudentsEnrolled (as optional)<br />CourseStudentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationCourseTranscriptFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAssessmentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentFacts.StudentsEnrolled (as optional)<br />SectionCourseTranscriptFacts.StudentsEnrolled (as optional)<br />SectionStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />SectionStudentAssessmentFacts.StudentsEnrolled (as optional)<br />SectionStudentFacts.StudentsEnrolled (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />NumberStudentsEnrolled (optional)<br />PercentAtRisk (optional)<br />PercentMobility (optional)<br />ValueType (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.StudentsEnrolled (as optional)<br />CourseStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />CourseStudentAssessmentFacts.StudentsEnrolled (as optional)<br />CourseStudentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationCourseTranscriptFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentAssessmentFacts.StudentsEnrolled (as optional)<br />EducationOrganizationStudentFacts.StudentsEnrolled (as optional)<br />SectionCourseTranscriptFacts.StudentsEnrolled (as optional)<br />SectionStudentAcademicRecordFacts.StudentsEnrolled (as optional)<br />SectionStudentAssessmentFacts.StudentsEnrolled (as optional)<br />SectionStudentFacts.StudentsEnrolled (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -10266,6 +10436,16 @@ StudentUSI
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:sequence&gt;
+    &lt;xs:element name=&quot;AggregatedSchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The school year for which the data is associated&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+      &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+    &lt;/xs:element&gt;
     &lt;xs:element name=&quot;ValueType&quot; type=&quot;EXTENSION-ValueType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The value of the data, i.e., is the data projected, actual or other&lt;/xs:documentation&gt;
@@ -11053,6 +11233,37 @@ StudentUSI
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>AdministrationEndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>AggregatedFactAsOfDate</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The date for which the data element is relevant</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />AggregatedCumulativeGradePointAverage.AggregatedFactAsOfDate (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;AggregatedFactAsOfDate&quot; type=&quot;xs:date&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The date for which the data element is relevant&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>AggregatedFactAsOfDate [DATE]</pre></div>
             </div>
         </p>
         <p>
@@ -24389,6 +24600,8 @@ SchoolYear
 TermDescriptorId
 <br />extension.CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -24401,6 +24614,8 @@ LetterGradeTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
@@ -24416,6 +24631,8 @@ FactAsOfDate [DATE] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 AverageFinalNumericGradeEarned [DECIMAL](9, 2) NOT NULL
 NumericGradeNCount [INT] NULL
 NumericGradeStandardDeviation [INT] NULL
@@ -24436,6 +24653,8 @@ FactAsOfDate [DATE] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -24666,6 +24885,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -24684,6 +24905,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -24702,6 +24925,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -24890,6 +25115,8 @@ CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -25036,6 +25263,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.CourseStudentFactsAggregatedDisabilityByType
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 DisabilityDescriptorId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
@@ -25046,6 +25275,8 @@ Percentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 DisabilityDescriptorId
 EducationOrganizationId
@@ -25055,6 +25286,8 @@ FactAsOfDate
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 StudentsDisabledNumber [INT] NULL
 StudentsDisabledPercentage [DECIMAL](5, 4) NULL
@@ -25069,6 +25302,8 @@ FactAsOfDate
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ELLEnrollmentNumber [INT] NULL
 ELLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -25083,6 +25318,8 @@ FactAsOfDate
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ESLEnrollmentNumber [INT] NULL
 ESLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -25094,6 +25331,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.CourseStudentFactsAggregatedGender
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25104,12 +25343,16 @@ GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
 GenderTypeId
 <br />extension.CourseStudentFactsAggregatedHispanicLatinoEthnicity
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25120,12 +25363,16 @@ HispanicLatinoEthnicityPercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
 HispanicLatinoEthnicity
 <br />extension.CourseStudentFactsAggregatedLanguage
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25136,12 +25383,16 @@ LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
 LanguageDescriptorId
 <br />extension.CourseStudentFactsAggregatedRace
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25152,12 +25403,16 @@ RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
 RaceTypeId
 <br />extension.CourseStudentFactsAggregatedSchoolFoodServicesEligibility
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25168,6 +25423,8 @@ TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
@@ -25177,6 +25434,8 @@ SchoolFoodServicesEligibilityDescriptorId
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 Number504Enrolled [INT] NULL
 Percentage504Enrolled [DECIMAL](5, 4) NULL
@@ -25188,6 +25447,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.CourseStudentFactsAggregatedSex
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -25198,6 +25459,8 @@ SexTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 CourseCode
 EducationOrganizationId
 FactAsOfDate
@@ -25207,6 +25470,8 @@ SexTypeId
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 SPEDEnrollmentNumber [INT] NULL
 SPEDEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -25221,6 +25486,8 @@ FactAsOfDate
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 TitleIEnrollmentNumber [INT] NULL
 TitleIEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -25235,6 +25502,8 @@ FactAsOfDate
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -26693,6 +26962,8 @@ SchoolYear
 TermDescriptorId
 <br />extension.EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
@@ -26704,6 +26975,8 @@ LetterGradeTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 FactsAsOfDate
@@ -26717,6 +26990,8 @@ FactAsOfDate [DATE] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 AverageFinalNumericGradeEarned [DECIMAL](9, 2) NOT NULL
 NumericGradeNCount [INT] NULL
 NumericGradeStandardDeviation [INT] NULL
@@ -26735,6 +27010,8 @@ FactAsOfDate [DATE] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -27020,6 +27297,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -27036,6 +27315,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -27052,6 +27333,8 @@ EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -27232,6 +27515,8 @@ SchoolYearTakenSchoolYear
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -27375,6 +27660,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.EducationOrganizationStudentFactsAggregatedDisabilityByType
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 DisabilityDescriptorId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -27384,6 +27671,8 @@ Percentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 DisabilityDescriptorId
 EducationOrganizationId
 FactAsOfDate
@@ -27391,6 +27680,8 @@ FactAsOfDate
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 StudentsDisabledNumber [INT] NULL
 StudentsDisabledPercentage [DECIMAL](5, 4) NULL
@@ -27403,6 +27694,8 @@ FactAsOfDate
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ELLEnrollmentNumber [INT] NULL
 ELLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -27415,6 +27708,8 @@ FactAsOfDate
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ESLEnrollmentNumber [INT] NULL
 ESLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -27425,6 +27720,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.EducationOrganizationStudentFactsAggregatedGender
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 GenderTypeId [INT] NOT NULL
@@ -27434,11 +27731,15 @@ GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 GenderTypeId
 <br />extension.EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 HispanicLatinoEthnicity [BIT] NOT NULL
@@ -27448,11 +27749,15 @@ HispanicLatinoEthnicityPercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 HispanicLatinoEthnicity
 <br />extension.EducationOrganizationStudentFactsAggregatedLanguage
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 LanguageDescriptorId [INT] NOT NULL
@@ -27462,11 +27767,15 @@ LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 LanguageDescriptorId
 <br />extension.EducationOrganizationStudentFactsAggregatedRace
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 RaceTypeId [INT] NOT NULL
@@ -27476,11 +27785,15 @@ RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 RaceTypeId
 <br />extension.EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SchoolFoodServicesEligibilityDescriptorId [INT] NOT NULL
@@ -27490,6 +27803,8 @@ TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 SchoolFoodServicesEligibilityDescriptorId
@@ -27497,6 +27812,8 @@ SchoolFoodServicesEligibilityDescriptorId
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 Number504Enrolled [INT] NULL
 Percentage504Enrolled [DECIMAL](5, 4) NULL
@@ -27507,6 +27824,8 @@ EducationOrganizationId
 FactAsOfDate
 <br />extension.EducationOrganizationStudentFactsAggregatedSex
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 SexTypeId [INT] NOT NULL
@@ -27516,6 +27835,8 @@ SexTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 EducationOrganizationId
 FactAsOfDate
 SexTypeId
@@ -27523,6 +27844,8 @@ SexTypeId
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 SPEDEnrollmentNumber [INT] NULL
 SPEDEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -27535,6 +27858,8 @@ FactAsOfDate
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 TitleIEnrollmentNumber [INT] NULL
 TitleIEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -27547,6 +27872,8 @@ FactAsOfDate
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -33149,6 +33476,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -33165,6 +33494,8 @@ LetterGradeTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -33188,6 +33519,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 AverageFinalNumericGradeEarned [DECIMAL](9, 2) NOT NULL
 NumericGradeNCount [INT] NULL
 NumericGradeStandardDeviation [INT] NULL
@@ -33216,6 +33549,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -33340,6 +33675,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -33366,6 +33703,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 GradePointAverage [DECIMAL](18, 4) NOT NULL
 GradePointNCount [INT] NULL
 GradePointStandardDeviation [INT] NULL
@@ -33392,6 +33731,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -33617,6 +33958,8 @@ SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -33781,6 +34124,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedDisabilityByType
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 DisabilityDescriptorId [INT] NOT NULL
@@ -33797,6 +34142,8 @@ Percentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 DisabilityDescriptorId
@@ -33818,6 +34165,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 StudentsDisabledNumber [INT] NULL
 StudentsDisabledPercentage [DECIMAL](5, 4) NULL
@@ -33844,6 +34193,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ELLEnrollmentNumber [INT] NULL
 ELLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -33870,6 +34221,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 ESLEnrollmentNumber [INT] NULL
 ESLEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -33887,6 +34240,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedGender
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -33903,6 +34258,8 @@ GenderTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -33915,6 +34272,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedHispanicLatinoEthnicity
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -33931,6 +34290,8 @@ HispanicLatinoEthnicityPercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -33943,6 +34304,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedLanguage
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -33959,6 +34322,8 @@ LanguageTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -33971,6 +34336,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedRace
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -33987,6 +34354,8 @@ RaceTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -33999,6 +34368,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedSchoolFoodServicesEligibility
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -34015,6 +34386,8 @@ TypePercentage [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -34036,6 +34409,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 Number504Enrolled [INT] NULL
 Percentage504Enrolled [DECIMAL](5, 4) NULL
@@ -34053,6 +34428,8 @@ TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentFactsAggregatedSex
 
+AggregatedFactAsOfDate [DATE] NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
 ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactAsOfDate [DATE] NOT NULL
@@ -34069,6 +34446,8 @@ SexTypePercentage [DECIMAL](5, 4) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AggregatedFactAsOfDate
+AggregatedSchoolYear
 ClassPeriodName
 ClassroomIdentificationCode
 FactAsOfDate
@@ -34090,6 +34469,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 SPEDEnrollmentNumber [INT] NULL
 SPEDEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -34116,6 +34497,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 TitleIEnrollmentNumber [INT] NULL
 TitleIEnrollmentPercentage [DECIMAL](5, 4) NULL
@@ -34142,6 +34525,8 @@ SchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
+AggregatedSchoolYear [SMALLINT] NOT NULL
+AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
 NumberStudentsEnrolled [INT] NULL
 PercentAtRisk [DECIMAL](5, 4) NULL
@@ -44749,7 +45134,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />AggregatedCumulativeGradePointAverage.AggregatedSchoolYear (as identity)<br />AggregatedDisabilityByType.AggregatedSchoolYear (as identity)<br />AggregatedDisabilityTotalStudentsDisabled.AggregatedSchoolYear (as identity)<br />AggregatedELLEnrollment.AggregatedSchoolYear (as identity)<br />AggregatedESLEnrollment.AggregatedSchoolYear (as identity)<br />AggregatedFinalLetterGradeEarned.AggregatedSchoolYear (as identity)<br />AggregatedGender.AggregatedSchoolYear (as identity)<br />AggregatedHispanicLatinoEthnicity.AggregatedSchoolYear (as identity)<br />AggregatedLanguage.AggregatedSchoolYear (as identity)<br />AggregatedNumericGradeEarned.AggregatedSchoolYear (as identity)<br />AggregatedRace.AggregatedSchoolYear (as identity)<br />AggregatedSchoolFoodServicesEligibility.AggregatedSchoolYear (as identity)<br />AggregatedSection504Enrollment.AggregatedSchoolYear (as identity)<br />AggregatedSessionGradePointAverage.AggregatedSchoolYear (as identity)<br />AggregatedSex.AggregatedSchoolYear (as identity)<br />AggregatedSPED.AggregatedSchoolYear (as identity)<br />AggregatedTitleIEnrollment.AggregatedSchoolYear (as identity)<br />StudentsEnrolled.AggregatedSchoolYear (as identity)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

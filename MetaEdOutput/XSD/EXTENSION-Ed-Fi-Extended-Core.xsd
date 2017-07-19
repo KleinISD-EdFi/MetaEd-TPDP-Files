@@ -7989,6 +7989,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="GradePointAverage" type="GPA">
         <xs:annotation>
           <xs:documentation>The average cumulative grade point average for a group</xs:documentation>
@@ -8014,6 +8024,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8047,6 +8067,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8072,6 +8102,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8097,6 +8137,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8122,6 +8172,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="FinalLetterGrade" type="GradeEarned">
         <xs:annotation>
           <xs:documentation>The final indicator of student performance in a class as submitted by the instructor.</xs:documentation>
@@ -8147,6 +8207,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8171,12 +8241,22 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedHispanicLatinoEthnicity">
     <xs:annotation>
-      <xs:documentation>Data about the ethnicity of the group</xs:documentation>
+      <xs:documentation>Data about the Eth ethnicity of the group</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8207,6 +8287,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8240,6 +8330,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="AverageFinalNumericGradeEarned" type="NumericGrade">
         <xs:annotation>
           <xs:documentation>The average final numeric grade for the group</xs:documentation>
@@ -8328,6 +8428,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8393,6 +8503,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8461,6 +8581,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8486,6 +8616,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="GradePointAverage" type="GPA">
         <xs:annotation>
           <xs:documentation>The average cumulative grade point average for a group</xs:documentation>
@@ -8511,6 +8651,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8541,6 +8691,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -8596,6 +8756,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
@@ -9276,6 +9446,16 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ValueType" type="EXTENSION-ValueType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The value of the data, i.e., is the data projected, actual or other</xs:documentation>
