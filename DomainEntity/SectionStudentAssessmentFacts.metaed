@@ -7,7 +7,6 @@ Domain Entity SectionStudentAssessmentFacts
     documentation "The school year the assessment was taken"
     is part of identity
     with context Taken
-    shorten to SchoolYearTaken
   date FactAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity

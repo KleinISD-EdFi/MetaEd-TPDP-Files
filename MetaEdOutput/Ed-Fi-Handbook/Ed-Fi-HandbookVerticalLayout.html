@@ -25056,7 +25056,7 @@ TermDescriptorId
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AssessmentTitle [NVARCHAR](60) NULL
 AssessmentCategoryDescriptorId [INT] NULL
 AcademicSubjectDescriptorId [INT] NULL
@@ -25071,14 +25071,14 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.CourseStudentAssessmentFactsAggregatedPerformanceLevel
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 PerformanceLevelDescriptorId [INT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 PerformanceLevelMetNumber [INT] NULL
 PerformanceLevelMetPercentage [DECIMAL](5, 4) NULL
 PerformanceLevelTypeNumber [INT] NULL
@@ -25090,15 +25090,15 @@ CourseCode
 EducationOrganizationId
 FactAsOfDate
 PerformanceLevelDescriptorId
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.CourseStudentAssessmentFactsAggregatedScoreResult
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AssessmentReportingMethodTypeId [INT] NOT NULL
-AverageScoreResultDataTypeResultDatatypeTypeId [INT] NOT NULL
+AverageScoreResultDatatypeTypeId [INT] NOT NULL
 AverageScoreResult [NVARCHAR](35) NOT NULL
 ScoreNCount [INT] NULL
 ScoreStandardDeviation [INT] NULL
@@ -25108,13 +25108,13 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.CourseStudentAssessmentFactsStudentsEnrolled
 
 CourseCode [NVARCHAR](60) NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AggregatedSchoolYear [SMALLINT] NOT NULL
 AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
@@ -25127,7 +25127,7 @@ Primary Keys:
 CourseCode
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 </pre></div>
             </div>
         </p>
@@ -27462,7 +27462,7 @@ TermDescriptorId
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AssessmentTitle [NVARCHAR](60) NULL
 AssessmentCategoryDescriptorId [INT] NULL
 AcademicSubjectDescriptorId [INT] NULL
@@ -27476,13 +27476,13 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
 PerformanceLevelDescriptorId [INT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 PerformanceLevelMetNumber [INT] NULL
 PerformanceLevelMetPercentage [DECIMAL](5, 4) NULL
 PerformanceLevelTypeNumber [INT] NULL
@@ -27493,14 +27493,14 @@ Primary Keys:
 EducationOrganizationId
 FactAsOfDate
 PerformanceLevelDescriptorId
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.EducationOrganizationStudentAssessmentFactsAggregatedScoreResult
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AssessmentReportingMethodTypeId [INT] NOT NULL
-AverageScoreResultDataTypeResultDatatypeTypeId [INT] NOT NULL
+AverageScoreResultDatatypeTypeId [INT] NOT NULL
 AverageScoreResult [NVARCHAR](35) NOT NULL
 ScoreNCount [INT] NULL
 ScoreStandardDeviation [INT] NULL
@@ -27509,12 +27509,12 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 <br />extension.EducationOrganizationStudentAssessmentFactsStudentsEnrolled
 
 EducationOrganizationId [INT] NOT NULL
 FactAsOfDate [DATE] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 AggregatedSchoolYear [SMALLINT] NOT NULL
 AggregatedFactAsOfDate [DATE] NOT NULL
 ValueTypeId [INT] NULL
@@ -27526,7 +27526,7 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 EducationOrganizationId
 FactAsOfDate
-SchoolYearTakenSchoolYear
+TakenSchoolYear
 </pre></div>
             </div>
         </p>
@@ -33861,8 +33861,8 @@ FactAsOfDate [DATE] NOT NULL
 LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 AssessmentTitle [NVARCHAR](60) NULL
@@ -33881,8 +33881,8 @@ FactAsOfDate
 LocalCourseCode
 SchoolId
 SchoolYear
-SchoolYearTakenSchoolYear
 SequenceOfCourse
+TakenSchoolYear
 TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentAssessmentFactsAggregatedPerformanceLevel
@@ -33894,8 +33894,8 @@ LocalCourseCode [NVARCHAR](60) NOT NULL
 PerformanceLevelDescriptorId [INT] NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 PerformanceLevelMetNumber [INT] NULL
@@ -33912,8 +33912,8 @@ LocalCourseCode
 PerformanceLevelDescriptorId
 SchoolId
 SchoolYear
-SchoolYearTakenSchoolYear
 SequenceOfCourse
+TakenSchoolYear
 TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentAssessmentFactsAggregatedScoreResult
@@ -33924,12 +33924,12 @@ FactAsOfDate [DATE] NOT NULL
 LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 AssessmentReportingMethodTypeId [INT] NOT NULL
-AverageScoreResultDataTypeResultDatatypeTypeId [INT] NOT NULL
+AverageScoreResultDatatypeTypeId [INT] NOT NULL
 AverageScoreResult [NVARCHAR](35) NOT NULL
 ScoreNCount [INT] NULL
 ScoreStandardDeviation [INT] NULL
@@ -33942,8 +33942,8 @@ FactAsOfDate
 LocalCourseCode
 SchoolId
 SchoolYear
-SchoolYearTakenSchoolYear
 SequenceOfCourse
+TakenSchoolYear
 TermDescriptorId
 UniqueSectionCode
 <br />extension.SectionStudentAssessmentFactsStudentsEnrolled
@@ -33954,8 +33954,8 @@ FactAsOfDate [DATE] NOT NULL
 LocalCourseCode [NVARCHAR](60) NOT NULL
 SchoolId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
-SchoolYearTakenSchoolYear [SMALLINT] NOT NULL
 SequenceOfCourse [INT] NOT NULL
+TakenSchoolYear [SMALLINT] NOT NULL
 TermDescriptorId [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NOT NULL
 AggregatedSchoolYear [SMALLINT] NOT NULL
@@ -33973,8 +33973,8 @@ FactAsOfDate
 LocalCourseCode
 SchoolId
 SchoolYear
-SchoolYearTakenSchoolYear
 SequenceOfCourse
+TakenSchoolYear
 TermDescriptorId
 UniqueSectionCode
 </pre></div>

@@ -14,4 +14,3 @@ Common RecommendingInstitution
     documentation "The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a recommendation was issued."
     is optional
     with context RecommendingInstitution
-    shorten to RecommendingInstitutionState
