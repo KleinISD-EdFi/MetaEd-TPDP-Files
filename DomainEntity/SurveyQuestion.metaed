@@ -23,6 +23,6 @@ Domain Entity SurveyQuestion
         is required
         merge SurveySection.Survey with Survey
 
-    common Matrix
+    common Matrixx
         documentation "(TPDP Extension) Information about the matrix element in the survey"
         is optional collection

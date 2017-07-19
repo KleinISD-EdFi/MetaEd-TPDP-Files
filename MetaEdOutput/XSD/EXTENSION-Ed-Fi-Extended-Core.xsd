@@ -3114,7 +3114,7 @@
               <xs:documentation>Reference to the Survey Section.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Matrix" type="EXTENSION-Matrix" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Matrixx" type="EXTENSION-Matrixx" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>(TPDP Extension) Information about the matrix element in the survey</xs:documentation>
             </xs:annotation>
@@ -9450,7 +9450,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-Matrix">
+  <xs:complexType name="EXTENSION-Matrixx">
     <xs:annotation>
       <xs:documentation>Information about the matrix element in the survey</xs:documentation>
       <xs:appinfo>

@@ -11089,35 +11089,35 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or l
 GO
 
 
-/****** Table: [extension].[SurveyQuestionMatrix] ******/
+/****** Table: [extension].[SurveyQuestionMatrixx] ******/
 
-CREATE TABLE [extension].[SurveyQuestionMatrix](
+CREATE TABLE [extension].[SurveyQuestionMatrixx](
     [QuestionCode] [NVARCHAR](20) NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [MatrixElement] [NVARCHAR](50) NULL,
     [MinRawScore] [INT] NULL,
     [MaxRawScore] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [SurveyQuestionMatrix_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [SurveyQuestionMatrixx_PK] PRIMARY KEY CLUSTERED (
         [QuestionCode] ASC,
         [SurveyIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[SurveyQuestionMatrix] ADD CONSTRAINT [SurveyQuestionMatrix_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[SurveyQuestionMatrixx] ADD CONSTRAINT [SurveyQuestionMatrixx_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Information about the matrix element in the survey', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SurveyQuestionMatrix'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Information about the matrix element in the survey', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SurveyQuestionMatrixx'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'QuestionCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrixx', @level2type=N'COLUMN', @level2name=N'QuestionCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrixx', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'MatrixElement'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrixx', @level2type=N'COLUMN', @level2name=N'MatrixElement'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum score possible on a survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'MinRawScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum score possible on a survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrixx', @level2type=N'COLUMN', @level2name=N'MinRawScore'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum score possible on a survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'MaxRawScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum score possible on a survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrixx', @level2type=N'COLUMN', @level2name=N'MaxRawScore'
 GO
 
 
@@ -19526,7 +19526,7 @@ CREATE NONCLUSTERED INDEX [FK_SurveyQuestion_SurveySection]
 ON [extension].[SurveyQuestion]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
 GO
 
-ALTER TABLE [extension].[SurveyQuestionMatrix] WITH CHECK ADD CONSTRAINT [FK_SurveyQuestionMatrix_SurveyQuestion] FOREIGN KEY ([QuestionCode], [SurveyIdentifier])
+ALTER TABLE [extension].[SurveyQuestionMatrixx] WITH CHECK ADD CONSTRAINT [FK_SurveyQuestionMatrixx_SurveyQuestion] FOREIGN KEY ([QuestionCode], [SurveyIdentifier])
 REFERENCES [extension].[SurveyQuestion] ([QuestionCode], [SurveyIdentifier])
 ON DELETE CASCADE
 
