@@ -26710,7 +26710,7 @@ LanguageDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.EducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
+                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.RubricEducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -31351,12 +31351,13 @@ StaffUSI
 
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
-EducationOrganizationId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AcademicSubjectDescriptorId [INT] NULL
 CourseCode [NVARCHAR](60) NULL
+EducationOrganizationId [INT] NULL
 ScheduleDateOfPerformanceMeasure [DATE] NULL
 ActualDateOfPerformanceMeasure [DATE] NOT NULL
 TimeOfPerformanceMeasure [TIME](7) NULL
@@ -31507,8 +31508,8 @@ PerformanceMeasureIdentifier
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.PerformanceMeasureFacts
 
-EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
@@ -31519,25 +31520,25 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 FactsAsOfDate
+RubricEducationOrganizationId
 RubricTitle
 RubricTypeDescriptorId
 SchoolYear
 <br />extension.PerformanceMeasureFactsGradeLevel
 
-EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 GradeLevelDescriptorId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 FactsAsOfDate
 GradeLevelDescriptorId
+RubricEducationOrganizationId
 RubricTitle
 RubricTypeDescriptorId
 SchoolYear
@@ -32720,7 +32721,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />EducationOrganization (identity)<br />InterRaterReliabilityScore (optional)<br />RubricDescription (optional)<br />RubricTitle (identity)<br />RubricType (identity)<br /><br />Used By:<br />PerformanceMeasure.Rubric (as required)<br />PerformanceMeasureFacts.Rubric (as identity)<br />RubricLevel.Rubric (as identity)</div>
+                <div><br />Contains:<br />InterRaterReliabilityScore (optional)<br />RubricDescription (optional)<br />RubricEducationOrganization (identity)<br />RubricTitle (identity)<br />RubricType (identity)<br /><br />Used By:<br />PerformanceMeasure.Rubric (as required)<br />PerformanceMeasureFacts.Rubric (as identity)<br />RubricLevel.Rubric (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -32734,7 +32735,7 @@ StudentUSI
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;RubricEducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The education organization, typically a LocalEducationAgency, associated with the prospect.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -32771,7 +32772,7 @@ StudentUSI
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.Rubric
 
-EducationOrganizationId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 RubricDescription [NVARCHAR](255) NULL
@@ -32781,7 +32782,7 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+RubricEducationOrganizationId
 RubricTitle
 RubricTypeDescriptorId
 </pre></div>
@@ -32849,7 +32850,7 @@ RubricTypeDescriptorId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.RubricLevel
 
-EducationOrganizationId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -32858,13 +32859,13 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
 <br />extension.RubricLevelExperimental
 
-EducationOrganizationId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -32876,13 +32877,13 @@ MaximumScore [NVARCHAR](35) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
 <br />extension.RubricLevelThemeType
 
-EducationOrganizationId [INT] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -32890,7 +32891,7 @@ ThemeTypeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
@@ -32967,8 +32968,8 @@ ThemeTypeDescriptorId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.RubricLevelResponse
 
-EducationOrganizationId [INT] NOT NULL
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -32981,8 +32982,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 PerformanceMeasureIdentifier
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
@@ -33043,8 +33044,8 @@ RubricTypeDescriptorId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.RubricLevelResponseFacts
 
-EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -33054,16 +33055,16 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 FactsAsOfDate
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
 SchoolYear
 <br />extension.RubricLevelResponseFactsAggregatedNumericResponse
 
-EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
+RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
@@ -33074,8 +33075,8 @@ NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 FactsAsOfDate
+RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
@@ -35493,7 +35494,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkIdentifier (identity)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />School (identity)<br />Section (optional)<br />Staff (identity)<br /></div>
+                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />Staff (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35517,7 +35518,7 @@ StaffUSI
             &lt;xs:documentation&gt;The staff the field work experience is associated with&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SchoolReference&quot; type=&quot;SchoolReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;FieldworkExperienceSchoolReference&quot; type=&quot;SchoolReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The school the field work experience is associated with&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -35573,14 +35574,15 @@ StaffUSI
                 <div><pre>extension.StaffFieldworkExperience
 
 BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
-SchoolId [INT] NOT NULL
 StaffUSI [INT] NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
 LocalCourseCode [NVARCHAR](60) NULL
 SchoolYear [SMALLINT] NULL
 TermDescriptorId [INT] NULL
+SchoolId [INT] NULL
 ClassroomIdentificationCode [NVARCHAR](20) NULL
 ClassPeriodName [NVARCHAR](20) NULL
 FieldworkTypeDescriptorId [INT] NOT NULL
@@ -35593,14 +35595,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 BeginDate
+FieldworkExperienceSchoolId
 FieldworkIdentifier
-SchoolId
 StaffUSI
 <br />extension.StaffFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
-SchoolId [INT] NOT NULL
 StaffUSI [INT] NOT NULL
 CoteachingBeginDate [DATE] NOT NULL
 CoteachingEndDate [DATE] NULL
@@ -35608,8 +35610,8 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
+FieldworkExperienceSchoolId
 FieldworkIdentifier
-SchoolId
 StaffUSI
 </pre></div>
             </div>
@@ -39393,7 +39395,7 @@ TeacherCandidateIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkIdentifier (identity)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />School (identity)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />BeginDate (identity)<br />Coteaching (optional)<br />EndDate (optional)<br />FieldworkExperienceSchool (identity)<br />FieldworkIdentifier (identity)<br />FieldworkType (required)<br />HoursPerWeek (optional)<br />ProgramGateway (optional)<br />Section (optional)<br />TeacherCandidate (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -39417,7 +39419,7 @@ TeacherCandidateIdentifier
             &lt;xs:documentation&gt;The teacher candidate associated with the fieldwork experience.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SchoolReference&quot; type=&quot;SchoolReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;FieldworkExperienceSchoolReference&quot; type=&quot;SchoolReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The school the teacher candidate is assigned to.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -39473,14 +39475,15 @@ TeacherCandidateIdentifier
                 <div><pre>extension.TeacherCandidateFieldworkExperience
 
 BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
-SchoolId [INT] NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 UniqueSectionCode [NVARCHAR](255) NULL
 SequenceOfCourse [INT] NULL
 LocalCourseCode [NVARCHAR](60) NULL
 SchoolYear [SMALLINT] NULL
 TermDescriptorId [INT] NULL
+SchoolId [INT] NULL
 ClassroomIdentificationCode [NVARCHAR](20) NULL
 ClassPeriodName [NVARCHAR](20) NULL
 FieldworkTypeDescriptorId [INT] NOT NULL
@@ -39493,14 +39496,14 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 BeginDate
+FieldworkExperienceSchoolId
 FieldworkIdentifier
-SchoolId
 TeacherCandidateIdentifier
 <br />extension.TeacherCandidateFieldworkExperienceCoteaching
 
 BeginDate [DATE] NOT NULL
+FieldworkExperienceSchoolId [INT] NOT NULL
 FieldworkIdentifier [NVARCHAR](20) NOT NULL
-SchoolId [INT] NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
 CoteachingBeginDate [DATE] NOT NULL
 CoteachingEndDate [DATE] NULL
@@ -39508,8 +39511,8 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 BeginDate
+FieldworkExperienceSchoolId
 FieldworkIdentifier
-SchoolId
 TeacherCandidateIdentifier
 </pre></div>
             </div>
@@ -40033,7 +40036,7 @@ LocalEducationAgencyId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AdministrativeFundingControl (optional)<br />CharterApprovalAgencyType (optional)<br />CharterApprovalSchoolYear (optional)<br />CharterStatus (optional)<br />GradeLevel (required collection)<br />InternetAccess (optional)<br />LocalEducationAgency (optional)<br />MagnetSpecialProgramEmphasisSchool (optional)<br />SchoolCategory (optional collection)<br />SchoolId (identity)<br />SchoolType (optional)<br />TitleIPartASchoolDesignation (optional)<br /><br />Used By:<br />FeederSchoolAssociation.FeederSchool (as identity)<br />FeederSchoolAssociation.School (as identity)<br />StaffSchoolAssociation.School (as identity)<br />StudentSchoolAssociation.School (as identity)<br />FieldworkExperience.School (as optional)<br />ProfessionalDevelopmentAttendanceEvent.School (as optional)<br />AcademicWeek.School (as identity)<br />BellSchedule.School (as identity)<br />CalendarDate.School (as identity)<br />ClassPeriod.School (as identity)<br />CourseOffering.School (as identity)<br />CourseTranscript.School (as optional)<br />DisciplineAction.ResponsibilitySchool (as required)<br />DisciplineAction.AssignmentSchool (as optional)<br />DisciplineIncident.School (as identity)<br />GradingPeriod.School (as identity)<br />Location.School (as identity)<br />RestraintEvent.School (as identity)<br />Section.School (as required)<br />Session.School (as identity)<br />StudentSchoolAttendanceEvent.School (as identity)<br />StaffFieldworkExperience.School (as identity)<br />TeacherCandidateCourseTranscript.School (as optional)<br />TeacherCandidateFieldworkExperience.School (as identity)</div>
+                <div><br />Contains:<br />AdministrativeFundingControl (optional)<br />CharterApprovalAgencyType (optional)<br />CharterApprovalSchoolYear (optional)<br />CharterStatus (optional)<br />GradeLevel (required collection)<br />InternetAccess (optional)<br />LocalEducationAgency (optional)<br />MagnetSpecialProgramEmphasisSchool (optional)<br />SchoolCategory (optional collection)<br />SchoolId (identity)<br />SchoolType (optional)<br />TitleIPartASchoolDesignation (optional)<br /><br />Used By:<br />FeederSchoolAssociation.FeederSchool (as identity)<br />FeederSchoolAssociation.School (as identity)<br />StaffSchoolAssociation.School (as identity)<br />StudentSchoolAssociation.School (as identity)<br />FieldworkExperience.School (as optional)<br />ProfessionalDevelopmentAttendanceEvent.School (as optional)<br />AcademicWeek.School (as identity)<br />BellSchedule.School (as identity)<br />CalendarDate.School (as identity)<br />ClassPeriod.School (as identity)<br />CourseOffering.School (as identity)<br />CourseTranscript.School (as optional)<br />DisciplineAction.ResponsibilitySchool (as required)<br />DisciplineAction.AssignmentSchool (as optional)<br />DisciplineIncident.School (as identity)<br />GradingPeriod.School (as identity)<br />Location.School (as identity)<br />RestraintEvent.School (as identity)<br />Section.School (as required)<br />Session.School (as identity)<br />StudentSchoolAttendanceEvent.School (as identity)<br />StaffFieldworkExperience.FieldworkExperienceSchool (as identity)<br />TeacherCandidateCourseTranscript.School (as optional)<br />TeacherCandidateFieldworkExperience.FieldworkExperienceSchool (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

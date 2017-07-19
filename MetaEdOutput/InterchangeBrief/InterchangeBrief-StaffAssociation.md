@@ -60,8 +60,8 @@ This interchange includes the following Extended References.
 | EducationOrganizationReference (in OpenStaffPosition) | Required.  The EducationOrganization with the OpenStaffPosition. |
 | EducationOrganizationReference (in StaffEducationOrganizationAssignmentAssociation) | Required.  The EducationalOrganization to which the Staff member provides services. |
 | EducationOrganizationReference (in StaffEducationOrganizationEmploymentAssociation) | Required.  The EducationOrganization with which the staff is employed. |
+| FieldworkExperienceSchoolReference (in StaffFieldworkExperience) | Required.  The school the field work experience is associated with |
 | ProgramReference (in StaffProgramAssociation) | Required.  The Program associated to the Staff. |
-| SchoolReference (in StaffFieldworkExperience) | Required.  The school the field work experience is associated with |
 | SchoolReference (in StaffSchoolAssociation) | Required.  The School where the Staff member provides services. |
 | SectionReference (in StaffFieldworkExperience) | Optional.  The section the field work experience is associated with |
 | SectionReference (in StaffSectionAssociation) | Required.  The Section the Staff member is assigned to. |

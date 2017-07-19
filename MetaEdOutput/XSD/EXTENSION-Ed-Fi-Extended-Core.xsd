@@ -2162,7 +2162,7 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+          <xs:element name="RubricEducationOrganizationReference" type="EducationOrganizationReferenceType">
             <xs:annotation>
               <xs:documentation>The education organization, typically a LocalEducationAgency, associated with the prospect.</xs:documentation>
             </xs:annotation>
@@ -2817,7 +2817,7 @@
               <xs:documentation>The staff the field work experience is associated with</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="SchoolReference" type="SchoolReferenceType">
+          <xs:element name="FieldworkExperienceSchoolReference" type="SchoolReferenceType">
             <xs:annotation>
               <xs:documentation>The school the field work experience is associated with</xs:documentation>
             </xs:annotation>
@@ -3814,7 +3814,7 @@
               <xs:documentation>The teacher candidate associated with the fieldwork experience.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="SchoolReference" type="SchoolReferenceType">
+          <xs:element name="FieldworkExperienceSchoolReference" type="SchoolReferenceType">
             <xs:annotation>
               <xs:documentation>The school the teacher candidate is assigned to.</xs:documentation>
             </xs:annotation>
@@ -6234,7 +6234,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+      <xs:element name="RubricEducationOrganizationReference" type="EducationOrganizationReferenceType">
         <xs:annotation>
           <xs:documentation>The education organization, typically a LocalEducationAgency, associated with the prospect.</xs:documentation>
         </xs:annotation>
@@ -6733,7 +6733,7 @@
           <xs:documentation>The staff the field work experience is associated with</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SchoolReference" type="SchoolReferenceType">
+      <xs:element name="FieldworkExperienceSchoolReference" type="SchoolReferenceType">
         <xs:annotation>
           <xs:documentation>The school the field work experience is associated with</xs:documentation>
         </xs:annotation>
@@ -7319,7 +7319,7 @@
           <xs:documentation>The teacher candidate associated with the fieldwork experience.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SchoolReference" type="SchoolReferenceType">
+      <xs:element name="FieldworkExperienceSchoolReference" type="SchoolReferenceType">
         <xs:annotation>
           <xs:documentation>The school the teacher candidate is assigned to.</xs:documentation>
         </xs:annotation>

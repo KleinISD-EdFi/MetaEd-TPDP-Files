@@ -11,11 +11,11 @@ Domain Entity StaffFieldworkExperience
   domain entity School
     documentation "The school the field work experience is associated with"
     is part of identity
+    with context FieldworkExperience
     is queryable field
   domain entity Section
     documentation "The section the field work experience is associated with"
     is optional
-    merge Section.Location.School with School
   descriptor FieldworkType
     documentation "The type of fieldwork being executed by a staff."
     is required
