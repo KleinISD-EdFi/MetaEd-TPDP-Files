@@ -1185,6 +1185,251 @@ UniqueSectionCode
             </div>
         </p>
         <p>
+            <h2>StaffStudentGrowthMeasureCourseAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any courses associated with the staff's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />Course (identity)<br />EndDate (optional)<br />StaffStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-StaffStudentGrowthMeasureCourseAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any courses associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;StaffStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-StaffStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The StaffStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CourseReference&quot; type=&quot;CourseReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The Course reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.StaffStudentGrowthMeasureCourseAssociation
+
+CourseCode [NVARCHAR](60) NOT NULL
+EducationOrganizationId [INT] NOT NULL
+FactAsOfDate [DATE] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+StaffUSI [INT] NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+CourseCode
+EducationOrganizationId
+FactAsOfDate
+SchoolYear
+StaffUSI
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>StaffStudentGrowthMeasureEducationOrganizationAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any education organizations associated with the staff's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />EducationOrganization (identity)<br />EndDate (optional)<br />StaffStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any education organizations associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;StaffStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-StaffStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The StaffStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The EducationOrganization reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.StaffStudentGrowthMeasureEducationOrganizationAssociation
+
+EducationOrganizationId [INT] NOT NULL
+FactAsOfDate [DATE] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+StaffUSI [INT] NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+FactAsOfDate
+SchoolYear
+StaffUSI
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>StaffStudentGrowthMeasureSectionAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any sections associated with the staff's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />EndDate (optional)<br />Section (identity)<br />StaffStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-StaffStudentGrowthMeasureSectionAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any sections associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;StaffStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-StaffStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The StaffStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SectionReference&quot; type=&quot;SectionReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The Section reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.StaffStudentGrowthMeasureSectionAssociation
+
+ClassPeriodName [NVARCHAR](20) NOT NULL
+ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
+FactAsOfDate [DATE] NOT NULL
+LocalCourseCode [NVARCHAR](60) NOT NULL
+SchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+SequenceOfCourse [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+TermDescriptorId [INT] NOT NULL
+UniqueSectionCode [NVARCHAR](255) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+ClassPeriodName
+ClassroomIdentificationCode
+FactAsOfDate
+LocalCourseCode
+SchoolId
+SchoolYear
+SequenceOfCourse
+StaffUSI
+TermDescriptorId
+UniqueSectionCode
+</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>StaffTeacherPreparationProviderAssociation</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -2340,6 +2585,251 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 StaffUSI
 TeacherCandidateIdentifier
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateStudentGrowthMeasureCourseAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any courses associated with the teacher candidate's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />Course (identity)<br />EndDate (optional)<br />TeacherCandidateStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any courses associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;TeacherCandidateStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The TeacherCandidateStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;CourseReference&quot; type=&quot;CourseReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The Course reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherCandidateStudentGrowthMeasureCourseAssociation
+
+CourseCode [NVARCHAR](60) NOT NULL
+EducationOrganizationId [INT] NOT NULL
+FactAsOfDate [DATE] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+CourseCode
+EducationOrganizationId
+FactAsOfDate
+SchoolYear
+TeacherCandidateIdentifier
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any education organizations associated with the teacher candidate's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />EducationOrganization (identity)<br />EndDate (optional)<br />TeacherCandidateStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any education organizations associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;TeacherCandidateStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The TeacherCandidateStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The EducationOrganization reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation
+
+EducationOrganizationId [INT] NOT NULL
+FactAsOfDate [DATE] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+FactAsOfDate
+SchoolYear
+TeacherCandidateIdentifier
+</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>TeacherCandidateStudentGrowthMeasureSectionAssociation</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Any sections associated with the teacher candidate's student growth data, if applicable.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />BeginDate (optional)<br />EndDate (optional)<br />Section (identity)<br />TeacherCandidateStudentGrowthMeasure (identity)<br /></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociation&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Any sections associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Association&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;TeacherCandidateStudentGrowthMeasureReference&quot; type=&quot;EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The TeacherCandidateStudentGrowthMeasure reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;SectionReference&quot; type=&quot;SectionReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The Section reference for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherCandidateStudentGrowthMeasureSectionAssociation
+
+ClassPeriodName [NVARCHAR](20) NOT NULL
+ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
+FactAsOfDate [DATE] NOT NULL
+LocalCourseCode [NVARCHAR](60) NOT NULL
+SchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+SequenceOfCourse [INT] NOT NULL
+TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
+TermDescriptorId [INT] NOT NULL
+UniqueSectionCode [NVARCHAR](255) NOT NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+ClassPeriodName
+ClassroomIdentificationCode
+FactAsOfDate
+LocalCourseCode
+SchoolId
+SchoolYear
+SequenceOfCourse
+TeacherCandidateIdentifier
+TermDescriptorId
+UniqueSectionCode
 </pre></div>
             </div>
         </p>
@@ -12197,6 +12687,99 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>BeginDate (StaffStudentGrowthMeasureCourseAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureCourseAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (StaffStudentGrowthMeasureEducationOrganizationAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (StaffStudentGrowthMeasureSectionAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureSectionAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>BeginDate (StaffTeacherPreparationProviderProgramAssociation)</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -12498,6 +13081,99 @@ StudentUSI
                 <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate is associated to the staff.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (TeacherCandidateStudentGrowthMeasureCourseAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureCourseAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>BeginDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>BeginDate (TeacherCandidateStudentGrowthMeasureSectionAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>Begin date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureSectionAssociation.BeginDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;Begin date for the association&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -13964,6 +14640,99 @@ StudentUSI
             </div>
         </p>
         <p>
+            <h2>EndDate (StaffStudentGrowthMeasureCourseAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureCourseAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (StaffStudentGrowthMeasureEducationOrganizationAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (StaffStudentGrowthMeasureSectionAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />StaffStudentGrowthMeasureSectionAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>EndDate (StaffTeacherPreparationProviderProgramAssociation)</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -14265,6 +15034,99 @@ StudentUSI
                 <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The month, day, and year on which the teacher candidate stops association with the staff.&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (TeacherCandidateStudentGrowthMeasureCourseAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureCourseAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+  &lt;/xs:annotation&gt;
+&lt;/xs:element&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>EndDate [DATE]</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>EndDate (TeacherCandidateStudentGrowthMeasureSectionAssociation)</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>The end date for the association</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Date Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherCandidateStudentGrowthMeasureSectionAssociation.EndDate (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -22688,6 +23550,7 @@ LoginId [NVARCHAR](60) NULL
 HighlyQualifiedTeacher [BIT] NULL
 HighlyQualifiedAcademicSubjectDescriptorId [INT] NULL
 ProspectIdentifier [NVARCHAR](32) NULL
+ProspectEducationOrganizationId [INT] NULL
 GenderTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -24279,7 +25142,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFacts.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />PerformanceMeasure.Course (as optional)<br />StaffStudentGrowthMeasure.Course (as optional collection)<br />Survey.Course (as optional)<br />TeacherCandidateCourseTranscript.Course (as identity)<br />TeacherCandidateStudentGrowthMeasure.Course (as optional collection)</div>
+                <div><br />Contains:<br />AcademicSubject (optional)<br />CareerPathway (optional)<br />CompetencyLevel (optional collection)<br />CourseCode (identity)<br />CourseDefinedBy (optional)<br />CourseDescription (optional)<br />CourseGPAApplicability (optional)<br />CourseIdentificationCode (required collection)<br />CourseLevelCharacteristic (optional collection)<br />CourseTitle (required)<br />DateCourseAdopted (optional)<br />EducationOrganization (identity)<br />HighSchoolCourseRequirement (optional)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaximumAvailableCredits (optional)<br />MinimumAvailableCredits (optional)<br />NumberOfParts (required)<br />OfferedGradeLevel (optional collection)<br />TimeRequiredForCompletion (optional)<br /><br />Used By:<br />AnonymizedStudentCourseAssociation.Course (as identity)<br />StaffStudentGrowthMeasureCourseAssociation.Course (as identity)<br />TeacherCandidateStudentGrowthMeasureCourseAssociation.Course (as identity)<br />CreditsByCourse.Course (as required collection)<br />CourseOffering.Course (as required)<br />CourseTranscript.Course (as identity)<br />AnonymizedStudent.Course (as optional)<br />AnonymizedStudentAssessment.Course (as optional)<br />AnonymizedStudentCourseTranscript.Course (as identity)<br />CourseStudentAcademicRecordFacts.Course (as identity)<br />CourseStudentAssessmentFacts.Course (as identity)<br />CourseStudentFacts.Course (as identity)<br />CourseSurveyResponseFacts.Course (as identity)<br />ExternalCourseTranscript.Course (as optional)<br />PerformanceMeasure.Course (as optional)<br />Survey.Course (as optional)<br />TeacherCandidateCourseTranscript.Course (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -26710,7 +27573,7 @@ LanguageDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.EducationOrganization (as identity)<br />Rubric.RubricEducationOrganization (as identity)<br />StaffStudentGrowthMeasure.EducationOrganization (as optional collection)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasure.EducationOrganization (as optional collection)</div>
+                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.ProspectEducationOrganization (as identity)<br />Rubric.RubricEducationOrganization (as identity)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -31386,7 +32249,7 @@ PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 FirstName [NVARCHAR](75) NOT NULL
 LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
-EducationOrganizationId [INT] NULL
+ProspectEducationOrganizationId [INT] NULL
 StaffUSI [INT] NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
@@ -31925,7 +32788,7 @@ ServiceDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Applied (optional)<br />Credential (optional collection)<br />CurrentPosition (optional)<br />Disability (optional collection)<br />EducationOrganization (identity)<br />ElectronicMailAddress (required)<br />Gender (optional)<br />HispanicLatinoEthnicity (optional)<br />Met (optional)<br />Name (required)<br />Notes (optional)<br />PreScreeningRating (optional)<br />ProspectIdentifier (identity)<br />ProspectQualifications (optional)<br />Race (optional collection)<br />RecruitmentEvent (optional collection)<br />Referral (optional)<br />ReferredBy (optional)<br />Sex (optional)<br />SocialMediaNetworkName (optional)<br />SocialMediaUserName (optional)<br />Telephone (optional collection)<br />Touchpoint (optional collection)<br /><br />Used By:<br />PersonBeingReviewedChoice.Prospect (as required)<br />SurveyResponderChoice.Prospect (as required)<br />Applicant.Prospect (as optional)<br />ProspectProfessionalDevelopmentEventAttendance.Prospect (as identity)</div>
+                <div><br />Contains:<br />Applied (optional)<br />Credential (optional collection)<br />CurrentPosition (optional)<br />Disability (optional collection)<br />ElectronicMailAddress (required)<br />Gender (optional)<br />HispanicLatinoEthnicity (optional)<br />Met (optional)<br />Name (required)<br />Notes (optional)<br />PreScreeningRating (optional)<br />ProspectEducationOrganization (identity)<br />ProspectIdentifier (identity)<br />ProspectQualifications (optional)<br />Race (optional collection)<br />RecruitmentEvent (optional collection)<br />Referral (optional)<br />ReferredBy (optional)<br />Sex (optional)<br />SocialMediaNetworkName (optional)<br />SocialMediaUserName (optional)<br />Telephone (optional collection)<br />Touchpoint (optional collection)<br /><br />Used By:<br />PersonBeingReviewedChoice.Prospect (as required)<br />SurveyResponderChoice.Prospect (as required)<br />Applicant.Prospect (as optional)<br />ProspectProfessionalDevelopmentEventAttendance.Prospect (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -31944,7 +32807,7 @@ ServiceDescriptorId
             &lt;xs:documentation&gt;The identifier for the prospect.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+        &lt;xs:element name=&quot;ProspectEducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The education organization, typically a LocalEducationAgency, associated with the prospect.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -32063,7 +32926,7 @@ ServiceDescriptorId
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.Prospect
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 PersonalTitlePrefix [NVARCHAR](30) NULL
 FirstName [NVARCHAR](75) NOT NULL
@@ -32088,24 +32951,24 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialIdentifier
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 StateOfIssueStateAbbreviationTypeId
 <br />extension.ProspectCurrentPosition
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 NameOfInstitution [NVARCHAR](75) NOT NULL
 Location [NVARCHAR](75) NOT NULL
@@ -32114,23 +32977,23 @@ AcademicSubjectDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectCurrentPositionGradeLevel
 
-EducationOrganizationId [INT] NOT NULL
 GradeLevelDescriptorId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 GradeLevelDescriptorId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectDisability
 
 DisabilityDescriptorId [INT] NOT NULL
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 DisabilityDiagnosis [NVARCHAR](80) NULL
 OrderOfDisability [INT] NULL
@@ -32139,13 +33002,13 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 DisabilityDescriptorId
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectIdentificationDocument
 
-EducationOrganizationId [INT] NOT NULL
 IdentificationDocumentUseTypeId [INT] NOT NULL
 PersonalInformationVerificationTypeId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 DocumentTitle [NVARCHAR](60) NULL
 DocumentExpirationDate [DATE] NULL
@@ -32155,13 +33018,13 @@ IssuerCountryDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectQualifications
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 Eligible [BIT] NOT NULL
 CapacityToServe [BIT] NULL
@@ -32170,35 +33033,35 @@ YearsOfServiceTotal [DECIMAL](5, 2) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectRace
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 RaceTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 RaceTypeId
 <br />extension.ProspectRecruitmentEvent
 
-EducationOrganizationId [INT] NOT NULL
 EventDate [DATE] NOT NULL
 EventTitle [NVARCHAR](50) NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 EventDate
 EventTitle
+ProspectEducationOrganizationId
 ProspectIdentifier
 <br />extension.ProspectTelephone
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 TelephoneNumberTypeId [INT] NOT NULL
 TelephoneNumber [NVARCHAR](24) NOT NULL
@@ -32207,19 +33070,19 @@ TextMessageCapabilityIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 TelephoneNumberTypeId
 <br />extension.ProspectTouchpoint
 
-EducationOrganizationId [INT] NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 TouchpointContent [NVARCHAR](255) NOT NULL
 TouchpointDate [DATE] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
+ProspectEducationOrganizationId
 ProspectIdentifier
 TouchpointContent
 TouchpointDate
@@ -32298,8 +33161,8 @@ TouchpointDate
                 <div><pre>extension.ProspectProfessionalDevelopmentEventAttendance
 
 AttendanceDate [DATE] NOT NULL
-EducationOrganizationId [INT] NOT NULL
 ProfessionalDevelopmentTitle [NVARCHAR](60) NOT NULL
+ProspectEducationOrganizationId [INT] NOT NULL
 ProspectIdentifier [NVARCHAR](32) NOT NULL
 AttendanceEventCategoryDescriptorId [INT] NOT NULL
 AttendanceEventReason [NVARCHAR](40) NULL
@@ -32309,8 +33172,8 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 AttendanceDate
-EducationOrganizationId
 ProfessionalDevelopmentTitle
+ProspectEducationOrganizationId
 ProspectIdentifier
 </pre></div>
             </div>
@@ -33100,7 +33963,7 @@ SchoolYear
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AvailableCredits (optional)<br />ClassPeriod (identity)<br />CourseOffering (identity)<br />EducationalEnvironment (optional)<br />InstructionLanguage (optional)<br />Location (identity)<br />MediumOfInstruction (optional)<br />PopulationServed (optional)<br />Program (optional collection)<br />School (required)<br />SectionCharacteristic (optional collection)<br />SequenceOfCourse (identity)<br />UniqueSectionCode (identity)<br /><br />Used By:<br />StaffSectionAssociation.Section (as identity)<br />StudentCohortAssociation.Section (as optional collection)<br />StudentSectionAssociation.Section (as identity)<br />AnonymizedStudentSectionAssociation.Section (as identity)<br />SectionOrProgramChoice.Section (as required collection)<br />FieldworkExperience.Section (as optional)<br />GradebookEntry.Section (as identity)<br />SectionAttendanceTakenEvent.Section (as identity)<br />StudentSectionAttendanceEvent.Section (as identity)<br />AnonymizedStudent.Section (as optional)<br />AnonymizedStudentAssessment.Section (as optional)<br />SectionStudentAcademicRecordFacts.Section (as identity)<br />SectionStudentAssessmentFacts.Section (as identity)<br />SectionStudentFacts.Section (as identity)<br />SectionSurveyResponseFacts.Section (as identity)<br />StaffFieldworkExperience.Section (as optional)<br />StaffStudentGrowthMeasure.Section (as optional collection)<br />Survey.Section (as optional)<br />TeacherCandidateFieldworkExperience.Section (as optional)<br />TeacherCandidateStudentGrowthMeasure.Section (as optional collection)</div>
+                <div><br />Contains:<br />AvailableCredits (optional)<br />ClassPeriod (identity)<br />CourseOffering (identity)<br />EducationalEnvironment (optional)<br />InstructionLanguage (optional)<br />Location (identity)<br />MediumOfInstruction (optional)<br />PopulationServed (optional)<br />Program (optional collection)<br />School (required)<br />SectionCharacteristic (optional collection)<br />SequenceOfCourse (identity)<br />UniqueSectionCode (identity)<br /><br />Used By:<br />StaffSectionAssociation.Section (as identity)<br />StudentCohortAssociation.Section (as optional collection)<br />StudentSectionAssociation.Section (as identity)<br />AnonymizedStudentSectionAssociation.Section (as identity)<br />StaffStudentGrowthMeasureSectionAssociation.Section (as identity)<br />TeacherCandidateStudentGrowthMeasureSectionAssociation.Section (as identity)<br />SectionOrProgramChoice.Section (as required collection)<br />FieldworkExperience.Section (as optional)<br />GradebookEntry.Section (as identity)<br />SectionAttendanceTakenEvent.Section (as identity)<br />StudentSectionAttendanceEvent.Section (as identity)<br />AnonymizedStudent.Section (as optional)<br />AnonymizedStudentAssessment.Section (as optional)<br />SectionStudentAcademicRecordFacts.Section (as identity)<br />SectionStudentAssessmentFacts.Section (as identity)<br />SectionStudentFacts.Section (as identity)<br />SectionSurveyResponseFacts.Section (as identity)<br />StaffFieldworkExperience.Section (as optional)<br />Survey.Section (as optional)<br />TeacherCandidateFieldworkExperience.Section (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35719,7 +36582,7 @@ StaffUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />Staff (identity)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br /></div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Staff (identity)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br /><br />Used By:<br />StaffStudentGrowthMeasureCourseAssociation.StaffStudentGrowthMeasure (as identity)<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.StaffStudentGrowthMeasure (as identity)<br />StaffStudentGrowthMeasureSectionAssociation.StaffStudentGrowthMeasure (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35786,21 +36649,6 @@ StaffUSI
             &lt;xs:documentation&gt;The number of students included in the average score result.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any education organizations associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;CourseReference&quot; type=&quot;CourseReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any courses associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SectionReference&quot; type=&quot;SectionReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any sections associated with the staff's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -35828,59 +36676,6 @@ Primary Keys:
 FactAsOfDate
 SchoolYear
 StaffUSI
-<br />extension.StaffStudentGrowthMeasureCourse
-
-CourseCode [NVARCHAR](60) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-StaffUSI [INT] NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-CourseCode
-EducationOrganizationId
-FactAsOfDate
-SchoolYear
-StaffUSI
-<br />extension.StaffStudentGrowthMeasureEducationOrganization
-
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-StaffUSI [INT] NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-FactAsOfDate
-SchoolYear
-StaffUSI
-<br />extension.StaffStudentGrowthMeasureSection
-
-ClassPeriodName [NVARCHAR](20) NOT NULL
-ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
-FactAsOfDate [DATE] NOT NULL
-LocalCourseCode [NVARCHAR](60) NOT NULL
-SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-SequenceOfCourse [INT] NOT NULL
-StaffUSI [INT] NOT NULL
-TermDescriptorId [INT] NOT NULL
-UniqueSectionCode [NVARCHAR](255) NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-FactAsOfDate
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-StaffUSI
-TermDescriptorId
-UniqueSectionCode
 </pre></div>
             </div>
         </p>
@@ -38106,6 +38901,7 @@ StaffUSI [INT] NULL
 ApplicantIdentifier [NVARCHAR](32) NULL
 EducationOrganizationId [INT] NULL
 ProspectIdentifier [NVARCHAR](32) NULL
+ProspectEducationOrganizationId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -39620,7 +40416,7 @@ TeacherCandidateIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Course (optional collection)<br />EducationOrganization (optional collection)<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />Section (optional collection)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br />TeacherCandidate (identity)<br /></div>
+                <div><br />Contains:<br />FactAsOfDate (identity)<br />ResultDatatypeType (optional)<br />SchoolYear (identity)<br />StudentGrowthActualScore (required)<br />StudentGrowthMeasureDate (optional)<br />StudentGrowthMet (required)<br />StudentGrowthNCount (optional)<br />StudentGrowthTargetScore (optional)<br />StudentGrowthType (optional)<br />TeacherCandidate (identity)<br /><br />Used By:<br />TeacherCandidateStudentGrowthMeasureCourseAssociation.TeacherCandidateStudentGrowthMeasure (as identity)<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.TeacherCandidateStudentGrowthMeasure (as identity)<br />TeacherCandidateStudentGrowthMeasureSectionAssociation.TeacherCandidateStudentGrowthMeasure (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -39687,21 +40483,6 @@ TeacherCandidateIdentifier
             &lt;xs:documentation&gt;The number of students included in the average score result.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any education organizations associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;CourseReference&quot; type=&quot;CourseReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any courses associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SectionReference&quot; type=&quot;SectionReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Any sections associated with the teacher candidate's student growth data, if applicable.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -39729,59 +40510,6 @@ Primary Keys:
 FactAsOfDate
 SchoolYear
 TeacherCandidateIdentifier
-<br />extension.TeacherCandidateStudentGrowthMeasureCourse
-
-CourseCode [NVARCHAR](60) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-CourseCode
-EducationOrganizationId
-FactAsOfDate
-SchoolYear
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateStudentGrowthMeasureEducationOrganization
-
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-FactAsOfDate
-SchoolYear
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateStudentGrowthMeasureSection
-
-ClassPeriodName [NVARCHAR](20) NOT NULL
-ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
-FactAsOfDate [DATE] NOT NULL
-LocalCourseCode [NVARCHAR](60) NOT NULL
-SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-SequenceOfCourse [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-TermDescriptorId [INT] NOT NULL
-UniqueSectionCode [NVARCHAR](255) NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-FactAsOfDate
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-TeacherCandidateIdentifier
-TermDescriptorId
-UniqueSectionCode
 </pre></div>
             </div>
         </p>

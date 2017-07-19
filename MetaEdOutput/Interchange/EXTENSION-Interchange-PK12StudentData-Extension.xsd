@@ -31,7 +31,13 @@
         <xs:element name="SectionStudentAssessmentFacts" type="EXTENSION-SectionStudentAssessmentFacts" />
         <xs:element name="SectionStudentFacts" type="EXTENSION-SectionStudentFacts" />
         <xs:element name="StaffStudentGrowthMeasure" type="EXTENSION-StaffStudentGrowthMeasure" />
+        <xs:element name="StaffStudentGrowthMeasureCourseAssociation" type="EXTENSION-StaffStudentGrowthMeasureCourseAssociation" />
+        <xs:element name="StaffStudentGrowthMeasureEducationOrganizationAssociation" type="EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociation" />
+        <xs:element name="StaffStudentGrowthMeasureSectionAssociation" type="EXTENSION-StaffStudentGrowthMeasureSectionAssociation" />
         <xs:element name="TeacherCandidateStudentGrowthMeasure" type="EXTENSION-TeacherCandidateStudentGrowthMeasure" />
+        <xs:element name="TeacherCandidateStudentGrowthMeasureCourseAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociation" />
+        <xs:element name="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" />
+        <xs:element name="TeacherCandidateStudentGrowthMeasureSectionAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociation" />
       </xs:choice>
     </xs:complexType>
   </xs:element>

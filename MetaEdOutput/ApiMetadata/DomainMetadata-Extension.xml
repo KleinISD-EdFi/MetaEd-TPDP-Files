@@ -383,9 +383,15 @@
   </Aggregate>
   <Aggregate root="StaffStudentGrowthMeasure">
     <Entity table="StaffStudentGrowthMeasure" schema="extension"/>
-    <Entity table="StaffStudentGrowthMeasureCourse" schema="extension"/>
-    <Entity table="StaffStudentGrowthMeasureEducationOrganization" schema="extension"/>
-    <Entity table="StaffStudentGrowthMeasureSection" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="StaffStudentGrowthMeasureCourseAssociation">
+    <Entity table="StaffStudentGrowthMeasureCourseAssociation" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="StaffStudentGrowthMeasureEducationOrganizationAssociation">
+    <Entity table="StaffStudentGrowthMeasureEducationOrganizationAssociation" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="StaffStudentGrowthMeasureSectionAssociation">
+    <Entity table="StaffStudentGrowthMeasureSectionAssociation" schema="extension"/>
   </Aggregate>
   <Aggregate root="StaffTeacherPreparationProviderAssociation">
     <Entity table="StaffTeacherPreparationProviderAssociation" schema="extension"/>
@@ -485,9 +491,15 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateStudentGrowthMeasure">
     <Entity table="TeacherCandidateStudentGrowthMeasure" schema="extension"/>
-    <Entity table="TeacherCandidateStudentGrowthMeasureCourse" schema="extension"/>
-    <Entity table="TeacherCandidateStudentGrowthMeasureEducationOrganization" schema="extension"/>
-    <Entity table="TeacherCandidateStudentGrowthMeasureSection" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateStudentGrowthMeasureCourseAssociation">
+    <Entity table="TeacherCandidateStudentGrowthMeasureCourseAssociation" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation">
+    <Entity table="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="TeacherCandidateStudentGrowthMeasureSectionAssociation">
+    <Entity table="TeacherCandidateStudentGrowthMeasureSectionAssociation" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherCandidateTeacherPreparationProviderAssociation">
     <Entity table="TeacherCandidateTeacherPreparationProviderAssociation" schema="extension"/>

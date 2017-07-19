@@ -43,7 +43,13 @@ The following table describes the primary entities of which the P K12 Student Da
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
 | SectionStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
 | StaffStudentGrowthMeasure | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
+| StaffStudentGrowthMeasureCourseAssociation | Any courses associated with the staff's student growth data, if applicable. |
+| StaffStudentGrowthMeasureEducationOrganizationAssociation | Any education organizations associated with the staff's student growth data, if applicable. |
+| StaffStudentGrowthMeasureSectionAssociation | Any sections associated with the staff's student growth data, if applicable. |
 | TeacherCandidateStudentGrowthMeasure | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
+| TeacherCandidateStudentGrowthMeasureCourseAssociation | Any courses associated with the teacher candidate's student growth data, if applicable. |
+| TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation | Any education organizations associated with the teacher candidate's student growth data, if applicable. |
+| TeacherCandidateStudentGrowthMeasureSectionAssociation | Any sections associated with the teacher candidate's student growth data, if applicable. |
 
 
 
@@ -61,24 +67,24 @@ This interchange includes the following Extended References.
 | CourseReference (in CourseStudentAcademicRecordFacts) | Required.  The course for which the data is associated |
 | CourseReference (in CourseStudentAssessmentFacts) | Required.  The course associated with aggregated student data |
 | CourseReference (in CourseStudentFacts) | Required.  The course associated with aggregated student data |
-| CourseReference (in StaffStudentGrowthMeasure) | Optional.  Any courses associated with the staff's student growth data, if applicable. |
-| CourseReference (in TeacherCandidateStudentGrowthMeasure) | Optional.  Any courses associated with the teacher candidate's student growth data, if applicable. |
+| CourseReference (in StaffStudentGrowthMeasureCourseAssociation) | Required.  The Course reference for the association |
+| CourseReference (in TeacherCandidateStudentGrowthMeasureCourseAssociation) | Required.  The Course reference for the association |
 | EducationOrganizationReference (in AnonymizedStudent) | Optional.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the assocation |
 | EducationOrganizationReference (in EducationOrganizationStudentAcademicRecordFacts) | Required.  The section associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentAssessmentFacts) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentFacts) | Required.  The education organization associated with aggregated student data |
-| EducationOrganizationReference (in StaffStudentGrowthMeasure) | Optional.  Any education organizations associated with the staff's student growth data, if applicable. |
-| EducationOrganizationReference (in TeacherCandidateStudentGrowthMeasure) | Optional.  Any education organizations associated with the teacher candidate's student growth data, if applicable. |
+| EducationOrganizationReference (in StaffStudentGrowthMeasureEducationOrganizationAssociation) | Required.  The EducationOrganization reference for the association |
+| EducationOrganizationReference (in TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation) | Required.  The EducationOrganization reference for the association |
 | SectionReference (in AnonymizedStudent) | Optional.  The section associated with aggregated student data |
 | SectionReference (in AnonymizedStudentAssessment) | Optional.  The section associated with aggregated student data |
 | SectionReference (in AnonymizedStudentSectionAssociation) | Required.  The Section reference for the assocation |
 | SectionReference (in SectionStudentAcademicRecordFacts) | Required.  The section associated with aggregated student data |
 | SectionReference (in SectionStudentAssessmentFacts) | Required.  The section associated with aggregated student data |
 | SectionReference (in SectionStudentFacts) | Required.  The section associated with aggregated student data |
-| SectionReference (in StaffStudentGrowthMeasure) | Optional.  Any sections associated with the staff's student growth data, if applicable. |
-| SectionReference (in TeacherCandidateStudentGrowthMeasure) | Optional.  Any sections associated with the teacher candidate's student growth data, if applicable. |
+| SectionReference (in StaffStudentGrowthMeasureSectionAssociation) | Required.  The Section reference for the association |
+| SectionReference (in TeacherCandidateStudentGrowthMeasureSectionAssociation) | Required.  The Section reference for the association |
 | StaffReference (in StaffStudentGrowthMeasure) | Required.  The staff associated with aggregated student growth data |
 | TeacherCandidateReference (in TeacherCandidateStudentGrowthMeasure) | Required.  The teacher candidate associated with aggregated student growth data |
 

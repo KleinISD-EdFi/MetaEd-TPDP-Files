@@ -1958,7 +1958,7 @@
               <xs:documentation>The identifier for the prospect.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+          <xs:element name="ProspectEducationOrganizationReference" type="EducationOrganizationReferenceType">
             <xs:annotation>
               <xs:documentation>The education organization, typically a LocalEducationAgency, associated with the prospect.</xs:documentation>
             </xs:annotation>
@@ -2976,21 +2976,6 @@
               <xs:documentation>The number of students included in the average score result.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any education organizations associated with the staff's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any courses associated with the staff's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="SectionReference" type="SectionReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any sections associated with the staff's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3973,21 +3958,6 @@
               <xs:documentation>The number of students included in the average score result.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any education organizations associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any courses associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="SectionReference" type="SectionReferenceType" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Any sections associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -4653,6 +4623,108 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureCourseAssociation">
+    <xs:annotation>
+      <xs:documentation>Any courses associated with the staff's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CourseReference" type="CourseReferenceType">
+            <xs:annotation>
+              <xs:documentation>The Course reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociation">
+    <xs:annotation>
+      <xs:documentation>Any education organizations associated with the staff's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+            <xs:annotation>
+              <xs:documentation>The EducationOrganization reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureSectionAssociation">
+    <xs:annotation>
+      <xs:documentation>Any sections associated with the staff's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SectionReference" type="SectionReferenceType">
+            <xs:annotation>
+              <xs:documentation>The Section reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-StaffTeacherPreparationProviderAssociation">
     <xs:annotation>
       <xs:documentation>Information about the association between the Staff and the TeacherPreparationProvider</xs:documentation>
@@ -4773,6 +4845,108 @@
           <xs:element name="EndDate" type="xs:date" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The month, day, and year on which the teacher candidate stops association with the staff.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociation">
+    <xs:annotation>
+      <xs:documentation>Any courses associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CourseReference" type="CourseReferenceType">
+            <xs:annotation>
+              <xs:documentation>The Course reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation">
+    <xs:annotation>
+      <xs:documentation>Any education organizations associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+            <xs:annotation>
+              <xs:documentation>The EducationOrganization reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociation">
+    <xs:annotation>
+      <xs:documentation>Any sections associated with the teacher candidate's student growth data, if applicable.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Association</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+            <xs:annotation>
+              <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SectionReference" type="SectionReferenceType">
+            <xs:annotation>
+              <xs:documentation>The Section reference for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BeginDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Begin date for the association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EndDate" type="xs:date" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The end date for the association</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -6117,7 +6291,7 @@
           <xs:documentation>The identifier for the prospect.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+      <xs:element name="ProspectEducationOrganizationReference" type="EducationOrganizationReferenceType">
         <xs:annotation>
           <xs:documentation>The education organization, typically a LocalEducationAgency, associated with the prospect.</xs:documentation>
         </xs:annotation>
@@ -6808,6 +6982,84 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureCourseAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a StaffStudentGrowthMeasureCourseAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CourseReference" type="CourseReferenceType">
+        <xs:annotation>
+          <xs:documentation>The Course reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureCourseAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a StaffStudentGrowthMeasureCourseAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureCourseAssociationIdentity" type="EXTENSION-StaffStudentGrowthMeasureCourseAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a StaffStudentGrowthMeasureCourseAssociation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a StaffStudentGrowthMeasureEducationOrganizationAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+        <xs:annotation>
+          <xs:documentation>The EducationOrganization reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a StaffStudentGrowthMeasureEducationOrganizationAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureEducationOrganizationAssociationIdentity" type="EXTENSION-StaffStudentGrowthMeasureEducationOrganizationAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a StaffStudentGrowthMeasureEducationOrganizationAssociation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureIdentityType">
     <xs:annotation>
       <xs:documentation>Identity of a StaffStudentGrowthMeasure.</xs:documentation>
@@ -6846,6 +7098,45 @@
           <xs:element name="StaffStudentGrowthMeasureIdentity" type="EXTENSION-StaffStudentGrowthMeasureIdentityType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Identity of a StaffStudentGrowthMeasure.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureSectionAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a StaffStudentGrowthMeasureSectionAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StaffStudentGrowthMeasureReference" type="EXTENSION-StaffStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The StaffStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SectionReference" type="SectionReferenceType">
+        <xs:annotation>
+          <xs:documentation>The Section reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-StaffStudentGrowthMeasureSectionAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a StaffStudentGrowthMeasureSectionAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="StaffStudentGrowthMeasureSectionAssociationIdentity" type="EXTENSION-StaffStudentGrowthMeasureSectionAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a StaffStudentGrowthMeasureSectionAssociation.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -7467,6 +7758,84 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureCourseAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CourseReference" type="CourseReferenceType">
+        <xs:annotation>
+          <xs:documentation>The Course reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a TeacherCandidateStudentGrowthMeasureCourseAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureCourseAssociationIdentity" type="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureCourseAssociation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+        <xs:annotation>
+          <xs:documentation>The EducationOrganization reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociationIdentity" type="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureIdentityType">
     <xs:annotation>
       <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasure.</xs:documentation>
@@ -7505,6 +7874,45 @@
           <xs:element name="TeacherCandidateStudentGrowthMeasureIdentity" type="EXTENSION-TeacherCandidateStudentGrowthMeasureIdentityType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasure.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociationIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureSectionAssociation.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TeacherCandidateStudentGrowthMeasureReference" type="EXTENSION-TeacherCandidateStudentGrowthMeasureReferenceType">
+        <xs:annotation>
+          <xs:documentation>The TeacherCandidateStudentGrowthMeasure reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SectionReference" type="SectionReferenceType">
+        <xs:annotation>
+          <xs:documentation>The Section reference for the association</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociationReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a TeacherCandidateStudentGrowthMeasureSectionAssociation. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="TeacherCandidateStudentGrowthMeasureSectionAssociationIdentity" type="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociationIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a TeacherCandidateStudentGrowthMeasureSectionAssociation.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>

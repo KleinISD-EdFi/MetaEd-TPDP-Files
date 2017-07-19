@@ -1,0 +1,12 @@
+Association TeacherCandidateStudentGrowthMeasureSectionAssociation
+  documentation "Any sections associated with the teacher candidate's student growth data, if applicable."
+  domain entity TeacherCandidateStudentGrowthMeasure
+    documentation "The TeacherCandidateStudentGrowthMeasure reference for the association"
+  domain entity Section
+    documentation "The Section reference for the association"
+  date BeginDate
+    documentation "Begin date for the association"
+    is optional
+  date EndDate
+    documentation "The end date for the association"
+    is optional

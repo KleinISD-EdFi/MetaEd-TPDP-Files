@@ -209,7 +209,13 @@
     <Element name="SectionStudentAssessmentFacts" />
     <Element name="SectionStudentFacts" />
     <Element name="StaffStudentGrowthMeasure" />
+    <Element name="StaffStudentGrowthMeasureCourseAssociation" />
+    <Element name="StaffStudentGrowthMeasureEducationOrganizationAssociation" />
+    <Element name="StaffStudentGrowthMeasureSectionAssociation" />
     <Element name="TeacherCandidateStudentGrowthMeasure" />
+    <Element name="TeacherCandidateStudentGrowthMeasureCourseAssociation" />
+    <Element name="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" />
+    <Element name="TeacherCandidateStudentGrowthMeasureSectionAssociation" />
   </Interchange>
   <Interchange name="StudentGrade" order="90">
     <Element name="LearningObjective" />

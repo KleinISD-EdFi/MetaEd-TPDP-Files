@@ -83,7 +83,6 @@ Domain Entity Applicant
 	domain entity Prospect
         documentation "Reference to previously identified prospect."
         is optional
-        merge Prospect.EducationOrganization with EducationOrganization
 
     enumeration Gender
       documentation "(TPDP Extension) The gender with which a person associates."

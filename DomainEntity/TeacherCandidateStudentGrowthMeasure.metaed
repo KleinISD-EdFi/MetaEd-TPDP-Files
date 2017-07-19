@@ -30,12 +30,3 @@ Domain Entity TeacherCandidateStudentGrowthMeasure
   integer StudentGrowthNCount
     documentation "The number of students included in the average score result."
     is optional
-  domain entity EducationOrganization
-    documentation "Any education organizations associated with the teacher candidate's student growth data, if applicable."
-    is optional collection
-  domain entity Course
-    documentation "Any courses associated with the teacher candidate's student growth data, if applicable."
-    is optional collection
-  domain entity Section
-    documentation "Any sections associated with the teacher candidate's student growth data, if applicable."
-    is optional collection

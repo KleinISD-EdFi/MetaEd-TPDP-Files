@@ -820,6 +820,7 @@ CREATE TABLE [extension].[Applicant](
     [HighlyQualifiedTeacher] [BIT] NULL,
     [HighlyQualifiedAcademicSubjectDescriptorId] [INT] NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
+    [ProspectEducationOrganizationId] [INT] NULL,
     [GenderTypeId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -876,6 +877,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject(s) in which the staff is deemed to be "highly qualified".', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'HighlyQualifiedAcademicSubjectDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
@@ -6327,7 +6330,7 @@ CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
     [FirstName] [NVARCHAR](75) NOT NULL,
     [LastSurname] [NVARCHAR](75) NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
-    [EducationOrganizationId] [INT] NULL,
+    [ProspectEducationOrganizationId] [INT] NULL,
     [StaffUSI] [INT] NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -6349,7 +6352,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
@@ -6702,7 +6705,7 @@ GO
 /****** Table: [extension].[Prospect] ******/
 
 CREATE TABLE [extension].[Prospect](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [PersonalTitlePrefix] [NVARCHAR](30) NULL,
     [FirstName] [NVARCHAR](75) NOT NULL,
@@ -6726,7 +6729,7 @@ CREATE TABLE [extension].[Prospect](
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [Prospect_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6740,7 +6743,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A prospect for employment or contract that has not yet made formal application, often obtained from job fairs or university recruiting visits.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'Prospect'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6786,13 +6789,13 @@ GO
 
 CREATE TABLE [extension].[ProspectCredential](
     [CredentialIdentifier] [NVARCHAR](60) NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [StateOfIssueStateAbbreviationTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectCredential_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC,
         [StateOfIssueStateAbbreviationTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -6805,7 +6808,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extensio
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6816,7 +6819,7 @@ GO
 /****** Table: [extension].[ProspectCurrentPosition] ******/
 
 CREATE TABLE [extension].[ProspectCurrentPosition](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [NameOfInstitution] [NVARCHAR](75) NOT NULL,
     [Location] [NVARCHAR](75) NOT NULL,
@@ -6824,7 +6827,7 @@ CREATE TABLE [extension].[ProspectCurrentPosition](
     [AcademicSubjectDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectCurrentPosition_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6834,7 +6837,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The current position of the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCurrentPosition'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPosition', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPosition', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPosition', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6851,13 +6854,13 @@ GO
 /****** Table: [extension].[ProspectCurrentPositionGradeLevel] ******/
 
 CREATE TABLE [extension].[ProspectCurrentPositionGradeLevel](
-    [EducationOrganizationId] [INT] NOT NULL,
     [GradeLevelDescriptorId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectCurrentPositionGradeLevel_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
         [GradeLevelDescriptorId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6867,9 +6870,9 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The set of grade levels for which the individual''s assignment is responsible.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCurrentPositionGradeLevel'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPositionGradeLevel', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The set of grade levels for which the individual''s assignment is responsible.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPositionGradeLevel', @level2type=N'COLUMN', @level2name=N'GradeLevelDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPositionGradeLevel', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCurrentPositionGradeLevel', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6879,7 +6882,7 @@ GO
 
 CREATE TABLE [extension].[ProspectDisability](
     [DisabilityDescriptorId] [INT] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [DisabilityDiagnosis] [NVARCHAR](80) NULL,
     [OrderOfDisability] [INT] NULL,
@@ -6887,7 +6890,7 @@ CREATE TABLE [extension].[ProspectDisability](
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectDisability_PK] PRIMARY KEY CLUSTERED (
         [DisabilityDescriptorId] ASC,
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6899,7 +6902,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extensio
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A disability category that describes a child''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectDisability', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectDisability', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectDisability', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6914,9 +6917,9 @@ GO
 /****** Table: [extension].[ProspectIdentificationDocument] ******/
 
 CREATE TABLE [extension].[ProspectIdentificationDocument](
-    [EducationOrganizationId] [INT] NOT NULL,
     [IdentificationDocumentUseTypeId] [INT] NOT NULL,
     [PersonalInformationVerificationTypeId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [DocumentTitle] [NVARCHAR](60) NULL,
     [DocumentExpirationDate] [DATE] NULL,
@@ -6925,9 +6928,9 @@ CREATE TABLE [extension].[ProspectIdentificationDocument](
     [IssuerCountryDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectIdentificationDocument_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
         [IdentificationDocumentUseTypeId] ASC,
         [PersonalInformationVerificationTypeId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6937,11 +6940,11 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The documents presented as evident to verify one''s personal identity; for example: drivers license, passport, birth certificate, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectIdentificationDocument'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectIdentificationDocument', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary function of the document used for establishing identity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectIdentificationDocument', @level2type=N'COLUMN', @level2name=N'IdentificationDocumentUseTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of the document relative to its purpose.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectIdentificationDocument', @level2type=N'COLUMN', @level2name=N'PersonalInformationVerificationTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectIdentificationDocument', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectIdentificationDocument', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -6961,8 +6964,8 @@ GO
 
 CREATE TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance](
     [AttendanceDate] [DATE] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
     [ProfessionalDevelopmentTitle] [NVARCHAR](60) NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [AttendanceEventCategoryDescriptorId] [INT] NOT NULL,
     [AttendanceEventReason] [NVARCHAR](40) NULL,
@@ -6971,8 +6974,8 @@ CREATE TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance](
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [ProspectProfessionalDevelopmentEventAttendance_PK] PRIMARY KEY CLUSTERED (
         [AttendanceDate] ASC,
-        [EducationOrganizationId] ASC,
         [ProfessionalDevelopmentTitle] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -6988,9 +6991,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This event ent
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this attendance event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'AttendanceDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name for a professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProfessionalDevelopmentTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectProfessionalDevelopmentEventAttendance', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7007,7 +7010,7 @@ GO
 /****** Table: [extension].[ProspectQualifications] ******/
 
 CREATE TABLE [extension].[ProspectQualifications](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [Eligible] [BIT] NOT NULL,
     [CapacityToServe] [BIT] NULL,
@@ -7015,7 +7018,7 @@ CREATE TABLE [extension].[ProspectQualifications](
     [YearsOfServiceTotal] [DECIMAL](5, 2) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectQualifications_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -7025,7 +7028,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The qualifications of a prospective mentor teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectQualifications'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectQualifications', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectQualifications', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectQualifications', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7042,12 +7045,12 @@ GO
 /****** Table: [extension].[ProspectRace] ******/
 
 CREATE TABLE [extension].[ProspectRace](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [RaceTypeId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectRace_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC,
         [RaceTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -7058,7 +7061,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The general racial category which most clearly reflects the individual''s recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectRace'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRace', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRace', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRace', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7069,15 +7072,15 @@ GO
 /****** Table: [extension].[ProspectRecruitmentEvent] ******/
 
 CREATE TABLE [extension].[ProspectRecruitmentEvent](
-    [EducationOrganizationId] [INT] NOT NULL,
     [EventDate] [DATE] NOT NULL,
     [EventTitle] [NVARCHAR](50) NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectRecruitmentEvent_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
         [EventDate] ASC,
         [EventTitle] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -7087,11 +7090,11 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Reference(s) to events associated with the recruitment process.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectRecruitmentEvent'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date of the event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EventDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of the event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EventTitle'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRecruitmentEvent', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectRecruitmentEvent', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7100,7 +7103,7 @@ GO
 /****** Table: [extension].[ProspectTelephone] ******/
 
 CREATE TABLE [extension].[ProspectTelephone](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [TelephoneNumberTypeId] [INT] NOT NULL,
     [TelephoneNumber] [NVARCHAR](24) NOT NULL,
@@ -7108,7 +7111,7 @@ CREATE TABLE [extension].[ProspectTelephone](
     [TextMessageCapabilityIndicator] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectTelephone_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC,
         [TelephoneNumberTypeId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -7119,7 +7122,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The 10-digit telephone number, including the area code, for the person.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectTelephone'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTelephone', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTelephone', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTelephone', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -7136,13 +7139,13 @@ GO
 /****** Table: [extension].[ProspectTouchpoint] ******/
 
 CREATE TABLE [extension].[ProspectTouchpoint](
-    [EducationOrganizationId] [INT] NOT NULL,
+    [ProspectEducationOrganizationId] [INT] NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NOT NULL,
     [TouchpointContent] [NVARCHAR](255) NOT NULL,
     [TouchpointDate] [DATE] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [ProspectTouchpoint_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
+        [ProspectEducationOrganizationId] ASC,
         [ProspectIdentifier] ASC,
         [TouchpointContent] ASC,
         [TouchpointDate] ASC
@@ -7154,7 +7157,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Content associated with different touchpoints with the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectTouchpoint'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTouchpoint', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTouchpoint', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectTouchpoint', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
 GO
@@ -10381,16 +10384,20 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of 
 GO
 
 
-/****** Table: [extension].[StaffStudentGrowthMeasureCourse] ******/
+/****** Table: [extension].[StaffStudentGrowthMeasureCourseAssociation] ******/
 
-CREATE TABLE [extension].[StaffStudentGrowthMeasureCourse](
+CREATE TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [StaffUSI] [INT] NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffStudentGrowthMeasureCourse_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [StaffStudentGrowthMeasureCourseAssociation_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
@@ -10399,32 +10406,44 @@ CREATE TABLE [extension].[StaffStudentGrowthMeasureCourse](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[StaffStudentGrowthMeasureCourse] ADD CONSTRAINT [StaffStudentGrowthMeasureCourse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureCourseAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureCourseAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureCourseAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any courses associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureCourse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any courses associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureCourseAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'CourseCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
-/****** Table: [extension].[StaffStudentGrowthMeasureEducationOrganization] ******/
+/****** Table: [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] ******/
 
-CREATE TABLE [extension].[StaffStudentGrowthMeasureEducationOrganization](
+CREATE TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [StaffUSI] [INT] NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffStudentGrowthMeasureEducationOrganization_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [StaffStudentGrowthMeasureEducationOrganizationAssociation_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
@@ -10432,24 +10451,32 @@ CREATE TABLE [extension].[StaffStudentGrowthMeasureEducationOrganization](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganization] ADD CONSTRAINT [StaffStudentGrowthMeasureEducationOrganization_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureEducationOrganizationAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureEducationOrganizationAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureEducationOrganizationAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any education organizations associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureEducationOrganization'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any education organizations associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
-/****** Table: [extension].[StaffStudentGrowthMeasureSection] ******/
+/****** Table: [extension].[StaffStudentGrowthMeasureSectionAssociation] ******/
 
-CREATE TABLE [extension].[StaffStudentGrowthMeasureSection](
+CREATE TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [ClassroomIdentificationCode] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
@@ -10460,8 +10487,12 @@ CREATE TABLE [extension].[StaffStudentGrowthMeasureSection](
     [StaffUSI] [INT] NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [StaffStudentGrowthMeasureSection_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [StaffStudentGrowthMeasureSectionAssociation_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
@@ -10475,30 +10506,38 @@ CREATE TABLE [extension].[StaffStudentGrowthMeasureSection](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[StaffStudentGrowthMeasureSection] ADD CONSTRAINT [StaffStudentGrowthMeasureSection_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureSectionAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureSectionAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [StaffStudentGrowthMeasureSectionAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any sections associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureSection'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any sections associated with the staff''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'StaffStudentGrowthMeasureSectionAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SchoolId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'StaffUSI'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
@@ -11239,6 +11278,7 @@ CREATE TABLE [extension].[SurveyResponse](
     [ApplicantIdentifier] [NVARCHAR](32) NULL,
     [EducationOrganizationId] [INT] NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
+    [ProspectEducationOrganizationId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -11280,6 +11320,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyResponse', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the prospect.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyResponse', @level2type=N'COLUMN', @level2name=N'ProspectIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyResponse', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
 
 
@@ -12962,16 +13004,20 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of 
 GO
 
 
-/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureCourse] ******/
+/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] ******/
 
-CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
+CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation](
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourse_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourseAssociation_PK] PRIMARY KEY CLUSTERED (
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
@@ -12980,32 +13026,44 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourseAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourseAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureCourseAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any courses associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureCourse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any courses associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'CourseCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourse', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureCourseAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
-/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] ******/
+/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] ******/
 
-CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization](
+CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation](
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganization_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [SchoolYear] ASC,
@@ -13013,24 +13071,32 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizat
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganization_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any education organizations associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any education organizations associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganization', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
-/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureSection] ******/
+/****** Table: [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] ******/
 
-CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
+CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [ClassroomIdentificationCode] [NVARCHAR](20) NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
@@ -13041,8 +13107,12 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [UniqueSectionCode] [NVARCHAR](255) NOT NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateStudentGrowthMeasureSection_PK] PRIMARY KEY CLUSTERED (
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [TeacherCandidateStudentGrowthMeasureSectionAssociation_PK] PRIMARY KEY CLUSTERED (
         [ClassPeriodName] ASC,
         [ClassroomIdentificationCode] ASC,
         [FactAsOfDate] ASC,
@@ -13056,30 +13126,38 @@ CREATE TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureSection_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureSectionAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureSectionAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] ADD CONSTRAINT [TeacherCandidateStudentGrowthMeasureSectionAssociation_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any sections associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureSection'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Any sections associated with the teacher candidate''s student growth data, if applicable.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The local code assigned by the School that identifies the course offering provided for the instruction of students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'LocalCourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SchoolId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SchoolId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier for the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When a section is part of a sequence of parts for a course, the number of the sequence. If the course has only one part, the value of this section attribute should be 1.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'SequenceOfCourse'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for the Session during the school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'TermDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSection', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasureSectionAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
@@ -14166,14 +14244,14 @@ CREATE NONCLUSTERED INDEX [FK_Applicant_LevelOfEducationDescriptor]
 ON [extension].[Applicant]([HighestCompletedLevelOfEducationDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[Applicant] WITH CHECK ADD CONSTRAINT [FK_Applicant_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[Applicant] WITH CHECK ADD CONSTRAINT [FK_Applicant_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_Applicant_Prospect]
-ON [extension].[Applicant]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[Applicant]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[Applicant] WITH CHECK ADD CONSTRAINT [FK_Applicant_SexType] FOREIGN KEY ([SexTypeId])
@@ -17342,14 +17420,14 @@ GO
 
 
 
-ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Prospect]
-ON [extension].[PerformanceMeasurePersonBeingReviewed]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Staff] FOREIGN KEY ([StaffUSI])
@@ -17502,14 +17580,14 @@ CREATE NONCLUSTERED INDEX [FK_ProgramGatewayDescriptor_ProgramGatewayType]
 ON [extension].[ProgramGatewayDescriptor]([ProgramGatewayTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[Prospect] WITH CHECK ADD CONSTRAINT [FK_Prospect_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
+ALTER TABLE [extension].[Prospect] WITH CHECK ADD CONSTRAINT [FK_Prospect_EducationOrganization] FOREIGN KEY ([ProspectEducationOrganizationId])
 REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_Prospect_EducationOrganization]
-ON [extension].[Prospect]([EducationOrganizationId] ASC)
+ON [extension].[Prospect]([ProspectEducationOrganizationId] ASC)
 GO
 
 ALTER TABLE [extension].[Prospect] WITH CHECK ADD CONSTRAINT [FK_Prospect_GenderType] FOREIGN KEY ([GenderTypeId])
@@ -17542,14 +17620,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectCredential_Credential]
 ON [extension].[ProspectCredential]([CredentialIdentifier] ASC, [StateOfIssueStateAbbreviationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectCredential] WITH CHECK ADD CONSTRAINT [FK_ProspectCredential_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectCredential_Prospect]
-ON [extension].[ProspectCredential]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectCredential]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectCurrentPosition] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPosition_AcademicSubjectDescriptor] FOREIGN KEY ([AcademicSubjectDescriptorId])
@@ -17562,8 +17640,8 @@ CREATE NONCLUSTERED INDEX [FK_ProspectCurrentPosition_AcademicSubjectDescriptor]
 ON [extension].[ProspectCurrentPosition]([AcademicSubjectDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectCurrentPosition] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPosition_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectCurrentPosition] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPosition_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
@@ -17580,14 +17658,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectCurrentPositionGradeLevel_GradeLevelDescri
 ON [extension].[ProspectCurrentPositionGradeLevel]([GradeLevelDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectCurrentPositionGradeLevel] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPositionGradeLevel_ProspectCurrentPosition] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[ProspectCurrentPosition] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectCurrentPositionGradeLevel] WITH CHECK ADD CONSTRAINT [FK_ProspectCurrentPositionGradeLevel_ProspectCurrentPosition] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[ProspectCurrentPosition] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectCurrentPositionGradeLevel_ProspectCurrentPosition]
-ON [extension].[ProspectCurrentPositionGradeLevel]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectCurrentPositionGradeLevel]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectDisability] WITH CHECK ADD CONSTRAINT [FK_ProspectDisability_DisabilityDescriptor] FOREIGN KEY ([DisabilityDescriptorId])
@@ -17610,14 +17688,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectDisability_DisabilityDeterminationSourceTy
 ON [extension].[ProspectDisability]([DisabilityDeterminationSourceTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectDisability] WITH CHECK ADD CONSTRAINT [FK_ProspectDisability_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectDisability] WITH CHECK ADD CONSTRAINT [FK_ProspectDisability_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectDisability_Prospect]
-ON [extension].[ProspectDisability]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectDisability]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_ProspectIdentificationDocument_CountryDescriptor] FOREIGN KEY ([IssuerCountryDescriptorId])
@@ -17650,14 +17728,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectIdentificationDocument_PersonalInformation
 ON [extension].[ProspectIdentificationDocument]([PersonalInformationVerificationTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_ProspectIdentificationDocument_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectIdentificationDocument] WITH CHECK ADD CONSTRAINT [FK_ProspectIdentificationDocument_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectIdentificationDocument_Prospect]
-ON [extension].[ProspectIdentificationDocument]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectIdentificationDocument]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_ProspectProfessionalDevelopmentEventAttendance_AttendanceEventCategoryDescriptor] FOREIGN KEY ([AttendanceEventCategoryDescriptorId])
@@ -17680,32 +17758,32 @@ CREATE NONCLUSTERED INDEX [FK_ProspectProfessionalDevelopmentEventAttendance_Pro
 ON [extension].[ProspectProfessionalDevelopmentEventAttendance]([ProfessionalDevelopmentTitle] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_ProspectProfessionalDevelopmentEventAttendance_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectProfessionalDevelopmentEventAttendance] WITH CHECK ADD CONSTRAINT [FK_ProspectProfessionalDevelopmentEventAttendance_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectProfessionalDevelopmentEventAttendance_Prospect]
-ON [extension].[ProspectProfessionalDevelopmentEventAttendance]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectProfessionalDevelopmentEventAttendance]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectQualifications] WITH CHECK ADD CONSTRAINT [FK_ProspectQualifications_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectQualifications] WITH CHECK ADD CONSTRAINT [FK_ProspectQualifications_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 
 
-ALTER TABLE [extension].[ProspectRace] WITH CHECK ADD CONSTRAINT [FK_ProspectRace_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectRace] WITH CHECK ADD CONSTRAINT [FK_ProspectRace_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectRace_Prospect]
-ON [extension].[ProspectRace]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectRace]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectRace] WITH CHECK ADD CONSTRAINT [FK_ProspectRace_RaceType] FOREIGN KEY ([RaceTypeId])
@@ -17718,14 +17796,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectRace_RaceType]
 ON [extension].[ProspectRace]([RaceTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectRecruitmentEvent] WITH CHECK ADD CONSTRAINT [FK_ProspectRecruitmentEvent_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectRecruitmentEvent] WITH CHECK ADD CONSTRAINT [FK_ProspectRecruitmentEvent_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectRecruitmentEvent_Prospect]
-ON [extension].[ProspectRecruitmentEvent]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectRecruitmentEvent]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectRecruitmentEvent] WITH CHECK ADD CONSTRAINT [FK_ProspectRecruitmentEvent_RecruitmentEvent] FOREIGN KEY ([EventDate], [EventTitle])
@@ -17738,14 +17816,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectRecruitmentEvent_RecruitmentEvent]
 ON [extension].[ProspectRecruitmentEvent]([EventDate] ASC, [EventTitle] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectTelephone] WITH CHECK ADD CONSTRAINT [FK_ProspectTelephone_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectTelephone] WITH CHECK ADD CONSTRAINT [FK_ProspectTelephone_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectTelephone_Prospect]
-ON [extension].[ProspectTelephone]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectTelephone]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[ProspectTelephone] WITH CHECK ADD CONSTRAINT [FK_ProspectTelephone_TelephoneNumberType] FOREIGN KEY ([TelephoneNumberTypeId])
@@ -17758,14 +17836,14 @@ CREATE NONCLUSTERED INDEX [FK_ProspectTelephone_TelephoneNumberType]
 ON [extension].[ProspectTelephone]([TelephoneNumberTypeId] ASC)
 GO
 
-ALTER TABLE [extension].[ProspectTouchpoint] WITH CHECK ADD CONSTRAINT [FK_ProspectTouchpoint_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[ProspectTouchpoint] WITH CHECK ADD CONSTRAINT [FK_ProspectTouchpoint_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 ON DELETE CASCADE
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_ProspectTouchpoint_Prospect]
-ON [extension].[ProspectTouchpoint]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[ProspectTouchpoint]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[Rubric] WITH CHECK ADD CONSTRAINT [FK_Rubric_EducationOrganization] FOREIGN KEY ([RubricEducationOrganizationId])
@@ -19076,64 +19154,64 @@ CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasure_StudentGrowthTypeDescrip
 ON [extension].[StaffStudentGrowthMeasure]([StudentGrowthTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureCourse_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureCourseAssociation_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
 REFERENCES [edfi].[Course] ([CourseCode], [EducationOrganizationId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureCourse_Course]
-ON [extension].[StaffStudentGrowthMeasureCourse]([CourseCode] ASC, [EducationOrganizationId] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureCourseAssociation_Course]
+ON [extension].[StaffStudentGrowthMeasureCourseAssociation]([CourseCode] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureCourse_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureCourseAssociation_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
 REFERENCES [extension].[StaffStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StaffUSI])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureCourse_StaffStudentGrowthMeasure]
-ON [extension].[StaffStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureCourseAssociation_StaffStudentGrowthMeasure]
+ON [extension].[StaffStudentGrowthMeasureCourseAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureEducationOrganization_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureEducationOrganizationAssociation_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
 REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureEducationOrganization_EducationOrganization]
-ON [extension].[StaffStudentGrowthMeasureEducationOrganization]([EducationOrganizationId] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureEducationOrganizationAssociation_EducationOrganization]
+ON [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation]([EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureEducationOrganization_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureEducationOrganizationAssociation_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
 REFERENCES [extension].[StaffStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StaffUSI])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureEducationOrganization_StaffStudentGrowthMeasure]
-ON [extension].[StaffStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureEducationOrganizationAssociation_StaffStudentGrowthMeasure]
+ON [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureSection_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureSectionAssociation_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [edfi].[Section] ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 
 ON UPDATE CASCADE
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureSection_Section]
-ON [extension].[StaffStudentGrowthMeasureSection]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureSectionAssociation_Section]
+ON [extension].[StaffStudentGrowthMeasureSectionAssociation]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[StaffStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureSection_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
+ALTER TABLE [extension].[StaffStudentGrowthMeasureSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_StaffStudentGrowthMeasureSectionAssociation_StaffStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [StaffUSI])
 REFERENCES [extension].[StaffStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [StaffUSI])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureSection_StaffStudentGrowthMeasure]
-ON [extension].[StaffStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
+CREATE NONCLUSTERED INDEX [FK_StaffStudentGrowthMeasureSectionAssociation_StaffStudentGrowthMeasure]
+ON [extension].[StaffStudentGrowthMeasureSectionAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [StaffUSI] ASC)
 GO
 
 ALTER TABLE [extension].[StaffTeacherEducatorResearch] WITH CHECK ADD CONSTRAINT [FK_StaffTeacherEducatorResearch_Staff] FOREIGN KEY ([StaffUSI])
@@ -19526,14 +19604,14 @@ CREATE NONCLUSTERED INDEX [FK_SurveyResponse_Parent]
 ON [extension].[SurveyResponse]([ParentUSI] ASC)
 GO
 
-ALTER TABLE [extension].[SurveyResponse] WITH CHECK ADD CONSTRAINT [FK_SurveyResponse_Prospect] FOREIGN KEY ([EducationOrganizationId], [ProspectIdentifier])
-REFERENCES [extension].[Prospect] ([EducationOrganizationId], [ProspectIdentifier])
+ALTER TABLE [extension].[SurveyResponse] WITH CHECK ADD CONSTRAINT [FK_SurveyResponse_Prospect] FOREIGN KEY ([ProspectEducationOrganizationId], [ProspectIdentifier])
+REFERENCES [extension].[Prospect] ([ProspectEducationOrganizationId], [ProspectIdentifier])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_SurveyResponse_Prospect]
-ON [extension].[SurveyResponse]([EducationOrganizationId] ASC, [ProspectIdentifier] ASC)
+ON [extension].[SurveyResponse]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[SurveyResponse] WITH CHECK ADD CONSTRAINT [FK_SurveyResponse_Staff] FOREIGN KEY ([StaffUSI])
@@ -20646,64 +20724,64 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasure_TeacherCandid
 ON [extension].[TeacherCandidateStudentGrowthMeasure]([TeacherCandidateIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourseAssociation_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
 REFERENCES [edfi].[Course] ([CourseCode], [EducationOrganizationId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_Course]
-ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([CourseCode] ASC, [EducationOrganizationId] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourseAssociation_Course]
+ON [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation]([CourseCode] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourse] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureCourseAssociation_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
 REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourse_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureCourse]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureCourseAssociation_TeacherCandidateStudentGrowthMeasure]
+ON [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
 REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_EducationOrganization]
-ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([EducationOrganizationId] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_EducationOrganization]
+ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation]([EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
 REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganization_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganization]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_TeacherCandidateStudentGrowthMeasure]
+ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSectionAssociation_Section] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [edfi].[Section] ([ClassPeriodName], [ClassroomIdentificationCode], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 
 ON UPDATE CASCADE
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_Section]
-ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSectionAssociation_Section]
+ON [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation]([ClassPeriodName] ASC, [ClassroomIdentificationCode] ASC, [LocalCourseCode] ASC, [SchoolId] ASC, [SchoolYear] ASC, [SequenceOfCourse] ASC, [TermDescriptorId] ASC, [UniqueSectionCode] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSection] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
+ALTER TABLE [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateStudentGrowthMeasureSectionAssociation_TeacherCandidateStudentGrowthMeasure] FOREIGN KEY ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
 REFERENCES [extension].[TeacherCandidateStudentGrowthMeasure] ([FactAsOfDate], [SchoolYear], [TeacherCandidateIdentifier])
-ON DELETE CASCADE
+
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSection_TeacherCandidateStudentGrowthMeasure]
-ON [extension].[TeacherCandidateStudentGrowthMeasureSection]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateStudentGrowthMeasureSectionAssociation_TeacherCandidateStudentGrowthMeasure]
+ON [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation]([FactAsOfDate] ASC, [SchoolYear] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderAssociation_EntryTypeDescriptor] FOREIGN KEY ([EntryTypeDescriptorId])
@@ -21727,6 +21805,51 @@ FROM deleted;
 END
 GO
 
+/****** Trigger:  [extension].[StaffStudentGrowthMeasureCourseAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[StaffStudentGrowthMeasureCourseAssociation_TR_DeleteEvent]
+    ON [extension].[StaffStudentGrowthMeasureCourseAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'StaffStudentGrowthMeasureCourseAssociation', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation_TR_DeleteEvent]
+    ON [extension].[StaffStudentGrowthMeasureEducationOrganizationAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'StaffStudentGrowthMeasureEducationOrganizationAssociation', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[StaffStudentGrowthMeasureSectionAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[StaffStudentGrowthMeasureSectionAssociation_TR_DeleteEvent]
+    ON [extension].[StaffStudentGrowthMeasureSectionAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'StaffStudentGrowthMeasureSectionAssociation', 'extension'
+FROM deleted;
+END
+GO
+
 /****** Trigger:  [extension].[StaffTeacherPreparationProviderAssociation_TR_DeleteEvent] ******/
 
 CREATE TRIGGER [extension].[StaffTeacherPreparationProviderAssociation_TR_DeleteEvent]
@@ -21963,6 +22086,51 @@ BEGIN
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
 SELECT Id, GETUTCDATE(), 'TeacherCandidateStudentGrowthMeasure', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation_TR_DeleteEvent]
+    ON [extension].[TeacherCandidateStudentGrowthMeasureCourseAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'TeacherCandidateStudentGrowthMeasureCourseAssociation', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation_TR_DeleteEvent]
+    ON [extension].[TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation', 'extension'
+FROM deleted;
+END
+GO
+
+/****** Trigger:  [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation_TR_DeleteEvent]
+    ON [extension].[TeacherCandidateStudentGrowthMeasureSectionAssociation]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'TeacherCandidateStudentGrowthMeasureSectionAssociation', 'extension'
 FROM deleted;
 END
 GO
