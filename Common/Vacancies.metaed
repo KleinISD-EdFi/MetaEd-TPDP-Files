@@ -5,7 +5,7 @@ Common Vacancies
     is optional
   descriptor AcademicSubject
     documentation "The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a vacancy."
-    is required
+    is part of identity
   integer NumberOfVacancies
     documentation "The number of vacancies, projected or actual, associated with an education organization."
     is required

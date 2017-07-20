@@ -1054,7 +1054,7 @@
               <xs:documentation>(TPDP Extension) The percent of staff retired for the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="Vacancies" type="EXTENSION-Vacancies" minOccurs="0">
+          <xs:element name="Vacancies" type="EXTENSION-Vacancies" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>(TPDP Extension) This entity represents actual and projected vacancies for the education organization.</xs:documentation>
             </xs:annotation>

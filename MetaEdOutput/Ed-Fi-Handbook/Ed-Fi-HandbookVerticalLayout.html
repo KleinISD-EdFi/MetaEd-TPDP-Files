@@ -11532,7 +11532,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (required)<br />NumberOfVacancies (required)<br />ValueType (optional)<br /><br />Used By:<br />EducationOrganizationFacts.Vacancies (as optional)</div>
+                <div><br />Contains:<br />AcademicSubject (identity)<br />NumberOfVacancies (required)<br />ValueType (optional)<br /><br />Used By:<br />EducationOrganizationFacts.Vacancies (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -17479,7 +17479,7 @@ AbsenceEventCategoryTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.AcademicSubject (as optional collection)<br />StaffTeacherPreparationProviderAssociation.AcademicSubject (as optional collection)<br />CreditsBySubject.AcademicSubject (as identity)<br />CurrentPosition.AcademicSubject (as optional)<br />TPPProgramDegree.AcademicSubject (as required)<br />Vacancies.AcademicSubject (as required)<br />CredentialField.AcademicSubject (as optional)<br />Staff.HighlyQualifiedAcademicSubject (as optional collection)<br />Assessment.AcademicSubject (as identity)<br />AssessmentFamily.AcademicSubject (as optional)<br />Cohort.AcademicSubject (as optional)<br />Course.AcademicSubject (as optional)<br />LearningObjective.AcademicSubject (as identity)<br />LearningStandard.AcademicSubject (as required)<br />OpenStaffPosition.AcademicSubject (as optional collection)<br />AnonymizedStudentAssessment.AcademicSubject (as optional)<br />Applicant.HighlyQualifiedAcademicSubject (as optional)<br />CourseStudentAssessmentFacts.AcademicSubject (as optional)<br />EducationOrganizationStudentAssessmentFacts.AcademicSubject (as optional)<br />ExternalCourseTranscript.AcademicSubject (as optional)<br />PerformanceMeasure.AcademicSubject (as optional)<br />PerformanceMeasureFacts.AcademicSubject (as optional)<br />SectionStudentAssessmentFacts.AcademicSubject (as optional)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.AcademicSubject (as optional collection)<br />StaffTeacherPreparationProviderAssociation.AcademicSubject (as optional collection)<br />CreditsBySubject.AcademicSubject (as identity)<br />CurrentPosition.AcademicSubject (as optional)<br />TPPProgramDegree.AcademicSubject (as required)<br />Vacancies.AcademicSubject (as identity)<br />CredentialField.AcademicSubject (as optional)<br />Staff.HighlyQualifiedAcademicSubject (as optional collection)<br />Assessment.AcademicSubject (as identity)<br />AssessmentFamily.AcademicSubject (as optional)<br />Cohort.AcademicSubject (as optional)<br />Course.AcademicSubject (as optional)<br />LearningObjective.AcademicSubject (as identity)<br />LearningStandard.AcademicSubject (as required)<br />OpenStaffPosition.AcademicSubject (as optional collection)<br />AnonymizedStudentAssessment.AcademicSubject (as optional)<br />Applicant.HighlyQualifiedAcademicSubject (as optional)<br />CourseStudentAssessmentFacts.AcademicSubject (as optional)<br />EducationOrganizationStudentAssessmentFacts.AcademicSubject (as optional)<br />ExternalCourseTranscript.AcademicSubject (as optional)<br />PerformanceMeasure.AcademicSubject (as optional)<br />PerformanceMeasureFacts.AcademicSubject (as optional)<br />SectionStudentAssessmentFacts.AcademicSubject (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -27906,7 +27906,7 @@ TermDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedSalary (optional)<br />AverageYearsInDistrictEmployed (optional)<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />HiringRate (optional)<br />NumberAdministratorsEmployed (optional)<br />NumberStudentsEnrolled (optional)<br />NumberTeachersEmployed (optional)<br />PercentStudentsFreeReducedLunch (optional)<br />PercentStudentsLimitedEnglishProficiency (optional)<br />PercentStudentsSpecialEducation (optional)<br />RetentionRate (optional)<br />RetirementRate (optional)<br />SchoolYear (identity)<br />Vacancies (optional)<br /></div>
+                <div><br />Contains:<br />AggregatedSalary (optional)<br />AverageYearsInDistrictEmployed (optional)<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />HiringRate (optional)<br />NumberAdministratorsEmployed (optional)<br />NumberStudentsEnrolled (optional)<br />NumberTeachersEmployed (optional)<br />PercentStudentsFreeReducedLunch (optional)<br />PercentStudentsLimitedEnglishProficiency (optional)<br />PercentStudentsSpecialEducation (optional)<br />RetentionRate (optional)<br />RetirementRate (optional)<br />SchoolYear (identity)<br />Vacancies (optional collection)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -27980,7 +27980,7 @@ TermDescriptorId
             &lt;xs:documentation&gt;(TPDP Extension) The percent of staff retired for the education organization.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Vacancies&quot; type=&quot;EXTENSION-Vacancies&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;Vacancies&quot; type=&quot;EXTENSION-Vacancies&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;(TPDP Extension) This entity represents actual and projected vacancies for the education organization.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -28043,15 +28043,16 @@ FactsAsOfDate
 SchoolYear
 <br />extension.EducationOrganizationFactsVacancies
 
+AcademicSubjectDescriptorId [INT] NOT NULL
 EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 ValueTypeId [INT] NULL
-AcademicSubjectDescriptorId [INT] NOT NULL
 NumberOfVacancies [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AcademicSubjectDescriptorId
 EducationOrganizationId
 FactsAsOfDate
 SchoolYear

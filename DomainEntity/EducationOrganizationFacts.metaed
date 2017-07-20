@@ -39,7 +39,7 @@ Domain Entity EducationOrganizationFacts
       is optional
     common Vacancies
       documentation "(TPDP Extension) This entity represents actual and projected vacancies for the education organization."
-      is optional
+      is optional collection
     common AggregatedSalary
       documentation "(TPDP Extension) Salary information collected at the aggregate level."
       is optional

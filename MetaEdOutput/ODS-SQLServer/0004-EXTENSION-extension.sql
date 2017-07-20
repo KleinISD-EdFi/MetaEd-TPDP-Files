@@ -3804,14 +3804,15 @@ GO
 /****** Table: [extension].[EducationOrganizationFactsVacancies] ******/
 
 CREATE TABLE [extension].[EducationOrganizationFactsVacancies](
+    [AcademicSubjectDescriptorId] [INT] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeId] [INT] NULL,
-    [AcademicSubjectDescriptorId] [INT] NOT NULL,
     [NumberOfVacancies] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [EducationOrganizationFactsVacancies_PK] PRIMARY KEY CLUSTERED (
+        [AcademicSubjectDescriptorId] ASC,
         [EducationOrganizationId] ASC,
         [FactsAsOfDate] ASC,
         [SchoolYear] ASC
@@ -3823,6 +3824,8 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) This entity represents actual and projected vacancies for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsVacancies'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a vacancy.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
+GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of date for the fact(s) about the Education Organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
@@ -3830,8 +3833,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year associated with the fact(s).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type (i.e. actual or projected) of value.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a vacancy.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of vacancies, projected or actual, associated with an education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'NumberOfVacancies'
 GO
@@ -15901,7 +15902,9 @@ ON DELETE CASCADE
 
 GO
 
-
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationFactsVacancies_EducationOrganizationFacts]
+ON [extension].[EducationOrganizationFactsVacancies]([EducationOrganizationId] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+GO
 
 ALTER TABLE [extension].[EducationOrganizationFactsVacancies] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationFactsVacancies_ValueType] FOREIGN KEY ([ValueTypeId])
 REFERENCES [extension].[ValueType] ([ValueTypeId])
