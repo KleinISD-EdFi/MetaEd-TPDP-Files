@@ -23672,40 +23672,6 @@ ApplicantIdentifier
 EducationOrganizationId
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
-<br />extension.ApplicantIdentificationDocument
-
-ApplicantIdentifier [NVARCHAR](32) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-PersonalInformationVerificationTypeId [INT] NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-IdentificationDocumentUseTypeId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-ApplicantIdentifier
-EducationOrganizationId
-<br />extension.ApplicantIdentificationDocument
-
-ApplicantIdentifier [NVARCHAR](32) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-IdentificationDocumentUseTypeId [INT] NOT NULL
-PersonalInformationVerificationTypeId [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-ApplicantIdentifier
-EducationOrganizationId
-IdentificationDocumentUseTypeId
-PersonalInformationVerificationTypeId
 <br />extension.ApplicantInternationalAddress
 
 AddressTypeId [INT] NOT NULL
@@ -36123,36 +36089,6 @@ Primary Keys:
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
 StaffUSI
-<br />edfi.StaffIdentificationDocument
-
-StaffUSI [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-PersonalInformationVerificationTypeId [INT] NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-IdentificationDocumentUseTypeId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-StaffUSI
-<br />edfi.StaffIdentificationDocument
-
-IdentificationDocumentUseTypeId [INT] NOT NULL
-PersonalInformationVerificationTypeId [INT] NOT NULL
-StaffUSI [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-IdentificationDocumentUseTypeId
-PersonalInformationVerificationTypeId
-StaffUSI
 <br />edfi.StaffInternationalAddress
 
 AddressTypeId [INT] NOT NULL
@@ -36975,36 +36911,6 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AssigningOrganizationIdentificationCode
 StudentIdentificationSystemDescriptorId
-StudentUSI
-<br />edfi.StudentIdentificationDocument
-
-IdentificationDocumentUseTypeId [INT] NOT NULL
-PersonalInformationVerificationTypeId [INT] NOT NULL
-StudentUSI [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-IdentificationDocumentUseTypeId
-PersonalInformationVerificationTypeId
-StudentUSI
-<br />edfi.StudentIdentificationDocument
-
-StudentUSI [INT] NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-PersonalInformationVerificationTypeId [INT] NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-IdentificationDocumentUseTypeId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
 StudentUSI
 <br />edfi.StudentIdentificationDocument
 
@@ -39455,36 +39361,6 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateIdentificationDocument
-
-IdentificationDocumentUseTypeId [INT] NOT NULL
-PersonalInformationVerificationTypeId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-IdentificationDocumentUseTypeId
-PersonalInformationVerificationTypeId
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateIdentificationDocument
-
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-DocumentTitle [NVARCHAR](60) NULL
-PersonalInformationVerificationTypeId [INT] NULL
-DocumentExpirationDate [DATE] NULL
-IssuerDocumentIdentificationCode [NVARCHAR](60) NULL
-IssuerName [NVARCHAR](150) NULL
-IssuerCountryDescriptorId [INT] NULL
-IdentificationDocumentUseTypeId [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
 TeacherCandidateIdentifier
 <br />extension.TeacherCandidateIndicator
 
