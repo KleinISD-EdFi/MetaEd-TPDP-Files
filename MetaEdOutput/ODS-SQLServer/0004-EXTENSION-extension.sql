@@ -13219,7 +13219,6 @@ CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssoc
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
-    [ServiceOutsideRegularSession] [BIT] NULL,
     [EndDate] [DATE] NULL,
     [ReasonExitedDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
@@ -13243,7 +13242,7 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The begin date for the association.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'BeginDate'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -13253,59 +13252,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of pr
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates whether the Teacher Candidate received services during the summer session or between sessions.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ServiceOutsideRegularSession'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Reason exited for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ReasonExitedDescriptorId'
-GO
-
-
-/****** Table: [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] ******/
-
-CREATE TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService](
-    [BeginDate] [DATE] NOT NULL,
-    [EducationOrganizationId] [INT] NOT NULL,
-    [ProgramName] [NVARCHAR](60) NOT NULL,
-    [ProgramTypeId] [INT] NOT NULL,
-    [ServiceDescriptorId] [INT] NOT NULL,
-    [TeacherCandidateIdentifier] [NVARCHAR](32) NOT NULL,
-    [PrimaryIndicator] [BIT] NULL,
-    [ServiceBeginDate] [DATE] NULL,
-    [ServiceEndDate] [DATE] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [TeacherCandidateTeacherPreparationProviderProgramAssociationService_PK] PRIMARY KEY CLUSTERED (
-        [BeginDate] ASC,
-        [EducationOrganizationId] ASC,
-        [ProgramName] ASC,
-        [ProgramTypeId] ASC,
-        [ServiceDescriptorId] ASC,
-        [TeacherCandidateIdentifier] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] ADD CONSTRAINT [TeacherCandidateTeacherPreparationProviderProgramAssociationService_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Service for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The begin date for the association', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'BeginDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The formal name of the Program of instruction, training, services, or benefits available through federal, state, or local agencies.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ProgramName'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ProgramTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates the Service being provided to the student by the Program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ServiceDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'True if service is a primary service.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'PrimaryIndicator'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'First date the Student was in this option for the current school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ServiceBeginDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Last date the Student was in this option for the current school year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociationService', @level2type=N'COLUMN', @level2name=N'ServiceEndDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Reason exited for the association.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateTeacherPreparationProviderProgramAssociation', @level2type=N'COLUMN', @level2name=N'ReasonExitedDescriptorId'
 GO
 
 
@@ -13444,7 +13393,14 @@ CREATE TABLE [extension].[TeacherPreparationProviderProgram](
     [EducationOrganizationId] [INT] NOT NULL,
     [ProgramName] [NVARCHAR](60) NOT NULL,
     [ProgramTypeId] [INT] NOT NULL,
+    [ProgramId] [NVARCHAR](20) NULL,
+    [MajorSpecialization] [NVARCHAR](75) NULL,
+    [MinorSpecialization] [NVARCHAR](75) NULL,
+    [TeacherPreparationProgramTypeDescriptorId] [INT] NULL,
     [TPPProgramPathwayDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
     CONSTRAINT [TeacherPreparationProviderProgram_PK] PRIMARY KEY CLUSTERED (
         [EducationOrganizationId] ASC,
         [ProgramName] ASC,
@@ -13452,7 +13408,12 @@ CREATE TABLE [extension].[TeacherPreparationProviderProgram](
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] ADD CONSTRAINT [TeacherPreparationProviderProgram_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] ADD CONSTRAINT [TeacherPreparationProviderProgram_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] ADD CONSTRAINT [TeacherPreparationProviderProgram_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity represents information regarding a teacher preparation provider program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'TeacherPreparationProviderProgram'
 GO
@@ -13461,6 +13422,14 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The formal name of the Program of instruction, training, services, or benefits available through federal, state, or local agencies.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'ProgramName'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'ProgramTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a program by a school, school system, a state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'ProgramId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The major area for a degree or area of specialization for a certificate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'MajorSpecialization'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minor area for a degree or area of specialization for a certificate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'MinorSpecialization'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'TeacherPreparationProgramTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code for describing the program pathway, for example: Residency, Internship, Traditional', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherPreparationProviderProgram', @level2type=N'COLUMN', @level2name=N'TPPProgramPathwayDescriptorId'
 GO
@@ -20850,6 +20819,16 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderAssociat
 ON [extension].[TeacherCandidateTeacherPreparationProviderAssociation]([TeacherPreparationProviderId] ASC)
 GO
 
+ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
+REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_EducationOrganization]
+ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([EducationOrganizationId] ASC)
+GO
+
 ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_ReasonExitedDescriptor] FOREIGN KEY ([ReasonExitedDescriptorId])
 REFERENCES [edfi].[ReasonExitedDescriptor] ([ReasonExitedDescriptorId])
 
@@ -20878,26 +20857,6 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociation_TeacherPreparationProviderProgram]
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_ServiceDescriptor] FOREIGN KEY ([ServiceDescriptorId])
-REFERENCES [edfi].[ServiceDescriptor] ([ServiceDescriptorId])
-
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_ServiceDescriptor]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([ServiceDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat] FOREIGN KEY ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateIdentifier])
-REFERENCES [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation] ([BeginDate], [EducationOrganizationId], [ProgramName], [ProgramTypeId], [TeacherCandidateIdentifier])
-ON DELETE CASCADE
-
-GO
-
-CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramAssociationService_TeacherCandidateTeacherPreparationProviderProgramAssociat]
-ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociationService]([BeginDate] ASC, [EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC, [TeacherCandidateIdentifier] ASC)
 GO
 
 ALTER TABLE [extension].[TeacherCandidateTelephone] WITH CHECK ADD CONSTRAINT [FK_TeacherCandidateTelephone_TeacherCandidate] FOREIGN KEY ([TeacherCandidateIdentifier])
@@ -20976,13 +20935,35 @@ CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProvider_University]
 ON [extension].[TeacherPreparationProvider]([UniversityId] ASC)
 GO
 
-ALTER TABLE [extension].[TeacherPreparationProviderProgram] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProviderProgram_Program] FOREIGN KEY ([EducationOrganizationId], [ProgramName], [ProgramTypeId])
-REFERENCES [edfi].[Program] ([EducationOrganizationId], [ProgramName], [ProgramTypeId])
-ON DELETE CASCADE
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProviderProgram_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
+REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
+
 
 GO
 
+CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProviderProgram_EducationOrganization]
+ON [extension].[TeacherPreparationProviderProgram]([EducationOrganizationId] ASC)
+GO
 
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProviderProgram_ProgramType] FOREIGN KEY ([ProgramTypeId])
+REFERENCES [edfi].[ProgramType] ([ProgramTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProviderProgram_ProgramType]
+ON [extension].[TeacherPreparationProviderProgram]([ProgramTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[TeacherPreparationProviderProgram] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProviderProgram_TeacherPreparationProgramTypeDescriptor] FOREIGN KEY ([TeacherPreparationProgramTypeDescriptorId])
+REFERENCES [extension].[TeacherPreparationProgramTypeDescriptor] ([TeacherPreparationProgramTypeDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProviderProgram_TeacherPreparationProgramTypeDescriptor]
+ON [extension].[TeacherPreparationProviderProgram]([TeacherPreparationProgramTypeDescriptorId] ASC)
+GO
 
 ALTER TABLE [extension].[TeacherPreparationProviderProgram] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProviderProgram_TPPProgramPathwayDescriptor] FOREIGN KEY ([TPPProgramPathwayDescriptorId])
 REFERENCES [extension].[TPPProgramPathwayDescriptor] ([TPPProgramPathwayDescriptorId])
@@ -22201,13 +22182,7 @@ BEGIN
     
 INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
 SELECT Id, GETUTCDATE(), 'TeacherPreparationProviderProgram', 'extension'
-FROM deleted d
-    INNER JOIN [edfi].[Program] base
-        ON
-            d.EducationOrganizationId = base.EducationOrganizationId
-            AND d.ProgramName = base.ProgramName
-            AND d.ProgramTypeId = base.ProgramTypeId
-;
+FROM deleted;
 END
 GO
 

@@ -3994,13 +3994,51 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="Program">
+      <xs:extension base="ComplexObjectType">
         <xs:sequence>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+            <xs:annotation>
+              <xs:documentation>Relates the program to an EducationOrganization.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ProgramId" type="ProgramId" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>A unique number or alphanumeric code assigned to a program by a school, school system, a state, or other agency or entity.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ProgramName" type="ProgramName">
+            <xs:annotation>
+              <xs:documentation>The formal name of the Program of instruction, training, services, or benefits available through federal, state, or local agencies.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ProgramType" type="ProgramType">
+            <xs:annotation>
+              <xs:documentation>The type of program.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="GradeLevel" type="GradeLevelDescriptorReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The grade levels served at the TPP Program.</xs:documentation>
               <xs:appinfo>
                 <ann:Descriptor>GradeLevelDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MajorSpecialization" type="EXTENSION-Specialization" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The major area for a degree or area of specialization for a certificate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MinorSpecialization" type="EXTENSION-Specialization" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The minor area for a degree or area of specialization for a certificate.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="TeacherPreparationProgramType" type="EXTENSION-TeacherPreparationProgramTypeDescriptorReferenceType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.).</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>EXTENSION-TeacherPreparationProgramTypeDescriptor</ann:Descriptor>
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
@@ -5025,40 +5063,35 @@
         <xs:sequence>
           <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType">
             <xs:annotation>
-              <xs:documentation>Teacher Candidate for the association</xs:documentation>
+              <xs:documentation>TeacherCandidate for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="TeacherPreparationProviderProgramReference" type="EXTENSION-TeacherPreparationProviderProgramReferenceType">
             <xs:annotation>
-              <xs:documentation>Reference to the Teacher Preparation Provider Program</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="Service" type="Service" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Service for the association</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="ServiceOutsideRegularSession" type="xs:boolean" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Indicates whether the Teacher Candidate received services during the summer session or between sessions.</xs:documentation>
+              <xs:documentation>The Program associated to the Staff.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="BeginDate" type="xs:date">
             <xs:annotation>
-              <xs:documentation>The begin date for the association</xs:documentation>
+              <xs:documentation>The begin date for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="EndDate" type="xs:date" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The end date for the association</xs:documentation>
+              <xs:documentation>The end date for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="ReasonExited" type="ReasonExitedDescriptorReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Reason exited for the association</xs:documentation>
+              <xs:documentation>Reason exited for the association.</xs:documentation>
               <xs:appinfo>
                 <ann:Descriptor>ReasonExitedDescriptor</ann:Descriptor>
               </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+            <xs:annotation>
+              <xs:documentation>Related the program to an EducationOrganization.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -7973,17 +8006,22 @@
     <xs:sequence>
       <xs:element name="TeacherCandidateReference" type="EXTENSION-TeacherCandidateReferenceType">
         <xs:annotation>
-          <xs:documentation>Teacher Candidate for the association</xs:documentation>
+          <xs:documentation>TeacherCandidate for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="TeacherPreparationProviderProgramReference" type="EXTENSION-TeacherPreparationProviderProgramReferenceType">
         <xs:annotation>
-          <xs:documentation>Reference to the Teacher Preparation Provider Program</xs:documentation>
+          <xs:documentation>The Program associated to the Staff.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="BeginDate" type="xs:date">
         <xs:annotation>
-          <xs:documentation>The begin date for the association</xs:documentation>
+          <xs:documentation>The begin date for the association.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
+        <xs:annotation>
+          <xs:documentation>Related the program to an EducationOrganization.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -11901,6 +11939,18 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-Specialization">
+    <xs:annotation>
+      <xs:documentation>An area of specialization.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="75" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-SurveyIdentifier">

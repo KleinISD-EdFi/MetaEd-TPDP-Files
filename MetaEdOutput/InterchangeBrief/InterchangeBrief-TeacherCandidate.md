@@ -44,12 +44,13 @@ This interchange includes the following Extended References.
 |-----------------------------|-----------------|
 | CourseReference (in TeacherCandidateCourseTranscript) | Required.  The course recorded in the course transcript entry. |
 | EducationOrganizationReference (in TeacherCandidateAcademicRecord) | Required.  Provides user information to lookup and link to an existing educational organization record. |
+| EducationOrganizationReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Related the program to an EducationOrganization. |
 | FieldworkExperienceSchoolReference (in TeacherCandidateFieldworkExperience) | Required.  The school the teacher candidate is assigned to. |
 | SchoolReference (in TeacherCandidateCourseTranscript) | Optional.  The School that provided the reported instruction. |
 | SectionReference (in TeacherCandidateFieldworkExperience) | Optional.  The section the teacher candidate is assigned to. |
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
 | StaffReference (in TeacherCandidateStaffAssociation) | Required.  The staff associated with the teacher candidate. |
-| TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  Reference to the Teacher Preparation Provider Program |
+| TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  The Program associated to the Staff. |
 
 
 
@@ -80,7 +81,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | ProgramGatewayDescriptor | Required.  The descriptor holds the program gateway that is associated with continuation in a program. |
 | ReasonExitedDescriptor | Optional.  This descriptor defines the reason a student exited a program. |
 | SchoolFoodServicesEligibilityDescriptor | Optional.  This descriptor defines indications of a student's level of eligibility for breakfast, lunch, snack, supper, and milk programs. |
-| ServiceDescriptor | Optional.  This descriptor defines the services provided by an education organization to populations of students associated with a program. |
 | StudentCharacteristicDescriptor | Optional.  This descriptor defines the set of important characteristics of the student. |
 | StudentIdentificationSystemDescriptor | Optional.  This descriptor defines the originating record system and code that is used for record-keeping purposes of the student. |
 | TeachingCredentialDescriptor | Required.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |

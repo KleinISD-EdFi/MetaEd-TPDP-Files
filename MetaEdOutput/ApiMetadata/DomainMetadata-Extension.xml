@@ -506,7 +506,6 @@
   </Aggregate>
   <Aggregate root="TeacherCandidateTeacherPreparationProviderProgramAssociation">
     <Entity table="TeacherCandidateTeacherPreparationProviderProgramAssociation" schema="extension"/>
-    <Entity table="TeacherCandidateTeacherPreparationProviderProgramAssociationService" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherPreparationProgramType">
     <Entity table="TeacherPreparationProgramType" schema="extension"/>
@@ -518,7 +517,7 @@
     <Entity table="TeacherPreparationProvider" isA="EducationOrganization" schema="extension"/>
   </Aggregate>
   <Aggregate root="TeacherPreparationProviderProgram">
-    <Entity table="TeacherPreparationProviderProgram" isA="Program" schema="extension"/>
+    <Entity table="TeacherPreparationProviderProgram" schema="extension"/>
     <Entity table="TeacherPreparationProviderProgramGradeLevel" schema="extension"/>
     <Entity table="TeacherPreparationProviderProgramTPPProgramDegree" schema="extension"/>
   </Aggregate>

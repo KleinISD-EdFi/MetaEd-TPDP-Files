@@ -2953,7 +2953,7 @@ TeacherPreparationProviderId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />BeginDate (identity)<br />EndDate (optional)<br />ReasonExited (optional)<br />Service (optional collection)<br />ServiceOutsideRegularSession (optional)<br />TeacherCandidate (identity)<br />TeacherPreparationProviderProgram (identity)<br /></div>
+                <div><br />Contains:<br />BeginDate (identity)<br />EducationOrganization (identity)<br />EndDate (optional)<br />ReasonExited (optional)<br />TeacherCandidate (identity)<br />TeacherPreparationProviderProgram (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -2969,40 +2969,35 @@ TeacherPreparationProviderId
       &lt;xs:sequence&gt;
         &lt;xs:element name=&quot;TeacherCandidateReference&quot; type=&quot;EXTENSION-TeacherCandidateReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Teacher Candidate for the association&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;TeacherCandidate for the association.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;TeacherPreparationProviderProgramReference&quot; type=&quot;EXTENSION-TeacherPreparationProviderProgramReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Reference to the Teacher Preparation Provider Program&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;Service&quot; type=&quot;Service&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Service for the association&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ServiceOutsideRegularSession&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Indicates whether the Teacher Candidate received services during the summer session or between sessions.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The Program associated to the Staff.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The begin date for the association&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The begin date for the association.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The end date for the association.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
         &lt;xs:element name=&quot;ReasonExited&quot; type=&quot;ReasonExitedDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Reason exited for the association&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;Reason exited for the association.&lt;/xs:documentation&gt;
             &lt;xs:appinfo&gt;
               &lt;ann:Descriptor&gt;ReasonExitedDescriptor&lt;/ann:Descriptor&gt;
             &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Related the program to an EducationOrganization.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
@@ -3019,7 +3014,6 @@ EducationOrganizationId [INT] NOT NULL
 ProgramName [NVARCHAR](60) NOT NULL
 ProgramTypeId [INT] NOT NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-ServiceOutsideRegularSession [BIT] NULL
 EndDate [DATE] NULL
 ReasonExitedDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
@@ -3031,26 +3025,6 @@ BeginDate
 EducationOrganizationId
 ProgramName
 ProgramTypeId
-TeacherCandidateIdentifier
-<br />extension.TeacherCandidateTeacherPreparationProviderProgramAssociationService
-
-BeginDate [DATE] NOT NULL
-EducationOrganizationId [INT] NOT NULL
-ProgramName [NVARCHAR](60) NOT NULL
-ProgramTypeId [INT] NOT NULL
-ServiceDescriptorId [INT] NOT NULL
-TeacherCandidateIdentifier [NVARCHAR](32) NOT NULL
-PrimaryIndicator [BIT] NULL
-ServiceBeginDate [DATE] NULL
-ServiceEndDate [DATE] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramName
-ProgramTypeId
-ServiceDescriptorId
 TeacherCandidateIdentifier
 </pre></div>
             </div>
@@ -5285,37 +5259,6 @@ StudentUSI
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>ServedOutsideOfRegularSession [BIT]</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>ServiceOutsideRegularSession</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Indicates whether the Teacher Candidate received services during the summer session or between sessions.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Boolean Type</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.ServiceOutsideRegularSession (as optional)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:element name=&quot;ServiceOutsideRegularSession&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Indicates whether the Teacher Candidate received services during the summer session or between sessions.&lt;/xs:documentation&gt;
-  &lt;/xs:annotation&gt;
-&lt;/xs:element&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>ServiceOutsideRegularSession [BIT]</pre></div>
             </div>
         </p>
         <p>
@@ -10346,7 +10289,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />PrimaryIndicator (optional)<br />Service (identity)<br />ServiceBeginDate (optional)<br />ServiceEndDate (optional)<br /><br />Used By:<br />StudentProgramAssociation.Service (as optional collection)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.Service (as optional collection)</div>
+                <div><br />Contains:<br />PrimaryIndicator (optional)<br />Service (identity)<br />ServiceBeginDate (optional)<br />ServiceEndDate (optional)<br /><br />Used By:<br />StudentProgramAssociation.Service (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -13190,7 +13133,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>The begin date for the association</div>
+                <div>The begin date for the association.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -13204,7 +13147,7 @@ StudentUSI
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:element name=&quot;BeginDate&quot; type=&quot;xs:date&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The begin date for the association&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;The begin date for the association.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -15143,7 +15086,7 @@ StudentUSI
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Definition:</div>
-                <div>The end date for the association</div>
+                <div>The end date for the association.</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Entity Type:</div>
@@ -15157,7 +15100,7 @@ StudentUSI
                 <div class="entryItemLabel">XSD:</div>
                 <div><pre>&lt;xs:element name=&quot;EndDate&quot; type=&quot;xs:date&quot; minOccurs=&quot;0&quot;&gt;
   &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;The end date for the association&lt;/xs:documentation&gt;
+    &lt;xs:documentation&gt;The end date for the association.&lt;/xs:documentation&gt;
   &lt;/xs:annotation&gt;
 &lt;/xs:element&gt;</pre></div>
             </div>
@@ -19593,7 +19536,7 @@ FieldworkTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.GradeLevel (as optional collection)<br />StudentSchoolAssociation.EntryGradeLevel (as required)<br />StaffTeacherPreparationProviderAssociation.GradeLevel (as optional collection)<br />CreditsByCourse.WhenTakenGradeLevel (as optional)<br />InterventionEffectiveness.GradeLevel (as identity)<br />CurrentPosition.GradeLevel (as optional collection)<br />Level.GradeLevel (as optional collection)<br />School.GradeLevel (as required collection)<br />TeacherPreparationProviderProgram.GradeLevel (as optional collection)<br />Assessment.AssessedGradeLevel (as identity)<br />Assessment.LowestAssessedGradeLevel (as optional)<br />AssessmentFamily.AssessedGradeLevel (as optional)<br />AssessmentFamily.LowestAssessedGradeLevel (as optional)<br />BellSchedule.GradeLevel (as identity)<br />CompetencyObjective.ObjectiveGradeLevel (as identity)<br />Course.OfferedGradeLevel (as optional collection)<br />CourseTranscript.WhenTakenGradeLevel (as optional)<br />Credential.GradeLevel (as required)<br />Intervention.AppropriateGradeLevel (as optional collection)<br />InterventionPrescription.AppropriateGradeLevel (as optional collection)<br />InterventionStudy.AppropriateGradeLevel (as optional collection)<br />LearningObjective.ObjectiveGradeLevel (as identity)<br />LearningStandard.GradeLevel (as required collection)<br />OpenStaffPosition.InstructionalGradeLevel (as optional collection)<br />StudentAssessment.WhenAssessedGradeLevel (as optional)<br />AnonymizedStudentAssessment.GradeLevel (as optional)<br />CourseStudentAssessmentFacts.GradeLevel (as optional)<br />EducationOrganizationStudentAssessmentFacts.GradeLevel (as optional)<br />ExternalCourseTranscript.WhenTakenGradeLevel (as optional)<br />ExternalCourseTranscript.OfferedGradeLevel (as optional)<br />PerformanceMeasure.GradeLevel (as optional collection)<br />PerformanceMeasureFacts.GradeLevel (as required collection)<br />SectionStudentAssessmentFacts.GradeLevel (as optional)<br />TeacherCandidateCourseTranscript.WhenTakenGradeLevel (as optional)<br />LearningResource.AppropriateGradeLevel (as optional collection)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.GradeLevel (as optional collection)<br />StudentSchoolAssociation.EntryGradeLevel (as required)<br />StaffTeacherPreparationProviderAssociation.GradeLevel (as optional collection)<br />CreditsByCourse.WhenTakenGradeLevel (as optional)<br />InterventionEffectiveness.GradeLevel (as identity)<br />CurrentPosition.GradeLevel (as optional collection)<br />Level.GradeLevel (as optional collection)<br />School.GradeLevel (as required collection)<br />Assessment.AssessedGradeLevel (as identity)<br />Assessment.LowestAssessedGradeLevel (as optional)<br />AssessmentFamily.AssessedGradeLevel (as optional)<br />AssessmentFamily.LowestAssessedGradeLevel (as optional)<br />BellSchedule.GradeLevel (as identity)<br />CompetencyObjective.ObjectiveGradeLevel (as identity)<br />Course.OfferedGradeLevel (as optional collection)<br />CourseTranscript.WhenTakenGradeLevel (as optional)<br />Credential.GradeLevel (as required)<br />Intervention.AppropriateGradeLevel (as optional collection)<br />InterventionPrescription.AppropriateGradeLevel (as optional collection)<br />InterventionStudy.AppropriateGradeLevel (as optional collection)<br />LearningObjective.ObjectiveGradeLevel (as identity)<br />LearningStandard.GradeLevel (as required collection)<br />OpenStaffPosition.InstructionalGradeLevel (as optional collection)<br />StudentAssessment.WhenAssessedGradeLevel (as optional)<br />AnonymizedStudentAssessment.GradeLevel (as optional)<br />CourseStudentAssessmentFacts.GradeLevel (as optional)<br />EducationOrganizationStudentAssessmentFacts.GradeLevel (as optional)<br />ExternalCourseTranscript.WhenTakenGradeLevel (as optional)<br />ExternalCourseTranscript.OfferedGradeLevel (as optional)<br />PerformanceMeasure.GradeLevel (as optional collection)<br />PerformanceMeasureFacts.GradeLevel (as required collection)<br />SectionStudentAssessmentFacts.GradeLevel (as optional)<br />TeacherCandidateCourseTranscript.WhenTakenGradeLevel (as optional)<br />TeacherPreparationProviderProgram.GradeLevel (as optional collection)<br />LearningResource.AppropriateGradeLevel (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -21933,7 +21876,7 @@ TeacherCandidateCharacteristicTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />TeacherPreparationProgram.TeacherPreparationProgramType (as required)</div>
+                <div><br />Used By:<br />TeacherPreparationProgram.TeacherPreparationProgramType (as required)<br />TeacherPreparationProviderProgram.TeacherPreparationProgramType (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -27539,7 +27482,7 @@ LanguageDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.ProspectEducationOrganization (as identity)<br />Rubric.RubricEducationOrganization (as identity)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)</div>
+                <div><br />Contains:<br />Address (required collection)<br />EducationOrganizationCategory (required collection)<br />EducationOrganizationId (identity)<br />EducationOrganizationIdentificationCode (optional collection)<br />FederalLocaleCode (optional)<br />InstitutionTelephone (optional collection)<br />InternationalAddress (optional collection)<br />NameOfInstitution (required)<br />OperationalStatus (optional)<br />ShortNameOfInstitution (optional)<br />StateOrganizationId (required)<br />WebSite (optional)<br /><br />Used By:<br />EducationOrganizationInterventionPrescriptionAssociation.EducationOrganization (as identity)<br />EducationOrganizationNetworkAssociation.MemberEducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.EducationOrganization (as identity)<br />EducationOrganizationPeerAssociation.PeerEducationOrganization (as identity)<br />StaffEducationOrganizationAssignmentAssociation.EducationOrganization (as identity)<br />StaffEducationOrganizationEmploymentAssociation.EducationOrganization (as identity)<br />StudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StudentProgramAssociation.EducationOrganization (as identity)<br />AnonymizedStudentEducationOrganizationAssociation.EducationOrganization (as identity)<br />StaffStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation.EducationOrganization (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.EducationOrganization (as identity)<br />ContentStandard.MandatingEducationOrganization (as optional)<br />Account.EducationOrganization (as identity)<br />AccountabilityRating.EducationOrganization (as identity)<br />Cohort.EducationOrganization (as identity)<br />CompetencyObjective.EducationOrganization (as identity)<br />Course.EducationOrganization (as identity)<br />GraduationPlan.EducationOrganization (as identity)<br />Intervention.EducationOrganization (as identity)<br />InterventionPrescription.EducationOrganization (as identity)<br />InterventionStudy.EducationOrganization (as identity)<br />OpenStaffPosition.EducationOrganization (as identity)<br />Program.EducationOrganization (as identity)<br />ReportCard.EducationOrganization (as identity)<br />StudentAcademicRecord.EducationOrganization (as identity)<br />StudentProgramAttendanceEvent.EducationOrganization (as identity)<br />AnonymizedStudent.EducationOrganization (as optional)<br />AnonymizedStudentAcademicRecord.EducationOrganization (as identity)<br />Applicant.EducationOrganization (as identity)<br />EducationOrganizationFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentAssessmentFacts.EducationOrganization (as identity)<br />EducationOrganizationStudentFacts.EducationOrganization (as identity)<br />EducationOrganizationSurveyResponseFacts.EducationOrganization (as identity)<br />Prospect.ProspectEducationOrganization (as identity)<br />Rubric.RubricEducationOrganization (as identity)<br />Survey.EducationOrganization (as optional)<br />TeacherCandidateAcademicRecord.EducationOrganization (as identity)<br />TeacherPreparationProviderProgram.EducationOrganization (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -40392,6 +40335,149 @@ TeacherCandidateIdentifier
             </div>
         </p>
         <p>
+            <h2>TeacherPreparationProviderProgram</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>This entity represents information regarding a teacher preparation provider program.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>Domain Entity</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Contains:<br />EducationOrganization (identity)<br />GradeLevel (optional collection)<br />MajorSpecialization (optional)<br />MinorSpecialization (optional)<br />ProgramId (optional)<br />ProgramName (identity)<br />ProgramType (identity)<br />TeacherPreparationProgramType (optional)<br />TPPProgramDegree (required)<br />TPPProgramPathway (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderProgramAssociation.TeacherPreparationProviderProgram (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherPreparationProviderProgram (as identity)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherPreparationProviderProgram&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;This entity represents information regarding a teacher preparation provider program.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;EducationOrganizationReference&quot; type=&quot;EducationOrganizationReferenceType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Relates the program to an EducationOrganization.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramId&quot; type=&quot;ProgramId&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A unique number or alphanumeric code assigned to a program by a school, school system, a state, or other agency or entity.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramName&quot; type=&quot;ProgramName&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The formal name of the Program of instruction, training, services, or benefits available through federal, state, or local agencies.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;ProgramType&quot; type=&quot;ProgramType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The type of program.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;GradeLevel&quot; type=&quot;GradeLevelDescriptorReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The grade levels served at the TPP Program.&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;GradeLevelDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;MajorSpecialization&quot; type=&quot;EXTENSION-Specialization&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The major area for a degree or area of specialization for a certificate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;MinorSpecialization&quot; type=&quot;EXTENSION-Specialization&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The minor area for a degree or area of specialization for a certificate.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TeacherPreparationProgramType&quot; type=&quot;EXTENSION-TeacherPreparationProgramTypeDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.).&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-TeacherPreparationProgramTypeDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TPPProgramDegree&quot; type=&quot;EXTENSION-TPPProgramDegree&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Details of the degree.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;TPPProgramPathway&quot; type=&quot;EXTENSION-TPPProgramPathwayDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A code for describing the program pathway, for example: Residency, Internship, Traditional&lt;/xs:documentation&gt;
+            &lt;xs:appinfo&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-TPPProgramPathwayDescriptor&lt;/ann:Descriptor&gt;
+            &lt;/xs:appinfo&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>extension.TeacherPreparationProviderProgram
+
+EducationOrganizationId [INT] NOT NULL
+ProgramName [NVARCHAR](60) NOT NULL
+ProgramTypeId [INT] NOT NULL
+ProgramId [NVARCHAR](20) NULL
+MajorSpecialization [NVARCHAR](75) NULL
+MinorSpecialization [NVARCHAR](75) NULL
+TeacherPreparationProgramTypeDescriptorId [INT] NULL
+TPPProgramPathwayDescriptorId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+ProgramName
+ProgramTypeId
+<br />extension.TeacherPreparationProviderProgramGradeLevel
+
+EducationOrganizationId [INT] NOT NULL
+GradeLevelDescriptorId [INT] NOT NULL
+ProgramName [NVARCHAR](60) NOT NULL
+ProgramTypeId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+GradeLevelDescriptorId
+ProgramName
+ProgramTypeId
+<br />extension.TeacherPreparationProviderProgramTPPProgramDegree
+
+EducationOrganizationId [INT] NOT NULL
+ProgramName [NVARCHAR](60) NOT NULL
+ProgramTypeId [INT] NOT NULL
+AcademicSubjectDescriptorId [INT] NOT NULL
+TPPDegreeTypeDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+EducationOrganizationId
+ProgramName
+ProgramTypeId
+</pre></div>
+            </div>
+        </p>
+        <p>
             <h2>EducationOrganizationNetwork</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
@@ -40953,104 +41039,6 @@ UniversityId [INT] NOT NULL
 
 Primary Keys:
 UniversityId
-</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>TeacherPreparationProviderProgram</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>This entity represents information regarding a teacher preparation provider program.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Domain Entity Subclass extending Program</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />GradeLevel (optional collection)<br />TPPProgramDegree (required)<br />TPPProgramPathway (optional)<br /><br />Used By:<br />StaffTeacherPreparationProviderProgramAssociation.TeacherPreparationProviderProgram (as identity)<br />TeacherCandidateTeacherPreparationProviderProgramAssociation.TeacherPreparationProviderProgram (as identity)</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-TeacherPreparationProviderProgram&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;This entity represents information regarding a teacher preparation provider program.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:complexContent&gt;
-    &lt;xs:extension base=&quot;Program&quot;&gt;
-      &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;GradeLevel&quot; type=&quot;GradeLevelDescriptorReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The grade levels served at the TPP Program.&lt;/xs:documentation&gt;
-            &lt;xs:appinfo&gt;
-              &lt;ann:Descriptor&gt;GradeLevelDescriptor&lt;/ann:Descriptor&gt;
-            &lt;/xs:appinfo&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TPPProgramDegree&quot; type=&quot;EXTENSION-TPPProgramDegree&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Details of the degree.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;TPPProgramPathway&quot; type=&quot;EXTENSION-TPPProgramPathwayDescriptorReferenceType&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;A code for describing the program pathway, for example: Residency, Internship, Traditional&lt;/xs:documentation&gt;
-            &lt;xs:appinfo&gt;
-              &lt;ann:Descriptor&gt;EXTENSION-TPPProgramPathwayDescriptor&lt;/ann:Descriptor&gt;
-            &lt;/xs:appinfo&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-      &lt;/xs:sequence&gt;
-    &lt;/xs:extension&gt;
-  &lt;/xs:complexContent&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.TeacherPreparationProviderProgram
-
-EducationOrganizationId [INT] NOT NULL
-ProgramName [NVARCHAR](60) NOT NULL
-ProgramTypeId [INT] NOT NULL
-TPPProgramPathwayDescriptorId [INT] NULL
-
-Primary Keys:
-EducationOrganizationId
-ProgramName
-ProgramTypeId
-<br />extension.TeacherPreparationProviderProgramGradeLevel
-
-EducationOrganizationId [INT] NOT NULL
-GradeLevelDescriptorId [INT] NOT NULL
-ProgramName [NVARCHAR](60) NOT NULL
-ProgramTypeId [INT] NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-GradeLevelDescriptorId
-ProgramName
-ProgramTypeId
-<br />extension.TeacherPreparationProviderProgramTPPProgramDegree
-
-EducationOrganizationId [INT] NOT NULL
-ProgramName [NVARCHAR](60) NOT NULL
-ProgramTypeId [INT] NOT NULL
-AcademicSubjectDescriptorId [INT] NOT NULL
-TPPDegreeTypeDescriptorId [INT] NOT NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-ProgramName
-ProgramTypeId
 </pre></div>
             </div>
         </p>
@@ -44897,7 +44885,7 @@ ProgramSponsorTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />ProgramParticipation.ProgramType (as identity)<br />Program.ProgramType (as identity)</div>
+                <div><br />Used By:<br />ProgramParticipation.ProgramType (as identity)<br />Program.ProgramType (as identity)<br />TeacherPreparationProviderProgram.ProgramType (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53153,7 +53141,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Program.ProgramId (as optional)</div>
+                <div><br />Used By:<br />Program.ProgramId (as optional)<br />TeacherPreparationProviderProgram.ProgramId (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -53195,7 +53183,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />Program.ProgramName (as identity)</div>
+                <div><br />Used By:<br />Program.ProgramName (as identity)<br />TeacherPreparationProviderProgram.ProgramName (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -54180,6 +54168,48 @@ VisaTypeId
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>SocialMediaUserName [NVARCHAR](50)</pre></div>
+            </div>
+        </p>
+        <p>
+            <h2>Specialization</h2>
+            <div class="entryItem">
+                <div class="entryItemLabel">Ed-Fi ID:</div>
+                <div></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Definition:</div>
+                <div>An area of specialization.</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Entity Type:</div>
+                <div>String Type</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">Type Characteristics:</div>
+                <div>min length: 1<br />max length: 75</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">References:</div>
+                <div><br />Used By:<br />TeacherPreparationProviderProgram.MajorSpecialization (as optional)<br />TeacherPreparationProviderProgram.MinorSpecialization (as optional)</div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">XSD:</div>
+                <div><pre>&lt;xs:simpleType name=&quot;EXTENSION-Specialization&quot;&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation&gt;An area of specialization.&lt;/xs:documentation&gt;
+    &lt;xs:appinfo&gt;
+      &lt;ann:TypeGroup&gt;Simple&lt;/ann:TypeGroup&gt;
+    &lt;/xs:appinfo&gt;
+  &lt;/xs:annotation&gt;
+  &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+    &lt;xs:minLength value=&quot;1&quot; /&gt;
+    &lt;xs:maxLength value=&quot;75&quot; /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</pre></div>
+            </div>
+            <div class="entryItem">
+                <div class="entryItemLabel">SQL Snippet:</div>
+                <div><pre>Specialization [NVARCHAR](75)</pre></div>
             </div>
         </p>
         <p>

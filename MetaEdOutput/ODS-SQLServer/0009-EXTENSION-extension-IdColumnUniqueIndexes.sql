@@ -752,6 +752,14 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TeacherPreparationProviderProgram') AND name = N'UX_TeacherPreparationProviderProgram_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_TeacherPreparationProviderProgram_Id ON extension.TeacherPreparationProviderProgram
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.ThemeType') AND name = N'UX_ThemeType_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_ThemeType_Id ON extension.ThemeType
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
