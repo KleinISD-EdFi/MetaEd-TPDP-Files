@@ -27,7 +27,7 @@ Domain Entity CourseStudentFacts
   common AggregatedLanguage
     documentation "The data about the language"
     is optional collection
-  common AggregatedDisabilityByType
+  common AggregatedByDisability
     documentation "Information about the disability of a group aggregated by course."
     is optional collection
   common AggregatedDisabilityTotalStudentsDisabled

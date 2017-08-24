@@ -745,7 +745,7 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedByDisability" type="EXTENSION-AggregatedByDisability" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -1271,7 +1271,7 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedByDisability" type="EXTENSION-AggregatedByDisability" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -2552,7 +2552,7 @@
               <xs:documentation>The data about the language</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedDisabilityByType" type="EXTENSION-AggregatedDisabilityByType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="AggregatedByDisability" type="EXTENSION-AggregatedByDisability" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>Information about the disability of a group aggregated by course.</xs:documentation>
             </xs:annotation>
@@ -8427,42 +8427,7 @@
   <xs:annotation>
     <xs:documentation>===== Common Types =====</xs:documentation>
   </xs:annotation>
-  <xs:complexType name="EXTENSION-AggregatedCumulativeGradePointAverage">
-    <xs:annotation>
-      <xs:documentation>Data about the cumulative grade point for a group</xs:documentation>
-      <xs:appinfo>
-        <ann:TypeGroup>Common</ann:TypeGroup>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
-        <xs:annotation>
-          <xs:documentation>The school year for which the data is associated</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
-        <xs:annotation>
-          <xs:documentation>The date for which the data element is relevant</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="GradePointAverage" type="GPA">
-        <xs:annotation>
-          <xs:documentation>The average cumulative grade point average for a group</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="GradePointNCount" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The total number of data values in set of data that makes up the average grade point for a group</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="GradePointStandardDeviation" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average grade point for a group of students</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="EXTENSION-AggregatedDisabilityByType">
+  <xs:complexType name="EXTENSION-AggregatedByDisability">
     <xs:annotation>
       <xs:documentation>Students in the course who have a disability by disability type</xs:documentation>
       <xs:appinfo>
@@ -8501,6 +8466,41 @@
       <xs:element name="Percentage" type="Percent" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The percentage of students who have a disability by each specific disability type</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-AggregatedCumulativeGradePointAverage">
+    <xs:annotation>
+      <xs:documentation>Data about the cumulative grade point for a group</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Common</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AggregatedSchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AggregatedFactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GradePointAverage" type="GPA">
+        <xs:annotation>
+          <xs:documentation>The average cumulative grade point average for a group</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GradePointNCount" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The total number of data values in set of data that makes up the average grade point for a group</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GradePointStandardDeviation" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average grade point for a group of students</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
