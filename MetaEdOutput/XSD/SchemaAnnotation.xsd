@@ -88,7 +88,7 @@
       <xs:enumeration value="SurveyCategoryDescriptor" />
       <xs:enumeration value="TeacherCandidateCharacteristicDescriptor" />
       <xs:enumeration value="TeacherPreparationProgramTypeDescriptor" />
-      <xs:enumeration value="ThemeTypeDescriptor" />
+      <xs:enumeration value="ThemeDescriptor" />
       <xs:enumeration value="TPPDegreeTypeDescriptor" />
       <xs:enumeration value="TPPProgramPathwayDescriptor" />
     </xs:restriction>

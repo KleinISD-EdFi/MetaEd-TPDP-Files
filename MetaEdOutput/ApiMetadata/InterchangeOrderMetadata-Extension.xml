@@ -13,7 +13,7 @@
     <Element name="AcademicSubjectDescriptor" />
     <Element name="GradeLevelDescriptor" />
     <Element name="CompetencyLevelDescriptor" />
-    <Element name="ThemeTypeDescriptor" />
+    <Element name="ThemeDescriptor" />
     <Element name="SchoolFoodServicesEligibilityDescriptor" />
     <Element name="LanguageDescriptor" />
     <Element name="DisabilityDescriptor" />

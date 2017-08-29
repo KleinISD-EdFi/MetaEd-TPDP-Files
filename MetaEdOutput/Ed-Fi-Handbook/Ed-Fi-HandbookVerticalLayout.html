@@ -22061,7 +22061,7 @@ TermTypeId
             </div>
         </p>
         <p>
-            <h2>ThemeType</h2>
+            <h2>Theme</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>
@@ -22080,11 +22080,11 @@ TermTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />RubricLevel.ThemeType (as optional collection)</div>
+                <div><br />Used By:<br />RubricLevel.Theme (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-ThemeTypeDescriptor&quot;&gt;
+                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-ThemeDescriptor&quot;&gt;
   &lt;xs:annotation&gt;
     &lt;xs:documentation&gt;The descriptor holds the theme of the specified level of the rubric.&lt;/xs:documentation&gt;
     &lt;xs:appinfo&gt;
@@ -22094,9 +22094,9 @@ TermTypeId
   &lt;xs:complexContent&gt;
     &lt;xs:extension base=&quot;DescriptorType&quot;&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;ThemeTypeMap&quot; type=&quot;EXTENSION-ThemeTypeMapType&quot; minOccurs=&quot;0&quot;&gt;
+        &lt;xs:element name=&quot;ThemeMap&quot; type=&quot;EXTENSION-ThemeMapType&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The mapping to a known ThemeType enumeration type.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The mapping to a known Theme enumeration type.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
@@ -22106,7 +22106,14 @@ TermTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.ThemeType
+                <div><pre>extension.ThemeDescriptor
+
+ThemeDescriptorId [INT] NOT NULL
+ThemeTypeId [INT] NULL
+
+Primary Keys:
+ThemeDescriptorId
+<br />extension.ThemeType
 
 ThemeTypeId [INT] IDENTITY(1,1) NOT NULL
 CodeValue [NVARCHAR](50) NOT NULL
@@ -22118,13 +22125,6 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 ThemeTypeId
-<br />extension.ThemeTypeDescriptor
-
-ThemeTypeDescriptorId [INT] NOT NULL
-ThemeTypeId [INT] NULL
-
-Primary Keys:
-ThemeTypeDescriptorId
 </pre></div>
             </div>
         </p>
@@ -33577,7 +33577,7 @@ RubricTypeDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Rubric (identity)<br />RubricLevelCode (identity)<br />RubricLevelInformation (required)<br />ThemeType (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
+                <div><br />Contains:<br />Rubric (identity)<br />RubricLevelCode (identity)<br />RubricLevelInformation (required)<br />Theme (optional collection)<br /><br />Used By:<br />RubricLevelResponse.RubricLevel (as identity)<br />RubricLevelResponseFacts.RubricLevel (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -33606,11 +33606,11 @@ RubricTypeDescriptorId
             &lt;xs:documentation&gt;Information about the level of the rubric at which the data is captured.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;ThemeType&quot; type=&quot;EXTENSION-ThemeTypeDescriptorReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+        &lt;xs:element name=&quot;Theme&quot; type=&quot;EXTENSION-ThemeDescriptorReferenceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The theme of the specified level of the rubric.&lt;/xs:documentation&gt;
             &lt;xs:appinfo&gt;
-              &lt;ann:Descriptor&gt;EXTENSION-ThemeTypeDescriptor&lt;/ann:Descriptor&gt;
+              &lt;ann:Descriptor&gt;EXTENSION-ThemeDescriptor&lt;/ann:Descriptor&gt;
             &lt;/xs:appinfo&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
@@ -33654,13 +33654,13 @@ RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
-<br />extension.RubricLevelThemeType
+<br />extension.RubricLevelTheme
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
 RubricTitle [NVARCHAR](15) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
-ThemeTypeDescriptorId [INT] NOT NULL
+ThemeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -33668,7 +33668,7 @@ RubricEducationOrganizationId
 RubricLevelCode
 RubricTitle
 RubricTypeDescriptorId
-ThemeTypeDescriptorId
+ThemeDescriptorId
 </pre></div>
             </div>
         </p>
@@ -46311,7 +46311,7 @@ TelephoneNumberTypeId
             </div>
         </p>
         <p>
-            <h2>ThemeTypeMap</h2>
+            <h2>ThemeMap</h2>
             <div class="entryItem">
                 <div class="entryItemLabel">Ed-Fi ID:</div>
                 <div></div>

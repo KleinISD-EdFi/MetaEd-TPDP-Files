@@ -297,7 +297,7 @@
   <Aggregate root="RubricLevel">
     <Entity table="RubricLevel" schema="extension"/>
     <Entity table="RubricLevelInformation" schema="extension"/>
-    <Entity table="RubricLevelThemeType" schema="extension"/>
+    <Entity table="RubricLevelTheme" schema="extension"/>
   </Aggregate>
   <Aggregate root="RubricLevelResponse">
     <Entity table="RubricLevelResponse" schema="extension"/>
@@ -521,11 +521,11 @@
     <Entity table="TeacherPreparationProviderProgramGradeLevel" schema="extension"/>
     <Entity table="TeacherPreparationProviderProgramTPPProgramDegree" schema="extension"/>
   </Aggregate>
+  <Aggregate root="ThemeDescriptor">
+    <Entity table="ThemeDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
   <Aggregate root="ThemeType">
     <Entity table="ThemeType" schema="extension"/>
-  </Aggregate>
-  <Aggregate root="ThemeTypeDescriptor">
-    <Entity table="ThemeTypeDescriptor" isA="Descriptor" schema="extension"/>
   </Aggregate>
   <Aggregate root="TPPDegreeType">
     <Entity table="TPPDegreeType" schema="extension"/>

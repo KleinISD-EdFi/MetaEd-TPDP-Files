@@ -7505,38 +7505,38 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used
 GO
 
 
-/****** Table: [extension].[RubricLevelThemeType] ******/
+/****** Table: [extension].[RubricLevelTheme] ******/
 
-CREATE TABLE [extension].[RubricLevelThemeType](
+CREATE TABLE [extension].[RubricLevelTheme](
     [RubricEducationOrganizationId] [INT] NOT NULL,
     [RubricLevelCode] [NVARCHAR](20) NOT NULL,
     [RubricTitle] [NVARCHAR](15) NOT NULL,
     [RubricTypeDescriptorId] [INT] NOT NULL,
-    [ThemeTypeDescriptorId] [INT] NOT NULL,
+    [ThemeDescriptorId] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [RubricLevelThemeType_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [RubricLevelTheme_PK] PRIMARY KEY CLUSTERED (
         [RubricEducationOrganizationId] ASC,
         [RubricLevelCode] ASC,
         [RubricTitle] ASC,
         [RubricTypeDescriptorId] ASC,
-        [ThemeTypeDescriptorId] ASC
+        [ThemeDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [extension].[RubricLevelThemeType] ADD CONSTRAINT [RubricLevelThemeType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [extension].[RubricLevelTheme] ADD CONSTRAINT [RubricLevelTheme_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'RubricLevelThemeType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'RubricLevelTheme'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelThemeType', @level2type=N'COLUMN', @level2name=N'RubricEducationOrganizationId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelTheme', @level2type=N'COLUMN', @level2name=N'RubricEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelThemeType', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifying code for the question, unique for the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelTheme', @level2type=N'COLUMN', @level2name=N'RubricLevelCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelThemeType', @level2type=N'COLUMN', @level2name=N'RubricTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelTheme', @level2type=N'COLUMN', @level2name=N'RubricTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of rubric used to conduct the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelThemeType', @level2type=N'COLUMN', @level2name=N'RubricTypeDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of rubric used to conduct the observation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelTheme', @level2type=N'COLUMN', @level2name=N'RubricTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelThemeType', @level2type=N'COLUMN', @level2name=N'ThemeTypeDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelTheme', @level2type=N'COLUMN', @level2name=N'ThemeDescriptorId'
 GO
 
 
@@ -13499,6 +13499,26 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code for des
 GO
 
 
+/****** Table: [extension].[ThemeDescriptor] ******/
+
+CREATE TABLE [extension].[ThemeDescriptor](
+    [ThemeDescriptorId] [INT] NOT NULL,
+    [ThemeTypeId] [INT] NULL,
+    CONSTRAINT [ThemeDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [ThemeDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ThemeDescriptor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeDescriptor', @level2type=N'COLUMN', @level2name=N'ThemeDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeDescriptor', @level2type=N'COLUMN', @level2name=N'ThemeTypeId'
+GO
+
+
 /****** Table: [extension].[ThemeType] ******/
 
 CREATE TABLE [extension].[ThemeType](
@@ -13530,26 +13550,6 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the Theme type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeType', @level2type=N'COLUMN', @level2name=N'Description'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the Theme type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
-GO
-
-
-/****** Table: [extension].[ThemeTypeDescriptor] ******/
-
-CREATE TABLE [extension].[ThemeTypeDescriptor](
-    [ThemeTypeDescriptorId] [INT] NOT NULL,
-    [ThemeTypeId] [INT] NULL,
-    CONSTRAINT [ThemeTypeDescriptor_PK] PRIMARY KEY CLUSTERED (
-        [ThemeTypeDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the theme of the specified level of the rubric.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ThemeTypeDescriptor'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeTypeDescriptor', @level2type=N'COLUMN', @level2name=N'ThemeTypeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ThemeTypeDescriptor', @level2type=N'COLUMN', @level2name=N'ThemeTypeId'
 GO
 
 
@@ -17915,24 +17915,24 @@ GO
 
 
 
-ALTER TABLE [extension].[RubricLevelThemeType] WITH CHECK ADD CONSTRAINT [FK_RubricLevelThemeType_RubricLevel] FOREIGN KEY ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
+ALTER TABLE [extension].[RubricLevelTheme] WITH CHECK ADD CONSTRAINT [FK_RubricLevelTheme_RubricLevel] FOREIGN KEY ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
 REFERENCES [extension].[RubricLevel] ([RubricEducationOrganizationId], [RubricLevelCode], [RubricTitle], [RubricTypeDescriptorId])
 ON DELETE CASCADE
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_RubricLevelThemeType_RubricLevel]
-ON [extension].[RubricLevelThemeType]([RubricEducationOrganizationId] ASC, [RubricLevelCode] ASC, [RubricTitle] ASC, [RubricTypeDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_RubricLevelTheme_RubricLevel]
+ON [extension].[RubricLevelTheme]([RubricEducationOrganizationId] ASC, [RubricLevelCode] ASC, [RubricTitle] ASC, [RubricTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[RubricLevelThemeType] WITH CHECK ADD CONSTRAINT [FK_RubricLevelThemeType_ThemeTypeDescriptor] FOREIGN KEY ([ThemeTypeDescriptorId])
-REFERENCES [extension].[ThemeTypeDescriptor] ([ThemeTypeDescriptorId])
+ALTER TABLE [extension].[RubricLevelTheme] WITH CHECK ADD CONSTRAINT [FK_RubricLevelTheme_ThemeDescriptor] FOREIGN KEY ([ThemeDescriptorId])
+REFERENCES [extension].[ThemeDescriptor] ([ThemeDescriptorId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_RubricLevelThemeType_ThemeTypeDescriptor]
-ON [extension].[RubricLevelThemeType]([ThemeTypeDescriptorId] ASC)
+CREATE NONCLUSTERED INDEX [FK_RubricLevelTheme_ThemeDescriptor]
+ON [extension].[RubricLevelTheme]([ThemeDescriptorId] ASC)
 GO
 
 ALTER TABLE [extension].[RubricTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_RubricTypeDescriptor_Descriptor] FOREIGN KEY ([RubricTypeDescriptorId])
@@ -21023,7 +21023,7 @@ CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProviderProgramTPPProgramDegree_
 ON [extension].[TeacherPreparationProviderProgramTPPProgramDegree]([TPPDegreeTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[ThemeTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_ThemeTypeDescriptor_Descriptor] FOREIGN KEY ([ThemeTypeDescriptorId])
+ALTER TABLE [extension].[ThemeDescriptor] WITH CHECK ADD CONSTRAINT [FK_ThemeDescriptor_Descriptor] FOREIGN KEY ([ThemeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
 
@@ -21031,14 +21031,14 @@ GO
 
 
 
-ALTER TABLE [extension].[ThemeTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_ThemeTypeDescriptor_ThemeType] FOREIGN KEY ([ThemeTypeId])
+ALTER TABLE [extension].[ThemeDescriptor] WITH CHECK ADD CONSTRAINT [FK_ThemeDescriptor_ThemeType] FOREIGN KEY ([ThemeTypeId])
 REFERENCES [extension].[ThemeType] ([ThemeTypeId])
 
 
 GO
 
-CREATE NONCLUSTERED INDEX [FK_ThemeTypeDescriptor_ThemeType]
-ON [extension].[ThemeTypeDescriptor]([ThemeTypeId] ASC)
+CREATE NONCLUSTERED INDEX [FK_ThemeDescriptor_ThemeType]
+ON [extension].[ThemeDescriptor]([ThemeTypeId] ASC)
 GO
 
 ALTER TABLE [extension].[TPPDegreeTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_TPPDegreeTypeDescriptor_Descriptor] FOREIGN KEY ([TPPDegreeTypeDescriptorId])

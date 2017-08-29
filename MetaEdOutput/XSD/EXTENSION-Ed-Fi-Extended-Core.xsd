@@ -2219,11 +2219,11 @@
               <xs:documentation>Information about the level of the rubric at which the data is captured.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="ThemeType" type="EXTENSION-ThemeTypeDescriptorReferenceType" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Theme" type="EXTENSION-ThemeDescriptorReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The theme of the specified level of the rubric.</xs:documentation>
               <xs:appinfo>
-                <ann:Descriptor>EXTENSION-ThemeTypeDescriptor</ann:Descriptor>
+                <ann:Descriptor>EXTENSION-ThemeDescriptor</ann:Descriptor>
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
@@ -4480,7 +4480,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-ThemeTypeDescriptor">
+  <xs:complexType name="EXTENSION-ThemeDescriptor">
     <xs:annotation>
       <xs:documentation>The descriptor holds the theme of the specified level of the rubric.</xs:documentation>
       <xs:appinfo>
@@ -4490,9 +4490,9 @@
     <xs:complexContent>
       <xs:extension base="DescriptorType">
         <xs:sequence>
-          <xs:element name="ThemeTypeMap" type="EXTENSION-ThemeTypeMapType" minOccurs="0">
+          <xs:element name="ThemeMap" type="EXTENSION-ThemeMapType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The mapping to a known ThemeType enumeration type.</xs:documentation>
+              <xs:documentation>The mapping to a known Theme enumeration type.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -8391,9 +8391,9 @@
       <xs:extension base="DescriptorReferenceType" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="EXTENSION-ThemeTypeDescriptorReferenceType">
+  <xs:complexType name="EXTENSION-ThemeDescriptorReferenceType">
     <xs:annotation>
-      <xs:documentation>Provides references for theme type descriptor and its details during interchange. Use XML IDREF to reference a record that is included in the interchange.</xs:documentation>
+      <xs:documentation>Provides references for theme descriptor and its details during interchange. Use XML IDREF to reference a record that is included in the interchange.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -11386,7 +11386,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EXTENSION-ThemeTypeMapType">
+  <xs:simpleType name="EXTENSION-ThemeMapType">
     <xs:annotation>
       <xs:documentation>Map for the theme types.</xs:documentation>
       <xs:appinfo>

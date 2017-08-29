@@ -61,6 +61,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | ProgramGatewayDescriptor | Optional.  The descriptor holds the program gateway that is associated with continuation in a program. |
 | RubricTypeDescriptor | Required.  The descriptor holds the rubric types. |
 | TermDescriptor | Required.  This descriptor defines the term of a session during the school year (e.g., Fall Semester). |
-| ThemeTypeDescriptor | Optional.  The descriptor holds the theme of the specified level of the rubric. |
+| ThemeDescriptor | Optional.  The descriptor holds the theme of the specified level of the rubric. |
 
 

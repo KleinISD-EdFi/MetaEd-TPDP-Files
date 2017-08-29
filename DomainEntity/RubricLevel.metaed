@@ -11,6 +11,6 @@ Domain Entity RubricLevel
   common RubricLevelInformation
     documentation "Information about the level of the rubric at which the data is captured."
     is required
-  descriptor ThemeType
+  descriptor Theme
     documentation "The theme of the specified level of the rubric."
     is optional collection

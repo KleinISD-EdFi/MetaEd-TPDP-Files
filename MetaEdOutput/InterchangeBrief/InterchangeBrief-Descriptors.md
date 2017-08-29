@@ -104,7 +104,7 @@ The following table describes the primary entities of which the Descriptors Inte
 | SurveyCategoryDescriptor | The descriptor holds the category or type of survey. |
 | TeacherCandidateCharacteristicDescriptor | The characteristic designated for the TeacherCandidate. |
 | TeacherPreparationProgramTypeDescriptor | The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.). |
-| ThemeTypeDescriptor | The descriptor holds the theme of the specified level of the rubric. |
+| ThemeDescriptor | The descriptor holds the theme of the specified level of the rubric. |
 | TPPDegreeTypeDescriptor | The descriptor holds the degree that a teacher candidate accomplishes. |
 | TPPProgramPathwayDescriptor | The descriptor holds the program pathways available at TPP's. |
 
