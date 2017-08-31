@@ -22605,7 +22605,7 @@ INSERT INTO [extension].[TPPDegreeType] ([CodeValue],[Description],[ShortDescrip
 
 INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Fellowship','Fellowship')
 
-INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Intership','Intership')
+INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Internship','Internship')
 
 INSERT INTO [extension].[TPPProgramPathwayType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Other','Other')
 
