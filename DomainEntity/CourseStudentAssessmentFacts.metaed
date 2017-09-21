@@ -11,10 +11,9 @@ Domain Entity CourseStudentAssessmentFacts
     documentation "The date for which the data element is relevant"
     is part of identity
   shared string AssessmentTitle
-    documentation "The title if any specific assessment given to a group"
+    documentation "The title of a specific assessment given to a group."
     is optional
   descriptor AssessmentCategory
-    documentation "The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ..."
     is optional
   descriptor AcademicSubject
     documentation "The academic subject associated with a CourseStudentAssessment."

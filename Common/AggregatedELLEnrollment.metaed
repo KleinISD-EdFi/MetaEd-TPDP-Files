@@ -11,7 +11,7 @@ Common AggregatedELLEnrollment
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   integer ELLEnrollmentNumber
-    documentation "The number of student who are ELL"
+    documentation "The number of students who are ELL."
     is optional
   percent ELLEnrollmentPercentage
     documentation "The percentage of students who are identified as ELL"

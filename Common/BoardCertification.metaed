@@ -1,7 +1,7 @@
 Common BoardCertification
-  documentation "Board certification information for a individual."
+  documentation "Board certification information for an individual."
   bool BoardCertification
-    documentation "An indication of whether a individual is board certified."
+    documentation "An indication of whether an individual is board certified."
     is optional
   date BoardCertificationDate
     documentation "The month, day, and year on which a board certification was awarded."

@@ -1,5 +1,5 @@
 Domain Entity SectionStudentAcademicRecordFacts
-  documentation "Complex type that provides data about a group of student and their academic record"
+  documentation "Complex type that provides data about a group of students and their academic record."
   domain entity	Section
     documentation "The section associated with aggregated student data"
     is part of identity

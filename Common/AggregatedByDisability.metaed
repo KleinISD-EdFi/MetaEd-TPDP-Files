@@ -11,7 +11,7 @@ Common AggregatedByDisability
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   descriptor Disability
-    documentation "Data about the disability of a group"
+    documentation "Data about the disability of a group."
     is part of identity
   integer TypeNumber
     documentation "The number of student who have a disability by disability type"

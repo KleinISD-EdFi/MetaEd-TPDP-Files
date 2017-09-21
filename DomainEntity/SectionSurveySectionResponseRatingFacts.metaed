@@ -8,5 +8,5 @@ Domain Entity SectionSurveySectionResponseRatingFacts
     is part of identity
     merge SurveySection.Survey with SectionSurveyResponseFacts.Survey
   common AggregatedNumericResponse
-    documentation "The average of the numeric responses to survey sections collected at the aggregate level."
+    documentation "The information about the numeric response for an aggregated survey."
     is required

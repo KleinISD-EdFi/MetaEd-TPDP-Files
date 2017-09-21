@@ -122,7 +122,7 @@ Domain Entity TeacherCandidate
     documentation "The career previous for an individual."
     is optional
   bool ProgramComplete
-    documentation "An indication of whether a teacher candidate has completed the teacher prepartion program."
+    documentation "An indication of whether a teacher candidate has completed the teacher preparation program."
     is optional
   domain entity Student
     documentation "The student associated."

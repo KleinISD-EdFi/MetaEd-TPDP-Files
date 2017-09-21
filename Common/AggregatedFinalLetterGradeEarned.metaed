@@ -14,5 +14,5 @@ Common AggregatedFinalLetterGradeEarned
     documentation "The number of students receiving a letter grade by letter grade type"
     is optional
   percent LetterGradeTypePercentage
-    documentation "The percentage of student receiving a letter grade by type"
+    documentation "The percentage of students receiving a letter grade by type."
     is optional

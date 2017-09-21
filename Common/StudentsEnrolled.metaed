@@ -11,7 +11,7 @@ Common StudentsEnrolled
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
 	integer NumberStudentsEnrolled
-    documentation "The total number of student enrolled in the respective Section"
+    documentation "The total number of students enrolled in the respective Section."
     is optional
   percent PercentAtRisk
     documentation "The percent of students who have been identified as at risk."

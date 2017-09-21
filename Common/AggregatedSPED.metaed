@@ -14,5 +14,5 @@ Common AggregatedSPED
     documentation "The number of students enrolled in SPED"
     is optional
   percent SPEDEnrollmentPercentage
-    documentation "The percentage of student enrolled in a SPED program"
+    documentation "The percentage of students enrolled in a SPED program."
     is optional

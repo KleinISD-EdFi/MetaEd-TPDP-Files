@@ -17,5 +17,5 @@ Common AggregatedSchoolFoodServicesEligibility
     documentation "The number of students eligibile for SchoolFoodServicesEligibility by category"
     is optional
   integer TypePercentage
-    documentation "The percentage of student who are eligible for SchoolFoodServicesEligibility by type"
+    documentation "The percentage of students who are eligible for SchoolFoodServicesEligibility by type."
     is optional

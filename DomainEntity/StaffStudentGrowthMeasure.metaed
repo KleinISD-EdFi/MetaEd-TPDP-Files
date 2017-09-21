@@ -19,7 +19,7 @@ Domain Entity StaffStudentGrowthMeasure
     documentation "Identification of the type of score that was used to determine student growth"
     is optional
   integer StudentGrowthTargetScore
-    documentation "The target score that has been set of the group of students as it pertains to their student growth."
+    documentation "The target score that has been set for the group of students as it pertains to their student growth."
     is optional
   integer StudentGrowthActualScore
     documentation "The actual score a group of students receives on their student growth assessment"

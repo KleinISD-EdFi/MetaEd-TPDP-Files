@@ -1,5 +1,5 @@
 Domain Entity EducationOrganizationStudentFacts
-  documentation "This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching"
+  documentation "This domain entity collects data for aggregated level students."
   domain entity EducationOrganization
     documentation "The education organization associated with aggregated student data"
     is part of identity

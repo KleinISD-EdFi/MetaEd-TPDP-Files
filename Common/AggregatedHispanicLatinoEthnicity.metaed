@@ -17,5 +17,5 @@ Common AggregatedHispanicLatinoEthnicity
     documentation "The number of students who are hispanic/latino"
     is optional
   percent HispanicLatinoEthnicityPercentage
-    documentation "The percentage of student who are identified as hispanic/latino"
+    documentation "The percentage of students who are identified as hispanic/latino."
     is optional

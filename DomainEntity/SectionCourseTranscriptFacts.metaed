@@ -1,5 +1,5 @@
 Domain Entity SectionCourseTranscriptFacts
-  documentation "Data about the final letter grade earned of the group"
+  documentation "Data about the final grade earned of the group."
   domain entity SectionStudentAcademicRecordFacts
     documentation "The Section Student Academic Record Fact the data is associated with"
     is part of identity
