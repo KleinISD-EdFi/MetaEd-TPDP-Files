@@ -62,11 +62,11 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 |---------------------|-----------------|
 | AbsenceEventCategoryDescriptor | Required.  The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
 | AchievementCategoryDescriptor | Optional.  This descriptor defines the category of achievement attributed to the learner. |
-| AidTypeDescriptor | Optional.  The classification of financial aid awarded to a person for the academic term/year. |
+| AidTypeDescriptor | Optional.  This descriptor defines the classification of financial aid awarded to a person for the academic term/year. |
 | BackgroundCheckStatusDescriptor | Optional.  This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
-| BackgroundCheckTypeDescriptor | Optional.  The type of background check (e.g., online, criminal, employment). |
-| BoardCertificationTypeDescriptor | Optional.  The descriptor holds the  type of board certification awarded to an individual. |
-| CertificationExamTypeDescriptor | Optional.  The descriptor holds the  type of certification exam that was taken. |
+| BackgroundCheckTypeDescriptor | Optional.  This descriptor defines the classification of the background check a person receives. |
+| BoardCertificationTypeDescriptor | Optional.  The descriptor holds the type of board certification awarded to an individual. |
+| CertificationExamTypeDescriptor | Optional.  The descriptor holds the type of certification exam that was taken. |
 | CountryDescriptor | Optional.  This descriptor defines the name and code of the country. |
 | CredentialFieldDescriptor | Required.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
 | DisabilityDescriptor | Optional.  This descriptor defines a student's impairment. |

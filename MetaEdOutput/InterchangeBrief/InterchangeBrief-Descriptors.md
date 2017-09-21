@@ -84,11 +84,11 @@ The following table describes the primary entities of which the Descriptors Inte
 | TermDescriptor | This descriptor defines the term of a session during the school year (e.g., Fall Semester). |
 | WeaponDescriptor | This descriptor defines the types of weapon used during an incident. |
 | AbsenceEventCategoryDescriptor | The descriptor holds the code describing the type of leave taken, for example: Sick, Personal, Vacation. |
-| AidTypeDescriptor | The classification of financial aid awarded to a person for the academic term/year. |
+| AidTypeDescriptor | This descriptor defines the classification of financial aid awarded to a person for the academic term/year. |
 | BackgroundCheckStatusDescriptor | This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
-| BackgroundCheckTypeDescriptor | The type of background check (e.g., online, criminal, employment). |
-| BoardCertificationTypeDescriptor | The descriptor holds the  type of board certification awarded to an individual. |
-| CertificationExamTypeDescriptor | The descriptor holds the  type of certification exam that was taken. |
+| BackgroundCheckTypeDescriptor | This descriptor defines the classification of the background check a person receives. |
+| BoardCertificationTypeDescriptor | The descriptor holds the type of board certification awarded to an individual. |
+| CertificationExamTypeDescriptor | The descriptor holds the type of certification exam that was taken. |
 | EnglishLanguageExamDescriptor | Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL). |
 | FieldworkTypeDescriptor | The descriptor holds the type of fieldwork being executed by a teacher candidate. |
 | LevelOfDegreeAwardedDescriptor | The descriptor holds the level of degree awarded by the teacher prep program to the person (e.g., Certificate Only, Bachelor's, Master's, etc.). |

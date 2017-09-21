@@ -314,7 +314,7 @@
           </xs:element>
           <xs:element name="CourseTitle" type="CourseTitle">
             <xs:annotation>
-              <xs:documentation>The official Course Title with which this student acaemic is associated.</xs:documentation>
+              <xs:documentation>The descriptive name given to a course of study offered in a school or other institution or organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -505,7 +505,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-CourseCourseTranscriptFacts">
     <xs:annotation>
-      <xs:documentation>Data about the final letter grade earned of the group</xs:documentation>
+      <xs:documentation>Data about the final grade earned of the group.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -631,12 +631,12 @@
           </xs:element>
           <xs:element name="AssessmentTitle" type="AssessmentTitle" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The title if any specific assessment given to a group</xs:documentation>
+              <xs:documentation>The title of a specific assessment given to a group.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="AssessmentCategory" type="AssessmentCategoryDescriptorReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...</xs:documentation>
+              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.</xs:documentation>
               <xs:appinfo>
                 <ann:Descriptor>AssessmentCategoryDescriptor</ann:Descriptor>
               </xs:appinfo>
@@ -893,17 +893,17 @@
         <xs:sequence>
           <xs:element name="BoardCertification" type="EXTENSION-BoardCertification" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Board certification information for a individual.</xs:documentation>
+              <xs:documentation>Board certification information for an individual.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="CertificationExam" type="EXTENSION-CertificationExam" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>Certification information for a individual.</xs:documentation>
+              <xs:documentation>Certification information for an individual.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Recommendation" type="EXTENSION-Recommendation" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The information about the recommenation for the credential.</xs:documentation>
+              <xs:documentation>The information about the recommendation for the credential.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="RecommendingInstitution" type="EXTENSION-RecommendingInstitution" minOccurs="0">
@@ -942,7 +942,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-EducationOrganizationCourseTranscriptFacts">
     <xs:annotation>
-      <xs:documentation>Data about the final letter grade earned of the group</xs:documentation>
+      <xs:documentation>Data about the final grade earned of the group.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -952,7 +952,7 @@
         <xs:sequence>
           <xs:element name="EducationOrganizationStudentAcademicRecordFactsReference" type="EXTENSION-EducationOrganizationStudentAcademicRecordFactsReferenceType">
             <xs:annotation>
-              <xs:documentation>The Education Organization Student Academic Record Fact the data is associated with</xs:documentation>
+              <xs:documentation>The Education Organization the course transcript data is associated with.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="FactsAsOfDate" type="xs:date">
@@ -1157,12 +1157,12 @@
           </xs:element>
           <xs:element name="AssessmentTitle" type="AssessmentTitle" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The title if any specific assessment given to a group</xs:documentation>
+              <xs:documentation>The title of a specific assessment given to a group.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="AssessmentCategory" type="AssessmentCategoryDescriptorReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...</xs:documentation>
+              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.</xs:documentation>
               <xs:appinfo>
                 <ann:Descriptor>AssessmentCategoryDescriptor</ann:Descriptor>
               </xs:appinfo>
@@ -1218,7 +1218,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-EducationOrganizationStudentFacts">
     <xs:annotation>
-      <xs:documentation>This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching</xs:documentation>
+      <xs:documentation>This domain entity collects data for aggregated level students.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -1926,7 +1926,7 @@
           </xs:element>
           <xs:element name="Required" type="xs:boolean" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>An indication of whether a teacher candidate is active in an professional development.</xs:documentation>
+              <xs:documentation>An indication of whether a teacher candidate is active in a professional development.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="MultipleSession" type="xs:boolean" minOccurs="0">
@@ -2333,7 +2333,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-SectionCourseTranscriptFacts">
     <xs:annotation>
-      <xs:documentation>Data about the final letter grade earned of the group</xs:documentation>
+      <xs:documentation>Data about the final grade earned of the group.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2377,7 +2377,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-SectionStudentAcademicRecordFacts">
     <xs:annotation>
-      <xs:documentation>Complex type that provides data about a group of student and their academic record</xs:documentation>
+      <xs:documentation>Complex type that provides data about a group of students and their academic record.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2446,12 +2446,12 @@
           </xs:element>
           <xs:element name="AssessmentTitle" type="AssessmentTitle" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The title if any specific assessment given to a group</xs:documentation>
+              <xs:documentation>The title of any specific assessment given to a group.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="AssessmentCategory" type="AssessmentCategoryDescriptorReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...</xs:documentation>
+              <xs:documentation>The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.</xs:documentation>
               <xs:appinfo>
                 <ann:Descriptor>AssessmentCategoryDescriptor</ann:Descriptor>
               </xs:appinfo>
@@ -2499,7 +2499,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-SectionStudentFacts">
     <xs:annotation>
-      <xs:documentation>This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching</xs:documentation>
+      <xs:documentation>This domain entity collects data for aggregated level students.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Domain Entity</ann:TypeGroup>
       </xs:appinfo>
@@ -2676,7 +2676,7 @@
           </xs:element>
           <xs:element name="AggregatedNumericResponse" type="EXTENSION-AggregatedNumericResponse">
             <xs:annotation>
-              <xs:documentation>The average of the numeric responses to survey sections collected at the aggregate level.</xs:documentation>
+              <xs:documentation>The information about the numeric response for an aggregated survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2958,7 +2958,7 @@
           </xs:element>
           <xs:element name="StudentGrowthTargetScore" type="xs:int" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The target score that has been set of the group of students as it pertains to their student growth.</xs:documentation>
+              <xs:documentation>The target score that has been set for the group of students as it pertains to their student growth.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="StudentGrowthActualScore" type="xs:int">
@@ -3086,7 +3086,7 @@
           </xs:element>
           <xs:element name="QuestionForm" type="EXTENSION-QuestionFormType">
             <xs:annotation>
-              <xs:documentation>The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbox; 8) Matrix of text boxes.</xs:documentation>
+              <xs:documentation>The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbook; 8) Matrix of text boxes</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="QuestionText" type="EXTENSION-QuestionText">
@@ -3491,7 +3491,7 @@
           </xs:element>
           <xs:element name="ProgramComplete" type="xs:boolean" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>An indication of whether a teacher candidate has completed the teacher prepartion program.</xs:documentation>
+              <xs:documentation>An indication of whether a teacher candidate has completed the teacher preparation program.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="StudentReference" type="StudentReferenceType">
@@ -3772,7 +3772,7 @@
           </xs:element>
           <xs:element name="HoursAbsent" type="EXTENSION-HoursPerDay" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>he hours the staff was absence if not the entire working day</xs:documentation>
+              <xs:documentation>The hours the staff was absent if not the entire working day.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3940,7 +3940,7 @@
           </xs:element>
           <xs:element name="StudentGrowthTargetScore" type="xs:int" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The target score that has been set of the group of students as it pertains to their student growth.</xs:documentation>
+              <xs:documentation>The target score that has been set for the group of students as it pertains to their student growth.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="StudentGrowthActualScore" type="xs:int">
@@ -3950,7 +3950,7 @@
           </xs:element>
           <xs:element name="StudentGrowthMet" type="xs:boolean">
             <xs:annotation>
-              <xs:documentation>Identifies if the student has met the student growth target score</xs:documentation>
+              <xs:documentation>Identifies if the student growth target score is achieved.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="StudentGrowthNCount" type="xs:int" minOccurs="0">
@@ -4102,7 +4102,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-AidTypeDescriptor">
     <xs:annotation>
-      <xs:documentation>The classification of financial aid awarded to a person for the academic term/year.</xs:documentation>
+      <xs:documentation>This descriptor defines the classification of financial aid awarded to a person for the academic term/year.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Descriptor</ann:TypeGroup>
       </xs:appinfo>
@@ -4140,7 +4140,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-BackgroundCheckTypeDescriptor">
     <xs:annotation>
-      <xs:documentation>The type of background check (e.g., online, criminal, employment).</xs:documentation>
+      <xs:documentation>This descriptor defines the classification of the background check a person receives.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Descriptor</ann:TypeGroup>
       </xs:appinfo>
@@ -4159,7 +4159,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-BoardCertificationTypeDescriptor">
     <xs:annotation>
-      <xs:documentation>The descriptor holds the  type of board certification awarded to an individual.</xs:documentation>
+      <xs:documentation>The descriptor holds the type of board certification awarded to an individual.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Descriptor</ann:TypeGroup>
       </xs:appinfo>
@@ -4178,7 +4178,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-CertificationExamTypeDescriptor">
     <xs:annotation>
-      <xs:documentation>The descriptor holds the  type of certification exam that was taken.</xs:documentation>
+      <xs:documentation>The descriptor holds the type of certification exam that was taken.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Descriptor</ann:TypeGroup>
       </xs:appinfo>
@@ -4552,12 +4552,12 @@
         <xs:sequence>
           <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
             <xs:annotation>
-              <xs:documentation>The Anonymized Student reference for the association</xs:documentation>
+              <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="CourseReference" type="CourseReferenceType">
             <xs:annotation>
-              <xs:documentation>The Course reference for the assocation</xs:documentation>
+              <xs:documentation>The Course reference for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="BeginDate" type="xs:date">
@@ -4586,12 +4586,12 @@
         <xs:sequence>
           <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
             <xs:annotation>
-              <xs:documentation>The Anonymized Student reference for the association</xs:documentation>
+              <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
             <xs:annotation>
-              <xs:documentation>The Education Organization reference for the assocation</xs:documentation>
+              <xs:documentation>The Education Organization reference for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="BeginDate" type="xs:date">
@@ -4601,7 +4601,7 @@
           </xs:element>
           <xs:element name="EndDate" type="xs:date" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The end date for the assocation</xs:documentation>
+              <xs:documentation>The end date for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -4620,7 +4620,7 @@
         <xs:sequence>
           <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
             <xs:annotation>
-              <xs:documentation>The Anonymozed Student reference for the association</xs:documentation>
+              <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="SectionReference" type="SectionReferenceType">
@@ -5212,12 +5212,12 @@
     <xs:sequence>
       <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
         <xs:annotation>
-          <xs:documentation>The Anonymized Student reference for the association</xs:documentation>
+          <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="CourseReference" type="CourseReferenceType">
         <xs:annotation>
-          <xs:documentation>The Course reference for the assocation</xs:documentation>
+          <xs:documentation>The Course reference for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="BeginDate" type="xs:date">
@@ -5295,12 +5295,12 @@
     <xs:sequence>
       <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
         <xs:annotation>
-          <xs:documentation>The Anonymized Student reference for the association</xs:documentation>
+          <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType">
         <xs:annotation>
-          <xs:documentation>The Education Organization reference for the assocation</xs:documentation>
+          <xs:documentation>The Education Organization reference for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="BeginDate" type="xs:date">
@@ -5383,7 +5383,7 @@
     <xs:sequence>
       <xs:element name="AnonymizedStudentReference" type="EXTENSION-AnonymizedStudentReferenceType">
         <xs:annotation>
-          <xs:documentation>The Anonymozed Student reference for the association</xs:documentation>
+          <xs:documentation>The Anonymized Student reference for the association.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="SectionReference" type="SectionReferenceType">
@@ -5752,7 +5752,7 @@
     <xs:sequence>
       <xs:element name="EducationOrganizationStudentAcademicRecordFactsReference" type="EXTENSION-EducationOrganizationStudentAcademicRecordFactsReferenceType">
         <xs:annotation>
-          <xs:documentation>The Education Organization Student Academic Record Fact the data is associated with</xs:documentation>
+          <xs:documentation>The Education Organization the course transcript data is associated with.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="FactsAsOfDate" type="xs:date">
@@ -8452,7 +8452,7 @@
       </xs:element>
       <xs:element name="Disability" type="DisabilityDescriptorReferenceType">
         <xs:annotation>
-          <xs:documentation>Data about the disability of a group</xs:documentation>
+          <xs:documentation>Data about the disability of a group.</xs:documentation>
           <xs:appinfo>
             <ann:Descriptor>DisabilityDescriptor</ann:Descriptor>
           </xs:appinfo>
@@ -8530,7 +8530,7 @@
       </xs:element>
       <xs:element name="StudentsDisabledNumber" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The number of student who have a disability</xs:documentation>
+          <xs:documentation>The number of students who have a disability.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="StudentsDisabledPercentage" type="Percent" minOccurs="0">
@@ -8565,7 +8565,7 @@
       </xs:element>
       <xs:element name="ELLEnrollmentNumber" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The number of student who are ELL</xs:documentation>
+          <xs:documentation>The number of students who are ELL.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ELLEnrollmentPercentage" type="Percent" minOccurs="0">
@@ -8600,7 +8600,7 @@
       </xs:element>
       <xs:element name="ESLEnrollmentNumber" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The number of student who are ESL</xs:documentation>
+          <xs:documentation>The number of students who are ESL.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ESLEnrollmentPercentage" type="Percent" minOccurs="0">
@@ -8640,7 +8640,7 @@
       </xs:element>
       <xs:element name="LetterGradeTypePercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student receiving a letter grade by type</xs:documentation>
+          <xs:documentation>The percentage of students receiving a letter grade by type.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8720,7 +8720,7 @@
       </xs:element>
       <xs:element name="HispanicLatinoEthnicityPercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student who are identified as hispanic/latino</xs:documentation>
+          <xs:documentation>The percentage of students who are identified as hispanic/latino.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8758,12 +8758,12 @@
       </xs:element>
       <xs:element name="LanguageTypeNumber" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The number of student by each lanugage type</xs:documentation>
+          <xs:documentation>The number of students by each language type.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="LanguageTypePercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student by language type</xs:documentation>
+          <xs:documentation>The percentage of students by language type.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8805,7 +8805,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-AggregatedNumericResponse">
     <xs:annotation>
-      <xs:documentation>Numeric response survey data provided at the aggregate level.</xs:documentation>
+      <xs:documentation>The information about the numeric response for an aggregated survey.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -8851,7 +8851,7 @@
       </xs:element>
       <xs:element name="PerformanceLevelMetPercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student who met the performance level</xs:documentation>
+          <xs:documentation>The percentage of students who met the performance level.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="PerformanceLevelTypeNumber" type="xs:int" minOccurs="0">
@@ -8861,7 +8861,7 @@
       </xs:element>
       <xs:element name="PerformanceLevelTypePercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student who achieved perfromance level by each performance level type</xs:documentation>
+          <xs:documentation>The percentage of students who achieved performance level by each performance level type.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8931,12 +8931,12 @@
       </xs:element>
       <xs:element name="SalaryMinRange" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The minimum salary range for a staff.</xs:documentation>
+          <xs:documentation>The minimum value in a salary range for staff.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="SalaryMaxRange" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The maximum salary range for a staff.</xs:documentation>
+          <xs:documentation>The maximum value in a salary range for staff.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -8979,7 +8979,7 @@
       </xs:element>
       <xs:element name="TypePercentage" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student who are eligible for SchoolFoodServicesEligibility by type</xs:documentation>
+          <xs:documentation>The percentage of students who are eligible for SchoolFoodServicesEligibility by type.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9124,7 +9124,7 @@
       </xs:element>
       <xs:element name="SexTypePercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student by each sex type</xs:documentation>
+          <xs:documentation>The percentage of students by each sex type.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9159,7 +9159,7 @@
       </xs:element>
       <xs:element name="SPEDEnrollmentPercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student enrolled in a SPED program</xs:documentation>
+          <xs:documentation>The percentage of students enrolled in a SPED program.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9224,7 +9224,7 @@
       </xs:element>
       <xs:element name="TitleIEnrollmentPercentage" type="Percent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of student who are Title I eligible</xs:documentation>
+          <xs:documentation>The percentage of students who are Title I eligible.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -9315,7 +9315,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-BoardCertification">
     <xs:annotation>
-      <xs:documentation>Board certification information for a individual.</xs:documentation>
+      <xs:documentation>Board certification information for an individual.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -9323,7 +9323,7 @@
     <xs:sequence>
       <xs:element name="BoardCertification" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>An indication of whether a individual is board certified.</xs:documentation>
+          <xs:documentation>An indication of whether an individual is board certified.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="BoardCertificationDate" type="xs:date" minOccurs="0">
@@ -9343,7 +9343,7 @@
   </xs:complexType>
   <xs:complexType name="EXTENSION-CertificationExam">
     <xs:annotation>
-      <xs:documentation>Certification information for a individual.</xs:documentation>
+      <xs:documentation>Certification information for an individual.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Common</ann:TypeGroup>
       </xs:appinfo>
@@ -9356,7 +9356,7 @@
       </xs:element>
       <xs:element name="CertificationExamType" type="EXTENSION-CertificationExamTypeDescriptorReferenceType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The type of certification exam that taken.</xs:documentation>
+          <xs:documentation>The type of certification exam that was taken.</xs:documentation>
           <xs:appinfo>
             <ann:Descriptor>EXTENSION-CertificationExamTypeDescriptor</ann:Descriptor>
           </xs:appinfo>
@@ -9909,7 +9909,7 @@
       </xs:element>
       <xs:element name="NumberStudentsEnrolled" type="xs:int" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The total number of student enrolled in the respective Section</xs:documentation>
+          <xs:documentation>The total number of students enrolled in the respective Section.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="PercentAtRisk" type="Percent" minOccurs="0">
@@ -10171,7 +10171,7 @@
       </xs:element>
       <xs:element name="GPA" type="GPA" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The final GPA for the teacher achieved in the program.</xs:documentation>
+          <xs:documentation>The final GPA the teacher achieved in the program.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="LevelOfDegreeAwarded" type="EXTENSION-LevelOfDegreeAwardedDescriptorReferenceType">
@@ -10478,7 +10478,7 @@
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-BackgroundCheckTypeMapType">
     <xs:annotation>
-      <xs:documentation>The type of background check (e.g., online, criminal, employment).</xs:documentation>
+      <xs:documentation>This descriptor defines the classification of the background check a person receives.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Enumeration</ann:TypeGroup>
       </xs:appinfo>
@@ -10513,7 +10513,7 @@
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-BoardCertificationTypeMapType">
     <xs:annotation>
-      <xs:documentation>Map for the board certiciation board types.</xs:documentation>
+      <xs:documentation>Map for the board certification board types.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Enumeration</ann:TypeGroup>
       </xs:appinfo>
@@ -10544,7 +10544,7 @@
           <xs:documentation></xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="English as  New Language/Early and Middle Childhood">
+      <xs:enumeration value="English as a New Language/Early and Middle Childhood">
         <xs:annotation>
           <xs:documentation></xs:documentation>
         </xs:annotation>
@@ -10693,7 +10693,7 @@
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-EnglishLanguageExamMapType">
     <xs:annotation>
-      <xs:documentation>Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL).</xs:documentation>
+      <xs:documentation>The rating the individual received on the English Language assessment.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Enumeration</ann:TypeGroup>
       </xs:appinfo>

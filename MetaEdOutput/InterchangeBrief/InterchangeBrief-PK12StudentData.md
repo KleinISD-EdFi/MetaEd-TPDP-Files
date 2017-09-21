@@ -30,18 +30,18 @@ The following table describes the primary entities of which the P K12 Student Da
 | AnonymizedStudentCourseTranscript | The date for which the data element is relevant |
 | AnonymizedStudentEducationOrganizationAssociation | Information about the association between an anonymized student and the Education Organziation they are enrolled in |
 | AnonymizedStudentSectionAssociation | Information about the association between an anonymized student and the Section they are enrolled in |
-| CourseCourseTranscriptFacts | Data about the final letter grade earned of the group |
+| CourseCourseTranscriptFacts | Data about the final grade earned of the group. |
 | CourseStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | CourseStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
 | CourseStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching	AggregatedStudentFact |
-| EducationOrganizationCourseTranscriptFacts | Data about the final letter grade earned of the group |
+| EducationOrganizationCourseTranscriptFacts | Data about the final grade earned of the group. |
 | EducationOrganizationStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | EducationOrganizationStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
-| EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
-| SectionCourseTranscriptFacts | Data about the final letter grade earned of the group |
-| SectionStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
+| EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students. |
+| SectionCourseTranscriptFacts | Data about the final grade earned of the group. |
+| SectionStudentAcademicRecordFacts | Complex type that provides data about a group of students and their academic record. |
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
-| SectionStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
+| SectionStudentFacts | This domain entity collects data for aggregated level students. |
 | StaffStudentGrowthMeasure | Complex type that provides data about a group of students and their student growth as it pertains to the Teacher Candidate |
 | StaffStudentGrowthMeasureCourseAssociation | Any courses associated with the staff's student growth data, if applicable. |
 | StaffStudentGrowthMeasureEducationOrganizationAssociation | Any education organizations associated with the staff's student growth data, if applicable. |
@@ -62,7 +62,7 @@ This interchange includes the following Extended References.
 |-----------------------------|-----------------|
 | CourseReference (in AnonymizedStudent) | Optional.  The course associated with aggregated student data |
 | CourseReference (in AnonymizedStudentAssessment) | Optional.  The course associated with aggregated student data |
-| CourseReference (in AnonymizedStudentCourseAssociation) | Required.  The Course reference for the assocation |
+| CourseReference (in AnonymizedStudentCourseAssociation) | Required.  The Course reference for the association. |
 | CourseReference (in AnonymizedStudentCourseTranscript) | Required.  The course recorded in the course transcript entry. |
 | CourseReference (in CourseStudentAcademicRecordFacts) | Required.  The course for which the data is associated |
 | CourseReference (in CourseStudentAssessmentFacts) | Required.  The course associated with aggregated student data |
@@ -71,7 +71,7 @@ This interchange includes the following Extended References.
 | CourseReference (in TeacherCandidateStudentGrowthMeasureCourseAssociation) | Required.  The Course reference for the association |
 | EducationOrganizationReference (in AnonymizedStudent) | Optional.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in AnonymizedStudentAcademicRecord) | Required.  The education organization associated with aggregated student data |
-| EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the assocation |
+| EducationOrganizationReference (in AnonymizedStudentEducationOrganizationAssociation) | Required.  The Education Organization reference for the association. |
 | EducationOrganizationReference (in EducationOrganizationStudentAcademicRecordFacts) | Required.  The section associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentAssessmentFacts) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in EducationOrganizationStudentFacts) | Required.  The education organization associated with aggregated student data |

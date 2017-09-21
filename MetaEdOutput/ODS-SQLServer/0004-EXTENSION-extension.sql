@@ -98,7 +98,7 @@ CREATE TABLE [extension].[AidTypeDescriptor](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The classification of financial aid awarded to a person for the academic term/year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'AidTypeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This descriptor defines the classification of financial aid awarded to a person for the academic term/year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'AidTypeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AidTypeDescriptor', @level2type=N'COLUMN', @level2name=N'AidTypeDescriptorId'
 GO
@@ -539,7 +539,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The final indi
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student''s academic grade average.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentCourseTranscript', @level2type=N'COLUMN', @level2name=N'CourseRepeatCodeTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The official Course Title with which this student acaemic is associated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentCourseTranscript', @level2type=N'COLUMN', @level2name=N'CourseTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptive name given to a course of study offered in a school or other institution or organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentCourseTranscript', @level2type=N'COLUMN', @level2name=N'CourseTitle'
 GO
 
 
@@ -623,7 +623,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'SchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the assocation', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date for the association.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AnonymizedStudentEducationOrganizationAssociation', @level2type=N'COLUMN', @level2name=N'EndDate'
 GO
 
 
@@ -1420,7 +1420,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name of th
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The major area for a degree or area of specialization for a certificate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'MajorSpecialization'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The final GPA for the teacher achieved in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'GPA'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The final GPA the teacher achieved in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'GPA'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level of degree awarded by the teacher preparation program to the person (e.g., Certificate Only, Bachelor''s, Master''s, etc.).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'LevelOfDegreeAwardedDescriptorId'
 GO
@@ -1670,7 +1670,7 @@ GO
 ALTER TABLE [extension].[BackgroundCheckType] ADD CONSTRAINT [BackgroundCheckType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of background check (e.g., online, criminal, employment).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BackgroundCheckType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This descriptor defines the classification of the background check a person receives.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BackgroundCheckType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for BackgroundCheck', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'BackgroundCheckType', @level2type=N'COLUMN', @level2name=N'BackgroundCheckTypeId'
 GO
@@ -1694,7 +1694,7 @@ CREATE TABLE [extension].[BackgroundCheckTypeDescriptor](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of background check (e.g., online, criminal, employment).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BackgroundCheckTypeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This descriptor defines the classification of the background check a person receives.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BackgroundCheckTypeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'BackgroundCheckTypeDescriptor', @level2type=N'COLUMN', @level2name=N'BackgroundCheckTypeDescriptorId'
 GO
@@ -1724,7 +1724,7 @@ GO
 ALTER TABLE [extension].[BoardCertificationType] ADD CONSTRAINT [BoardCertificationType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Map for the board certiciation board types.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BoardCertificationType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Map for the board certification board types.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BoardCertificationType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for BoardCertification', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'BoardCertificationType', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeId'
 GO
@@ -1748,7 +1748,7 @@ CREATE TABLE [extension].[BoardCertificationTypeDescriptor](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the  type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BoardCertificationTypeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the type of board certification awarded to an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'BoardCertificationTypeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'BoardCertificationTypeDescriptor', @level2type=N'COLUMN', @level2name=N'BoardCertificationTypeDescriptorId'
 GO
@@ -1802,7 +1802,7 @@ CREATE TABLE [extension].[CertificationExamTypeDescriptor](
 GO
 
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the  type of certification exam that was taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CertificationExamTypeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the type of certification exam that was taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CertificationExamTypeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CertificationExamTypeDescriptor', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
 GO
@@ -1840,7 +1840,7 @@ GO
 ALTER TABLE [extension].[CourseCourseTranscriptFacts] ADD CONSTRAINT [CourseCourseTranscriptFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final letter grade earned of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseCourseTranscriptFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final grade earned of the group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CourseCourseTranscriptFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFacts', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
@@ -1911,7 +1911,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students receiving a letter grade by letter grade type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student receiving a letter grade by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students receiving a letter grade by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
 GO
 
 
@@ -2018,7 +2018,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -2215,7 +2215,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -2264,9 +2264,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'TakenSchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of a specific assessment given to a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -2317,11 +2317,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who met the performance level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who achieved performance level by each performance level type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -2412,7 +2412,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -2487,7 +2487,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a course.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'CourseCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -2537,7 +2537,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who have a disability.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Percentage of students who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledPercentage'
 GO
@@ -2579,7 +2579,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ELL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentPercentage'
 GO
@@ -2621,7 +2621,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ESL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentPercentage'
 GO
@@ -2719,7 +2719,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are identified as hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as hispanic/latino.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
 GO
 
 
@@ -2765,9 +2765,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student by each lanugage type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by language type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
 GO
 
 
@@ -2863,7 +2863,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligibile for SchoolFoodServicesEligibility by category', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are eligible for SchoolFoodServicesEligibility by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are eligible for SchoolFoodServicesEligibility by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
 GO
 
 
@@ -2953,7 +2953,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by each sex type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
 GO
 
 
@@ -2995,7 +2995,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students enrolled in SPED', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student enrolled in a SPED program', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students enrolled in a SPED program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
 GO
 
 
@@ -3037,7 +3037,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligible for Title I', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are Title I eligible', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are Title I eligible.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
 GO
 
 
@@ -3078,7 +3078,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CourseStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -3347,13 +3347,13 @@ GO
 ALTER TABLE [extension].[CredentialBoardCertification] ADD CONSTRAINT [CredentialBoardCertification_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialBoardCertification'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Board certification information for an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialBoardCertification'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviation for the name of the state (within the United States) or extra-state jurisdiction in which a license/credential was issued.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'StateOfIssueStateAbbreviationTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether an individual is board certified.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertification'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The month, day, and year on which a board certification was awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialBoardCertification', @level2type=N'COLUMN', @level2name=N'BoardCertificationDate'
 GO
@@ -3379,7 +3379,7 @@ GO
 ALTER TABLE [extension].[CredentialCertificationExam] ADD CONSTRAINT [CredentialCertificationExam_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for a individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCertificationExam'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Certification information for an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialCertificationExam'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
@@ -3387,7 +3387,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The abbreviati
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or name of the certification.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of certification exam that was taken.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The overall score that was received on the certification exam.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialCertificationExam', @level2type=N'COLUMN', @level2name=N'CertificationExamOverallScore'
 GO
@@ -3447,7 +3447,7 @@ GO
 ALTER TABLE [extension].[CredentialRecommendation] ADD CONSTRAINT [CredentialRecommendation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommenation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialRecommendation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the recommendation for the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'CredentialRecommendation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'CredentialRecommendation', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
@@ -3524,7 +3524,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationCourseTranscriptFacts] ADD CONSTRAINT [EducationOrganizationCourseTranscriptFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final letter grade earned of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationCourseTranscriptFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final grade earned of the group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationCourseTranscriptFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFacts', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -3589,7 +3589,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students receiving a letter grade by letter grade type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student receiving a letter grade by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students receiving a letter grade by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
 GO
 
 
@@ -3688,7 +3688,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -3795,9 +3795,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The standard deviation of the salaries collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'StandardDeviation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum salary range for a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'SalaryMinRange'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The minimum value in a salary range for staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'SalaryMinRange'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum salary range for a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'SalaryMaxRange'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum value in a salary range for staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'SalaryMaxRange'
 GO
 
 
@@ -4011,7 +4011,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -4056,9 +4056,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year the assessment was taken', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'TakenSchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of a specific assessment given to a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -4105,11 +4105,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school yea
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who met the performance level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who achieved performance level by each performance level type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -4192,7 +4192,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -4221,7 +4221,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationStudentFacts] ADD CONSTRAINT [EducationOrganizationStudentFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This domain entity collects data for aggregated level students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationStudentFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFacts', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -4259,7 +4259,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'AggregatedSchoolYear'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -4305,7 +4305,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who have a disability.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Percentage of students who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledPercentage'
 GO
@@ -4343,7 +4343,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ELL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentPercentage'
 GO
@@ -4381,7 +4381,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ESL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentPercentage'
 GO
@@ -4471,7 +4471,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are identified as hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as hispanic/latino.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
 GO
 
 
@@ -4513,9 +4513,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student by each lanugage type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by language type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
 GO
 
 
@@ -4603,7 +4603,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligibile for SchoolFoodServicesEligibility by category', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are eligible for SchoolFoodServicesEligibility by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are eligible for SchoolFoodServicesEligibility by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
 GO
 
 
@@ -4685,7 +4685,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by each sex type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
 GO
 
 
@@ -4723,7 +4723,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students enrolled in SPED', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student enrolled in a SPED program', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students enrolled in a SPED program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
 GO
 
 
@@ -4761,7 +4761,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligible for Title I', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are Title I eligible', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are Title I eligible.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
 GO
 
 
@@ -4798,7 +4798,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -5068,7 +5068,7 @@ GO
 ALTER TABLE [extension].[EnglishLanguageExamType] ADD CONSTRAINT [EnglishLanguageExamType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EnglishLanguageExamType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The rating the individual received on the English Language assessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EnglishLanguageExamType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for EnglishLanguageExam', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EnglishLanguageExamType', @level2type=N'COLUMN', @level2name=N'EnglishLanguageExamTypeId'
 GO
@@ -6587,7 +6587,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code describ
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of total hours the professional development contains.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProfessionalDevelopmentEvent', @level2type=N'COLUMN', @level2name=N'TotalHours'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher candidate is active in an professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProfessionalDevelopmentEvent', @level2type=N'COLUMN', @level2name=N'Required'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher candidate is active in a professional development.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProfessionalDevelopmentEvent', @level2type=N'COLUMN', @level2name=N'Required'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether or not a professional development event is comprised of multiple sessions or not.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProfessionalDevelopmentEvent', @level2type=N'COLUMN', @level2name=N'MultipleSession'
 GO
@@ -7763,7 +7763,7 @@ GO
 ALTER TABLE [extension].[SectionCourseTranscriptFacts] ADD CONSTRAINT [SectionCourseTranscriptFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final letter grade earned of the group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionCourseTranscriptFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the final grade earned of the group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionCourseTranscriptFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFacts', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
@@ -7858,7 +7858,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique ident
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students receiving a letter grade by letter grade type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student receiving a letter grade by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students receiving a letter grade by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned', @level2type=N'COLUMN', @level2name=N'LetterGradeTypePercentage'
 GO
 
 
@@ -7997,7 +7997,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionCourseTranscriptFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -8041,7 +8041,7 @@ GO
 ALTER TABLE [extension].[SectionStudentAcademicRecordFacts] ADD CONSTRAINT [SectionStudentAcademicRecordFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Complex type that provides data about a group of student and their academic record', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentAcademicRecordFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Complex type that provides data about a group of students and their academic record.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentAcademicRecordFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFacts', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
@@ -8258,7 +8258,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAcademicRecordFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -8330,9 +8330,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The term for t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier for the Section that is defined by the classroom, the subjects taught, and the instructors who are assigned.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'UniqueSectionCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title if any specific assessment given to a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of any specific assessment given to a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentTitle'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ...', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category of an assessment based on format and content. For example: Achievement test, Advanced placement, Alternate assessment/grade-level standards, Attitudinal test, Cognitive and perceptual skills test.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AssessmentCategoryDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with a CourseStudentAssessment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFacts', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -8405,11 +8405,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique ident
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who met the performance level', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who met the performance level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelMetPercentage'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who achieved each performance level by performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who achieved perfromance level by each performance level type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who achieved performance level by each performance level type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsAggregatedPerformanceLevel', @level2type=N'COLUMN', @level2name=N'PerformanceLevelTypePercentage'
 GO
 
 
@@ -8548,7 +8548,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentAssessmentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -8591,7 +8591,7 @@ GO
 ALTER TABLE [extension].[SectionStudentFacts] ADD CONSTRAINT [SectionStudentFacts_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFacts'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This domain entity collects data for aggregated level students.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionStudentFacts'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFacts', @level2type=N'COLUMN', @level2name=N'ClassPeriodName'
 GO
@@ -8661,7 +8661,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'ClassroomIdentificationCode'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Data about the disability of a group.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedByDisability', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
 GO
@@ -8745,7 +8745,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who have a disability.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Percentage of students who have a disability', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedDisabilityTotalStudentsDisabled', @level2type=N'COLUMN', @level2name=N'StudentsDisabledPercentage'
 GO
@@ -8811,7 +8811,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ELL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ELL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedELLEnrollment', @level2type=N'COLUMN', @level2name=N'ELLEnrollmentPercentage'
 GO
@@ -8877,7 +8877,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student who are ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are ESL.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentNumber'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as ESL', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedESLEnrollment', @level2type=N'COLUMN', @level2name=N'ESLEnrollmentPercentage'
 GO
@@ -9023,7 +9023,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students who are hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are identified as hispanic/latino', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are identified as hispanic/latino.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedHispanicLatinoEthnicity', @level2type=N'COLUMN', @level2name=N'HispanicLatinoEthnicityPercentage'
 GO
 
 
@@ -9093,9 +9093,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique ident
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of student by each lanugage type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by language type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by language type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedLanguage', @level2type=N'COLUMN', @level2name=N'LanguageTypePercentage'
 GO
 
 
@@ -9239,7 +9239,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligibile for SchoolFoodServicesEligibility by category', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are eligible for SchoolFoodServicesEligibility by type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are eligible for SchoolFoodServicesEligibility by type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSchoolFoodServicesEligibility', @level2type=N'COLUMN', @level2name=N'TypePercentage'
 GO
 
 
@@ -9377,7 +9377,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypeNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student by each sex type', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students by each sex type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSex', @level2type=N'COLUMN', @level2name=N'SexTypePercentage'
 GO
 
 
@@ -9443,7 +9443,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students enrolled in SPED', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student enrolled in a SPED program', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students enrolled in a SPED program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedSPED', @level2type=N'COLUMN', @level2name=N'SPEDEnrollmentPercentage'
 GO
 
 
@@ -9509,7 +9509,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students eligible for Title I', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentNumber'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of student who are Title I eligible', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percentage of students who are Title I eligible.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsAggregatedTitleIEnrollment', @level2type=N'COLUMN', @level2name=N'TitleIEnrollmentPercentage'
 GO
 
 
@@ -9574,7 +9574,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for w
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value of the data, i.e., is the data projected, actual or other', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'ValueTypeId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of student enrolled in the respective Section', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of students enrolled in the respective Section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'NumberStudentsEnrolled'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of students who have been identified as at risk.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionStudentFactsStudentsEnrolled', @level2type=N'COLUMN', @level2name=N'PercentAtRisk'
 GO
@@ -9920,7 +9920,7 @@ GO
 ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the numeric response for an aggregated survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
@@ -10375,7 +10375,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datatype o
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identification of the type of score that was used to determine student growth', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The target score that has been set of the group of students as it pertains to their student growth.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTargetScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The target score that has been set for the group of students as it pertains to their student growth.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTargetScore'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The actual score a group of students receives on their student growth assessment', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthActualScore'
 GO
@@ -10605,7 +10605,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name of th
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The major area for a degree or area of specialization for a certificate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'MajorSpecialization'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The final GPA for the teacher achieved in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'GPA'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The final GPA the teacher achieved in the program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'GPA'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The level of degree awarded by the teacher preparation program to the person (e.g., Certificate Only, Bachelor''s, Master''s, etc.).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffTeacherPreparationProgram', @level2type=N'COLUMN', @level2name=N'LevelOfDegreeAwardedDescriptorId'
 GO
@@ -11082,7 +11082,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifyin
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestion', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbox; 8) Matrix of text boxes.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestion', @level2type=N'COLUMN', @level2name=N'QuestionFormTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbook; 8) Matrix of text boxes', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestion', @level2type=N'COLUMN', @level2name=N'QuestionFormTypeId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The text of the question.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestion', @level2type=N'COLUMN', @level2name=N'QuestionText'
 GO
@@ -11504,7 +11504,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The career previous for an individual.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'PreviousCareerDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher candidate has completed the teacher prepartion program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ProgramComplete'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a teacher candidate has completed the teacher preparation program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'ProgramComplete'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a student.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidate', @level2type=N'COLUMN', @level2name=N'StudentUSI'
 GO
@@ -12402,7 +12402,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Expanded reason for the teacher candidate absence', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'AbsenceEventReason'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'he hours the staff was absence if not the entire working day', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'HoursAbsent'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The hours the staff was absent if not the entire working day.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateFieldworkAbsenceEvent', @level2type=N'COLUMN', @level2name=N'HoursAbsent'
 GO
 
 
@@ -12996,11 +12996,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datatype o
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identification of the type of score that was used to determine student growth', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTypeDescriptorId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The target score that has been set of the group of students as it pertains to their student growth.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTargetScore'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The target score that has been set for the group of students as it pertains to their student growth.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthTargetScore'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The actual score a group of students receives on their student growth assessment', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthActualScore'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies if the student has met the student growth target score', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMet'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies if the student growth target score is achieved.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMet'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students included in the average score result.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthNCount'
 GO
@@ -22297,9 +22297,9 @@ INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[Sho
 
 INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Career and Technical Education/Early Adolescence through Young Adulthood','Career and Technical Education/Early Adolescence through Young Adulthood')
 
-INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','English as  New Language/Early and Middle Childhood','English as  New Language/Early and Middle Childhood')
-
 INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','English as a New Language/Early Adolescence through Young Adulthood','English as a New Language/Early Adolescence through Young Adulthood')
+
+INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','English as a New Language/Early and Middle Childhood','English as a New Language/Early and Middle Childhood')
 
 INSERT INTO [extension].[BoardCertificationType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','English Language Arts/Adolescence and Young Adulthood','English Language Arts/Adolescence and Young Adulthood')
 
