@@ -488,6 +488,14 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SectionSurveySectionResponseRatingFacts') AND name = N'UX_SectionSurveySectionResponseRatingFacts_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_SectionSurveySectionResponseRatingFacts_Id ON extension.SectionSurveySectionResponseRatingFacts
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffFieldworkAbsenceEvent') AND name = N'UX_StaffFieldworkAbsenceEvent_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_StaffFieldworkAbsenceEvent_Id ON extension.StaffFieldworkAbsenceEvent
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]

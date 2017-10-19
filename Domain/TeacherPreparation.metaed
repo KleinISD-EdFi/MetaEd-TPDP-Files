@@ -43,7 +43,7 @@ Domain TeacherPreparation
     domain entity SectionStudentFacts
     domain entity SectionSurveyQuestionResponseFacts
     domain entity SectionSurveyResponseFacts
-//    domain entity SectionSurveySectionResponseRatingFacts
+    domain entity SectionSurveySectionResponseRatingFacts
     domain entity Staff
     domain entity StaffFieldworkAbsenceEvent
     domain entity StaffFieldworkExperience
