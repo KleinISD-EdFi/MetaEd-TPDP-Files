@@ -6874,6 +6874,11 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="SectionSurveyResponseFactsReference" type="EXTENSION-SectionSurveyResponseFactsReferenceType">
+        <xs:annotation>
+          <xs:documentation>Reference to the Aggregated Survey Response.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="SurveySectionReference" type="EXTENSION-SurveySectionReferenceType">
         <xs:annotation>
           <xs:documentation>Reference to the Survey Section.</xs:documentation>

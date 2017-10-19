@@ -35494,7 +35494,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFacts.SectionSurveyResponseFacts (as identity)<br />SectionSurveySectionResponseRatingFacts.SectionSurveyResponseFacts (as required)</div>
+                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFacts.SectionSurveyResponseFacts (as identity)<br />SectionSurveySectionResponseRatingFacts.SectionSurveyResponseFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35576,7 +35576,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br />SectionSurveyResponseFacts (required)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br />SectionSurveyResponseFacts (identity)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35624,17 +35624,17 @@ UniqueSectionCode
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.SectionSurveySectionResponseRatingFacts
 
-SurveySectionTitle [NVARCHAR](50) NOT NULL
-UniqueSectionCode [NVARCHAR](255) NOT NULL
-SequenceOfCourse [INT] NOT NULL
-LocalCourseCode [NVARCHAR](60) NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-TermDescriptorId [INT] NOT NULL
-SchoolId [INT] NOT NULL
-ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 ClassPeriodName [NVARCHAR](20) NOT NULL
-SurveyIdentifier [NVARCHAR](64) NOT NULL
+ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
 FactsAsOfDate [DATE] NOT NULL
+LocalCourseCode [NVARCHAR](60) NOT NULL
+SchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+SequenceOfCourse [INT] NOT NULL
+SurveyIdentifier [NVARCHAR](64) NOT NULL
+SurveySectionTitle [NVARCHAR](50) NOT NULL
+TermDescriptorId [INT] NOT NULL
+UniqueSectionCode [NVARCHAR](255) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
 NumericResponseStandardDeviation [INT] NULL
@@ -35643,7 +35643,17 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+ClassPeriodName
+ClassroomIdentificationCode
+FactsAsOfDate
+LocalCourseCode
+SchoolId
+SchoolYear
+SequenceOfCourse
+SurveyIdentifier
 SurveySectionTitle
+TermDescriptorId
+UniqueSectionCode
 </pre></div>
             </div>
         </p>
