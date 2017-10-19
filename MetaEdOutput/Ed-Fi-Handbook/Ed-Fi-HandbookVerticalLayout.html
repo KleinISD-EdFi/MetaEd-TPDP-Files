@@ -345,8 +345,8 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
-InterventionPrescriptionEducationOrganizationId
 InterventionPrescriptionIdentificationCode
+InterventionPrescriptionEducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -418,8 +418,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationNetworkId
 MemberEducationOrganizationId
+EducationOrganizationNetworkId
 </pre></div>
             </div>
         </p>
@@ -558,9 +558,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
 FeederSchoolId
 SchoolId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -639,10 +639,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
-CohortIdentifier
-EducationOrganizationId
 StaffUSI
+EducationOrganizationId
+CohortIdentifier
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -743,10 +743,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
+StaffUSI
 EducationOrganizationId
 StaffClassificationDescriptorId
-StaffUSI
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -855,9 +855,9 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
+StaffUSI
 EmploymentStatusDescriptorId
 HireDate
-StaffUSI
 </pre></div>
             </div>
         </p>
@@ -937,11 +937,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
 ProgramEducationOrganizationId
-ProgramName
 ProgramTypeId
 StaffUSI
+BeginDate
+ProgramName
 </pre></div>
             </div>
         </p>
@@ -1037,9 +1037,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+StaffUSI
 ProgramAssignmentDescriptorId
 SchoolId
-StaffUSI
 <br />edfi.StaffSchoolAssociationAcademicSubject
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -1049,10 +1049,10 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
+StaffUSI
 ProgramAssignmentDescriptorId
 SchoolId
-StaffUSI
+AcademicSubjectDescriptorId
 <br />edfi.StaffSchoolAssociationGradeLevel
 
 GradeLevelDescriptorId [INT] NOT NULL
@@ -1062,10 +1062,10 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-GradeLevelDescriptorId
+StaffUSI
 ProgramAssignmentDescriptorId
 SchoolId
-StaffUSI
+GradeLevelDescriptorId
 </pre></div>
             </div>
         </p>
@@ -1172,15 +1172,15 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 StaffUSI
+ClassroomIdentificationCode
+SchoolId
+ClassPeriodName
+LocalCourseCode
+SchoolYear
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
 </pre></div>
             </div>
         </p>
@@ -1700,10 +1700,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
-CohortIdentifier
-EducationOrganizationId
 StudentUSI
+EducationOrganizationId
+CohortIdentifier
+BeginDate
 <br />edfi.StudentCohortAssociationSection
 
 BeginDate [DATE] NOT NULL
@@ -1721,18 +1721,18 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BeginDate
-ClassPeriodName
-ClassroomIdentificationCode
-CohortIdentifier
-EducationOrganizationId
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 StudentUSI
+ClassroomIdentificationCode
+SchoolId
+ClassPeriodName
+LocalCourseCode
+SchoolYear
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+EducationOrganizationId
+CohortIdentifier
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -1809,9 +1809,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-IncidentIdentifier
-SchoolId
 StudentUSI
+SchoolId
+IncidentIdentifier
 <br />edfi.StudentDisciplineIncidentAssociationBehavior
 
 BehaviorDescriptorId [INT] NOT NULL
@@ -1822,10 +1822,10 @@ BehaviorDetailedDescription [NVARCHAR](1024) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BehaviorDescriptorId
-IncidentIdentifier
-SchoolId
 StudentUSI
+SchoolId
+IncidentIdentifier
+BehaviorDescriptorId
 </pre></div>
             </div>
         </p>
@@ -1894,9 +1894,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+StudentUSI
 EducationOrganizationId
 ResponsibilityDescriptorId
-StudentUSI
 </pre></div>
             </div>
         </p>
@@ -1975,9 +1975,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
-InterventionIdentificationCode
 StudentUSI
+InterventionIdentificationCode
+EducationOrganizationId
 <br />edfi.StudentInterventionAssociationInterventionEffectiveness
 
 DiagnosisDescriptorId [INT] NOT NULL
@@ -1991,12 +1991,12 @@ InterventionEffectivenessRatingTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DiagnosisDescriptorId
-EducationOrganizationId
-GradeLevelDescriptorId
-InterventionIdentificationCode
-PopulationServedTypeId
 StudentUSI
+InterventionIdentificationCode
+EducationOrganizationId
+DiagnosisDescriptorId
+PopulationServedTypeId
+GradeLevelDescriptorId
 </pre></div>
             </div>
         </p>
@@ -2093,8 +2093,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-ParentUSI
 StudentUSI
+ParentUSI
 </pre></div>
             </div>
         </p>
@@ -2194,12 +2194,12 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
 <br />edfi.StudentProgramAssociationService
 
 BeginDate [DATE] NOT NULL
@@ -2215,13 +2215,13 @@ ServiceEndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
-ServiceDescriptorId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
+ServiceDescriptorId
 </pre></div>
             </div>
         </p>
@@ -2386,9 +2386,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EntryDate
-SchoolId
 StudentUSI
+SchoolId
+EntryDate
 <br />edfi.StudentSchoolAssociationEducationPlan
 
 EducationPlanTypeId [INT] NOT NULL
@@ -2398,10 +2398,10 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationPlanTypeId
-EntryDate
-SchoolId
 StudentUSI
+SchoolId
+EntryDate
+EducationPlanTypeId
 </pre></div>
             </div>
         </p>
@@ -2502,16 +2502,16 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
+StudentUSI
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
 LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-StudentUSI
-TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+SchoolYear
+TermDescriptorId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -3081,12 +3081,12 @@ ProgramTypeId [INT] NOT NULL
 StudentUSI [INT] NOT NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
 <br />edfi.StudentCTEProgramAssociationCTEProgram
 
 BeginDate [DATE] NOT NULL
@@ -3102,13 +3102,13 @@ CTEProgramCompletionIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
+ProgramTypeId
+ProgramEducationOrganizationId
 BeginDate
 CareerPathwayTypeId
-EducationOrganizationId
-ProgramEducationOrganizationId
 ProgramName
-ProgramTypeId
-StudentUSI
+EducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -3198,12 +3198,12 @@ USMostRecentEntry [DATE] NULL
 USInitialSchoolEntry [DATE] NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -3327,12 +3327,12 @@ IEPBeginDate [DATE] NULL
 IEPEndDate [DATE] NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
 <br />edfi.StudentSpecialEducationProgramAssociationServiceProvider
 
 BeginDate [DATE] NOT NULL
@@ -3346,13 +3346,13 @@ PrimaryProvider [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
-StaffUSI
 StudentUSI
+ProgramTypeId
+ProgramEducationOrganizationId
+BeginDate
+StaffUSI
+ProgramName
+EducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -3413,12 +3413,12 @@ StudentUSI [INT] NOT NULL
 TitleIPartAParticipantTypeId [INT] NOT NULL
 
 Primary Keys:
-BeginDate
-EducationOrganizationId
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+EducationOrganizationId
+ProgramTypeId
+ProgramName
+ProgramEducationOrganizationId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -19847,8 +19847,8 @@ LevelDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-GradeLevelDescriptorId
 LevelDescriptorId
+GradeLevelDescriptorId
 </pre></div>
             </div>
         </p>
@@ -22406,8 +22406,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-SchoolId
 WeekIdentifier
+SchoolId
 </pre></div>
             </div>
         </p>
@@ -22481,8 +22481,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AccountNumber
 EducationOrganizationId
+AccountNumber
 FiscalYear
 <br />edfi.AccountCode
 
@@ -22493,10 +22493,10 @@ FiscalYear [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AccountCodeDescriptorId
-AccountNumber
 EducationOrganizationId
+AccountNumber
 FiscalYear
+AccountCodeDescriptorId
 </pre></div>
             </div>
         </p>
@@ -22586,8 +22586,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 RatingTitle
+EducationOrganizationId
 SchoolYear
 </pre></div>
             </div>
@@ -22656,10 +22656,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AccountNumber
-AsOfDate
 EducationOrganizationId
+AccountNumber
 FiscalYear
+AsOfDate
 </pre></div>
             </div>
         </p>
@@ -23962,9 +23962,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AssessedGradeLevelDescriptorId
 AssessmentTitle
+AssessedGradeLevelDescriptorId
+AcademicSubjectDescriptorId
 Version
 <br />edfi.AssessmentContentStandard
 
@@ -23984,10 +23984,10 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentVersion
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-AssessmentVersion
 <br />edfi.AssessmentContentStandardAuthor
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -23998,10 +23998,10 @@ Author [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentVersion
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-AssessmentVersion
 Author
 <br />edfi.AssessmentIdentificationCode
 
@@ -24015,11 +24015,11 @@ AssigningOrganizationIdentificationCode [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentIdentificationSystemDescriptorId
-AssessmentTitle
 Version
+AssessmentIdentificationSystemDescriptorId
 <br />edfi.AssessmentLanguage
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -24030,11 +24030,11 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-LanguageDescriptorId
 Version
+LanguageDescriptorId
 <br />edfi.AssessmentPerformanceLevel
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -24049,11 +24049,11 @@ ResultDatatypeTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AssessedGradeLevelDescriptorId
+PerformanceLevelDescriptorId
 AssessmentReportingMethodTypeId
 AssessmentTitle
-PerformanceLevelDescriptorId
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
 <br />edfi.AssessmentProgram
 
@@ -24067,13 +24067,13 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-EducationOrganizationId
-ProgramName
-ProgramTypeId
 Version
+EducationOrganizationId
+ProgramTypeId
+ProgramName
 <br />edfi.AssessmentScore
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -24087,11 +24087,11 @@ ResultDatatypeTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentReportingMethodTypeId
-AssessmentTitle
 Version
+AssessmentReportingMethodTypeId
 <br />edfi.AssessmentSection
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -24109,18 +24109,18 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-LocalCourseCode
-SchoolId
 SchoolYear
-SequenceOfCourse
+LocalCourseCode
 TermDescriptorId
 UniqueSectionCode
-Version
+SequenceOfCourse
 </pre></div>
             </div>
         </p>
@@ -24422,11 +24422,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-IdentificationCode
 Version
+IdentificationCode
 <br />edfi.AssessmentItemLearningStandard
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -24438,12 +24438,12 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
 IdentificationCode
 LearningStandardId
-Version
 </pre></div>
             </div>
         </p>
@@ -24524,9 +24524,9 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 BellScheduleName
-Date
 GradeLevelDescriptorId
 SchoolId
+Date
 <br />edfi.BellScheduleMeetingTime
 
 BellScheduleName [NVARCHAR](60) NOT NULL
@@ -24541,11 +24541,11 @@ OfficialAttendancePeriod [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+SchoolId
+GradeLevelDescriptorId
+Date
 BellScheduleName
 ClassPeriodName
-Date
-GradeLevelDescriptorId
-SchoolId
 StartTime
 </pre></div>
             </div>
@@ -24614,10 +24614,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AccountNumber
-AsOfDate
 EducationOrganizationId
+AccountNumber
 FiscalYear
+AsOfDate
 </pre></div>
             </div>
         </p>
@@ -24682,8 +24682,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-Date
 SchoolId
+Date
 <br />edfi.CalendarDateCalendarEvent
 
 CalendarEventDescriptorId [INT] NOT NULL
@@ -24693,9 +24693,9 @@ EventDuration [DECIMAL](3, 2) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CalendarEventDescriptorId
-Date
 SchoolId
+Date
+CalendarEventDescriptorId
 </pre></div>
             </div>
         </p>
@@ -24755,8 +24755,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-ClassPeriodName
 SchoolId
+ClassPeriodName
 </pre></div>
             </div>
         </p>
@@ -24860,11 +24860,11 @@ ProgramTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CohortIdentifier
 EducationOrganizationId
+CohortIdentifier
 ProgramEducationOrganizationId
-ProgramName
 ProgramTypeId
+ProgramName
 </pre></div>
             </div>
         </p>
@@ -24951,9 +24951,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 Objective
 ObjectiveGradeLevelDescriptorId
+EducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -25027,11 +25027,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AccountNumber
-AsOfDate
-EducationOrganizationId
-FiscalYear
 StaffUSI
+EducationOrganizationId
+AccountNumber
+FiscalYear
+AsOfDate
 </pre></div>
             </div>
         </p>
@@ -25206,8 +25206,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-CourseCode
 EducationOrganizationId
+CourseCode
 <br />edfi.CourseCompetencyLevel
 
 CompetencyLevelDescriptorId [INT] NOT NULL
@@ -25216,9 +25216,9 @@ EducationOrganizationId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CompetencyLevelDescriptorId
-CourseCode
 EducationOrganizationId
+CourseCode
+CompetencyLevelDescriptorId
 <br />edfi.CourseIdentificationCode
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -25229,9 +25229,9 @@ AssigningOrganizationIdentificationCode [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+EducationOrganizationId
 CourseCode
 CourseIdentificationSystemDescriptorId
-EducationOrganizationId
 <br />edfi.CourseLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -25242,10 +25242,10 @@ ObjectiveGradeLevelDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-CourseCode
 EducationOrganizationId
+CourseCode
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
 <br />edfi.CourseLearningStandard
 
@@ -25255,8 +25255,8 @@ LearningStandardId [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CourseCode
 EducationOrganizationId
+CourseCode
 LearningStandardId
 <br />edfi.CourseLevelCharacteristic
 
@@ -25266,9 +25266,9 @@ EducationOrganizationId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+EducationOrganizationId
 CourseCode
 CourseLevelCharacteristicTypeId
-EducationOrganizationId
 <br />edfi.CourseOfferedGradeLevel
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -25277,8 +25277,8 @@ GradeLevelDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CourseCode
 EducationOrganizationId
+CourseCode
 GradeLevelDescriptorId
 </pre></div>
             </div>
@@ -25544,10 +25544,10 @@ TermDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CurriculumUsedTypeId
-LocalCourseCode
 SchoolId
 SchoolYear
+LocalCourseCode
+CurriculumUsedTypeId
 TermDescriptorId
 </pre></div>
             </div>
@@ -26710,12 +26710,12 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 CourseAttemptResultTypeId
-CourseCode
-CourseEducationOrganizationId
-EducationOrganizationId
-SchoolYear
 StudentUSI
+EducationOrganizationId
+CourseEducationOrganizationId
+SchoolYear
 TermDescriptorId
+CourseCode
 <br />edfi.CourseTranscriptEarnedAdditionalCredits
 
 AdditionalCreditTypeId [INT] NOT NULL
@@ -26732,12 +26732,12 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 AdditionalCreditTypeId
 CourseAttemptResultTypeId
-CourseCode
-CourseEducationOrganizationId
-EducationOrganizationId
-SchoolYear
 StudentUSI
+EducationOrganizationId
+CourseEducationOrganizationId
+SchoolYear
 TermDescriptorId
+CourseCode
 </pre></div>
             </div>
         </p>
@@ -26998,8 +26998,8 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 DisciplineActionIdentifier
-DisciplineDate
 StudentUSI
+DisciplineDate
 <br />edfi.DisciplineActionDiscipline
 
 DisciplineActionIdentifier [NVARCHAR](20) NOT NULL
@@ -27009,10 +27009,10 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 DisciplineActionIdentifier
 DisciplineDate
 DisciplineDescriptorId
-StudentUSI
 <br />edfi.DisciplineActionDisciplineIncident
 
 DisciplineActionIdentifier [NVARCHAR](20) NOT NULL
@@ -27023,11 +27023,11 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 DisciplineActionIdentifier
 DisciplineDate
-IncidentIdentifier
 SchoolId
-StudentUSI
+IncidentIdentifier
 <br />edfi.DisciplineActionStaff
 
 DisciplineActionIdentifier [NVARCHAR](20) NOT NULL
@@ -27037,10 +27037,10 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 DisciplineActionIdentifier
 DisciplineDate
 StaffUSI
-StudentUSI
 </pre></div>
             </div>
         </p>
@@ -27199,9 +27199,9 @@ BehaviorDetailedDescription [NVARCHAR](1024) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BehaviorDescriptorId
-IncidentIdentifier
 SchoolId
+IncidentIdentifier
+BehaviorDescriptorId
 <br />edfi.DisciplineIncidentWeapon
 
 IncidentIdentifier [NVARCHAR](20) NOT NULL
@@ -27210,8 +27210,8 @@ WeaponDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-IncidentIdentifier
 SchoolId
+IncidentIdentifier
 WeaponDescriptorId
 </pre></div>
             </div>
@@ -27425,8 +27425,8 @@ ContentIdentifier [NVARCHAR](225) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-Author
 ContentIdentifier
+Author
 <br />edfi.EducationContentDerivativeSourceEducationContent
 
 ContentIdentifier [NVARCHAR](225) NOT NULL
@@ -27595,8 +27595,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 EducationOrganizationId
+AddressTypeId
 <br />edfi.EducationOrganizationCategory
 
 EducationOrganizationCategoryTypeId [INT] NOT NULL
@@ -27604,8 +27604,8 @@ EducationOrganizationId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationCategoryTypeId
 EducationOrganizationId
+EducationOrganizationCategoryTypeId
 <br />edfi.EducationOrganizationIdentificationCode
 
 EducationOrganizationId [INT] NOT NULL
@@ -27642,8 +27642,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 EducationOrganizationId
+AddressTypeId
 </pre></div>
             </div>
         </p>
@@ -29695,19 +29695,19 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+GradeTypeId
+StudentUSI
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-GradeTypeId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
 LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-StudentUSI
-TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+SchoolYear
+TermDescriptorId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -29809,16 +29809,16 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-DateAssigned
 GradebookEntryTitle
-LocalCourseCode
+ClassroomIdentificationCode
 SchoolId
+ClassPeriodName
+LocalCourseCode
 SchoolYear
-SequenceOfCourse
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+DateAssigned
 <br />edfi.GradebookEntryLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -29837,19 +29837,19 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-DateAssigned
 GradebookEntryTitle
-LocalCourseCode
+DateAssigned
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
-SchoolId
 SchoolYear
-SequenceOfCourse
+LocalCourseCode
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
 <br />edfi.GradebookEntryLearningStandard
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -29866,17 +29866,17 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-DateAssigned
 GradebookEntryTitle
+DateAssigned
 LearningStandardId
-LocalCourseCode
-SchoolId
 SchoolYear
-SequenceOfCourse
+LocalCourseCode
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
 </pre></div>
             </div>
         </p>
@@ -29963,9 +29963,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
 GradingPeriodDescriptorId
 SchoolId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -30063,8 +30063,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 GraduationPlanTypeDescriptorId
+EducationOrganizationId
 GraduationSchoolYear
 <br />edfi.GraduationPlanCreditsByCourse
 
@@ -30079,10 +30079,10 @@ WhenTakenGradeLevelDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CourseSetName
 EducationOrganizationId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
+CourseSetName
 <br />edfi.GraduationPlanCreditsByCourseCourse
 
 CourseCode [NVARCHAR](60) NOT NULL
@@ -30094,12 +30094,12 @@ GraduationSchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CourseCode
-CourseEducationOrganizationId
-CourseSetName
 EducationOrganizationId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
+CourseSetName
+CourseEducationOrganizationId
+CourseCode
 <br />edfi.GraduationPlanCreditsBySubject
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -30112,8 +30112,8 @@ CreditConversion [DECIMAL](9, 2) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
 EducationOrganizationId
+AcademicSubjectDescriptorId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
 <br />edfi.GraduationPlanRequiredAssessment
@@ -30128,13 +30128,13 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
 EducationOrganizationId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
-Version
 <br />edfi.GraduationPlanRequiredAssessmentAssessmentPerformanceLevel
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -30152,13 +30152,13 @@ ResultDatatypeTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
 EducationOrganizationId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
-Version
 <br />edfi.GraduationPlanRequiredAssessmentScore
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -30175,14 +30175,14 @@ ResultDatatypeTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentReportingMethodTypeId
-AssessmentTitle
+Version
 EducationOrganizationId
 GraduationPlanTypeDescriptorId
 GraduationSchoolYear
-Version
+AssessmentReportingMethodTypeId
 </pre></div>
             </div>
         </p>
@@ -30312,8 +30312,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 <br />edfi.InterventionAppropriateGradeLevel
 
 EducationOrganizationId [INT] NOT NULL
@@ -30322,9 +30322,9 @@ InterventionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+InterventionIdentificationCode
 EducationOrganizationId
 GradeLevelDescriptorId
-InterventionIdentificationCode
 <br />edfi.InterventionAppropriateSex
 
 EducationOrganizationId [INT] NOT NULL
@@ -30333,8 +30333,8 @@ SexTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 SexTypeId
 <br />edfi.InterventionDiagnosis
 
@@ -30344,9 +30344,9 @@ InterventionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DiagnosisDescriptorId
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
+DiagnosisDescriptorId
 <br />edfi.InterventionEducationContent
 
 ContentIdentifier [NVARCHAR](225) NOT NULL
@@ -30355,9 +30355,9 @@ InterventionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ContentIdentifier
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
+ContentIdentifier
 <br />edfi.InterventionInterventionPrescription
 
 EducationOrganizationId [INT] NOT NULL
@@ -30367,10 +30367,10 @@ InterventionPrescriptionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
-InterventionPrescriptionEducationOrganizationId
+EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+InterventionPrescriptionEducationOrganizationId
 <br />edfi.InterventionLearningResourceMetadataURI
 
 EducationOrganizationId [INT] NOT NULL
@@ -30379,8 +30379,8 @@ LearningResourceMetadataURI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 LearningResourceMetadataURI
 <br />edfi.InterventionMeetingTime
 
@@ -30395,10 +30395,10 @@ OfficialAttendancePeriod [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ClassPeriodName
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 SchoolId
+ClassPeriodName
 <br />edfi.InterventionPopulationServed
 
 EducationOrganizationId [INT] NOT NULL
@@ -30407,8 +30407,8 @@ PopulationServedTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 PopulationServedTypeId
 <br />edfi.InterventionStaff
 
@@ -30418,8 +30418,8 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 StaffUSI
 <br />edfi.InterventionURI
 
@@ -30429,8 +30429,8 @@ URI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionIdentificationCode
+EducationOrganizationId
 URI
 </pre></div>
             </div>
@@ -30534,8 +30534,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
 <br />edfi.InterventionPrescriptionAppropriateGradeLevel
 
 EducationOrganizationId [INT] NOT NULL
@@ -30544,9 +30544,9 @@ InterventionPrescriptionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+InterventionPrescriptionIdentificationCode
 EducationOrganizationId
 GradeLevelDescriptorId
-InterventionPrescriptionIdentificationCode
 <br />edfi.InterventionPrescriptionAppropriateSex
 
 EducationOrganizationId [INT] NOT NULL
@@ -30555,8 +30555,8 @@ SexTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
 SexTypeId
 <br />edfi.InterventionPrescriptionDiagnosis
 
@@ -30566,9 +30566,9 @@ InterventionPrescriptionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DiagnosisDescriptorId
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
+DiagnosisDescriptorId
 <br />edfi.InterventionPrescriptionEducationContent
 
 ContentIdentifier [NVARCHAR](225) NOT NULL
@@ -30577,9 +30577,9 @@ InterventionPrescriptionIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ContentIdentifier
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
+ContentIdentifier
 <br />edfi.InterventionPrescriptionLearningResourceMetadataURI
 
 EducationOrganizationId [INT] NOT NULL
@@ -30588,8 +30588,8 @@ LearningResourceMetadataURI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
 LearningResourceMetadataURI
 <br />edfi.InterventionPrescriptionPopulationServed
 
@@ -30599,8 +30599,8 @@ PopulationServedTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
 PopulationServedTypeId
 <br />edfi.InterventionPrescriptionURI
 
@@ -30610,8 +30610,8 @@ URI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionPrescriptionIdentificationCode
+EducationOrganizationId
 URI
 </pre></div>
             </div>
@@ -30730,8 +30730,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 <br />edfi.InterventionStudyAppropriateGradeLevel
 
 EducationOrganizationId [INT] NOT NULL
@@ -30740,9 +30740,9 @@ InterventionStudyIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+InterventionStudyIdentificationCode
 EducationOrganizationId
 GradeLevelDescriptorId
-InterventionStudyIdentificationCode
 <br />edfi.InterventionStudyAppropriateSex
 
 EducationOrganizationId [INT] NOT NULL
@@ -30751,8 +30751,8 @@ SexTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 SexTypeId
 <br />edfi.InterventionStudyEducationContent
 
@@ -30762,9 +30762,9 @@ InterventionStudyIdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ContentIdentifier
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
+ContentIdentifier
 <br />edfi.InterventionStudyInterventionEffectiveness
 
 DiagnosisDescriptorId [INT] NOT NULL
@@ -30777,11 +30777,11 @@ InterventionEffectivenessRatingTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DiagnosisDescriptorId
-EducationOrganizationId
-GradeLevelDescriptorId
 InterventionStudyIdentificationCode
+EducationOrganizationId
+DiagnosisDescriptorId
 PopulationServedTypeId
+GradeLevelDescriptorId
 <br />edfi.InterventionStudyLearningResourceMetadataURI
 
 EducationOrganizationId [INT] NOT NULL
@@ -30790,8 +30790,8 @@ LearningResourceMetadataURI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 LearningResourceMetadataURI
 <br />edfi.InterventionStudyPopulationServed
 
@@ -30801,8 +30801,8 @@ PopulationServedTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 PopulationServedTypeId
 <br />edfi.InterventionStudyStateAbbreviation
 
@@ -30812,8 +30812,8 @@ StateAbbreviationTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 StateAbbreviationTypeId
 <br />edfi.InterventionStudyURI
 
@@ -30823,8 +30823,8 @@ URI [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 InterventionStudyIdentificationCode
+EducationOrganizationId
 URI
 </pre></div>
             </div>
@@ -30945,8 +30945,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
 <br />edfi.LearningObjectiveContentStandard
 
@@ -30965,8 +30965,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
 <br />edfi.LearningObjectiveContentStandardAuthor
 
@@ -30977,10 +30977,10 @@ ObjectiveGradeLevelDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-Author
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
+Author
 <br />edfi.LearningObjectiveLearningStandard
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -30990,10 +30990,10 @@ ObjectiveGradeLevelDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-LearningStandardId
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
+LearningStandardId
 </pre></div>
             </div>
         </p>
@@ -31145,8 +31145,8 @@ LearningStandardId [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-Author
 LearningStandardId
+Author
 <br />edfi.LearningStandardGradeLevel
 
 GradeLevelDescriptorId [INT] NOT NULL
@@ -31154,8 +31154,8 @@ LearningStandardId [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-GradeLevelDescriptorId
 LearningStandardId
+GradeLevelDescriptorId
 <br />edfi.LearningStandardIdentificationCode
 
 ContentStandardName [NVARCHAR](65) NOT NULL
@@ -31164,9 +31164,9 @@ LearningStandardId [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ContentStandardName
-IdentificationCode
 LearningStandardId
+IdentificationCode
+ContentStandardName
 <br />edfi.LearningStandardPrerequisiteLearningStandard
 
 LearningStandardId [NVARCHAR](60) NOT NULL
@@ -31262,9 +31262,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+StaffUSI
 EventDate
 LeaveEventCategoryTypeId
-StaffUSI
 </pre></div>
             </div>
         </p>
@@ -31336,8 +31336,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-ClassroomIdentificationCode
 SchoolId
+ClassroomIdentificationCode
 </pre></div>
             </div>
         </p>
@@ -31453,11 +31453,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
-IdentificationCode
 Version
+IdentificationCode
 <br />edfi.ObjectiveAssessmentAssessmentItem
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31469,12 +31469,12 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentItemIdentificationCode
-AssessmentTitle
-IdentificationCode
 Version
+IdentificationCode
+AssessmentItemIdentificationCode
 <br />edfi.ObjectiveAssessmentLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31486,12 +31486,12 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
 IdentificationCode
 Objective
-Version
 <br />edfi.ObjectiveAssessmentLearningStandard
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31503,12 +31503,12 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentTitle
+Version
 IdentificationCode
 LearningStandardId
-Version
 <br />edfi.ObjectiveAssessmentPerformanceLevel
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31524,13 +31524,13 @@ ResultDatatypeTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
-AssessmentReportingMethodTypeId
-AssessmentTitle
+Version
 IdentificationCode
 PerformanceLevelDescriptorId
-Version
+AssessmentReportingMethodTypeId
 </pre></div>
             </div>
         </p>
@@ -31668,11 +31668,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-DatePosted
 EducationOrganizationId
 EmploymentStatusDescriptorId
-RequisitionNumber
 StaffClassificationDescriptorId
+RequisitionNumber
+DatePosted
 <br />edfi.OpenStaffPositionAcademicSubject
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31684,12 +31684,12 @@ StaffClassificationDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-DatePosted
 EducationOrganizationId
-EmploymentStatusDescriptorId
-RequisitionNumber
 StaffClassificationDescriptorId
+RequisitionNumber
+DatePosted
+AcademicSubjectDescriptorId
+EmploymentStatusDescriptorId
 <br />edfi.OpenStaffPositionInstructionalGradeLevel
 
 DatePosted [DATE] NOT NULL
@@ -31701,12 +31701,12 @@ StaffClassificationDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DatePosted
 EducationOrganizationId
-EmploymentStatusDescriptorId
-GradeLevelDescriptorId
-RequisitionNumber
 StaffClassificationDescriptorId
+RequisitionNumber
+DatePosted
+GradeLevelDescriptorId
+EmploymentStatusDescriptorId
 </pre></div>
             </div>
         </p>
@@ -31829,8 +31829,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 ParentUSI
+AddressTypeId
 <br />edfi.ParentElectronicMail
 
 ElectronicMailTypeId [INT] NOT NULL
@@ -31840,8 +31840,8 @@ PrimaryEmailAddressIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ElectronicMailTypeId
 ParentUSI
+ElectronicMailTypeId
 <br />edfi.ParentIdentificationDocument
 
 IdentificationDocumentUseTypeId [INT] NOT NULL
@@ -31855,9 +31855,9 @@ IssuerCountryDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+PersonalInformationVerificationTypeId
 IdentificationDocumentUseTypeId
 ParentUSI
-PersonalInformationVerificationTypeId
 <br />edfi.ParentInternationalAddress
 
 AddressTypeId [INT] NOT NULL
@@ -31874,8 +31874,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 ParentUSI
+AddressTypeId
 <br />edfi.ParentOtherName
 
 OtherNameTypeId [INT] NOT NULL
@@ -31888,8 +31888,8 @@ GenerationCodeSuffix [NVARCHAR](10) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-OtherNameTypeId
 ParentUSI
+OtherNameTypeId
 <br />edfi.ParentTelephone
 
 ParentUSI [INT] NOT NULL
@@ -31975,11 +31975,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AccountNumber
-AsOfDate
-EducationOrganizationId
-FiscalYear
 StaffUSI
+EducationOrganizationId
+AccountNumber
+FiscalYear
+AsOfDate
 </pre></div>
             </div>
         </p>
@@ -32385,9 +32385,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EventDate
-PostSecondaryEventCategoryTypeId
 StudentUSI
+PostSecondaryEventCategoryTypeId
+EventDate
 <br />edfi.PostSecondaryEventPostSecondaryInstitution
 
 EventDate [DATE] NOT NULL
@@ -32400,9 +32400,9 @@ AdministrativeFundingControlDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EventDate
-PostSecondaryEventCategoryTypeId
 StudentUSI
+PostSecondaryEventCategoryTypeId
+EventDate
 <br />edfi.PostSecondaryEventPostSecondaryInstitutionIdentificationCode
 
 EducationOrganizationIdentificationSystemDescriptorId [INT] NOT NULL
@@ -32413,10 +32413,10 @@ IdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationIdentificationSystemDescriptorId
-EventDate
-PostSecondaryEventCategoryTypeId
 StudentUSI
+PostSecondaryEventCategoryTypeId
+EventDate
+EducationOrganizationIdentificationSystemDescriptorId
 <br />edfi.PostSecondaryEventPostSecondaryInstitutionMediumOfInstruction
 
 EventDate [DATE] NOT NULL
@@ -32426,10 +32426,10 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
+PostSecondaryEventCategoryTypeId
 EventDate
 MediumOfInstructionTypeId
-PostSecondaryEventCategoryTypeId
-StudentUSI
 </pre></div>
             </div>
         </p>
@@ -32621,8 +32621,8 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
-ProgramName
 ProgramTypeId
+ProgramName
 <br />edfi.ProgramCharacteristic
 
 EducationOrganizationId [INT] NOT NULL
@@ -32633,9 +32633,9 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
+ProgramTypeId
 ProgramCharacteristicDescriptorId
 ProgramName
-ProgramTypeId
 <br />edfi.ProgramLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -32647,12 +32647,12 @@ ProgramTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
 EducationOrganizationId
+ProgramTypeId
 Objective
+AcademicSubjectDescriptorId
 ObjectiveGradeLevelDescriptorId
 ProgramName
-ProgramTypeId
 <br />edfi.ProgramLearningStandard
 
 EducationOrganizationId [INT] NOT NULL
@@ -32663,9 +32663,9 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
+ProgramTypeId
 LearningStandardId
 ProgramName
-ProgramTypeId
 <br />edfi.ProgramService
 
 EducationOrganizationId [INT] NOT NULL
@@ -32676,9 +32676,9 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
-ProgramName
 ProgramTypeId
 ServiceDescriptorId
+ProgramName
 </pre></div>
             </div>
         </p>
@@ -33270,11 +33270,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-SchoolId
 StudentUSI
+EducationOrganizationId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+SchoolId
 <br />edfi.ReportCardGrade
 
 BeginDate [DATE] NOT NULL
@@ -33294,20 +33294,20 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BeginDate
+EducationOrganizationId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+GradeTypeId
+StudentUSI
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-EducationOrganizationId
-GradeTypeId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
 LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-StudentUSI
-TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+SchoolYear
+TermDescriptorId
+BeginDate
 <br />edfi.ReportCardStudentCompetencyObjective
 
 GradingPeriodBeginDate [DATE] NOT NULL
@@ -33321,14 +33321,14 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-Objective
-ObjectiveEducationOrganizationId
-ObjectiveGradeLevelDescriptorId
-ReportCardEducationOrganizationId
-SchoolId
 StudentUSI
+Objective
+ObjectiveGradeLevelDescriptorId
+ObjectiveEducationOrganizationId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+SchoolId
+ReportCardEducationOrganizationId
 <br />edfi.ReportCardStudentLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -33342,14 +33342,14 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-Objective
-ObjectiveGradeLevelDescriptorId
 ReportCardEducationOrganizationId
-SchoolId
 StudentUSI
+Objective
+AcademicSubjectDescriptorId
+ObjectiveGradeLevelDescriptorId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+SchoolId
 </pre></div>
             </div>
         </p>
@@ -33437,10 +33437,10 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-EventDate
-RestraintEventIdentifier
-SchoolId
 StudentUSI
+SchoolId
+RestraintEventIdentifier
+EventDate
 <br />edfi.RestraintEventProgram
 
 EducationOrganizationId [INT] NOT NULL
@@ -33453,13 +33453,13 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
-EventDate
-ProgramName
-ProgramTypeId
-RestraintEventIdentifier
-SchoolId
 StudentUSI
+SchoolId
+RestraintEventIdentifier
+EventDate
+ProgramTypeId
+ProgramName
+EducationOrganizationId
 <br />edfi.RestraintEventReason
 
 EventDate [DATE] NOT NULL
@@ -33470,11 +33470,11 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EventDate
-RestraintEventIdentifier
-RestraintEventReasonTypeId
-SchoolId
 StudentUSI
+SchoolId
+RestraintEventIdentifier
+EventDate
+RestraintEventReasonTypeId
 </pre></div>
             </div>
         </p>
@@ -34005,14 +34005,14 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
 LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 TermDescriptorId
+SchoolYear
 UniqueSectionCode
+SequenceOfCourse
 <br />edfi.SectionCharacteristic
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -34027,15 +34027,15 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-LocalCourseCode
-SchoolId
-SchoolYear
 SectionCharacteristicDescriptorId
-SequenceOfCourse
+ClassroomIdentificationCode
+SchoolId
+ClassPeriodName
+LocalCourseCode
+SchoolYear
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
 <br />edfi.SectionProgram
 
 ClassPeriodName [NVARCHAR](20) NOT NULL
@@ -34052,17 +34052,17 @@ UniqueSectionCode [NVARCHAR](255) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ClassPeriodName
 ClassroomIdentificationCode
-EducationOrganizationId
-LocalCourseCode
-ProgramName
-ProgramTypeId
 SchoolId
+ClassPeriodName
+LocalCourseCode
 SchoolYear
-SequenceOfCourse
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+ProgramTypeId
+ProgramName
+EducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -34141,15 +34141,15 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+SchoolId
 ClassPeriodName
 ClassroomIdentificationCode
-Date
 LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 TermDescriptorId
+SchoolYear
 UniqueSectionCode
+SequenceOfCourse
+Date
 </pre></div>
             </div>
         </p>
@@ -35750,9 +35750,9 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 SchoolId
+WeekIdentifier
 SchoolYear
 TermDescriptorId
-WeekIdentifier
 <br />edfi.SessionGradingPeriod
 
 BeginDate [DATE] NOT NULL
@@ -35763,11 +35763,11 @@ TermDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-BeginDate
-GradingPeriodDescriptorId
-SchoolId
 SchoolYear
 TermDescriptorId
+SchoolId
+GradingPeriodDescriptorId
+BeginDate
 </pre></div>
             </div>
         </p>
@@ -35981,8 +35981,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 StaffUSI
+AddressTypeId
 <br />edfi.StaffCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
@@ -35991,9 +35991,7 @@ StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-CredentialIdentifier
 StaffUSI
-StateOfIssueStateAbbreviationTypeId
 <br />edfi.StaffElectronicMail
 
 ElectronicMailTypeId [INT] NOT NULL
@@ -36003,8 +36001,8 @@ PrimaryEmailAddressIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ElectronicMailTypeId
 StaffUSI
+ElectronicMailTypeId
 <br />edfi.StaffIdentificationCode
 
 StaffIdentificationSystemDescriptorId [INT] NOT NULL
@@ -36014,8 +36012,8 @@ AssigningOrganizationIdentificationCode [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-StaffIdentificationSystemDescriptorId
 StaffUSI
+StaffIdentificationSystemDescriptorId
 <br />edfi.StaffIdentificationDocument
 
 IdentificationDocumentUseTypeId [INT] NOT NULL
@@ -36029,8 +36027,8 @@ IssuerCountryDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
+IdentificationDocumentUseTypeId
 StaffUSI
 <br />edfi.StaffInternationalAddress
 
@@ -36048,8 +36046,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 StaffUSI
+AddressTypeId
 <br />edfi.StaffLanguage
 
 LanguageDescriptorId [INT] NOT NULL
@@ -36057,8 +36055,8 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-LanguageDescriptorId
 StaffUSI
+LanguageDescriptorId
 <br />edfi.StaffLanguageUse
 
 LanguageDescriptorId [INT] NOT NULL
@@ -36067,9 +36065,9 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StaffUSI
 LanguageDescriptorId
 LanguageUseTypeId
-StaffUSI
 <br />edfi.StaffOtherName
 
 OtherNameTypeId [INT] NOT NULL
@@ -36082,8 +36080,8 @@ GenerationCodeSuffix [NVARCHAR](10) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-OtherNameTypeId
 StaffUSI
+OtherNameTypeId
 <br />edfi.StaffRace
 
 RaceTypeId [INT] NOT NULL
@@ -36091,8 +36089,8 @@ StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-RaceTypeId
 StaffUSI
+RaceTypeId
 <br />edfi.StaffRecognition
 
 RecognitionTypeId [INT] NOT NULL
@@ -36795,8 +36793,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 StudentUSI
+AddressTypeId
 <br />edfi.StudentCharacteristic
 
 StudentCharacteristicDescriptorId [INT] NOT NULL
@@ -36807,8 +36805,8 @@ DesignatedBy [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-StudentCharacteristicDescriptorId
 StudentUSI
+StudentCharacteristicDescriptorId
 <br />edfi.StudentCohortYear
 
 CohortYearTypeId [INT] NOT NULL
@@ -36817,9 +36815,9 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 CohortYearTypeId
 SchoolYear
-StudentUSI
 <br />edfi.StudentDisability
 
 DisabilityDescriptorId [INT] NOT NULL
@@ -36830,8 +36828,8 @@ DisabilityDeterminationSourceTypeId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DisabilityDescriptorId
 StudentUSI
+DisabilityDescriptorId
 <br />edfi.StudentElectronicMail
 
 ElectronicMailTypeId [INT] NOT NULL
@@ -36841,8 +36839,8 @@ PrimaryEmailAddressIndicator [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ElectronicMailTypeId
 StudentUSI
+ElectronicMailTypeId
 <br />edfi.StudentIdentificationCode
 
 AssigningOrganizationIdentificationCode [NVARCHAR](60) NOT NULL
@@ -36852,9 +36850,9 @@ IdentificationCode [NVARCHAR](60) NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 AssigningOrganizationIdentificationCode
 StudentIdentificationSystemDescriptorId
-StudentUSI
 <br />edfi.StudentIdentificationDocument
 
 IdentificationDocumentUseTypeId [INT] NOT NULL
@@ -36868,8 +36866,8 @@ IssuerCountryDescriptorId [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-IdentificationDocumentUseTypeId
 PersonalInformationVerificationTypeId
+IdentificationDocumentUseTypeId
 StudentUSI
 <br />edfi.StudentIndicator
 
@@ -36883,8 +36881,8 @@ DesignatedBy [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-IndicatorName
 StudentUSI
+IndicatorName
 <br />edfi.StudentInternationalAddress
 
 AddressTypeId [INT] NOT NULL
@@ -36901,8 +36899,8 @@ EndDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AddressTypeId
 StudentUSI
+AddressTypeId
 <br />edfi.StudentLanguage
 
 LanguageDescriptorId [INT] NOT NULL
@@ -36910,8 +36908,8 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-LanguageDescriptorId
 StudentUSI
+LanguageDescriptorId
 <br />edfi.StudentLanguageUse
 
 LanguageDescriptorId [INT] NOT NULL
@@ -36920,9 +36918,9 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+StudentUSI
 LanguageDescriptorId
 LanguageUseTypeId
-StudentUSI
 <br />edfi.StudentLearningStyle
 
 StudentUSI [INT] NOT NULL
@@ -36945,8 +36943,8 @@ GenerationCodeSuffix [NVARCHAR](10) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-OtherNameTypeId
 StudentUSI
+OtherNameTypeId
 <br />edfi.StudentProgramParticipation
 
 ProgramTypeId [INT] NOT NULL
@@ -36957,8 +36955,8 @@ DesignatedBy [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ProgramTypeId
 StudentUSI
+ProgramTypeId
 <br />edfi.StudentProgramParticipationProgramCharacteristic
 
 ProgramCharacteristicDescriptorId [INT] NOT NULL
@@ -36967,9 +36965,9 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-ProgramCharacteristicDescriptorId
-ProgramTypeId
 StudentUSI
+ProgramTypeId
+ProgramCharacteristicDescriptorId
 <br />edfi.StudentRace
 
 RaceTypeId [INT] NOT NULL
@@ -36977,8 +36975,8 @@ StudentUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-RaceTypeId
 StudentUSI
+RaceTypeId
 <br />edfi.StudentTelephone
 
 StudentUSI [INT] NOT NULL
@@ -37167,9 +37165,9 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+StudentUSI
 EducationOrganizationId
 SchoolYear
-StudentUSI
 TermDescriptorId
 <br />edfi.StudentAcademicRecordAcademicHonor
 
@@ -37194,10 +37192,10 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 AcademicHonorCategoryTypeId
-EducationOrganizationId
-SchoolYear
 StudentUSI
+SchoolYear
 TermDescriptorId
+EducationOrganizationId
 <br />edfi.StudentAcademicRecordClassRanking
 
 EducationOrganizationId [INT] NOT NULL
@@ -37211,10 +37209,10 @@ ClassRankingDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
-SchoolYear
 StudentUSI
+SchoolYear
 TermDescriptorId
+EducationOrganizationId
 <br />edfi.StudentAcademicRecordDiploma
 
 DiplomaAwardDate [DATE] NOT NULL
@@ -37239,12 +37237,12 @@ DiplomaAwardExpiresDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-DiplomaAwardDate
-DiplomaTypeId
-EducationOrganizationId
-SchoolYear
 StudentUSI
+DiplomaTypeId
+SchoolYear
 TermDescriptorId
+EducationOrganizationId
+DiplomaAwardDate
 <br />edfi.StudentAcademicRecordRecognition
 
 EducationOrganizationId [INT] NOT NULL
@@ -37267,10 +37265,10 @@ RecognitionAwardExpiresDate [DATE] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
 RecognitionTypeId
-SchoolYear
 StudentUSI
+EducationOrganizationId
+SchoolYear
 TermDescriptorId
 <br />edfi.StudentAcademicRecordReportCard
 
@@ -37284,13 +37282,13 @@ TermDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-EducationOrganizationId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-SchoolId
-SchoolYear
 StudentUSI
+SchoolYear
 TermDescriptorId
+EducationOrganizationId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+SchoolId
 </pre></div>
             </div>
         </p>
@@ -37470,12 +37468,12 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+AdministrationDate
 <br />edfi.StudentAssessmentAccommodation
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37488,13 +37486,13 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AccommodationDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+AdministrationDate
+AccommodationDescriptorId
 <br />edfi.StudentAssessmentItem
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37513,13 +37511,13 @@ TimeAssessed [NVARCHAR](30) NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
-IdentificationCode
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+IdentificationCode
+AdministrationDate
 <br />edfi.StudentAssessmentPerformanceLevel
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37533,13 +37531,13 @@ PerformanceLevelMet [BIT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
-PerformanceLevelDescriptorId
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+AdministrationDate
+PerformanceLevelDescriptorId
 <br />edfi.StudentAssessmentScoreResult
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37554,13 +37552,13 @@ ResultDatatypeTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentReportingMethodTypeId
-AssessmentTitle
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+AdministrationDate
+AssessmentReportingMethodTypeId
 <br />edfi.StudentAssessmentStudentObjectiveAssessment
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37573,13 +37571,13 @@ Version [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
-IdentificationCode
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+IdentificationCode
+AdministrationDate
 <br />edfi.StudentAssessmentStudentObjectiveAssessmentPerformanceLevel
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37594,14 +37592,14 @@ PerformanceLevelMet [BIT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentTitle
-IdentificationCode
-PerformanceLevelDescriptorId
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+IdentificationCode
+AdministrationDate
+PerformanceLevelDescriptorId
 <br />edfi.StudentAssessmentStudentObjectiveAssessmentScoreResult
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -37617,14 +37615,14 @@ ResultDatatypeTypeId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-AdministrationDate
-AssessedGradeLevelDescriptorId
-AssessmentReportingMethodTypeId
-AssessmentTitle
-IdentificationCode
 StudentUSI
+AssessmentTitle
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
 Version
+IdentificationCode
+AdministrationDate
+AssessmentReportingMethodTypeId
 </pre></div>
             </div>
         </p>
@@ -37733,13 +37731,13 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-Objective
-ObjectiveEducationOrganizationId
-ObjectiveGradeLevelDescriptorId
-SchoolId
 StudentUSI
+Objective
+ObjectiveGradeLevelDescriptorId
+ObjectiveEducationOrganizationId
+SchoolId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
 </pre></div>
             </div>
         </p>
@@ -37842,18 +37840,18 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-BeginDate
-ClassPeriodName
-ClassroomIdentificationCode
-DateAssigned
-GradebookEntryTitle
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 StudentUSI
+ClassroomIdentificationCode
+SchoolId
+ClassPeriodName
+LocalCourseCode
+SchoolYear
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+BeginDate
+GradebookEntryTitle
+DateAssigned
 </pre></div>
             </div>
         </p>
@@ -37923,11 +37921,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AttendanceEventCategoryDescriptorId
+StudentUSI
+InterventionIdentificationCode
 EducationOrganizationId
 EventDate
-InterventionIdentificationCode
-StudentUSI
+AttendanceEventCategoryDescriptorId
 </pre></div>
             </div>
         </p>
@@ -38037,13 +38035,13 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AcademicSubjectDescriptorId
-GradingPeriodBeginDate
-GradingPeriodDescriptorId
-Objective
-ObjectiveGradeLevelDescriptorId
-SchoolId
 StudentUSI
+Objective
+AcademicSubjectDescriptorId
+ObjectiveGradeLevelDescriptorId
+GradingPeriodDescriptorId
+GradingPeriodBeginDate
+SchoolId
 </pre></div>
             </div>
         </p>
@@ -38120,13 +38118,13 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AttendanceEventCategoryDescriptorId
-EducationOrganizationId
-EventDate
-ProgramEducationOrganizationId
-ProgramName
-ProgramTypeId
 StudentUSI
+ProgramEducationOrganizationId
+ProgramTypeId
+EventDate
+AttendanceEventCategoryDescriptorId
+ProgramName
+EducationOrganizationId
 </pre></div>
             </div>
         </p>
@@ -38202,11 +38200,11 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AttendanceEventCategoryDescriptorId
-EventDate
+StudentUSI
 SchoolId
 SchoolYear
-StudentUSI
+EventDate
+AttendanceEventCategoryDescriptorId
 TermDescriptorId
 </pre></div>
             </div>
@@ -38283,17 +38281,17 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-AttendanceEventCategoryDescriptorId
-ClassPeriodName
-ClassroomIdentificationCode
-EventDate
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
 StudentUSI
+ClassroomIdentificationCode
+SchoolId
+ClassPeriodName
+LocalCourseCode
+SchoolYear
 TermDescriptorId
 UniqueSectionCode
+SequenceOfCourse
+EventDate
+AttendanceEventCategoryDescriptorId
 </pre></div>
             </div>
         </p>
@@ -40707,8 +40705,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-FiscalYear
 LocalEducationAgencyId
+FiscalYear
 </pre></div>
             </div>
         </p>
@@ -40837,8 +40835,8 @@ SchoolId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-SchoolCategoryTypeId
 SchoolId
+SchoolCategoryTypeId
 <br />edfi.SchoolGradeLevel
 
 GradeLevelDescriptorId [INT] NOT NULL
@@ -40846,8 +40844,8 @@ SchoolId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-GradeLevelDescriptorId
 SchoolId
+GradeLevelDescriptorId
 </pre></div>
             </div>
         </p>
@@ -40917,8 +40915,8 @@ CTEGraduationRateInclusion [BIT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
-SchoolYear
 StateEducationAgencyId
+SchoolYear
 <br />edfi.StateEducationAgencyFederalFunds
 
 FiscalYear [INT] NOT NULL
@@ -40929,8 +40927,8 @@ LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
-FiscalYear
 StateEducationAgencyId
+FiscalYear
 </pre></div>
             </div>
         </p>
