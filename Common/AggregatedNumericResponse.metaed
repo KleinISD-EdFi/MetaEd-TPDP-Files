@@ -2,7 +2,7 @@ Common AggregatedNumericResponse
   documentation "The information about the numeric response for an aggregated survey."
   shared decimal AverageNumericResponse named AverageNumericResponse
     documentation "The average numeric response for the survey."
-    is required
+    is part of identity
   integer NumericResponseNCount
     documentation "The total number of data values in set of data that makes up the average numeric grade for a group"
     is optional
