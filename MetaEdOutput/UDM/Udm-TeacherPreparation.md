@@ -51,7 +51,6 @@
 | SectionStudentFacts | This domain entity collects data for aggregated level students. |
 | SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
-| SectionSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | Staff |  |
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |

@@ -367,10 +367,6 @@
   <Aggregate root="SectionSurveyResponseFacts">
     <Entity table="SectionSurveyResponseFacts" schema="extension"/>
   </Aggregate>
-  <Aggregate root="SectionSurveySectionResponseRatingFacts">
-    <Entity table="SectionSurveySectionResponseRatingFacts" schema="extension"/>
-    <Entity table="SectionSurveySectionResponseRatingFactsAggregatedNumericResponse" schema="extension"/>
-  </Aggregate>
   <Aggregate root="StaffFieldworkAbsenceEvent">
     <Entity table="StaffFieldworkAbsenceEvent" schema="extension"/>
   </Aggregate>

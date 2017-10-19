@@ -18,7 +18,6 @@
         <xs:element name="EducationOrganizationSurveySectionResponseRatingFacts" type="EXTENSION-EducationOrganizationSurveySectionResponseRatingFacts" />
         <xs:element name="EducationOrganizationSurveyQuestionResponseFacts" type="EXTENSION-EducationOrganizationSurveyQuestionResponseFacts" />
         <xs:element name="SectionSurveyResponseFacts" type="EXTENSION-SectionSurveyResponseFacts" />
-        <xs:element name="SectionSurveySectionResponseRatingFacts" type="EXTENSION-SectionSurveySectionResponseRatingFacts" />
         <xs:element name="SectionSurveyQuestionResponseFacts" type="EXTENSION-SectionSurveyQuestionResponseFacts" />
         <xs:element name="Survey" type="EXTENSION-Survey" />
         <xs:element name="SurveyQuestion" type="EXTENSION-SurveyQuestion" />

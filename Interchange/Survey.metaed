@@ -7,7 +7,7 @@ Interchange Survey
   domain entity EducationOrganizationSurveySectionResponseRatingFacts
   domain entity EducationOrganizationSurveyQuestionResponseFacts
   domain entity SectionSurveyResponseFacts
-  domain entity SectionSurveySectionResponseRatingFacts
+//  domain entity SectionSurveySectionResponseRatingFacts
   domain entity SectionSurveyQuestionResponseFacts
   domain entity Survey
   domain entity SurveyQuestion

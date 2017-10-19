@@ -30,7 +30,6 @@ The following table describes the primary entities of which the Survey Interchan
 | EducationOrganizationSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | EducationOrganizationSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
-| SectionSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
 | SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | Survey | A survey to identified or anonymous respondants. |
 | SurveyQuestion | The questions for the survey. |

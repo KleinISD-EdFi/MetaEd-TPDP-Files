@@ -241,7 +241,6 @@
     <Element name="EducationOrganizationSurveySectionResponseRatingFacts" />
     <Element name="EducationOrganizationSurveyQuestionResponseFacts" />
     <Element name="SectionSurveyResponseFacts" />
-    <Element name="SectionSurveySectionResponseRatingFacts" />
     <Element name="SectionSurveyQuestionResponseFacts" />
     <Element name="SurveyResponse" />
     <Element name="SurveyQuestionResponse" />

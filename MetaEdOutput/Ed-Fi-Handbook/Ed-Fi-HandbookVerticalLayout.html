@@ -6657,7 +6657,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />EducationOrganizationSurveySectionResponseRatingFacts.AggregatedNumericResponse (as optional)<br />RubricLevelResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveySectionResponseRatingFacts.AggregatedNumericResponse (as optional)</div>
+                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />EducationOrganizationSurveySectionResponseRatingFacts.AggregatedNumericResponse (as optional)<br />RubricLevelResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35497,7 +35497,7 @@ UniqueSectionCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFacts.SectionSurveyResponseFacts (as identity)<br />SectionSurveySectionResponseRatingFacts.SectionSurveyResponseFacts (as identity)</div>
+                <div><br />Contains:<br />FactsAsOfDate (identity)<br />Section (identity)<br />Survey (identity)<br /><br />Used By:<br />SectionSurveyQuestionResponseFacts.SectionSurveyResponseFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -35558,120 +35558,6 @@ SchoolId
 SchoolYear
 SequenceOfCourse
 SurveyIdentifier
-TermDescriptorId
-UniqueSectionCode
-</pre></div>
-            </div>
-        </p>
-        <p>
-            <h2>SectionSurveySectionResponseRatingFacts</h2>
-            <div class="entryItem">
-                <div class="entryItemLabel">Ed-Fi ID:</div>
-                <div></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Definition:</div>
-                <div>Responses to survey sections collected at the aggregate level.</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">Entity Type:</div>
-                <div>Domain Entity</div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (optional)<br />SectionSurveyResponseFacts (identity)<br />SurveySection (identity)<br /></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">XSD:</div>
-                <div><pre>&lt;xs:complexType name=&quot;EXTENSION-SectionSurveySectionResponseRatingFacts&quot;&gt;
-  &lt;xs:annotation&gt;
-    &lt;xs:documentation&gt;Responses to survey sections collected at the aggregate level.&lt;/xs:documentation&gt;
-    &lt;xs:appinfo&gt;
-      &lt;ann:TypeGroup&gt;Domain Entity&lt;/ann:TypeGroup&gt;
-    &lt;/xs:appinfo&gt;
-  &lt;/xs:annotation&gt;
-  &lt;xs:complexContent&gt;
-    &lt;xs:extension base=&quot;ComplexObjectType&quot;&gt;
-      &lt;xs:sequence&gt;
-        &lt;xs:element name=&quot;SectionSurveyResponseFactsReference&quot; type=&quot;EXTENSION-SectionSurveyResponseFactsReferenceType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Reference to the Aggregated Survey Response.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SurveySectionReference&quot; type=&quot;EXTENSION-SurveySectionReferenceType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Reference to the Survey Section.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AggregatedNumericResponse&quot; type=&quot;EXTENSION-AggregatedNumericResponse&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The information about the numeric response for an aggregated survey.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-      &lt;/xs:sequence&gt;
-    &lt;/xs:extension&gt;
-  &lt;/xs:complexContent&gt;
-&lt;/xs:complexType&gt;</pre></div>
-            </div>
-            <div class="entryItem">
-                <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>extension.SectionSurveySectionResponseRatingFacts
-
-ClassPeriodName [NVARCHAR](20) NOT NULL
-ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
-FactsAsOfDate [DATE] NOT NULL
-LocalCourseCode [NVARCHAR](60) NOT NULL
-SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-SequenceOfCourse [INT] NOT NULL
-SurveyIdentifier [NVARCHAR](64) NOT NULL
-SurveySectionTitle [NVARCHAR](50) NOT NULL
-TermDescriptorId [INT] NOT NULL
-UniqueSectionCode [NVARCHAR](255) NOT NULL
-CreateDate [DATETIME] NOT NULL
-LastModifiedDate [DATETIME] NOT NULL
-Id [UNIQUEIDENTIFIER] NOT NULL
-
-Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-FactsAsOfDate
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-SurveyIdentifier
-SurveySectionTitle
-TermDescriptorId
-UniqueSectionCode
-<br />extension.SectionSurveySectionResponseRatingFactsAggregatedNumericResponse
-
-ClassPeriodName [NVARCHAR](20) NOT NULL
-ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
-FactsAsOfDate [DATE] NOT NULL
-LocalCourseCode [NVARCHAR](60) NOT NULL
-SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-SequenceOfCourse [INT] NOT NULL
-SurveyIdentifier [NVARCHAR](64) NOT NULL
-SurveySectionTitle [NVARCHAR](50) NOT NULL
-TermDescriptorId [INT] NOT NULL
-UniqueSectionCode [NVARCHAR](255) NOT NULL
-AverageNumericResponse [DECIMAL](18, 4) NOT NULL
-NumericResponseNCount [INT] NULL
-NumericResponseStandardDeviation [INT] NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-ClassPeriodName
-ClassroomIdentificationCode
-FactsAsOfDate
-LocalCourseCode
-SchoolId
-SchoolYear
-SequenceOfCourse
-SurveyIdentifier
-SurveySectionTitle
 TermDescriptorId
 UniqueSectionCode
 </pre></div>
@@ -38816,7 +38702,7 @@ SurveyResponseIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Survey (identity)<br />SurveySectionTitle (identity)<br /><br />Used By:<br />CourseSurveySectionResponseRatingFacts.SurveySection (as identity)<br />EducationOrganizationSurveySectionResponseRatingFacts.SurveySection (as identity)<br />SectionSurveySectionResponseRatingFacts.SurveySection (as identity)<br />SurveyQuestion.SurveySection (as required)<br />SurveySectionResponseRating.SurveySection (as identity)</div>
+                <div><br />Contains:<br />Survey (identity)<br />SurveySectionTitle (identity)<br /><br />Used By:<br />CourseSurveySectionResponseRatingFacts.SurveySection (as identity)<br />EducationOrganizationSurveySectionResponseRatingFacts.SurveySection (as identity)<br />SurveyQuestion.SurveySection (as required)<br />SurveySectionResponseRating.SurveySection (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
