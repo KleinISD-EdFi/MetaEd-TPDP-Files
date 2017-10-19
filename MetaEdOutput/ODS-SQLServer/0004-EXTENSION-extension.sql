@@ -9847,6 +9847,9 @@ CREATE TABLE [extension].[SectionSurveySectionResponseRatingFacts](
     [ClassPeriodName] [NVARCHAR](20) NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
+    [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
+    [NumericResponseNCount] [INT] NULL,
+    [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -9886,33 +9889,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique sur
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
 GO
-
-
-/****** Table: [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] ******/
-
-CREATE TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse](
-    [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
-    [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
-    [NumericResponseNCount] [INT] NULL,
-    [NumericResponseStandardDeviation] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
-        [SurveySectionTitle] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The information about the numeric response for an aggregated survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SectionSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
 GO
 
 
@@ -19434,14 +19415,6 @@ GO
 CREATE NONCLUSTERED INDEX [FK_SectionSurveySectionResponseRatingFacts_SurveySection]
 ON [extension].[SectionSurveySectionResponseRatingFacts]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
 GO
-
-ALTER TABLE [extension].[SectionSurveySectionResponseRatingFactsAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_SectionSurveySectionResponseRatingFactsAggregatedNumericResponse_SectionSurveySectionResponseRatingFacts] FOREIGN KEY ([SurveySectionTitle])
-REFERENCES [extension].[SectionSurveySectionResponseRatingFacts] ([SurveySectionTitle])
-ON DELETE CASCADE
-
-GO
-
-
 
 ALTER TABLE [extension].[StaffFieldworkAbsenceEvent] WITH CHECK ADD CONSTRAINT [FK_StaffFieldworkAbsenceEvent_AbsenceEventCategoryDescriptor] FOREIGN KEY ([AbsenceEventCategoryDescriptorId])
 REFERENCES [extension].[AbsenceEventCategoryDescriptor] ([AbsenceEventCategoryDescriptorId])
