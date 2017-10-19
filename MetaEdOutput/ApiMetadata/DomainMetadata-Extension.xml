@@ -180,7 +180,6 @@
   </Aggregate>
   <Aggregate root="EducationOrganizationSurveySectionResponseRatingFacts">
     <Entity table="EducationOrganizationSurveySectionResponseRatingFacts" schema="extension"/>
-    <Entity table="EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse" schema="extension"/>
   </Aggregate>
   <Aggregate root="EnglishLanguageExamDescriptor">
     <Entity table="EnglishLanguageExamDescriptor" isA="Descriptor" schema="extension"/>

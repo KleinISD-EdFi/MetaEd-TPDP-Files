@@ -4971,6 +4971,9 @@ CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFacts]
     [FactsAsOfDate] [DATE] NOT NULL,
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
+    [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
+    [NumericResponseNCount] [INT] NULL,
+    [NumericResponseStandardDeviation] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -4999,45 +5002,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique sur
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
-
-
-/****** Table: [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] ******/
-
-CREATE TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse](
-    [EducationOrganizationId] [INT] NOT NULL,
-    [FactsAsOfDate] [DATE] NOT NULL,
-    [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
-    [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
-    [AverageNumericResponse] [DECIMAL](18, 4) NOT NULL,
-    [NumericResponseNCount] [INT] NULL,
-    [NumericResponseStandardDeviation] [INT] NULL,
-    [CreateDate] [DATETIME] NOT NULL, 
-    CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_PK] PRIMARY KEY CLUSTERED (
-        [EducationOrganizationId] ASC,
-        [FactsAsOfDate] ASC,
-        [SurveyIdentifier] ASC,
-        [SurveySectionTitle] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
 GO
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
 GO
-
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average of the numeric responses to survey sections collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The as-of-date for the aggregated survey data.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'FactsAsOfDate'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The unique survey identifier from the survey tool.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveyIdentifier'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average numeric response for the survey.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'AverageNumericResponse'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total number of data values in set of data that makes up the average numeric grade for a group', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseNCount'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationSurveySectionResponseRatingFacts', @level2type=N'COLUMN', @level2name=N'NumericResponseStandardDeviation'
 GO
 
 
@@ -17589,14 +17558,6 @@ GO
 CREATE NONCLUSTERED INDEX [FK_EducationOrganizationSurveySectionResponseRatingFacts_SurveySection]
 ON [extension].[EducationOrganizationSurveySectionResponseRatingFacts]([SurveyIdentifier] ASC, [SurveySectionTitle] ASC)
 GO
-
-ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_EducationOrganizationSurveySectionResponseRati] FOREIGN KEY ([EducationOrganizationId], [FactsAsOfDate], [SurveyIdentifier], [SurveySectionTitle])
-REFERENCES [extension].[EducationOrganizationSurveySectionResponseRatingFacts] ([EducationOrganizationId], [FactsAsOfDate], [SurveyIdentifier], [SurveySectionTitle])
-ON DELETE CASCADE
-
-GO
-
-
 
 ALTER TABLE [extension].[ExternalCourseTranscript] WITH CHECK ADD CONSTRAINT [FK_ExternalCourseTranscript_AcademicSubjectDescriptor] FOREIGN KEY ([AcademicSubjectDescriptorId])
 REFERENCES [edfi].[AcademicSubjectDescriptor] ([AcademicSubjectDescriptorId])

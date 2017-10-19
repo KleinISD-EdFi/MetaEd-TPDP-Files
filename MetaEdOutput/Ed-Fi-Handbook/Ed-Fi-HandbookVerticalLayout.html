@@ -6657,7 +6657,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />EducationOrganizationSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)<br />RubricLevelResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)</div>
+                <div><br />Contains:<br />AverageNumericResponse (required)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br /><br />Used By:<br />CourseSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />CourseSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)<br />EducationOrganizationSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />RubricLevelResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveyQuestionResponseFacts.AggregatedNumericResponse (as optional)<br />SectionSurveySectionResponseRatingFacts.AggregatedNumericResponse (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -16679,7 +16679,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedNumericResponse.AverageNumericResponse (as required)<br />AggregatedSurveyQuestionMatrixElementResponse.AverageNumericResponse (as identity)</div>
+                <div><br />Used By:<br />AggregatedNumericResponse.AverageNumericResponse (as required)<br />AggregatedSurveyQuestionMatrixElementResponse.AverageNumericResponse (as identity)<br />EducationOrganizationSurveySectionResponseRatingFacts.AverageNumericResponse (as required)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -28859,7 +28859,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />EducationOrganizationSurveyResponseFacts (identity)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AverageNumericResponse (required)<br />EducationOrganizationSurveyResponseFacts (identity)<br />NumericResponseNCount (optional)<br />NumericResponseStandardDeviation (optional)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -28883,9 +28883,19 @@ SurveyIdentifier
             &lt;xs:documentation&gt;Reference to the Survey Section.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AggregatedNumericResponse&quot; type=&quot;EXTENSION-AggregatedNumericResponse&quot;&gt;
+        &lt;xs:element name=&quot;AverageNumericResponse&quot; type=&quot;EXTENSION-AverageNumericResponse&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The average of the numeric responses to survey sections collected at the aggregate level.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The average numeric response for the survey.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;NumericResponseNCount&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The total number of data values in set of data that makes up the average numeric grade for a group&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;NumericResponseStandardDeviation&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
@@ -28901,25 +28911,12 @@ EducationOrganizationId [INT] NOT NULL
 FactsAsOfDate [DATE] NOT NULL
 SurveyIdentifier [NVARCHAR](64) NOT NULL
 SurveySectionTitle [NVARCHAR](50) NOT NULL
-CreateDate [DATETIME] NOT NULL
-LastModifiedDate [DATETIME] NOT NULL
-Id [UNIQUEIDENTIFIER] NOT NULL
-
-Primary Keys:
-EducationOrganizationId
-FactsAsOfDate
-SurveyIdentifier
-SurveySectionTitle
-<br />extension.EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse
-
-EducationOrganizationId [INT] NOT NULL
-FactsAsOfDate [DATE] NOT NULL
-SurveyIdentifier [NVARCHAR](64) NOT NULL
-SurveySectionTitle [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
 NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
+LastModifiedDate [DATETIME] NOT NULL
+Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
 EducationOrganizationId
@@ -48205,7 +48202,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedNumericResponse.NumericResponseNCount (as optional)<br />AggregatedSurveyQuestionMatrixElementResponse.NumericResponseNCount (as optional)</div>
+                <div><br />Used By:<br />AggregatedNumericResponse.NumericResponseNCount (as optional)<br />AggregatedSurveyQuestionMatrixElementResponse.NumericResponseNCount (as optional)<br />EducationOrganizationSurveySectionResponseRatingFacts.NumericResponseNCount (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -48232,7 +48229,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />AggregatedNumericResponse.NumericResponseStandardDeviation (as optional)<br />AggregatedSurveyQuestionMatrixElementResponse.NumericResponseStandardDeviation (as optional)</div>
+                <div><br />Used By:<br />AggregatedNumericResponse.NumericResponseStandardDeviation (as optional)<br />AggregatedSurveyQuestionMatrixElementResponse.NumericResponseStandardDeviation (as optional)<br />EducationOrganizationSurveySectionResponseRatingFacts.NumericResponseStandardDeviation (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
