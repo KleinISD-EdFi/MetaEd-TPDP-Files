@@ -2,7 +2,7 @@ Common AggregatedSalary
   documentation "Salary information collected at the aggregate level."
   currency AverageSalary
     documentation "The average of salaries collected at the aggregate level."
-    is part of identity
+    is required
   integer CountOfSalariesAveraged
     documentation "The number of salaries averaged that were collected at the aggregate level."
     is optional
