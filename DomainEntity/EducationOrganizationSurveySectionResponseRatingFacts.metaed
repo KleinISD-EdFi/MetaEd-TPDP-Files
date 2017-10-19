@@ -7,12 +7,6 @@ Domain Entity EducationOrganizationSurveySectionResponseRatingFacts
     documentation "Reference to the Survey Section."
     is part of identity
     merge SurveySection.Survey with EducationOrganizationSurveyResponseFacts.Survey
-  shared decimal AverageNumericResponse named AverageNumericResponse
-    documentation "The average numeric response for the survey."
-    is required
-  integer NumericResponseNCount
-    documentation "The total number of data values in set of data that makes up the average numeric grade for a group"
-    is optional
-  integer NumericResponseStandardDeviation
-    documentation "A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students"
+  common AggregatedNumericResponse
+    documentation "The information about the numeric response for an aggregated survey."
     is optional

@@ -1398,19 +1398,9 @@
               <xs:documentation>Reference to the Survey Section.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AverageNumericResponse" type="EXTENSION-AverageNumericResponse">
+          <xs:element name="AggregatedNumericResponse" type="EXTENSION-AggregatedNumericResponse" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The average numeric response for the survey.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="NumericResponseNCount" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The total number of data values in set of data that makes up the average numeric grade for a group</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="NumericResponseStandardDeviation" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students</xs:documentation>
+              <xs:documentation>The information about the numeric response for an aggregated survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2684,19 +2674,9 @@
               <xs:documentation>Reference to the Survey Section.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AverageNumericResponse" type="EXTENSION-AverageNumericResponse">
+          <xs:element name="AggregatedNumericResponse" type="EXTENSION-AggregatedNumericResponse" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>The average numeric response for the survey.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="NumericResponseNCount" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>The total number of data values in set of data that makes up the average numeric grade for a group</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="NumericResponseStandardDeviation" type="xs:int" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>A measure used to quantify the amount of variation or dispersion of a set of data values, in this case specific to the average numeric grade for a group of students</xs:documentation>
+              <xs:documentation>The information about the numeric response for an aggregated survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3268,14 +3248,14 @@
     <xs:complexContent>
       <xs:extension base="ComplexObjectType">
         <xs:sequence>
-          <xs:element name="SurveySectionTitle" type="EXTENSION-SurveySectionTitle">
-            <xs:annotation>
-              <xs:documentation>The title or label for the survey section.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="SurveyReference" type="EXTENSION-SurveyReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Survey.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SurveySectionTitle" type="EXTENSION-SurveySectionTitle">
+            <xs:annotation>
+              <xs:documentation>The title or label for the survey section.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -7443,14 +7423,14 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="SurveySectionTitle" type="EXTENSION-SurveySectionTitle">
-        <xs:annotation>
-          <xs:documentation>The title or label for the survey section.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="SurveyReference" type="EXTENSION-SurveyReferenceType">
         <xs:annotation>
           <xs:documentation>Reference to the Survey.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SurveySectionTitle" type="EXTENSION-SurveySectionTitle">
+        <xs:annotation>
+          <xs:documentation>The title or label for the survey section.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
