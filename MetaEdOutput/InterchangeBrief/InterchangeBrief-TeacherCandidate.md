@@ -31,6 +31,7 @@ The following table describes the primary entities of which the Teacher Candidat
 | TeacherCandidateFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | TeacherCandidateFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
 | TeacherCandidateStaffAssociation | This association associates teacher candidates to a staff member. |
+| TeacherCandidateTeacherPreparationProviderAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
 | TeacherCandidateTeacherPreparationProviderProgramAssociation | Information about the association between the Teacher Candidate and the TeacherPreparationProviderProgram |
 
 
@@ -51,6 +52,7 @@ This interchange includes the following Extended References.
 | StaffReference (in TeacherCandidate) | Optional.  The staff associated. |
 | StaffReference (in TeacherCandidateStaffAssociation) | Required.  The staff associated with the teacher candidate. |
 | TeacherPreparationProviderProgramReference (in TeacherCandidateTeacherPreparationProviderProgramAssociation) | Required.  The Program associated to the Staff. |
+| TeacherPreparationProviderReference (in TeacherCandidateTeacherPreparationProviderAssociation) | Required.  Teacher Preparation Provider for the association |
 
 
 
@@ -71,6 +73,8 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | CredentialFieldDescriptor | Required.  This descriptor defines the fields of certification that the state education agency offers to teachers. |
 | DisabilityDescriptor | Optional.  This descriptor defines a student's impairment. |
 | EnglishLanguageExamDescriptor | Optional.  Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL). |
+| EntryTypeDescriptor | Optional.  This descriptor defines the process by which a student enters a school during a given academic session. |
+| ExitWithdrawTypeDescriptor | Optional.  This descriptor defines the circumstances under which the student exited from membership in an educational institution. |
 | FieldworkTypeDescriptor | Required.  The descriptor holds the type of fieldwork being executed by a teacher candidate. |
 | GradeLevelDescriptor | Required.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |

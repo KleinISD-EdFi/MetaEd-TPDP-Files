@@ -28785,7 +28785,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (identity)<br /><br />Used By:<br />EducationOrganizationSurveyQuestionResponseFacts.EducationOrganizationSurveyResponseFacts (as identity)<br />EducationOrganizationSurveySectionResponseRatingFacts.EducationOrganizationSurveyResponseFacts (as required)</div>
+                <div><br />Contains:<br />EducationOrganization (identity)<br />FactsAsOfDate (identity)<br />SchoolYear (required)<br />Survey (identity)<br /><br />Used By:<br />EducationOrganizationSurveyQuestionResponseFacts.EducationOrganizationSurveyResponseFacts (as identity)<br />EducationOrganizationSurveySectionResponseRatingFacts.EducationOrganizationSurveyResponseFacts (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -28859,7 +28859,7 @@ SurveyIdentifier
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />EducationOrganizationSurveyResponseFacts (required)<br />SurveySection (identity)<br /></div>
+                <div><br />Contains:<br />AggregatedNumericResponse (required)<br />EducationOrganizationSurveyResponseFacts (identity)<br />SurveySection (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -28897,18 +28897,24 @@ SurveyIdentifier
                 <div class="entryItemLabel">SQL Snippet:</div>
                 <div><pre>extension.EducationOrganizationSurveySectionResponseRatingFacts
 
-SurveySectionTitle [NVARCHAR](50) NOT NULL
 EducationOrganizationId [INT] NOT NULL
-SurveyIdentifier [NVARCHAR](64) NOT NULL
 FactsAsOfDate [DATE] NOT NULL
+SurveyIdentifier [NVARCHAR](64) NOT NULL
+SurveySectionTitle [NVARCHAR](50) NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
 
 Primary Keys:
+EducationOrganizationId
+FactsAsOfDate
+SurveyIdentifier
 SurveySectionTitle
 <br />extension.EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse
 
+EducationOrganizationId [INT] NOT NULL
+FactsAsOfDate [DATE] NOT NULL
+SurveyIdentifier [NVARCHAR](64) NOT NULL
 SurveySectionTitle [NVARCHAR](50) NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
 NumericResponseNCount [INT] NULL
@@ -28916,6 +28922,9 @@ NumericResponseStandardDeviation [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
+EducationOrganizationId
+FactsAsOfDate
+SurveyIdentifier
 SurveySectionTitle
 </pre></div>
             </div>

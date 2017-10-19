@@ -36,6 +36,7 @@ The following table describes the primary entities of which the Staff Associatio
 |----------|-----------------|
 | StaffFieldworkAbsenceEvent | Expanded reason for the staff absence |
 | StaffFieldworkExperience | The information regarding a postsecondary instructional course in a particular field of study that typically involves a prescribed number or instruction periods or meetings for enrolled students. |
+| StaffTeacherPreparationProviderAssociation | Information about the association between the Staff and the TeacherPreparationProvider |
 | StaffTeacherPreparationProviderProgramAssociation | This association indicates the Staff associated with a teacher preparation provider program. |
 | Staff | This entity represents an individual who performs specified activities for any public or private education institution or agency that provides instructional and/or support services to students or staff at the early childhood level through high school completion. For example, this includes:<br/>    1. An "employee" who performs services under the direction of the employing institution or agency is compensated for such services by the employer and is eligible for employee benefits and wage or salary tax withholdings<br/>    2. A "contractor" or "consultant" who performs services for an agreed upon fee or an employee of a management service contracted to work on site<br/>    3. A "volunteer" who performs services on a voluntary and uncompensated basis<br/>    4. An in-kind service provider<br/>    5. An independent contractor or businessperson working at a school site. |
 | StaffEducationOrganizationEmploymentAssociation | This association indicates the EducationOrganization an employee, contractor, volunteer, or other service provider is formally associated with typically indicated by which organization the staff member has a services contract with or receives compensation from. |
@@ -66,6 +67,7 @@ This interchange includes the following Extended References.
 | SectionReference (in StaffFieldworkExperience) | Optional.  The section the field work experience is associated with |
 | SectionReference (in StaffSectionAssociation) | Required.  The Section the Staff member is assigned to. |
 | TeacherPreparationProviderProgramReference (in StaffTeacherPreparationProviderProgramAssociation) | Required.  The Program associated to the Staff. |
+| TeacherPreparationProviderReference (in StaffTeacherPreparationProviderAssociation) | Required.  The TeacherPreparationProvider for the association |
 
 
 

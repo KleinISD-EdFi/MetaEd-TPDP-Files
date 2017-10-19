@@ -2,7 +2,7 @@ Domain Entity EducationOrganizationSurveySectionResponseRatingFacts
   documentation "Responses to survey sections collected at the aggregate level."
   domain entity EducationOrganizationSurveyResponseFacts
     documentation "Reference to the Aggregated Survey Response."
-    is required
+    is part of identity
   domain entity SurveySection
     documentation "Reference to the Survey Section."
     is part of identity

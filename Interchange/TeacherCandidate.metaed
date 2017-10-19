@@ -8,4 +8,5 @@ Interchange TeacherCandidate
   domain entity TeacherCandidateFieldworkAbsenceEvent
   domain entity TeacherCandidateFieldworkExperience
   association TeacherCandidateStaffAssociation
+  association TeacherCandidateTeacherPreparationProviderAssociation
   association TeacherCandidateTeacherPreparationProviderProgramAssociation

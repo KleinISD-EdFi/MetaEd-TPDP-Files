@@ -19,6 +19,7 @@
         <xs:element name="TeacherCandidateFieldworkAbsenceEvent" type="EXTENSION-TeacherCandidateFieldworkAbsenceEvent" />
         <xs:element name="TeacherCandidateFieldworkExperience" type="EXTENSION-TeacherCandidateFieldworkExperience" />
         <xs:element name="TeacherCandidateStaffAssociation" type="EXTENSION-TeacherCandidateStaffAssociation" />
+        <xs:element name="TeacherCandidateTeacherPreparationProviderAssociation" type="EXTENSION-TeacherCandidateTeacherPreparationProviderAssociation" />
         <xs:element name="TeacherCandidateTeacherPreparationProviderProgramAssociation" type="EXTENSION-TeacherCandidateTeacherPreparationProviderProgramAssociation" />
       </xs:choice>
     </xs:complexType>
