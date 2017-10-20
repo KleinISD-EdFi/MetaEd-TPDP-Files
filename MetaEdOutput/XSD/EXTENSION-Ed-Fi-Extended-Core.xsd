@@ -533,16 +533,6 @@
               <xs:documentation>The information about the number of students enrolled</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="AggregatedFinalLetterGradeEarned" type="EXTENSION-AggregatedFinalLetterGradeEarned" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Data about the final letter grade earned of the group</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="AggregatedNumericGradeEarned" type="EXTENSION-AggregatedNumericGradeEarned" minOccurs="0">
-            <xs:annotation>
-              <xs:documentation>Data about the numeric grade received by the group</xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

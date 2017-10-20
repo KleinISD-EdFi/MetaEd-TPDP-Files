@@ -6354,7 +6354,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />FinalLetterGrade (identity)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />EducationOrganizationCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />FinalLetterGrade (identity)<br />LetterGradeTypeNumber (optional)<br />LetterGradeTypePercentage (optional)<br /><br />Used By:<br />EducationOrganizationCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)<br />SectionCourseTranscriptFacts.AggregatedFinalLetterGradeEarned (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -6600,7 +6600,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />AverageFinalNumericGradeEarned (required)<br />NumericGradeNCount (optional)<br />NumericGradeStandardDeviation (optional)<br /><br />Used By:<br />CourseCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />EducationOrganizationCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />SectionCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)</div>
+                <div><br />Contains:<br />AggregatedFactAsOfDate (identity)<br />AggregatedSchoolYear (identity)<br />AverageFinalNumericGradeEarned (required)<br />NumericGradeNCount (optional)<br />NumericGradeStandardDeviation (optional)<br /><br />Used By:<br />EducationOrganizationCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)<br />SectionCourseTranscriptFacts.AggregatedNumericGradeEarned (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25299,7 +25299,7 @@ GradeLevelDescriptorId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AggregatedFinalLetterGradeEarned (optional collection)<br />AggregatedNumericGradeEarned (optional)<br />CourseStudentAcademicRecordFacts (identity)<br />CourseTitle (optional)<br />FactsAsOfDate (identity)<br />StudentsEnrolled (optional)<br /></div>
+                <div><br />Contains:<br />CourseStudentAcademicRecordFacts (identity)<br />CourseTitle (optional)<br />FactsAsOfDate (identity)<br />StudentsEnrolled (optional)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -25333,16 +25333,6 @@ GradeLevelDescriptorId
             &lt;xs:documentation&gt;The information about the number of students enrolled&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AggregatedFinalLetterGradeEarned&quot; type=&quot;EXTENSION-AggregatedFinalLetterGradeEarned&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Data about the final letter grade earned of the group&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;AggregatedNumericGradeEarned&quot; type=&quot;EXTENSION-AggregatedNumericGradeEarned&quot; minOccurs=&quot;0&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Data about the numeric grade received by the group&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -25362,53 +25352,6 @@ CourseTitle [NVARCHAR](60) NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
-
-Primary Keys:
-CourseCode
-EducationOrganizationId
-FactAsOfDate
-FactsAsOfDate
-SchoolYear
-TermDescriptorId
-<br />extension.CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned
-
-AggregatedFactAsOfDate [DATE] NOT NULL
-AggregatedSchoolYear [SMALLINT] NOT NULL
-CourseCode [NVARCHAR](60) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-FactsAsOfDate [DATE] NOT NULL
-FinalLetterGrade [NVARCHAR](20) NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-TermDescriptorId [INT] NOT NULL
-LetterGradeTypeNumber [INT] NULL
-LetterGradeTypePercentage [DECIMAL](5, 4) NULL
-CreateDate [DATETIME] NOT NULL
-
-Primary Keys:
-AggregatedFactAsOfDate
-AggregatedSchoolYear
-CourseCode
-EducationOrganizationId
-FactAsOfDate
-FactsAsOfDate
-FinalLetterGrade
-SchoolYear
-TermDescriptorId
-<br />extension.CourseCourseTranscriptFactsAggregatedNumericGradeEarned
-
-CourseCode [NVARCHAR](60) NOT NULL
-EducationOrganizationId [INT] NOT NULL
-FactAsOfDate [DATE] NOT NULL
-FactsAsOfDate [DATE] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
-TermDescriptorId [INT] NOT NULL
-AggregatedSchoolYear [SMALLINT] NOT NULL
-AggregatedFactAsOfDate [DATE] NOT NULL
-AverageFinalNumericGradeEarned [DECIMAL](9, 2) NOT NULL
-NumericGradeNCount [INT] NULL
-NumericGradeStandardDeviation [INT] NULL
-CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CourseCode

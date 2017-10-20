@@ -85,8 +85,6 @@
   </Aggregate>
   <Aggregate root="CourseCourseTranscriptFacts">
     <Entity table="CourseCourseTranscriptFacts" schema="extension"/>
-    <Entity table="CourseCourseTranscriptFactsAggregatedFinalLetterGradeEarned" schema="extension"/>
-    <Entity table="CourseCourseTranscriptFactsAggregatedNumericGradeEarned" schema="extension"/>
     <Entity table="CourseCourseTranscriptFactsStudentsEnrolled" schema="extension"/>
   </Aggregate>
   <Aggregate root="CourseStudentAcademicRecordFacts">
