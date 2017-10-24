@@ -6063,7 +6063,7 @@ CREATE TABLE [extension].[PerformanceMeasurePersonBeingReviewed](
     [LastSurname] [NVARCHAR](75) NOT NULL,
     [ProspectIdentifier] [NVARCHAR](32) NULL,
     [ProspectEducationOrganizationId] [INT] NULL,
-    [StaffUSI] [INT] NULL,
+    [PersonBeingReviewedStaffUSI] [INT] NULL,
     [TeacherCandidateIdentifier] [NVARCHAR](32) NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasurePersonBeingReviewed_PK] PRIMARY KEY CLUSTERED (
@@ -6086,7 +6086,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'PersonBeingReviewedStaffUSI'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a teacher candidate.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasurePersonBeingReviewed', @level2type=N'COLUMN', @level2name=N'TeacherCandidateIdentifier'
 GO
@@ -6121,7 +6121,7 @@ CREATE TABLE [extension].[PerformanceMeasureReviewer](
     [FirstName] [NVARCHAR](75) NOT NULL,
     [LastSurname] [NVARCHAR](75) NOT NULL,
     [PerformanceMeasureIdentifier] [NVARCHAR](64) NOT NULL,
-    [StaffUSI] [INT] NULL,
+    [ReviewerStaffUSI] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     CONSTRAINT [PerformanceMeasureReviewer_PK] PRIMARY KEY CLUSTERED (
         [FirstName] ASC,
@@ -6141,7 +6141,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The name borne
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An assigned unique identifier for the performance measure instance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureReviewer', @level2type=N'COLUMN', @level2name=N'ReviewerStaffUSI'
 GO
 
 
@@ -17388,14 +17388,14 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Prospect]
 ON [extension].[PerformanceMeasurePersonBeingReviewed]([ProspectEducationOrganizationId] ASC, [ProspectIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Staff] FOREIGN KEY ([StaffUSI])
+ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_Staff] FOREIGN KEY ([PersonBeingReviewedStaffUSI])
 REFERENCES [edfi].[Staff] ([StaffUSI])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasurePersonBeingReviewed_Staff]
-ON [extension].[PerformanceMeasurePersonBeingReviewed]([StaffUSI] ASC)
+ON [extension].[PerformanceMeasurePersonBeingReviewed]([PersonBeingReviewedStaffUSI] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasurePersonBeingReviewed] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasurePersonBeingReviewed_TeacherCandidate] FOREIGN KEY ([TeacherCandidateIdentifier])
@@ -17418,14 +17418,14 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureReviewer_PerformanceMeasure]
 ON [extension].[PerformanceMeasureReviewer]([PerformanceMeasureIdentifier] ASC)
 GO
 
-ALTER TABLE [extension].[PerformanceMeasureReviewer] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewer_Staff] FOREIGN KEY ([StaffUSI])
+ALTER TABLE [extension].[PerformanceMeasureReviewer] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewer_Staff] FOREIGN KEY ([ReviewerStaffUSI])
 REFERENCES [edfi].[Staff] ([StaffUSI])
 
 
 GO
 
 CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureReviewer_Staff]
-ON [extension].[PerformanceMeasureReviewer]([StaffUSI] ASC)
+ON [extension].[PerformanceMeasureReviewer]([ReviewerStaffUSI] ASC)
 GO
 
 ALTER TABLE [extension].[PerformanceMeasureReviewerReceivedTraining] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureReviewerReceivedTraining_PerformanceMeasureReviewer] FOREIGN KEY ([FirstName], [LastSurname], [PerformanceMeasureIdentifier])

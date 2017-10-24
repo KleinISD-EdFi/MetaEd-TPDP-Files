@@ -40,10 +40,10 @@ This interchange includes the following Extended References.
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
 | CourseReference (in PerformanceMeasure) | Optional.  The course offered by the education organization. |
+| PersonBeingReviewedStaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
 | ProspectReference (in PerformanceMeasure) | Optional.  The reference to the prospect. |
+| ReviewerStaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
 | RubricEducationOrganizationReference (in Rubric) | Required.  The education organization, typically a LocalEducationAgency, associated with the prospect. |
-| StaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
-| StaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
 | TeacherCandidateReference (in PerformanceMeasure) | Optional.  The teacher candidate associated with the performance measure. |
 
 

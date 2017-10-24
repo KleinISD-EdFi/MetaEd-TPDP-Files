@@ -5726,7 +5726,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Prospect (required)<br />Staff (required)<br />TeacherCandidate (required)<br /><br />Used By:<br />PersonBeingReviewed.PersonBeingReviewedChoice (as optional)</div>
+                <div><br />Contains:<br />PersonBeingReviewedStaff (required)<br />Prospect (required)<br />TeacherCandidate (required)<br /><br />Used By:<br />PersonBeingReviewed.PersonBeingReviewedChoice (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9260,7 +9260,7 @@ BeginDate
           &lt;xs:documentation&gt;The reference to the prospect.&lt;/xs:documentation&gt;
         &lt;/xs:annotation&gt;
       &lt;/xs:element&gt;
-      &lt;xs:element name=&quot;StaffReference&quot; type=&quot;StaffReferenceType&quot;&gt;
+      &lt;xs:element name=&quot;PersonBeingReviewedStaffReference&quot; type=&quot;StaffReferenceType&quot;&gt;
         &lt;xs:annotation&gt;
           &lt;xs:documentation&gt;The staff associated with the performance measure.&lt;/xs:documentation&gt;
         &lt;/xs:annotation&gt;
@@ -9855,7 +9855,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />ReceivedTraining (optional)<br />Staff (optional)<br /><br />Used By:<br />PerformanceMeasure.Reviewer (as optional collection)</div>
+                <div><br />Contains:<br />FirstName (identity)<br />LastSurname (identity)<br />ReceivedTraining (optional)<br />ReviewerStaff (optional)<br /><br />Used By:<br />PerformanceMeasure.Reviewer (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -9877,7 +9877,7 @@ BeginDate
         &lt;xs:documentation&gt;The name borne in common by members of a family.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
     &lt;/xs:element&gt;
-    &lt;xs:element name=&quot;StaffReference&quot; type=&quot;StaffReferenceType&quot; minOccurs=&quot;0&quot;&gt;
+    &lt;xs:element name=&quot;ReviewerStaffReference&quot; type=&quot;StaffReferenceType&quot; minOccurs=&quot;0&quot;&gt;
       &lt;xs:annotation&gt;
         &lt;xs:documentation&gt;The staff associated with the performance measure.&lt;/xs:documentation&gt;
       &lt;/xs:annotation&gt;
@@ -31842,7 +31842,7 @@ FirstName [NVARCHAR](75) NOT NULL
 LastSurname [NVARCHAR](75) NOT NULL
 ProspectIdentifier [NVARCHAR](32) NULL
 ProspectEducationOrganizationId [INT] NULL
-StaffUSI [INT] NULL
+PersonBeingReviewedStaffUSI [INT] NULL
 TeacherCandidateIdentifier [NVARCHAR](32) NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -31862,7 +31862,7 @@ ProgramGatewayDescriptorId
 FirstName [NVARCHAR](75) NOT NULL
 LastSurname [NVARCHAR](75) NOT NULL
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
-StaffUSI [INT] NULL
+ReviewerStaffUSI [INT] NULL
 CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
@@ -35446,7 +35446,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.Staff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.Staff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
+                <div><br />Contains:<br />Address (optional collection)<br />BirthDate (optional)<br />Citizenship (optional)<br />Credential (optional collection)<br />ElectronicMail (optional collection)<br />HighestCompletedLevelOfEducation (optional)<br />HighlyQualifiedTeacher (optional)<br />HispanicLatinoEthnicity (optional)<br />InternationalAddress (optional collection)<br />Language (optional collection)<br />LoginId (optional)<br />Name (required)<br />OldEthnicity (optional)<br />OtherName (optional collection)<br />Race (optional collection)<br />Recognition (optional collection)<br />Sex (optional)<br />StaffIdentificationCode (optional collection)<br />StaffUniqueId (identity)<br />Telephone (optional collection)<br />YearsOfPriorProfessionalExperience (optional)<br />YearsOfPriorTeachingExperience (optional)<br /><br />Used By:<br />StaffCohortAssociation.Staff (as identity)<br />StaffEducationOrganizationAssignmentAssociation.Staff (as identity)<br />StaffEducationOrganizationEmploymentAssociation.Staff (as identity)<br />StaffProgramAssociation.Staff (as identity)<br />StaffSchoolAssociation.Staff (as identity)<br />StaffSectionAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderAssociation.Staff (as identity)<br />StaffTeacherPreparationProviderProgramAssociation.Staff (as identity)<br />TeacherCandidateStaffAssociation.Staff (as identity)<br />PersonBeingReviewedChoice.PersonBeingReviewedStaff (as required)<br />SurveyResponderChoice.Staff (as required)<br />ServiceProvider.Staff (as identity)<br />FieldworkExperience.Staff (as optional)<br />Reviewer.ReviewerStaff (as optional)<br />ContractedStaff.Staff (as identity)<br />DisciplineAction.Staff (as optional collection)<br />DisciplineIncident.Staff (as optional)<br />Intervention.Staff (as optional collection)<br />LeaveEvent.Staff (as identity)<br />Payroll.Staff (as identity)<br />SectionAttendanceTakenEvent.Staff (as optional)<br />StaffFieldworkAbsenceEvent.Staff (as identity)<br />StaffFieldworkExperience.Staff (as identity)<br />StaffProfessionalDevelopmentEventAttendance.Staff (as identity)<br />StaffStudentGrowthMeasure.Staff (as identity)<br />TeacherCandidate.Staff (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>

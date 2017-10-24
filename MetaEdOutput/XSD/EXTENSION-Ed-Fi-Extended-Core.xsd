@@ -9377,7 +9377,7 @@
             <xs:documentation>The reference to the prospect.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="StaffReference" type="StaffReferenceType">
+        <xs:element name="PersonBeingReviewedStaffReference" type="StaffReferenceType">
           <xs:annotation>
             <xs:documentation>The staff associated with the performance measure.</xs:documentation>
           </xs:annotation>
@@ -9588,7 +9588,7 @@
           <xs:documentation>The name borne in common by members of a family.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="StaffReference" type="StaffReferenceType" minOccurs="0">
+      <xs:element name="ReviewerStaffReference" type="StaffReferenceType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The staff associated with the performance measure.</xs:documentation>
         </xs:annotation>
