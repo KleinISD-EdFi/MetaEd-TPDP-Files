@@ -12,9 +12,9 @@ Domain Entity CourseCourseTranscriptFacts
   common StudentsEnrolled
     documentation "The information about the number of students enrolled"
     is optional
-//  common AggregatedFinalLetterGradeEarned
-//    documentation "Data about the final letter grade earned of the group"
-//    is optional collection
-//  common AggregatedNumericGradeEarned
-//    documentation "Data about the numeric grade received by the group"
-//    is optional
+  common AggregatedFinalLetterGradeEarned
+    documentation "Data about the final letter grade earned of the group"
+    is optional collection
+  common AggregatedNumericGradeEarned
+    documentation "Data about the numeric grade received by the group"
+    is optional
