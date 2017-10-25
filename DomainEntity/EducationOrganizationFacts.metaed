@@ -1,4 +1,6 @@
 Domain Entity EducationOrganizationFacts
+
+    // TNTP
     documentation "Selective fact(s) about the education organization used for comparative analysis."
     date FactsAsOfDate
         documentation "The as-of date for the fact(s) about the Education Organization."
@@ -28,21 +30,22 @@ Domain Entity EducationOrganizationFacts
         documentation "The Education Organization(s) associated with the facts."
         is part of identity
 
+    // TPDP Extensions
     percent HiringRate
-      documentation "(TPDP Extension) The percent of staff hired for the education organization."
+      documentation "The percent of staff hired for the education organization."
       is optional
     percent RetentionRate
-      documentation "(TPDP Extension) The percent of staff retained for the education organization."
+      documentation "The percent of staff retained for the education organization."
       is optional
     percent RetirementRate
-      documentation "(TPDP Extension) The percent of staff retired for the education organization."
+      documentation "The percent of staff retired for the education organization."
       is optional
     common Vacancies
-      documentation "(TPDP Extension) This entity represents actual and projected vacancies for the education organization."
+      documentation "This entity represents actual and projected vacancies for the education organization."
       is optional collection
     common AggregatedSalary
-      documentation "(TPDP Extension) Salary information collected at the aggregate level."
+      documentation "Salary information collected at the aggregate level."
       is optional
     shared decimal NumberOfYears named AverageYearsInDistrictEmployed
-      documentation "(TPDP Extension) The average number of years that all staff have been employed in the current district of employment."
+      documentation "The average number of years that all staff have been employed in the current district of employment."
       is optional

@@ -1,4 +1,6 @@
 Domain Entity SurveyQuestion
+
+    // TNTP
     documentation "The questions for the survey."
     shared string QuestionCode
         documentation "The identifying code for the question, unique for the survey."
@@ -23,6 +25,7 @@ Domain Entity SurveyQuestion
         is required
         merge SurveySection.Survey with Survey
 
+    // TPDP Extensions
     common Matrix
-        documentation "(TPDP Extension) Information about the matrix element in the survey"
+        documentation "Information about the matrix element in the survey"
         is optional collection

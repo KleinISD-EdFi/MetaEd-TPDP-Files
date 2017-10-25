@@ -1,4 +1,6 @@
 Domain Entity Applicant
+
+    // TNTP
     documentation "A person who makes a formal application for an OpenStaffPosition."
     shared string ApplicantIdentifier
         documentation "Identifier assigned to a person making formal application for an open staff position."
@@ -84,15 +86,16 @@ Domain Entity Applicant
         documentation "Reference to previously identified prospect."
         is optional
 
+    // TPDP Extensions
     enumeration Gender
-      documentation "(TPDP Extension) The gender with which a person associates."
+      documentation "The gender with which a person associates."
       is optional
     common Disability
-      documentation "(TPDP Extension) The disability condition(s) that best describes an individual's impairment."
+      documentation "The disability condition(s) that best describes an individual's impairment."
       is optional collection
     common Aid
-      documentation "(TPDP Extension) This entity represents the financial aid a person is awarded."
+      documentation "This entity represents the financial aid a person is awarded."
       is optional collection
     common ScoreResult
-      documentation "(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc."
+      documentation "A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc."
       is optional collection

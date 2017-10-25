@@ -459,22 +459,22 @@
           </xs:element>
           <xs:element name="Gender" type="EXTENSION-GenderType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The gender with which a person associates.</xs:documentation>
+              <xs:documentation>The gender with which a person associates.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Disability" type="Disability" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The disability condition(s) that best describes an individual's impairment.</xs:documentation>
+              <xs:documentation>The disability condition(s) that best describes an individual's impairment.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Aid" type="EXTENSION-Aid" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) This entity represents the financial aid a person is awarded.</xs:documentation>
+              <xs:documentation>This entity represents the financial aid a person is awarded.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="ScoreResult" type="ScoreResult" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.</xs:documentation>
+              <xs:documentation>A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1041,32 +1041,32 @@
           </xs:element>
           <xs:element name="HiringRate" type="Percent" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The percent of staff hired for the education organization.</xs:documentation>
+              <xs:documentation>The percent of staff hired for the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="RetentionRate" type="Percent" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The percent of staff retained for the education organization.</xs:documentation>
+              <xs:documentation>The percent of staff retained for the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="RetirementRate" type="Percent" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The percent of staff retired for the education organization.</xs:documentation>
+              <xs:documentation>The percent of staff retired for the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Vacancies" type="EXTENSION-Vacancies" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) This entity represents actual and projected vacancies for the education organization.</xs:documentation>
+              <xs:documentation>This entity represents actual and projected vacancies for the education organization.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="AggregatedSalary" type="EXTENSION-AggregatedSalary" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) Salary information collected at the aggregate level.</xs:documentation>
+              <xs:documentation>Salary information collected at the aggregate level.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="AverageYearsInDistrictEmployed" type="NumberOfYears" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The average number of years that all staff have been employed in the current district of employment.</xs:documentation>
+              <xs:documentation>The average number of years that all staff have been employed in the current district of employment.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2050,22 +2050,22 @@
           </xs:element>
           <xs:element name="CredentialReference" type="CredentialReferenceType" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
+              <xs:documentation>The legal document or authorization giving authorization to perform teaching assignment services.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Gender" type="EXTENSION-GenderType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The gender with which a person associates.</xs:documentation>
+              <xs:documentation>The gender with which a person associates.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="Disability" type="Disability" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The disability condition(s) that best describes an individual's impairment.</xs:documentation>
+              <xs:documentation>The disability condition(s) that best describes an individual's impairment.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="ProspectQualifications" type="EXTENSION-ProspectQualifications" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The qualifications of a prospective mentor teacher.</xs:documentation>
+              <xs:documentation>The qualifications of a prospective mentor teacher.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2145,7 +2145,7 @@
           </xs:element>
           <xs:element name="EventLocation" type="EXTENSION-EventLocation" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The location of the event.</xs:documentation>
+              <xs:documentation>The location of the event.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3021,7 +3021,7 @@
           </xs:element>
           <xs:element name="EducationOrganizationReference" type="EducationOrganizationReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Change) The Education Organization(s) associated with the survey.</xs:documentation>
+              <xs:documentation>The Education Organization(s) associated with the survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="SurveyTitle" type="EXTENSION-SurveyTitle">
@@ -3052,17 +3052,17 @@
           </xs:element>
           <xs:element name="ProgramReference" type="ProgramReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The program associated with the survey.</xs:documentation>
+              <xs:documentation>The program associated with the survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="CourseReference" type="CourseReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The course associated with the survey.</xs:documentation>
+              <xs:documentation>The course associated with the survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="SectionReference" type="SectionReferenceType" minOccurs="0">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) The section associated with the survey.</xs:documentation>
+              <xs:documentation>The section associated with the survey.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3116,7 +3116,7 @@
           </xs:element>
           <xs:element name="Matrix" type="EXTENSION-Matrix" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>(TPDP Extension) Information about the matrix element in the survey</xs:documentation>
+              <xs:documentation>Information about the matrix element in the survey</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3230,7 +3230,7 @@
             </xs:element>
             <xs:element name="ProspectReference" type="EXTENSION-ProspectReferenceType">
               <xs:annotation>
-                <xs:documentation>(TPDP Extension) The reference to the prospect.</xs:documentation>
+                <xs:documentation>The reference to the prospect.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:choice>
@@ -9148,7 +9148,7 @@
       </xs:element>
       <xs:element name="Fingerprint" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>(TPDP Extension) Indicates that a person has or has not completed a fingerprint.</xs:documentation>
+          <xs:documentation>Indicates that a person has or has not completed a fingerprint.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

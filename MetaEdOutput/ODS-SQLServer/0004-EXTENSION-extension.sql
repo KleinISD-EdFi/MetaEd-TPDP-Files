@@ -880,7 +880,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Applicant', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
 
 
@@ -971,7 +971,7 @@ GO
 ALTER TABLE [extension].[ApplicantAid] ADD CONSTRAINT [ApplicantAid_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) This entity represents the financial aid a person is awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantAid'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity represents the financial aid a person is awarded.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantAid'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The classification of financial aid awarded to a person for the academic term/year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantAid', @level2type=N'COLUMN', @level2name=N'AidTypeDescriptorId'
 GO
@@ -1026,7 +1026,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the background check was completed.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantBackgroundCheck', @level2type=N'COLUMN', @level2name=N'BackgroundCheckCompletedDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
 GO
 
 
@@ -1081,7 +1081,7 @@ GO
 ALTER TABLE [extension].[ApplicantDisability] ADD CONSTRAINT [ApplicantDisability_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The disability condition(s) that best describes an individual''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantDisability'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The disability condition(s) that best describes an individual''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantDisability'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantDisability', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
 GO
@@ -1334,7 +1334,7 @@ GO
 ALTER TABLE [extension].[ApplicantScoreResult] ADD CONSTRAINT [ApplicantScoreResult_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantScoreResult'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ApplicantScoreResult'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier assigned to a person making formal application for an open staff position.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ApplicantScoreResult', @level2type=N'COLUMN', @level2name=N'ApplicantIdentifier'
 GO
@@ -3587,13 +3587,13 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Percent of stu
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Percent of students in education organization in special education program.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'PercentStudentsSpecialEducation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The percent of staff hired for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'HiringRate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of staff hired for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'HiringRate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The percent of staff retained for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetentionRate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of staff retained for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetentionRate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The percent of staff retired for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetirementRate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The percent of staff retired for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'RetirementRate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The average number of years that all staff have been employed in the current district of employment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'AverageYearsInDistrictEmployed'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The average number of years that all staff have been employed in the current district of employment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFacts', @level2type=N'COLUMN', @level2name=N'AverageYearsInDistrictEmployed'
 GO
 
 
@@ -3619,7 +3619,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationFactsAggregatedSalary] ADD CONSTRAINT [EducationOrganizationFactsAggregatedSalary_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Salary information collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsAggregatedSalary'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Salary information collected at the aggregate level.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsAggregatedSalary'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsAggregatedSalary', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
 GO
@@ -3660,7 +3660,7 @@ GO
 ALTER TABLE [extension].[EducationOrganizationFactsVacancies] ADD CONSTRAINT [EducationOrganizationFactsVacancies_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) This entity represents actual and projected vacancies for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsVacancies'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This entity represents actual and projected vacancies for the education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'EducationOrganizationFactsVacancies'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description of the content or subject area (e.g., arts, mathematics, reading, stenography, or a foreign language) of a vacancy.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'EducationOrganizationFactsVacancies', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
 GO
@@ -6513,7 +6513,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The user name 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The social media network name (e.g., LinkedIn, Twitter, etc.) associated with the SocialMediaUserName.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'SocialMediaNetworkName'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The gender with which a person associates.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'Prospect', @level2type=N'COLUMN', @level2name=N'GenderTypeId'
 GO
 
 
@@ -6536,7 +6536,7 @@ GO
 ALTER TABLE [extension].[ProspectCredential] ADD CONSTRAINT [ProspectCredential_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredential'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The legal document or authorization giving authorization to perform teaching assignment services.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectCredential'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifier or serial number assigned to the credential.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectCredential', @level2type=N'COLUMN', @level2name=N'CredentialIdentifier'
 GO
@@ -6630,7 +6630,7 @@ GO
 ALTER TABLE [extension].[ProspectDisability] ADD CONSTRAINT [ProspectDisability_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The disability condition(s) that best describes an individual''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectDisability'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The disability condition(s) that best describes an individual''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectDisability'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A disability category that describes a child''s impairment.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectDisability', @level2type=N'COLUMN', @level2name=N'DisabilityDescriptorId'
 GO
@@ -6758,7 +6758,7 @@ GO
 ALTER TABLE [extension].[ProspectQualifications] ADD CONSTRAINT [ProspectQualifications_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The qualifications of a prospective mentor teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectQualifications'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The qualifications of a prospective mentor teacher.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'ProspectQualifications'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'ProspectQualifications', @level2type=N'COLUMN', @level2name=N'ProspectEducationOrganizationId'
 GO
@@ -6964,7 +6964,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title of t
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The long description of the event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EventDescription'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The location of the event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EventLocation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The location of the event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RecruitmentEvent', @level2type=N'COLUMN', @level2name=N'EventLocation'
 GO
 
 
@@ -9629,7 +9629,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the background check was completed.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffBackgroundCheck', @level2type=N'COLUMN', @level2name=N'BackgroundCheckCompletedDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'StaffBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
 GO
 
 
@@ -10748,7 +10748,7 @@ GO
 ALTER TABLE [extension].[SurveyQuestionMatrix] ADD CONSTRAINT [SurveyQuestionMatrix_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Information about the matrix element in the survey', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SurveyQuestionMatrix'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Information about the matrix element in the survey', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SurveyQuestionMatrix'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For matrix questions, the text identifying each row of the matrix.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveyQuestionMatrix', @level2type=N'COLUMN', @level2name=N'MatrixElement'
 GO
@@ -11649,7 +11649,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date the background check was completed.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'BackgroundCheckCompletedDate'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates that a person has or has not completed a fingerprint.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'TeacherCandidateBackgroundCheck', @level2type=N'COLUMN', @level2name=N'Fingerprint'
 GO
 
 

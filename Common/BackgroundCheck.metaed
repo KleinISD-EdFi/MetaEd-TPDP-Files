@@ -1,4 +1,6 @@
 Common BackgroundCheck
+
+    // TNTP
     documentation "Staff background check history and disposition."
     descriptor BackgroundCheckType
         documentation "The type of background check (e.g., online, criminal, employment)."
@@ -13,6 +15,7 @@ Common BackgroundCheck
         documentation "The date the background check was completed."
         is optional
 
+    // TPDP Extensions
     bool Fingerprint
-        documentation "(TPDP Extension) Indicates that a person has or has not completed a fingerprint."
+        documentation "Indicates that a person has or has not completed a fingerprint."
         is optional

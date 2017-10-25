@@ -1,4 +1,6 @@
 Domain Entity Prospect
+
+    // TNTP
     documentation "A prospect for employment or contract that has not yet made formal application, often obtained from job fairs or university recruiting visits."
     shared string ProspectIdentifier
         documentation "The identifier for the prospect."
@@ -67,15 +69,16 @@ Domain Entity Prospect
         documentation "Content associated with different touchpoints with the prospect."
         is optional collection
 
+    // TPDP Extensions
     domain entity Credential
-      documentation "(TPDP Extension) The legal document or authorization giving authorization to perform teaching assignment services."
+      documentation "The legal document or authorization giving authorization to perform teaching assignment services."
       is optional collection
     enumeration Gender
-      documentation "(TPDP Extension) The gender with which a person associates."
+      documentation "The gender with which a person associates."
       is optional
     common Disability
-      documentation "(TPDP Extension) The disability condition(s) that best describes an individual's impairment."
+      documentation "The disability condition(s) that best describes an individual's impairment."
       is optional collection
     common ProspectQualifications
-      documentation "(TPDP Extension) The qualifications of a prospective mentor teacher."
+      documentation "The qualifications of a prospective mentor teacher."
       is optional

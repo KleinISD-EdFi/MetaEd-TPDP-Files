@@ -1,18 +1,21 @@
 Choice SurveyResponderChoice
-    documentation "Reference to either a student, parent, staff, or applicant - or none for anonymnous survey."
-	domain entity Student
-        documentation "*NONE*"
-        is required
-	domain entity Parent
-        documentation "*NONE*"
-        is required
-	domain entity Staff
-        documentation "*NONE*"
-        is required
-	domain entity Applicant
-        documentation "*NONE*"
-        is required
 
+  // TNTP
+  documentation "Reference to either a student, parent, staff, or applicant - or none for anonymous survey."
+	domain entity Student
+    documentation "*NONE*"
+    is required
+	domain entity Parent
+    documentation "*NONE*"
+    is required
+	domain entity Staff
+    documentation "*NONE*"
+    is required
+	domain entity Applicant
+    documentation "*NONE*"
+    is required
+
+  // TPDP Extensions
 	domain entity Prospect
-        documentation "(TPDP Extension) The reference to the prospect."
-        is required
+    documentation "The reference to the prospect."
+    is required
