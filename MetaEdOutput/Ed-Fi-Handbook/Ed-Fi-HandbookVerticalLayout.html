@@ -31808,7 +31808,7 @@ PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 TermDescriptorId [INT] NOT NULL
 AcademicSubjectDescriptorId [INT] NULL
 CourseCode [NVARCHAR](60) NULL
@@ -31965,7 +31965,7 @@ PerformanceMeasureIdentifier
 
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 PerformanceMeasureTypeDescriptorId [INT] NOT NULL
@@ -31985,7 +31985,7 @@ SchoolYear
 FactsAsOfDate [DATE] NOT NULL
 GradeLevelDescriptorId [INT] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33228,7 +33228,7 @@ RestraintEventReasonTypeId
                 <div><pre>extension.Rubric
 
 RubricEducationOrganizationId [INT] NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 RubricDescription [NVARCHAR](255) NULL
 InterRaterReliabilityScore [INT] NULL
@@ -33307,7 +33307,7 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
@@ -33322,10 +33322,10 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 LevelTypeDescriptorId [INT] NOT NULL
-LevelTitle [NVARCHAR](15) NOT NULL
+LevelTitle [NVARCHAR](60) NOT NULL
 LevelDescription [NVARCHAR](255) NULL
 MinimumScore [NVARCHAR](35) NULL
 MaximumScore [NVARCHAR](35) NULL
@@ -33340,7 +33340,7 @@ RubricTypeDescriptorId
 
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 ThemeDescriptorId [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33426,7 +33426,7 @@ ThemeDescriptorId
 PerformanceMeasureIdentifier [NVARCHAR](64) NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 NumericResponse [INT] NOT NULL
 TextResponse [NVARCHAR](255) NULL
@@ -33502,7 +33502,7 @@ RubricTypeDescriptorId
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 CreateDate [DATETIME] NOT NULL
@@ -33521,7 +33521,7 @@ SchoolYear
 FactsAsOfDate [DATE] NOT NULL
 RubricEducationOrganizationId [INT] NOT NULL
 RubricLevelCode [NVARCHAR](20) NOT NULL
-RubricTitle [NVARCHAR](15) NOT NULL
+RubricTitle [NVARCHAR](60) NOT NULL
 RubricTypeDescriptorId [INT] NOT NULL
 SchoolYear [SMALLINT] NOT NULL
 AverageNumericResponse [DECIMAL](18, 4) NOT NULL
@@ -52033,7 +52033,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 2<br />max length: 15</div>
+                <div>max length: 60</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
@@ -52049,14 +52049,13 @@ VisaTypeId
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;2&quot; /&gt;
-    &lt;xs:maxLength value=&quot;15&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
   &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</pre></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>LevelTitle [NVARCHAR](15)</pre></div>
+                <div><pre>LevelTitle [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>
@@ -53628,7 +53627,7 @@ VisaTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Type Characteristics:</div>
-                <div>min length: 2<br />max length: 15</div>
+                <div>max length: 60</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
@@ -53644,14 +53643,13 @@ VisaTypeId
     &lt;/xs:appinfo&gt;
   &lt;/xs:annotation&gt;
   &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-    &lt;xs:minLength value=&quot;2&quot; /&gt;
-    &lt;xs:maxLength value=&quot;15&quot; /&gt;
+    &lt;xs:maxLength value=&quot;60&quot; /&gt;
   &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</pre></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">SQL Snippet:</div>
-                <div><pre>RubricTitle [NVARCHAR](15)</pre></div>
+                <div><pre>RubricTitle [NVARCHAR](60)</pre></div>
             </div>
         </p>
         <p>

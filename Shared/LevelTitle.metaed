@@ -1,4 +1,3 @@
 Shared String LevelTitle
   documentation "The title of the level of the rubric at which the data is captured."
-  min length 2
-  max length 15
+  max length 60
