@@ -1,9 +1,9 @@
 Association AnonymizedStudentCourseAssociation
   documentation "Information about the association between an anonymized student and the course they are enrolled in"
   domain entity AnonymizedStudent
-    documentation "The Anonymized Student reference for the association"
+    documentation "The Anonymized Student reference for the association."
   domain entity Course
-    documentation "The Course reference for the assocation"
+    documentation "The Course reference for the association."
   date BeginDate
     documentation "Begin date for the association"
     is part of identity

@@ -1,11 +1,5 @@
 Common AggregatedCumulativeGradePointAverage
-  documentation "ata about the cumulative grade point for a group"
-  enumeration SchoolYear
-    documentation "The school year for which the data is associated"
-    is required
-  date FactAsOfDate
-    documentation "The date for which the data element is relevant"
-    is required
+  documentation "Data about the cumulative grade point for a group"
   shared decimal GPA named GradePointAverage
     documentation "The average cumulative grade point average for a group"
     is required

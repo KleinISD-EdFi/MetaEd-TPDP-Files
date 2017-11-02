@@ -1,5 +1,5 @@
 Descriptor AidType
-  documentation "The classification of financial aid awarded to a person for the academic term/year."
+  documentation "This descriptor defines the classification of financial aid awarded to a person for the academic term/year."
   with map type
     documentation "The classification of financial aid awarded to a person for the academic term/year."
     item "Pell Grants"

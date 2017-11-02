@@ -10,8 +10,8 @@ Common AggregatedSalary
     documentation "The standard deviation of the salaries collected at the aggregate level."
     is optional
   integer SalaryMinRange
-    documentation "The minimum salary range for a staff."
+    documentation "The minimum value in a salary range for staff."
     is optional
   integer SalaryMaxRange
-    documentation "The maximum salary range for a staff."
+    documentation "The maximum value in a salary range for staff."
     is optional

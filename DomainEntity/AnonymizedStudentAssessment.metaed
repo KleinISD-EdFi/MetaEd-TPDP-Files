@@ -7,7 +7,6 @@ Domain Entity AnonymizedStudentAssessment
     documentation "The school year the assessment was taken"
     is part of identity
     with context Taken
-    shorten to SchoolYearTaken
   date AdministrationDate
     documentation "Date the assessment was administered"
     is part of identity
@@ -21,7 +20,7 @@ Domain Entity AnonymizedStudentAssessment
     documentation "The title if any specific assessment given to a group"
     is optional
   descriptor AssessmentCategory
-    documentation "The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment\grade-level standards Attitudinal test Cognitive and perceptual skills test ..."
+    documentation "The category of an assessment based on format and content. For example: Achievement test Advanced placement test Alternate assessment/grade-level standards Attitudinal test Cognitive and perceptual skills test ..."
     is optional
   descriptor AcademicSubject
     documentation "The academic subject associated with a student assessment"

@@ -1,7 +1,7 @@
 Descriptor BackgroundCheckType
-    documentation "The type of background check (e.g., online, criminal, employment)."
+    documentation "This descriptor defines the classification of the background check a person receives."
     with optional map type
-        documentation "The type of background check (e.g., online, criminal, employment)."
+        documentation "This descriptor defines the classification of the background check a person receives."
         item "City"
             documentation "*NONE*"
         item "County"

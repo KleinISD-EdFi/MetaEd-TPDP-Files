@@ -50,14 +50,14 @@ This interchange includes the following Extended References.
 |-----------------------------|-----------------|
 | ApplicantReference (in SurveyResponse) | Optional.  *NONE* |
 | CourseReference (in CourseSurveyResponseFacts) | Required.  The section(s) associated with the aggregated survey response. |
-| CourseReference (in Survey) | Optional.  (TPDP Extension) The course associated with the survey. |
+| CourseReference (in Survey) | Optional.  The course associated with the survey. |
 | EducationOrganizationReference (in EducationOrganizationSurveyResponseFacts) | Required.  The section(s) associated with the aggregated survey response. |
-| EducationOrganizationReference (in Survey) | Optional.  (TPDP Change) The Education Organization(s) associated with the survey. |
+| EducationOrganizationReference (in Survey) | Optional.  The Education Organization(s) associated with the survey. |
 | ParentReference (in SurveyResponse) | Optional.  *NONE* |
-| ProgramReference (in Survey) | Optional.  (TPDP Extension) The program associated with the survey. |
-| ProspectReference (in SurveyResponse) | Optional.  (TPDP Extension) The reference to the prospect. |
+| ProgramReference (in Survey) | Optional.  The program associated with the survey. |
+| ProspectReference (in SurveyResponse) | Optional.  The reference to the prospect. |
 | SectionReference (in SectionSurveyResponseFacts) | Required.  The section(s) associated with the aggregated survey response. |
-| SectionReference (in Survey) | Optional.  (TPDP Extension) The section associated with the survey. |
+| SectionReference (in Survey) | Optional.  The section associated with the survey. |
 | StaffReference (in SurveyResponse) | Optional.  *NONE* |
 | StudentReference (in SurveyResponse) | Optional.  *NONE* |
 

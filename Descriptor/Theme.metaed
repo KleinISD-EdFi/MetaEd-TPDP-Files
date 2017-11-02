@@ -1,4 +1,4 @@
-Descriptor ThemeType
+Descriptor Theme
   documentation "The descriptor holds the theme of the specified level of the rubric."
   with optional map type
     documentation "Map for the theme types."

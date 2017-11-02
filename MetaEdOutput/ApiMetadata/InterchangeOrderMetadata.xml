@@ -22,6 +22,8 @@
     <Element name="CalendarEventDescriptor" />
     <Element name="AccountCodeDescriptor" />
     <Element name="LevelOfEducationDescriptor" />
+    <Element name="CredentialFieldDescriptor" />
+    <Element name="TeachingCredentialDescriptor" />
     <Element name="SchoolFoodServicesEligibilityDescriptor" />
     <Element name="StudentCharacteristicDescriptor" />
     <Element name="LimitedEnglishProficiencyDescriptor" />
@@ -54,8 +56,6 @@
     <Element name="EducationOrganizationIdentificationSystemDescriptor" />
     <Element name="StaffIdentificationSystemDescriptor" />
     <Element name="StudentIdentificationSystemDescriptor" />
-    <Element name="TeachingCredentialDescriptor" />
-    <Element name="CredentialFieldDescriptor" />
     <Element name="LevelDescriptor" />
   </Interchange>
   <Interchange name="Standards" order="20">
@@ -127,6 +127,7 @@
     <Element name="ObjectiveAssessment" />
   </Interchange>
   <Interchange name="StaffAssociation" order="120">
+    <Element name="Credential" />
     <Element name="Staff" />
     <Element name="StaffEducationOrganizationEmploymentAssociation" />
     <Element name="StaffEducationOrganizationAssignmentAssociation" />

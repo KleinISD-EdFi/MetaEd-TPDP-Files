@@ -1,7 +1,7 @@
 Domain Entity EducationOrganizationCourseTranscriptFacts
-  documentation "Data about the final letter grade earned of the group"
+  documentation "Data about the final grade earned of the group."
   domain entity EducationOrganizationStudentAcademicRecordFacts
-    documentation "The Education Organization Student Academic Record Fact the data is associated with"
+    documentation "The Education Organization the course transcript data is associated with."
     is part of identity
   date FactsAsOfDate
     documentation "The date for which the data element is relevant"

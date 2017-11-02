@@ -20,4 +20,10 @@ Interchange PK12StudentData
     domain entity SectionStudentAssessmentFacts
     domain entity SectionStudentFacts
     domain entity StaffStudentGrowthMeasure
+    association StaffStudentGrowthMeasureCourseAssociation
+    association StaffStudentGrowthMeasureEducationOrganizationAssociation
+    association StaffStudentGrowthMeasureSectionAssociation
     domain entity TeacherCandidateStudentGrowthMeasure
+    association TeacherCandidateStudentGrowthMeasureCourseAssociation
+    association TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation
+    association TeacherCandidateStudentGrowthMeasureSectionAssociation

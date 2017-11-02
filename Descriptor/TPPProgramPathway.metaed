@@ -3,7 +3,7 @@ Descriptor TPPProgramPathway
   with optional map type
     documentation "Map for the program pathways."
     item "Residency"
-    item "Intership"
+    item "Internship"
     item "Fellowship"
     item "Traditional"
     item "Other"
