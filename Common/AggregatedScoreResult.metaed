@@ -7,7 +7,6 @@ Common AggregatedScoreResult
     documentation "The datatype of the result. The results can be expressed as a number, percentile, range, level, etc."
     is required
     with context AverageScore
-    shorten to AverageScoreResultDataType
   shared string Result named AverageScoreResult
     documentation "A meaningful average score or statistical expression of the performance of an group. The results can be expressed as a number, percentile, range, level, etc."
     is required

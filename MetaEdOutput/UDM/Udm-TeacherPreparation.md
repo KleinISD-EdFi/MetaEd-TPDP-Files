@@ -14,19 +14,19 @@
 | AnonymizedStudentCourseTranscript | The date for which the data element is relevant |
 | Applicant | A person who makes a formal application for an OpenStaffPosition. |
 | Assessment |  |
-| CourseCourseTranscriptFacts | Data about the final letter grade earned of the group |
+| CourseCourseTranscriptFacts | Data about the final grade earned of the group. |
 | CourseStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | CourseStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
 | CourseStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching	AggregatedStudentFact |
 | CourseSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | CourseSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | CourseSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
-| Credential | The legal document giving authorization to perform teaching assignment services. |
-| EducationOrganizationCourseTranscriptFacts | Data about the final letter grade earned of the group |
+| Credential |  |
+| EducationOrganizationCourseTranscriptFacts | Data about the final grade earned of the group. |
 | EducationOrganizationFacts | Selective fact(s) about the education organization used for comparative analysis. |
 | EducationOrganizationStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
 | EducationOrganizationStudentAssessmentFacts | Complex type that provides data about a group of students and their assesssment score results and performance levels |
-| EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
+| EducationOrganizationStudentFacts | This domain entity collects data for aggregated level students. |
 | EducationOrganizationSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | EducationOrganizationSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | EducationOrganizationSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |
@@ -45,10 +45,10 @@
 | RubricLevelResponse | This entity represents the response to the rubric level. |
 | RubricLevelResponseFacts | This entity represents the rubric level response at the aggregate level. |
 | School |  |
-| SectionCourseTranscriptFacts | Data about the final letter grade earned of the group |
-| SectionStudentAcademicRecordFacts | Complex type that provides data about a group of student and their academic record |
+| SectionCourseTranscriptFacts | Data about the final grade earned of the group. |
+| SectionStudentAcademicRecordFacts | Complex type that provides data about a group of students and their academic record. |
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |
-| SectionStudentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching |
+| SectionStudentFacts | This domain entity collects data for aggregated level students. |
 | SectionSurveyQuestionResponseFacts | Survey question response data provided at the aggregate level. |
 | SectionSurveyResponseFacts | Survey response data provided at the aggregate level. |
 | SectionSurveySectionResponseRatingFacts | Responses to survey sections collected at the aggregate level. |

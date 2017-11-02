@@ -25,7 +25,6 @@ Domain Entity PerformanceMeasure
   domain entity Course
     documentation "The course offered by the education organization."
     is optional
-    merge Course.EducationOrganization with Rubric.EducationOrganization
   common PersonBeingReviewed
     documentation "Information regarding the person taking the performance measure."
     is optional

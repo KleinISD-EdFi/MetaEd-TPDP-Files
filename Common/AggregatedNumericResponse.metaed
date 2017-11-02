@@ -1,6 +1,6 @@
 Common AggregatedNumericResponse
-  documentation "Numeric response survey data provided at the aggregate level."
-  shared decimal AverageNumericResponse named AverageNumericResponse
+  documentation "The information about the numeric response for an aggregated survey."
+  shared decimal AverageNumericResponse
     documentation "The average numeric response for the survey."
     is required
   integer NumericResponseNCount

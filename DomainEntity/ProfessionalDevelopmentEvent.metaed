@@ -10,7 +10,7 @@ Domain Entity ProfessionalDevelopmentEvent
     documentation "The number of total hours the professional development contains."
     is optional
   bool Required
-    documentation "An indication of whether a teacher candidate is active in an professional development."
+    documentation "An indication of whether a teacher candidate is active in a professional development."
     is optional
   bool MultipleSession
     documentation "An indication of whether or not a professional development event is comprised of multiple sessions or not."

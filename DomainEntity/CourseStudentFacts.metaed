@@ -17,7 +17,7 @@ Domain Entity CourseStudentFacts
     is optional collection
   common AggregatedHispanicLatinoEthnicity
     documentation "Data about the Eth ethnicity of the group"
-    is optional
+    is optional collection
   common AggregatedRace
     documentation "Data about the race of the group"
     is optional collection
@@ -27,7 +27,10 @@ Domain Entity CourseStudentFacts
   common AggregatedLanguage
     documentation "The data about the language"
     is optional collection
-  common AggregatedDisability
+  common AggregatedByDisability
+    documentation "Information about the disability of a group aggregated by course."
+    is optional collection
+  common AggregatedDisabilityTotalStudentsDisabled
     documentation "Information about the disability of a group aggregated by course."
     is optional
   common AggregatedELLEnrollment

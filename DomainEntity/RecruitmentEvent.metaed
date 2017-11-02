@@ -1,4 +1,6 @@
 Domain Entity RecruitmentEvent
+
+    // TNTP
     documentation "Events associated with the recruitment process."
     date EventDate
         documentation "The date of the event."
@@ -10,6 +12,7 @@ Domain Entity RecruitmentEvent
         documentation "The title of the event."
         is part of identity
 
+    // TPDP Extensions
     shared string EventLocation
-      documentation "(TPDP Extension) The location of the event."
+      documentation "The location of the event."
       is optional

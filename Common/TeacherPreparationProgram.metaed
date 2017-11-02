@@ -19,7 +19,7 @@ Common TeacherPreparationProgram
         documentation "The major area for a degree or area of specialization for a certificate."
         is required
     shared decimal GPA
-        documentation "The final GPA for the teacher achieved in the program."
+        documentation "The final GPA the teacher achieved in the program."
         is optional
     descriptor LevelOfDegreeAwarded
         documentation "The level of degree awarded by the teacher preparation program to the person (e.g., Certificate Only, Bachelor's, Master's, etc.)."

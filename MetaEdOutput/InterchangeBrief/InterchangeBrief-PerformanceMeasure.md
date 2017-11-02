@@ -40,10 +40,10 @@ This interchange includes the following Extended References.
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
 | CourseReference (in PerformanceMeasure) | Optional.  The course offered by the education organization. |
-| EducationOrganizationReference (in Rubric) | Required.  The education organization, typically a LocalEducationAgency, associated with the prospect. |
+| PersonBeingReviewedStaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
 | ProspectReference (in PerformanceMeasure) | Optional.  The reference to the prospect. |
-| StaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
-| StaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
+| ReviewerStaffReference (in PerformanceMeasure) | Optional.  The staff associated with the performance measure. |
+| RubricEducationOrganizationReference (in Rubric) | Required.  The education organization, typically a LocalEducationAgency, associated with the prospect. |
 | TeacherCandidateReference (in PerformanceMeasure) | Optional.  The teacher candidate associated with the performance measure. |
 
 
@@ -61,6 +61,6 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | ProgramGatewayDescriptor | Optional.  The descriptor holds the program gateway that is associated with continuation in a program. |
 | RubricTypeDescriptor | Required.  The descriptor holds the rubric types. |
 | TermDescriptor | Required.  This descriptor defines the term of a session during the school year (e.g., Fall Semester). |
-| ThemeTypeDescriptor | Optional.  The descriptor holds the theme of the specified level of the rubric. |
+| ThemeDescriptor | Optional.  The descriptor holds the theme of the specified level of the rubric. |
 
 

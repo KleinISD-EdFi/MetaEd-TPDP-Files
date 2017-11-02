@@ -19,23 +19,14 @@ Domain Entity TeacherCandidateStudentGrowthMeasure
     documentation "Identification of the type of score that was used to determine student growth"
     is optional
   integer StudentGrowthTargetScore
-    documentation "The target score that has been set of the group of students as it pertains to their student growth."
+    documentation "The target score that has been set for the group of students as it pertains to their student growth."
     is optional
   integer StudentGrowthActualScore
     documentation "The actual score a group of students receives on their student growth assessment"
     is required
   bool StudentGrowthMet
-    documentation "Identifies if the student has met the student growth target score"
+    documentation "Identifies if the student growth target score is achieved."
     is required
   integer StudentGrowthNCount
     documentation "The number of students included in the average score result."
     is optional
-  domain entity EducationOrganization
-    documentation "Any education organizations associated with the teacher candidate's student growth data, if applicable."
-    is optional collection
-  domain entity Course
-    documentation "Any courses associated with the teacher candidate's student growth data, if applicable."
-    is optional collection
-  domain entity Section
-    documentation "Any sections associated with the teacher candidate's student growth data, if applicable."
-    is optional collection

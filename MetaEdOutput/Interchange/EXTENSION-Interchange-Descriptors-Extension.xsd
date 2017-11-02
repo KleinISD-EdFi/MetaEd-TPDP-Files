@@ -84,7 +84,7 @@ The Descriptor interchange is used to describe metadata about the descriptors an
         <xs:element name="SurveyCategoryDescriptor" type="EXTENSION-SurveyCategoryDescriptor" />
         <xs:element name="TeacherCandidateCharacteristicDescriptor" type="EXTENSION-TeacherCandidateCharacteristicDescriptor" />
         <xs:element name="TeacherPreparationProgramTypeDescriptor" type="EXTENSION-TeacherPreparationProgramTypeDescriptor" />
-        <xs:element name="ThemeTypeDescriptor" type="EXTENSION-ThemeTypeDescriptor" />
+        <xs:element name="ThemeDescriptor" type="EXTENSION-ThemeDescriptor" />
         <xs:element name="TPPDegreeTypeDescriptor" type="EXTENSION-TPPDegreeTypeDescriptor" />
         <xs:element name="TPPProgramPathwayDescriptor" type="EXTENSION-TPPProgramPathwayDescriptor" />
       </xs:choice>
