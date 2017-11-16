@@ -453,7 +453,7 @@
 		<ShortDescription>Other</ShortDescription>
 		<Description>Other</Description>
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ClassroomPositionDescriptor.xml</Namespace>
-		<ClassroomPositionMap>Other</ClassroomPosition>
+		<ClassroomPositionMap>Other</ClassroomPositionMap>
 	</ClassroomPositionDescriptor>
 	<DiagnosisDescriptor>
 		<CodeValue>Course Repeat</CodeValue>
