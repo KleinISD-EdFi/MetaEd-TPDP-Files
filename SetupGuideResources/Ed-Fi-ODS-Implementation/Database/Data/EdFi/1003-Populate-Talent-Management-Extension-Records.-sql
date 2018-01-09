@@ -1,0 +1,11 @@
+insert into extension.StaffExtension (StaffUSI) 
+Select StaffUSI from edfi.Staff
+
+insert into extension.LeaveEventExtension(StaffUSI, EventDate, LeaveEventCategoryTypeId) 
+Select StaffUSI, EventDate, LeaveEventCategoryTypeId from edfi.LeaveEvent
+
+insert into extension.OpenStaffPositionExtension(EducationOrganizationId, RequisitionNumber)
+select EducationOrganizationId, RequisitionNumber from edfi.OpenStaffPosition
+
+insert into extension.StaffEducationOrganizationEmploymentAssociationExtension(StaffUSI, EducationOrganizationId, EmploymentStatusDescriptorId, HireDate)
+select StaffUSI, EducationOrganizationId, EmploymentStatusDescriptorId,  HireDate from edfi.StaffEducationOrganizationEmploymentAssociation
