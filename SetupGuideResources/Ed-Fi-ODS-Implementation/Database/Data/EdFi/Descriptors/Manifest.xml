@@ -1,0 +1,14 @@
+<Interchanges>
+	<Interchange>
+		<Filename>Interchange-Descriptors.xml</Filename>
+		<Type>descriptors</Type>
+	</Interchange>
+	<Interchange>
+		<Filename>InterchangeData-TalentMgmtDescriptors-TPDP.xml</Filename>
+		<Type>descriptors</Type>
+	</Interchange>
+	<Interchange>
+		<Filename>Interchange-Descriptors-TPDP.xml</Filename>
+		<Type>descriptors</Type>
+	</Interchange>
+</Interchanges>

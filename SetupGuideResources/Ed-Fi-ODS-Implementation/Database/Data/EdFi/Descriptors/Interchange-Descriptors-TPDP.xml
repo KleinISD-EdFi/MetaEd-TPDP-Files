@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterchangeDescriptors xmlns="http://ed-fi.org/0200" xmlns:ann="http://ed-fi.org/annotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AcademicSubjectDescriptor>
+		<CodeValue>Bilingual</CodeValue>
+		<ShortDescription>Bilingual</ShortDescription>
+		<Description>Bilingual</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AcademicSubjectDescriptor.xml</Namespace>
+		<AcademicSubjectMap>Bilingual</AcademicSubjectMap>
+	</AcademicSubjectDescriptor>
+	<AcademicSubjectDescriptor>
+		<CodeValue>ELL</CodeValue>
+		<ShortDescription>ELL</ShortDescription>
+		<Description>ELL</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AcademicSubjectDescriptor.xml</Namespace>
+		<AcademicSubjectMap>ELL</AcademicSubjectMap>
+	</AcademicSubjectDescriptor>
+	<AcademicSubjectDescriptor>
+		<CodeValue>Multiple Subjects</CodeValue>
+		<ShortDescription>Multiple Subjects</ShortDescription>
+		<Description>Multiple Subjects</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AcademicSubjectDescriptor.xml</Namespace>
+		<AcademicSubjectMap>Multiple Subjects</AcademicSubjectMap>
+	</AcademicSubjectDescriptor>
+	<AcademicSubjectDescriptor>
+		<CodeValue>Special Education</CodeValue>
+		<ShortDescription>Special Education</ShortDescription>
+		<Description>Special Education</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AcademicSubjectDescriptor.xml</Namespace>
+		<AcademicSubjectMap>Special Education</AcademicSubjectMap>
+	</AcademicSubjectDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Assistantships</CodeValue>
+		<ShortDescription>Assistantships</ShortDescription>
+		<Description>Assistantships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Assistantships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Federal Scholarships</CodeValue>
+		<ShortDescription>Federal Scholarships</ShortDescription>
+		<Description>Federal Scholarships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Federal Scholarships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Federal Subsidized Loans</CodeValue>
+		<ShortDescription>Federal Subsidized Loans</ShortDescription>
+		<Description>Federal Subsidized Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Federal Subsidized Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Federal Unsubsidized Loans</CodeValue>
+		<ShortDescription>Federal Unsubsidized Loans</ShortDescription>
+		<Description>Federal Unsubsidized Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Federal Unsubsidized Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Federal Work Study</CodeValue>
+		<ShortDescription>Federal Work Study</ShortDescription>
+		<Description>Federal Work Study</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Federal Work Study</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Institutional Grants</CodeValue>
+		<ShortDescription>Institutional Grants</ShortDescription>
+		<Description>Institutional Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Institutional Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Institutional Loans</CodeValue>
+		<ShortDescription>Institutional Loans</ShortDescription>
+		<Description>Institutional Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Institutional Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Institutional Scholarships</CodeValue>
+		<ShortDescription>Institutional Scholarships</ShortDescription>
+		<Description>Institutional Scholarships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Institutional Scholarships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Loan Forgiveness</CodeValue>
+		<ShortDescription>Loan Forgiveness</ShortDescription>
+		<Description>Loan Forgiveness</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Loan Forgiveness</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Other Federal Grants</CodeValue>
+		<ShortDescription>Other Federal Grants</ShortDescription>
+		<Description>Other Federal Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Other Federal Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Other Grants</CodeValue>
+		<ShortDescription>Other Grants</ShortDescription>
+		<Description>Other Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Other Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Other On-Campus Work</CodeValue>
+		<ShortDescription>Other On-Campus Work</ShortDescription>
+		<Description>Other On-Campus Work</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Other On-Campus Work</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Other Scholarships</CodeValue>
+		<ShortDescription>Other Scholarships</ShortDescription>
+		<Description>Other Scholarships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Other Scholarships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Parent PLUS Loans</CodeValue>
+		<ShortDescription>Parent PLUS Loans</ShortDescription>
+		<Description>Parent PLUS Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Parent PLUS Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Pell Grants</CodeValue>
+		<ShortDescription>Pell Grants</ShortDescription>
+		<Description>Pell Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Pell Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Private Grants</CodeValue>
+		<ShortDescription>Private Grants</ShortDescription>
+		<Description>Private Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Private Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Private Loans</CodeValue>
+		<ShortDescription>Private Loans</ShortDescription>
+		<Description>Private Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Private Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Private Scholarships</CodeValue>
+		<ShortDescription>Private Scholarships</ShortDescription>
+		<Description>Private Scholarships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Private Scholarships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>State and Local Grants</CodeValue>
+		<ShortDescription>State and Local Grants</ShortDescription>
+		<Description>State and Local Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>State and Local Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>State and Local Scholarships</CodeValue>
+		<ShortDescription>State and Local Scholarships</ShortDescription>
+		<Description>State and Local Scholarships</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>State and Local Scholarships</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>State Loans</CodeValue>
+		<ShortDescription>State Loans</ShortDescription>
+		<Description>State Loans</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>State Loans</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>State Work</CodeValue>
+		<ShortDescription>State Work</ShortDescription>
+		<Description>State Work</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>State Work</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Teach Grants</CodeValue>
+		<ShortDescription>Teach Grants</ShortDescription>
+		<Description>Teach Grants</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Teach Grants</AidTypeMap>
+	</AidTypeDescriptor>
+	<AidTypeDescriptor>
+		<CodeValue>Tuition Reimbursements</CodeValue>
+		<ShortDescription>Tuition Reimbursements</ShortDescription>
+		<Description>Tuition Reimbursements</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
+		<AidTypeMap>Tuition Reimbursements</AidTypeMap>
+	</AidTypeDescriptor>
+	<BackgroundCheckTypeDescriptor>
+		<CodeValue>City</CodeValue>
+		<ShortDescription>City</ShortDescription>
+		<Description>City</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BackgroundCheckTypeDescriptor.xml</Namespace>
+		<BackgroundCheckTypeMap>City</BackgroundCheckTypeMap>
+	</BackgroundCheckTypeDescriptor>
+	<BackgroundCheckTypeDescriptor>
+		<CodeValue>County</CodeValue>
+		<ShortDescription>County</ShortDescription>
+		<Description>County</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BackgroundCheckTypeDescriptor.xml</Namespace>
+		<BackgroundCheckTypeMap>County</BackgroundCheckTypeMap>
+	</BackgroundCheckTypeDescriptor>
+	<BackgroundCheckTypeDescriptor>
+		<CodeValue>Federal</CodeValue>
+		<ShortDescription>Federal</ShortDescription>
+		<Description>Federal</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BackgroundCheckTypeDescriptor.xml</Namespace>
+		<BackgroundCheckTypeMap>Federal</BackgroundCheckTypeMap>
+	</BackgroundCheckTypeDescriptor>
+	<BackgroundCheckTypeDescriptor>
+		<CodeValue>State</CodeValue>
+		<ShortDescription>State</ShortDescription>
+		<Description>State</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BackgroundCheckTypeDescriptor.xml</Namespace>
+		<BackgroundCheckTypeMap>State</BackgroundCheckTypeMap>
+	</BackgroundCheckTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Art/Early Adolescence through Young Adulthood</CodeValue>
+		<ShortDescription>Art/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>Art/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Art/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Art/Early and Middle Childhood</CodeValue>
+		<ShortDescription>Art/Early and Middle Childhood</ShortDescription>
+		<Description>Art/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Art/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Career and Technical Education/Early Adolescence t</CodeValue>
+		<ShortDescription>Career and Technical Education/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>Career and Technical Education/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Career and Technical Education/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>English as a New Language/Early and Middle Childho</CodeValue>
+		<ShortDescription>English as a New Language/Early and Middle Childhood</ShortDescription>
+		<Description>English as a New Language/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>English as a New Language/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>English as a New Language/Early Adolescence throug</CodeValue>
+		<ShortDescription>English as a New Language/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>English as a New Language/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>English as a New Language/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>English Language Arts/Adolescence and Young Adulth</CodeValue>
+		<ShortDescription>English Language Arts/Adolescence and Young Adulthood</ShortDescription>
+		<Description>English Language Arts/Adolescence and Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>English Language Arts/Adolescence and Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>English Language Arts/Early Adolescence</CodeValue>
+		<ShortDescription>English Language Arts/Early Adolescence</ShortDescription>
+		<Description>English Language Arts/Early Adolescence</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>English Language Arts/Early Adolescence</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Exceptional Needs Specialist/Early Childhood throu</CodeValue>
+		<ShortDescription>Exceptional Needs Specialist/Early Childhood through Young Adulthood</ShortDescription>
+		<Description>Exceptional Needs Specialist/Early Childhood through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Exceptional Needs Specialist/Early Childhood through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Generalist/Early Adolescence</CodeValue>
+		<ShortDescription>Generalist/Early Adolescence</ShortDescription>
+		<Description>Generalist/Early Adolescence</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Generalist/Early Adolescence</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Generalist/Early Childhood</CodeValue>
+		<ShortDescription>Generalist/Early Childhood</ShortDescription>
+		<Description>Generalist/Early Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Generalist/Early Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Generalist/Middle Childhood</CodeValue>
+		<ShortDescription>Generalist/Middle Childhood</ShortDescription>
+		<Description>Generalist/Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Generalist/Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Health Education/Early Adolescence through Young A</CodeValue>
+		<ShortDescription>Health Education/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>Health Education/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Health Education/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Library Media/Early Childhood through Young Adulth</CodeValue>
+		<ShortDescription>Library Media/Early Childhood through Young Adulthood</ShortDescription>
+		<Description>Library Media/Early Childhood through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Library Media/Early Childhood through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Literacy: Reading - Language Arts/Early and Middle</CodeValue>
+		<ShortDescription>Literacy: Reading - Language Arts/Early and Middle Childhood</ShortDescription>
+		<Description>Literacy: Reading - Language Arts/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Literacy: Reading - Language Arts/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Mathematics/Adolescence and Young Adulthood</CodeValue>
+		<ShortDescription>Mathematics/Adolescence and Young Adulthood</ShortDescription>
+		<Description>Mathematics/Adolescence and Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Mathematics/Adolescence and Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Mathematics/Early Adolescence</CodeValue>
+		<ShortDescription>Mathematics/Early Adolescence</ShortDescription>
+		<Description>Mathematics/Early Adolescence</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Mathematics/Early Adolescence</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Music/Early Adolescence through Young Adulthood</CodeValue>
+		<ShortDescription>Music/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>Music/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Music/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Music/Early and Middle Childhood</CodeValue>
+		<ShortDescription>Music/Early and Middle Childhood</ShortDescription>
+		<Description>Music/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Music/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>None</CodeValue>
+		<ShortDescription>None</ShortDescription>
+		<Description>None</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>None</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Physical Education/Early Adolescence through Young</CodeValue>
+		<ShortDescription>Physical Education/Early Adolescence through Young Adulthood</ShortDescription>
+		<Description>Physical Education/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Physical Education/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Physical Education/Early and Middle Childhood</CodeValue>
+		<ShortDescription>Physical Education/Early and Middle Childhood</ShortDescription>
+		<Description>Physical Education/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Physical Education/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>School Counseling/Early Childhood through Young Ad</CodeValue>
+		<ShortDescription>School Counseling/Early Childhood through Young Adulthood</ShortDescription>
+		<Description>School Counseling/Early Childhood through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>School Counseling/Early Childhood through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Science/Adolescence and Young Adulthood</CodeValue>
+		<ShortDescription>Science/Adolescence and Young Adulthood</ShortDescription>
+		<Description>Science/Adolescence and Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Science/Adolescence and Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Science/Early Adolescence</CodeValue>
+		<ShortDescription>Science/Early Adolescence</ShortDescription>
+		<Description>Science/Early Adolescence</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Science/Early Adolescence</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Social Studies - History/Adolescence and Young Adu</CodeValue>
+		<ShortDescription>Social Studies - History/Adolescence and Young Adulthood</ShortDescription>
+		<Description>Social Studies - History/Adolescence and Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Social Studies - History/Adolescence and Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Social Studies - History/Early Adolescence</CodeValue>
+		<ShortDescription>Social Studies - History/Early Adolescence</ShortDescription>
+		<Description>Social Studies - History/Early Adolescence</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Social Studies - History/Early Adolescence</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>World Languages Other Than English/Early Adolescen</CodeValue>
+		<ShortDescription>World Languages Other Than English/Early Adolescence through Young Adulthoo</ShortDescription>
+		<Description>World Languages Other Than English/Early Adolescence through Young Adulthood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>World Languages Other Than English/Early Adolescence through Young Adulthood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>World Languages Other Than English/Early and Middl</CodeValue>
+		<ShortDescription>World Languages Other Than English/Early and Middle Childhood</ShortDescription>
+		<Description>World Languages Other Than English/Early and Middle Childhood</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>World Languages Other Than English/Early and Middle Childhood</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<BoardCertificationTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
+		<BoardCertificationTypeMap>Other</BoardCertificationTypeMap>
+	</BoardCertificationTypeDescriptor>
+	<CertificationExamTypeDescriptor>
+		<CodeValue>National</CodeValue>
+		<ShortDescription>National</ShortDescription>
+		<Description>National</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/CertificationExamTypeDescriptor.xml</Namespace>
+		<CertificationExamTypeMap>National</CertificationExamTypeMap>
+	</CertificationExamTypeDescriptor>
+	<CertificationExamTypeDescriptor>
+		<CodeValue>State</CodeValue>
+		<ShortDescription>State</ShortDescription>
+		<Description>State</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/CertificationExamTypeDescriptor.xml</Namespace>
+		<CertificationExamTypeMap>State</CertificationExamTypeMap>
+	</CertificationExamTypeDescriptor>
+	<CertificationExamTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/CertificationExamTypeDescriptor.xml</Namespace>
+		<CertificationExamTypeMap>Other</CertificationExamTypeMap>
+	</CertificationExamTypeDescriptor>
+	<ClassroomPositionDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ClassroomPositionDescriptor.xml</Namespace>
+		<ClassroomPositionMap>Other</ClassroomPositionMap>
+	</ClassroomPositionDescriptor>
+	<DiagnosisDescriptor>
+		<CodeValue>Course Repeat</CodeValue>
+		<ShortDescription>Course Repeat</ShortDescription>
+		<Description>Course Repeat</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
+		<DiagnosisMap>Course Repeat</DiagnosisMap>
+	</DiagnosisDescriptor>
+	<DiagnosisDescriptor>
+		<CodeValue>Low Assessment Performance</CodeValue>
+		<ShortDescription>Low Assessment Performance</ShortDescription>
+		<Description>Low Assessment Performance</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
+		<DiagnosisMap>Low Assessment Performance</DiagnosisMap>
+	</DiagnosisDescriptor>
+	<DiagnosisDescriptor>
+		<CodeValue>Low GPA</CodeValue>
+		<ShortDescription>Low GPA</ShortDescription>
+		<Description>Low GPA</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
+		<DiagnosisMap>Low GPA</DiagnosisMap>
+	</DiagnosisDescriptor>
+	<DiagnosisDescriptor>
+		<CodeValue>Low Observation Performance</CodeValue>
+		<ShortDescription>Low Observation Performance</ShortDescription>
+		<Description>Low Observation Performance</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
+		<DiagnosisMap>Low Observation Performance</DiagnosisMap>
+	</DiagnosisDescriptor>
+	<DiagnosisDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
+		<DiagnosisMap>Other</DiagnosisMap>
+	</DiagnosisDescriptor>
+	<EnglishLanguageExamDescriptor>
+		<CodeValue>Fail</CodeValue>
+		<ShortDescription>Fail</ShortDescription>
+		<Description>Fail</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/EnglishLanguageExamDescriptor.xml</Namespace>
+		<EnglishLanguageExamMap>Fail</EnglishLanguageExamMap>
+	</EnglishLanguageExamDescriptor>
+	<EnglishLanguageExamDescriptor>
+		<CodeValue>N/A</CodeValue>
+		<ShortDescription>N/A</ShortDescription>
+		<Description>N/A</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/EnglishLanguageExamDescriptor.xml</Namespace>
+		<EnglishLanguageExamMap>N/A</EnglishLanguageExamMap>
+	</EnglishLanguageExamDescriptor>
+	<EnglishLanguageExamDescriptor>
+		<CodeValue>Pass</CodeValue>
+		<ShortDescription>Pass</ShortDescription>
+		<Description>Pass</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/EnglishLanguageExamDescriptor.xml</Namespace>
+		<EnglishLanguageExamMap>Pass</EnglishLanguageExamMap>
+	</EnglishLanguageExamDescriptor>
+	<EnglishLanguageExamDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/EnglishLanguageExamDescriptor.xml</Namespace>
+		<EnglishLanguageExamMap>Other</EnglishLanguageExamMap>
+	</EnglishLanguageExamDescriptor>
+	<FederalLocaleCodeDescriptor>
+		<CodeValue>City</CodeValue>
+		<ShortDescription>City</ShortDescription>
+		<Description>City</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FederalLocaleCodeDescriptor.xml</Namespace>
+		<FederalLocaleCodeMap>City</FederalLocaleCodeMap>
+	</FederalLocaleCodeDescriptor>
+	<FederalLocaleCodeDescriptor>
+		<CodeValue>Rural</CodeValue>
+		<ShortDescription>Rural</ShortDescription>
+		<Description>Rural</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FederalLocaleCodeDescriptor.xml</Namespace>
+		<FederalLocaleCodeMap>Rural</FederalLocaleCodeMap>
+	</FederalLocaleCodeDescriptor>
+	<FederalLocaleCodeDescriptor>
+		<CodeValue>Suburb</CodeValue>
+		<ShortDescription>Suburb</ShortDescription>
+		<Description>Suburb</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FederalLocaleCodeDescriptor.xml</Namespace>
+		<FederalLocaleCodeMap>Suburb</FederalLocaleCodeMap>
+	</FederalLocaleCodeDescriptor>
+	<FederalLocaleCodeDescriptor>
+		<CodeValue>Town</CodeValue>
+		<ShortDescription>Town</ShortDescription>
+		<Description>Town</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FederalLocaleCodeDescriptor.xml</Namespace>
+		<FederalLocaleCodeMap>Town</FederalLocaleCodeMap>
+	</FederalLocaleCodeDescriptor>
+	<FieldworkTypeDescriptor>
+		<CodeValue>Clinical Experience</CodeValue>
+		<ShortDescription>Clinical Experience</ShortDescription>
+		<Description>Clinical Experience</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FieldworkTypeDescriptor.xml</Namespace>
+		<FieldworkTypeMap>Clinical Experience</FieldworkTypeMap>
+	</FieldworkTypeDescriptor>
+	<FieldworkTypeDescriptor>
+		<CodeValue>Field Placement</CodeValue>
+		<ShortDescription>Field Placement</ShortDescription>
+		<Description>Field Placement</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FieldworkTypeDescriptor.xml</Namespace>
+		<FieldworkTypeMap>Field Placement</FieldworkTypeMap>
+	</FieldworkTypeDescriptor>
+	<FieldworkTypeDescriptor>
+		<CodeValue>Residential Program</CodeValue>
+		<ShortDescription>Residential Program</ShortDescription>
+		<Description>Residential Program</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FieldworkTypeDescriptor.xml</Namespace>
+		<FieldworkTypeMap>Residential Program</FieldworkTypeMap>
+	</FieldworkTypeDescriptor>
+	<FieldworkTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FieldworkTypeDescriptor.xml</Namespace>
+		<FieldworkTypeMap>Other</FieldworkTypeMap>
+	</FieldworkTypeDescriptor>
+	<GradeLevelDescriptor>
+		<CodeValue>Master's</CodeValue>
+		<ShortDescription>Master's</ShortDescription>
+		<Description>Master's</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GradeLevelDescriptor.xml</Namespace>
+		<GradeLevelMap>Master's</GradeLevelMap>
+	</GradeLevelDescriptor>
+	<GradeLevelDescriptor>
+		<CodeValue>Professional Certification</CodeValue>
+		<ShortDescription>Professional Certification</ShortDescription>
+		<Description>Professional Certification</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GradeLevelDescriptor.xml</Namespace>
+		<GradeLevelMap>Professional Certification</GradeLevelMap>
+	</GradeLevelDescriptor>
+	<GradeLevelDescriptor>
+		<CodeValue>Undergraduate</CodeValue>
+		<ShortDescription>Undergraduate</ShortDescription>
+		<Description>Undergraduate</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GradeLevelDescriptor.xml</Namespace>
+		<GradeLevelMap>Undergraduate</GradeLevelMap>
+	</GradeLevelDescriptor>
+	<LevelOfDegreeAwardedDescriptor>
+		<CodeValue>Associates</CodeValue>
+		<ShortDescription>Associates</ShortDescription>
+		<Description>Associates</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelOfDegreeAwardedDescriptor.xml</Namespace>
+		<LevelOfDegreeAwardedMap>Associates</LevelOfDegreeAwardedMap>
+	</LevelOfDegreeAwardedDescriptor>
+	<LevelOfDegreeAwardedDescriptor>
+		<CodeValue>Bachelors</CodeValue>
+		<ShortDescription>Bachelors</ShortDescription>
+		<Description>Bachelors</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelOfDegreeAwardedDescriptor.xml</Namespace>
+		<LevelOfDegreeAwardedMap>Bachelors</LevelOfDegreeAwardedMap>
+	</LevelOfDegreeAwardedDescriptor>
+	<LevelOfDegreeAwardedDescriptor>
+		<CodeValue>Masters</CodeValue>
+		<ShortDescription>Masters</ShortDescription>
+		<Description>Masters</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelOfDegreeAwardedDescriptor.xml</Namespace>
+		<LevelOfDegreeAwardedMap>Masters</LevelOfDegreeAwardedMap>
+	</LevelOfDegreeAwardedDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>1</CodeValue>
+		<ShortDescription>1</ShortDescription>
+		<Description>1</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>1</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>2</CodeValue>
+		<ShortDescription>2</ShortDescription>
+		<Description>2</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>2</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>3</CodeValue>
+		<ShortDescription>3</ShortDescription>
+		<Description>3</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>3</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>4</CodeValue>
+		<ShortDescription>4</ShortDescription>
+		<Description>4</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>4</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>5</CodeValue>
+		<ShortDescription>5</ShortDescription>
+		<Description>5</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>5</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<LevelTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
+		<LevelTypeMap>Other</LevelTypeMap>
+	</LevelTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Assessment</CodeValue>
+		<ShortDescription>Assessment</ShortDescription>
+		<Description>Assessment</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Assessment</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Formal Observation</CodeValue>
+		<ShortDescription>Formal Observation</ShortDescription>
+		<Description>Formal Observation</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Formal Observation</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Informal Observation</CodeValue>
+		<ShortDescription>Informal Observation</ShortDescription>
+		<Description>Informal Observation</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Informal Observation</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Performance Evaluation</CodeValue>
+		<ShortDescription>Performance Evaluation</ShortDescription>
+		<Description>Performance Evaluation</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Performance Evaluation</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Self Reflection</CodeValue>
+		<ShortDescription>Self Reflection</ShortDescription>
+		<Description>Self Reflection</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Self Reflection</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Summative Observation</CodeValue>
+		<ShortDescription>Summative Observation</ShortDescription>
+		<Description>Summative Observation</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Summative Observation</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PerformanceMeasureTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
+		<PerformanceMeasureTypeMap>Other</PerformanceMeasureTypeMap>
+	</PerformanceMeasureTypeDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Accounting</CodeValue>
+		<ShortDescription>Accounting</ShortDescription>
+		<Description>Accounting</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Accounting</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Consulting</CodeValue>
+		<ShortDescription>Consulting</ShortDescription>
+		<Description>Consulting</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Consulting</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Education</CodeValue>
+		<ShortDescription>Education</ShortDescription>
+		<Description>Education</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Education</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Maintenance</CodeValue>
+		<ShortDescription>Maintenance</ShortDescription>
+		<Description>Maintenance</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Maintenance</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Medical</CodeValue>
+		<ShortDescription>Medical</ShortDescription>
+		<Description>Medical</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Medical</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Science and Technology</CodeValue>
+		<ShortDescription>Science and Technology</ShortDescription>
+		<Description>Science and Technology</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Science and Technology</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<PreviousCareerDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
+		<PreviousCareerMap>Other</PreviousCareerMap>
+	</PreviousCareerDescriptor>
+	<ProfessionalDevelopmentOfferedByDescriptor>
+		<CodeValue>District</CodeValue>
+		<ShortDescription>District</ShortDescription>
+		<Description>District</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProfessionalDevelopmentOfferedByDescriptor.xml</Namespace>
+		<ProfessionalDevelopmentOfferedByMap>District</ProfessionalDevelopmentOfferedByMap>
+	</ProfessionalDevelopmentOfferedByDescriptor>
+	<ProfessionalDevelopmentOfferedByDescriptor>
+		<CodeValue>School</CodeValue>
+		<ShortDescription>School</ShortDescription>
+		<Description>School</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProfessionalDevelopmentOfferedByDescriptor.xml</Namespace>
+		<ProfessionalDevelopmentOfferedByMap>School</ProfessionalDevelopmentOfferedByMap>
+	</ProfessionalDevelopmentOfferedByDescriptor>
+	<ProfessionalDevelopmentOfferedByDescriptor>
+		<CodeValue>State</CodeValue>
+		<ShortDescription>State</ShortDescription>
+		<Description>State</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProfessionalDevelopmentOfferedByDescriptor.xml</Namespace>
+		<ProfessionalDevelopmentOfferedByMap>State</ProfessionalDevelopmentOfferedByMap>
+	</ProfessionalDevelopmentOfferedByDescriptor>
+	<ProfessionalDevelopmentOfferedByDescriptor>
+		<CodeValue>Teacher Preparation Provider</CodeValue>
+		<ShortDescription>Teacher Preparation Provider</ShortDescription>
+		<Description>Teacher Preparation Provider</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProfessionalDevelopmentOfferedByDescriptor.xml</Namespace>
+		<ProfessionalDevelopmentOfferedByMap>Teacher Preparation Provider</ProfessionalDevelopmentOfferedByMap>
+	</ProfessionalDevelopmentOfferedByDescriptor>
+	<ProgramGatewayDescriptor>
+		<CodeValue>Gateway 1</CodeValue>
+		<ShortDescription>Gateway 1</ShortDescription>
+		<Description>Gateway 1</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
+		<ProgramGatewayMap>Gateway 1</ProgramGatewayMap>
+	</ProgramGatewayDescriptor>
+	<ProgramGatewayDescriptor>
+		<CodeValue>Gateway 2</CodeValue>
+		<ShortDescription>Gateway 2</ShortDescription>
+		<Description>Gateway 2</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
+		<ProgramGatewayMap>Gateway 2</ProgramGatewayMap>
+	</ProgramGatewayDescriptor>
+	<ProgramGatewayDescriptor>
+		<CodeValue>Gateway 3</CodeValue>
+		<ShortDescription>Gateway 3</ShortDescription>
+		<Description>Gateway 3</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
+		<ProgramGatewayMap>Gateway 3</ProgramGatewayMap>
+	</ProgramGatewayDescriptor>
+	<ProgramGatewayDescriptor>
+		<CodeValue>Gateway 4</CodeValue>
+		<ShortDescription>Gateway 4</ShortDescription>
+		<Description>Gateway 4</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
+		<ProgramGatewayMap>Gateway 4</ProgramGatewayMap>
+	</ProgramGatewayDescriptor>
+	<ProgramGatewayDescriptor>
+		<CodeValue>Gateway 5</CodeValue>
+		<ShortDescription>Gateway 5</ShortDescription>
+		<Description>Gateway 5</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
+		<ProgramGatewayMap>Gateway 5</ProgramGatewayMap>
+	</ProgramGatewayDescriptor>
+	<ResponsibilityDescriptor>
+		<CodeValue>Discipline</CodeValue>
+		<ShortDescription>Discipline</ShortDescription>
+		<Description>Discipline</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ResponsibilityDescriptor.xml</Namespace>
+		<ResponsibilityMap>Discipline</ResponsibilityMap>
+	</ResponsibilityDescriptor>
+	<RubricTypeDescriptor>
+		<CodeValue>District</CodeValue>
+		<ShortDescription>District</ShortDescription>
+		<Description>District</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/RubricTypeDescriptor.xml</Namespace>
+		<RubricTypeMap>District</RubricTypeMap>
+	</RubricTypeDescriptor>
+	<RubricTypeDescriptor>
+		<CodeValue>State</CodeValue>
+		<ShortDescription>State</ShortDescription>
+		<Description>State</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/RubricTypeDescriptor.xml</Namespace>
+		<RubricTypeMap>State</RubricTypeMap>
+	</RubricTypeDescriptor>
+	<RubricTypeDescriptor>
+		<CodeValue>Teacher Preparation Provider</CodeValue>
+		<ShortDescription>Teacher Preparation Provider</ShortDescription>
+		<Description>Teacher Preparation Provider</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/RubricTypeDescriptor.xml</Namespace>
+		<RubricTypeMap>Teacher Preparation Provider</RubricTypeMap>
+	</RubricTypeDescriptor>
+	<RubricTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/RubricTypeDescriptor.xml</Namespace>
+		<RubricTypeMap>Other</RubricTypeMap>
+	</RubricTypeDescriptor>
+	<SalaryTypeDescriptor>
+		<CodeValue>Contract</CodeValue>
+		<ShortDescription>Contract</ShortDescription>
+		<Description>Contract</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
+		<SalaryTypeMap>Contract</SalaryTypeMap>
+	</SalaryTypeDescriptor>
+	<SalaryTypeDescriptor>
+		<CodeValue>Full Time</CodeValue>
+		<ShortDescription>Full Time</ShortDescription>
+		<Description>Full Time</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
+		<SalaryTypeMap>Full Time</SalaryTypeMap>
+	</SalaryTypeDescriptor>
+	<SalaryTypeDescriptor>
+		<CodeValue>Hourly</CodeValue>
+		<ShortDescription>Hourly</ShortDescription>
+		<Description>Hourly</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
+		<SalaryTypeMap>Hourly</SalaryTypeMap>
+	</SalaryTypeDescriptor>
+	<SalaryTypeDescriptor>
+		<CodeValue>Part Time</CodeValue>
+		<ShortDescription>Part Time</ShortDescription>
+		<Description>Part Time</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
+		<SalaryTypeMap>Part Time</SalaryTypeMap>
+	</SalaryTypeDescriptor>
+	<SalaryTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
+		<SalaryTypeMap>Other</SalaryTypeMap>
+	</SalaryTypeDescriptor>
+	<SchoolStatusDescriptor>
+		<CodeValue>Focus</CodeValue>
+		<ShortDescription>Focus</ShortDescription>
+		<Description>Focus</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SchoolStatusDescriptor.xml</Namespace>
+		<SchoolStatusMap>Focus</SchoolStatusMap>
+	</SchoolStatusDescriptor>
+	<SchoolStatusDescriptor>
+		<CodeValue>Priority</CodeValue>
+		<ShortDescription>Priority</ShortDescription>
+		<Description>Priority</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SchoolStatusDescriptor.xml</Namespace>
+		<SchoolStatusMap>Priority</SchoolStatusMap>
+	</SchoolStatusDescriptor>
+	<SchoolStatusDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SchoolStatusDescriptor.xml</Namespace>
+		<SchoolStatusMap>Other</SchoolStatusMap>
+	</SchoolStatusDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Adjunct Professor</CodeValue>
+		<ShortDescription>Adjunct Professor</ShortDescription>
+		<Description>Adjunct Professor</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Adjunct Professor</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Assistant Professor</CodeValue>
+		<ShortDescription>Assistant Professor</ShortDescription>
+		<Description>Assistant Professor</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Assistant Professor</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Associate Professor</CodeValue>
+		<ShortDescription>Associate Professor</ShortDescription>
+		<Description>Associate Professor</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Associate Professor</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Audiologist</CodeValue>
+		<ShortDescription>Audiologist</ShortDescription>
+		<Description>Audiologist</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Audiologist</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Clinical Professor</CodeValue>
+		<ShortDescription>Clinical Professor</ShortDescription>
+		<Description>Clinical Professor</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Clinical Professor</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Full Professor</CodeValue>
+		<ShortDescription>Full Professor</ShortDescription>
+		<Description>Full Professor</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Full Professor</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Mentor Teacher</CodeValue>
+		<ShortDescription>Mentor Teacher</ShortDescription>
+		<Description>Mentor Teacher</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Mentor Teacher</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Psychologist</CodeValue>
+		<ShortDescription>Psychologist</ShortDescription>
+		<Description>Psychologist</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Psychologist</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>School Nurse</CodeValue>
+		<ShortDescription>School Nurse</ShortDescription>
+		<Description>School Nurse</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>School Nurse</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>School Social Worker</CodeValue>
+		<ShortDescription>School Social Worker</ShortDescription>
+		<Description>School Social Worker</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>School Social Worker</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Site Coordinator</CodeValue>
+		<ShortDescription>Site Coordinator</ShortDescription>
+		<Description>Site Coordinator</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Site Coordinator</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StaffClassificationDescriptor>
+		<CodeValue>Speech Language Pathologist</CodeValue>
+		<ShortDescription>Speech Language Pathologist</ShortDescription>
+		<Description>Speech Language Pathologist</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
+		<StaffClassificationMap>Speech Language Pathologist</StaffClassificationMap>
+	</StaffClassificationDescriptor>
+	<StudentGrowthTypeDescriptor>
+		<CodeValue>Growth Percentile</CodeValue>
+		<ShortDescription>Growth Percentile</ShortDescription>
+		<Description>Growth Percentile</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StudentGrowthTypeDescriptor.xml</Namespace>
+		<StudentGrowthTypeMap>Growth Percentile</StudentGrowthTypeMap>
+	</StudentGrowthTypeDescriptor>
+	<StudentGrowthTypeDescriptor>
+		<CodeValue>Student Learning Objective (SLO)</CodeValue>
+		<ShortDescription>Student Learning Objective (SLO)</ShortDescription>
+		<Description>Student Learning Objective (SLO)</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StudentGrowthTypeDescriptor.xml</Namespace>
+		<StudentGrowthTypeMap>Student Learning Objective (SLO)</StudentGrowthTypeMap>
+	</StudentGrowthTypeDescriptor>
+	<StudentGrowthTypeDescriptor>
+		<CodeValue>Value Add</CodeValue>
+		<ShortDescription>Value Add</ShortDescription>
+		<Description>Value Add</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StudentGrowthTypeDescriptor.xml</Namespace>
+		<StudentGrowthTypeMap>Value Add</StudentGrowthTypeMap>
+	</StudentGrowthTypeDescriptor>
+	<StudentGrowthTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StudentGrowthTypeDescriptor.xml</Namespace>
+		<StudentGrowthTypeMap>Other</StudentGrowthTypeMap>
+	</StudentGrowthTypeDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>Alumni</CodeValue>
+		<ShortDescription>Alumni</ShortDescription>
+		<Description>Alumni</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>Alumni</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>Course Evaluation</CodeValue>
+		<ShortDescription>Course Evaluation</ShortDescription>
+		<Description>Course Evaluation</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>Course Evaluation</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>Disposition</CodeValue>
+		<ShortDescription>Disposition</ShortDescription>
+		<Description>Disposition</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>Disposition</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>Faculty</CodeValue>
+		<ShortDescription>Faculty</ShortDescription>
+		<Description>Faculty</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>Faculty</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>Mentor/Cooperating Teacher</CodeValue>
+		<ShortDescription>Mentor/Cooperating Teacher</ShortDescription>
+		<Description>Mentor/Cooperating Teacher</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>Mentor/Cooperating Teacher</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<SurveyCategoryDescriptor>
+		<CodeValue>School/District Leader</CodeValue>
+		<ShortDescription>School/District Leader</ShortDescription>
+		<Description>School/District Leader</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
+		<SurveyCategoryMap>School/District Leader</SurveyCategoryMap>
+	</SurveyCategoryDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Asylee</CodeValue>
+		<ShortDescription>Asylee</ShortDescription>
+		<Description>Asylee</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Asylee</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Displaced Homemaker</CodeValue>
+		<ShortDescription>Displaced Homemaker</ShortDescription>
+		<Description>Displaced Homemaker</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Displaced Homemaker</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>First Generation College Student</CodeValue>
+		<ShortDescription>First Generation College Student</ShortDescription>
+		<Description>First Generation College Student</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>First Generation College Student</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Foster Care</CodeValue>
+		<ShortDescription>Foster Care</ShortDescription>
+		<Description>Foster Care</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Foster Care</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Homeless</CodeValue>
+		<ShortDescription>Homeless</ShortDescription>
+		<Description>Homeless</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Homeless</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Immigrant</CodeValue>
+		<ShortDescription>Immigrant</ShortDescription>
+		<Description>Immigrant</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Immigrant</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Migrant</CodeValue>
+		<ShortDescription>Migrant</ShortDescription>
+		<Description>Migrant</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Migrant</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Neglected or Delinquent</CodeValue>
+		<ShortDescription>Neglected or Delinquent</ShortDescription>
+		<Description>Neglected or Delinquent</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Neglected or Delinquent</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Parent in Military</CodeValue>
+		<ShortDescription>Parent in Military</ShortDescription>
+		<Description>Parent in Military</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Parent in Military</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Pregnant</CodeValue>
+		<ShortDescription>Pregnant</ShortDescription>
+		<Description>Pregnant</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Pregnant</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Refugee</CodeValue>
+		<ShortDescription>Refugee</ShortDescription>
+		<Description>Refugee</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Refugee</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Runaway</CodeValue>
+		<ShortDescription>Runaway</ShortDescription>
+		<Description>Runaway</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Runaway</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Section 504 Handicapped</CodeValue>
+		<ShortDescription>Section 504 Handicapped</ShortDescription>
+		<Description>Section 504 Handicapped</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Section 504 Handicapped</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Single Parent</CodeValue>
+		<ShortDescription>Single Parent</ShortDescription>
+		<Description>Single Parent</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Single Parent</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Unaccompanied Youth</CodeValue>
+		<ShortDescription>Unaccompanied Youth</ShortDescription>
+		<Description>Unaccompanied Youth</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Unaccompanied Youth</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherCandidateCharacteristicDescriptor>
+		<CodeValue>Veteran</CodeValue>
+		<ShortDescription>Veteran</ShortDescription>
+		<Description>Veteran</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
+		<TeacherCandidateCharacteristicMap>Veteran</TeacherCandidateCharacteristicMap>
+	</TeacherCandidateCharacteristicDescriptor>
+	<TeacherPreparationProgramTypeDescriptor>
+		<CodeValue>Alternate</CodeValue>
+		<ShortDescription>Alternate</ShortDescription>
+		<Description>Alternate</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherPreparationProgramTypeDescriptor.xml</Namespace>
+		<TeacherPreparationProgramTypeMap>Alternate</TeacherPreparationProgramTypeMap>
+	</TeacherPreparationProgramTypeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Classroom Environment</CodeValue>
+		<ShortDescription>Classroom Environment</ShortDescription>
+		<Description>Classroom Environment</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Classroom Environment</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Classroom Instruction</CodeValue>
+		<ShortDescription>Classroom Instruction</ShortDescription>
+		<Description>Classroom Instruction</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Classroom Instruction</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Effective Planning</CodeValue>
+		<ShortDescription>Effective Planning</ShortDescription>
+		<Description>Effective Planning</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Effective Planning</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Lesson Alignment</CodeValue>
+		<ShortDescription>Lesson Alignment</ShortDescription>
+		<Description>Lesson Alignment</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Lesson Alignment</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Managing Student Behavior</CodeValue>
+		<ShortDescription>Managing Student Behavior</ShortDescription>
+		<Description>Managing Student Behavior</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Managing Student Behavior</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Professionalism</CodeValue>
+		<ShortDescription>Professionalism</ShortDescription>
+		<Description>Professionalism</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Professionalism</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Student Assessment</CodeValue>
+		<ShortDescription>Student Assessment</ShortDescription>
+		<Description>Student Assessment</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Student Assessment</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Student Investment and Engagement</CodeValue>
+		<ShortDescription>Student Investment and Engagement</ShortDescription>
+		<Description>Student Investment and Engagement</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Student Investment and Engagement</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Teacher Reflection</CodeValue>
+		<ShortDescription>Teacher Reflection</ShortDescription>
+		<Description>Teacher Reflection</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Teacher Reflection</ThemeMap>
+	</ThemeDescriptor>
+	<ThemeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
+		<ThemeMap>Other</ThemeMap>
+	</ThemeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Bachelor of Arts</CodeValue>
+		<ShortDescription>Bachelor of Arts</ShortDescription>
+		<Description>Bachelor of Arts</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Bachelor of Arts</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Bachelor of Science</CodeValue>
+		<ShortDescription>Bachelor of Science</ShortDescription>
+		<Description>Bachelor of Science</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Bachelor of Science</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Doctor of Philosophy</CodeValue>
+		<ShortDescription>Doctor of Philosophy</ShortDescription>
+		<Description>Doctor of Philosophy</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Doctor of Philosophy</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Educational Doctorate</CodeValue>
+		<ShortDescription>Educational Doctorate</ShortDescription>
+		<Description>Educational Doctorate</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Educational Doctorate</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Educational Specialist</CodeValue>
+		<ShortDescription>Educational Specialist</ShortDescription>
+		<Description>Educational Specialist</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Educational Specialist</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Master's of Arts</CodeValue>
+		<ShortDescription>Master's of Arts</ShortDescription>
+		<Description>Master's of Arts</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Master's of Arts</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Master's of Education</CodeValue>
+		<ShortDescription>Master's of Education</ShortDescription>
+		<Description>Master's of Education</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Master's of Education</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Master's of Science</CodeValue>
+		<ShortDescription>Master's of Science</ShortDescription>
+		<Description>Master's of Science</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Master's of Science</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPDegreeTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
+		<TPPDegreeTypeMap>Other</TPPDegreeTypeMap>
+	</TPPDegreeTypeDescriptor>
+	<TPPProgramPathwayDescriptor>
+		<CodeValue>Fellowship</CodeValue>
+		<ShortDescription>Fellowship</ShortDescription>
+		<Description>Fellowship</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
+		<TPPProgramPathwayMap>Fellowship</TPPProgramPathwayMap>
+	</TPPProgramPathwayDescriptor>
+	<TPPProgramPathwayDescriptor>
+		<CodeValue>Internship</CodeValue>
+		<ShortDescription>Internship</ShortDescription>
+		<Description>Internship</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
+		<TPPProgramPathwayMap>Internship</TPPProgramPathwayMap>
+	</TPPProgramPathwayDescriptor>
+	<TPPProgramPathwayDescriptor>
+		<CodeValue>Residency</CodeValue>
+		<ShortDescription>Residency</ShortDescription>
+		<Description>Residency</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
+		<TPPProgramPathwayMap>Residency</TPPProgramPathwayMap>
+	</TPPProgramPathwayDescriptor>
+	<TPPProgramPathwayDescriptor>
+		<CodeValue>Traditional</CodeValue>
+		<ShortDescription>Traditional</ShortDescription>
+		<Description>Traditional</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
+		<TPPProgramPathwayMap>Traditional</TPPProgramPathwayMap>
+	</TPPProgramPathwayDescriptor>
+	<TPPProgramPathwayDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
+		<TPPProgramPathwayMap>Other</TPPProgramPathwayMap>
+	</TPPProgramPathwayDescriptor>
+</InterchangeDescriptors>
