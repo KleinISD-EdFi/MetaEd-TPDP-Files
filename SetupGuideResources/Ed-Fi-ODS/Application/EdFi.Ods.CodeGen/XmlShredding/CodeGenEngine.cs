@@ -1,4 +1,4 @@
-using EdFi.Ods.CodeGen.XmlShredding.CodeDeclarations;
+﻿using EdFi.Ods.CodeGen.XmlShredding.CodeDeclarations;
 using System;
 using System.Collections.Generic;
 using EdFi.Ods.Xml.XmlShredding;
@@ -169,6 +169,7 @@ namespace EdFi.Ods.CodeGen.XmlShredding
                     : string.Format(@"""{0}""", inlineEntityProperty.ElementName);
 
                 var inlinePropertyName = inlineEntityProperty.InlinePropertyName;
+
                 if (inlineEntityProperty.ClassName == inlineEntityProperty.InlinePropertyName)
                 {
                     inlinePropertyName = inlinePropertyName + "X";
