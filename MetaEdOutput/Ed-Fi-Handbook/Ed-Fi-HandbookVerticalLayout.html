@@ -7408,7 +7408,7 @@ BeginDate
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AssessmentReportingMethod (identity)<br />MaximumScore (optional)<br />MinimumScore (optional)<br />ResultDatatypeType (optional)<br /><br />Used By:<br />RequiredAssessment.RequiredAssessmentScore (as optional collection)<br />Assessment.AssessmentScore (as optional collection)</div>
+                <div><br />Contains:<br />AssessmentReportingMethod (identity)<br />MaximumScore (optional)<br />MinimumScore (optional)<br />ResultDatatypeType (optional)<br /><br />Used By:<br />RequiredAssessment.RequiredAssessmentScore (as optional collection)<br />Assessment.AssessmentScore (as optional collection)<br />ObjectiveAssessment.AssessmentScore (as optional collection)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -31039,7 +31039,7 @@ ClassroomIdentificationCode
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />Assessment (identity)<br />AssessmentItem (optional collection)<br />AssessmentPerformanceLevel (optional collection)<br />Description (optional)<br />IdentificationCode (identity)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaxRawScore (optional)<br />Nomenclature (optional)<br />ParentObjectiveAssessment (optional)<br />PercentOfAssessment (optional)<br /><br />Used By:<br />StudentObjectiveAssessment.ObjectiveAssessment (as identity)<br />ObjectiveAssessment.ParentObjectiveAssessment (as optional)</div>
+                <div><br />Contains:<br />Assessment (identity)<br />AssessmentItem (optional collection)<br />AssessmentPerformanceLevel (optional collection)<br />AssessmentScore (optional collection)<br />Description (optional)<br />IdentificationCode (identity)<br />LearningObjective (optional collection)<br />LearningStandard (optional collection)<br />MaxRawScore (optional)<br />Nomenclature (optional)<br />ParentObjectiveAssessment (optional)<br />PercentOfAssessment (optional)<br /><br />Used By:<br />StudentObjectiveAssessment.ObjectiveAssessment (as identity)<br />ObjectiveAssessment.ParentObjectiveAssessment (as optional)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -31109,6 +31109,11 @@ ClassroomIdentificationCode
         &lt;xs:element name=&quot;AssessmentReference&quot; type=&quot;AssessmentReferenceType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Provide user information to lookup and link to an existing assessment.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name=&quot;AssessmentScore&quot; type=&quot;AssessmentScore&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Definition of the scores to be expected from this objective assessment.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
       &lt;/xs:sequence&gt;
@@ -31213,6 +31218,26 @@ Version
 IdentificationCode
 PerformanceLevelDescriptorId
 AssessmentReportingMethodTypeId
+<br />edfi.ObjectiveAssessmentScore
+
+AcademicSubjectDescriptorId [INT] NOT NULL
+AssessedGradeLevelDescriptorId [INT] NOT NULL
+AssessmentReportingMethodTypeId [INT] NOT NULL
+AssessmentTitle [NVARCHAR](60) NOT NULL
+IdentificationCode [NVARCHAR](60) NOT NULL
+Version [INT] NOT NULL
+MinimumScore [NVARCHAR](35) NULL
+MaximumScore [NVARCHAR](35) NULL
+ResultDatatypeTypeId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
+AssessmentReportingMethodTypeId
+AssessmentTitle
+IdentificationCode
+Version
 </pre></div>
             </div>
         </p>
@@ -45379,7 +45404,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">Option List:</div>
-                <div>1990-1991<br />1991-1992<br />1992-1993<br />1993-1994<br />1994-1995<br />1995-1996<br />1996-1997<br />1997-1998<br />1998-1999<br />1999-2000<br />2000-2001<br />2001-2002<br />2002-2003<br />2003-2004<br />2004-2005<br />2005-2006<br />2006-2007<br />2007-2008<br />2008-2009<br />2009-2010<br />2010-2011<br />2011-2012<br />2012-2013<br />2013-2014<br />2014-2015<br />2015-2016<br />2016-2017<br />2017-2018<br />2018-2019<br />2019-2020<br />2020-2021<br />2021-2022<br />2022-2023<br />2023-2024<br />2024-2025<br />2025-2026<br />2026-2027<br />2027-2028<br />2028-2029<br />2029-2030</div>
+                <div>1990-1991<br />1991-1992<br />1992-1993<br />1993-1994<br />1994-1995<br />1995-1996<br />1996-1997<br />1997-1998<br />1998-1999<br />1999-2000<br />2000-2001<br />2001-2002<br />2002-2003<br />2003-2004<br />2004-2005<br />2005-2006<br />2006-2007<br />2007-2008<br />2008-2009<br />2009-2010<br />2010-2011<br />2011-2012<br />2012-2013<br />2013-2014<br />2014-2015<br />2015-2016<br />2016-2017<br />2017-2018<br />2018-2019<br />2019-2020<br />2020-2021<br />2021-2022<br />2022-2023<br />2023-2024<br />2024-2025<br />2025-2026<br />2026-2027<br />2027-2028<br />2028-2029<br />2029-2030<br />2030-2031<br />2031-2032<br />2032-2033<br />2033-2034<br />2034-2035<br />2035-2036<br />2036-2037<br />2037-2038<br />2038-2039<br />2039-2040<br />2040-2041<br />2041-2042<br />2042-2043<br />2043-2044<br />2044-2045<br />2045-2046<br />2046-2047<br />2047-2048<br />2048-2049<br />2049-2050</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
