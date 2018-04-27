@@ -1,6 +1,6 @@
 Common AggregatedDisabilityTotalStudentsDisabled
   documentation "Information about the total number of students with a disability."
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   integer StudentsDisabledNumber

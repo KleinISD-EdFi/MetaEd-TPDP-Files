@@ -1,9 +1,9 @@
 Common AggregatedGender
   documentation "The information about the gender"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
-  enumeration Gender
+  descriptor Gender
     documentation "The gender with which a person associates."
     is part of identity
   integer GenderTypeNumber

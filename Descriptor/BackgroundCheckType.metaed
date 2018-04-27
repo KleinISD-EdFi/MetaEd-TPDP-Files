@@ -1,14 +1,2 @@
 Descriptor BackgroundCheckType
-    documentation "This descriptor defines the classification of the background check a person receives."
-    with optional map type
-        documentation "This descriptor defines the classification of the background check a person receives."
-        item "City"
-            documentation "*NONE*"
-        item "County"
-            documentation "*NONE*"
-        item "Federal"
-            documentation "*NONE*"
-        item "State"
-            documentation "*NONE*"
-        item "Other"
-            documentation "*NONE*"
+  documentation "This descriptor defines the classification of the background check a person receives."

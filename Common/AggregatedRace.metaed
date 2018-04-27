@@ -1,6 +1,6 @@
 Common AggregatedRace
   documentation "Data about the race of the group"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   enumeration Race

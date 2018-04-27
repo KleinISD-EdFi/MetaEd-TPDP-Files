@@ -1,13 +1,2 @@
 Descriptor TPPDegreeType
   documentation "The descriptor holds the degree that a teacher candidate accomplishes."
-  with optional map type
-    documentation "Map for the type of degree awarded."
-    item "Master's of Arts"
-    item "Master's of Science"
-    item "Master's of Education"
-    item "Educational Doctorate"
-    item "Doctor of Philosophy"
-    item "Bachelor of Arts"
-    item "Bachelor of Science"
-    item "Educational Specialist"
-    item "Other"

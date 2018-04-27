@@ -1,0 +1,33 @@
+{
+  "metaEdConfiguration": {
+    "title": "MetaEd Extension Project",
+    "namespace": "extension",
+    "dataStandardCoreSourceVersion": "2.0.0",
+    "dataStandardCoreSourceDirectory": "C:/MetaEd-IDE/node_modules/ed-fi-model-2.0",
+    "dataStandardExtensionSourceDirectory": "C:/GitHub/MetaEd-TPDP-Files",
+    "artifactDirectory": "./MetaEdOutput/",
+    "pluginConfig": {
+      "edfiUnified": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiOds": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiOdsApi": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiXsd": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiHandbook": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiInterchangeBrief": {
+        "targetTechnologyVersion": "2.0.0"
+      },
+      "edfiXmlDictionary": {
+        "targetTechnologyVersion": "2.0.0"
+      }
+    }
+  }
+}

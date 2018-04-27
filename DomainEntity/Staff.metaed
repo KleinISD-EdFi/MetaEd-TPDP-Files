@@ -22,7 +22,7 @@ Domain Entity Staff additions
         documentation "Reference to applicant(s) represented by this staff member."
         is optional collection
 
-    enumeration Gender
+    descriptor Gender
       documentation "The gender with which a person associates."
       is optional
     common Salary

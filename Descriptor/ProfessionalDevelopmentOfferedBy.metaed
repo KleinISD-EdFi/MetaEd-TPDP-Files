@@ -1,8 +1,2 @@
 Descriptor ProfessionalDevelopmentOfferedBy
   documentation "The descriptor holds the organization that a professional development is offered by."
-  with optional map type
-    documentation "Map for the type of organizations that the professional development is offered by."
-    item "State"
-    item "District"
-    item "School"
-    item "Teacher Preparation Provider"

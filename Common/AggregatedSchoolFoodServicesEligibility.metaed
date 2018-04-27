@@ -1,6 +1,6 @@
 Common AggregatedSchoolFoodServicesEligibility
   documentation "Identifies if the student is eligible for Free and Reduce Price Lunch"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   descriptor SchoolFoodServicesEligibility

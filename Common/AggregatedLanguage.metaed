@@ -1,6 +1,6 @@
 Common AggregatedLanguage
   documentation "The data about the language"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   descriptor Language

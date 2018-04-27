@@ -1,5 +1,0 @@
-Enumeration ValueType
-  documentation "The type (i.e. actual or projected) of value."
-  item "Actual"
-  item "Projected"
-  item "Other"
