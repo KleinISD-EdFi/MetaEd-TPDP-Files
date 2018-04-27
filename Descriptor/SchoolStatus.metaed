@@ -1,7 +1,2 @@
 Descriptor SchoolStatus
   documentation "The descriptor holds the status of a school e.g. priority or focus."
-  with optional map type
-    documentation "Map for the type of the school status."
-    item "Priority"
-    item "Focus"
-    item "Other"

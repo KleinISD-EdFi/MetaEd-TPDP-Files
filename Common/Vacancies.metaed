@@ -1,6 +1,6 @@
 Common Vacancies
   documentation "This entity represents actual and projected vacancies for the education organization."
-  enumeration ValueType
+  descriptor ValueType
     documentation "The type (i.e. actual or projected) of value."
     is optional
   descriptor AcademicSubject

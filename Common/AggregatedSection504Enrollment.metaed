@@ -1,6 +1,6 @@
 Common AggregatedSection504Enrollment
   documentation "Information about the students who are enrolled in a 504 program"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   integer Number504Enrolled

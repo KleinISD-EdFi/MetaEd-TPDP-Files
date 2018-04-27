@@ -1,6 +1,6 @@
 Common AggregatedByDisability
   documentation "Students in the course who have a disability by disability type"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   descriptor Disability

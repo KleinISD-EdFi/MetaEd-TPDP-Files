@@ -87,7 +87,7 @@ Domain Entity Applicant
         is optional
 
     // TPDP Extensions
-    enumeration Gender
+    descriptor Gender
       documentation "The gender with which a person associates."
       is optional
     common Disability

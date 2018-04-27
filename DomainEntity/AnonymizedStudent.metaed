@@ -9,7 +9,7 @@ Domain Entity AnonymizedStudent
   date FactsAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity
-  enumeration ValueType
+  descriptor ValueType
     documentation "Domain entity to collect data for indiviudal students with whom the teacher candidate is associated through field work or student teaching"
     is optional
   domain entity EducationOrganization
@@ -26,7 +26,7 @@ Domain Entity AnonymizedStudent
   enumeration Sex
     documentation "A person's gender."
     is optional
-  enumeration Gender
+  descriptor Gender
     documentation "The gender with which a person associates."
     is optional
   bool HispanicLatinoEthnicity

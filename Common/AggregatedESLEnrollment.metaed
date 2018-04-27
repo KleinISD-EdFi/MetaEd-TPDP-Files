@@ -1,6 +1,6 @@
 Common AggregatedESLEnrollment
   documentation "Data about the ESL enrollment of the group	ESL"
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
   integer ESLEnrollmentNumber

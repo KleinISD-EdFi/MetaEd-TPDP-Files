@@ -99,7 +99,7 @@ Domain Entity TeacherCandidate
       documentation "Provide user information to lookup and link to an existing educational organization record in the receiving system."
       is queryable only
 
-  enumeration Gender
+  descriptor Gender
     documentation "The gender with which a person associates."
     is optional
     is queryable field

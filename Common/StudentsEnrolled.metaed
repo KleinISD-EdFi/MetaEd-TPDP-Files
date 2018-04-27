@@ -1,6 +1,6 @@
 Common StudentsEnrolled
   documentation "This aggregated fact entity holds the information regarding number of students enrolled in an education organization, course, or section or have data pertaining to academic records or assessments."
-  enumeration ValueType
+  descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
 	integer NumberStudentsEnrolled

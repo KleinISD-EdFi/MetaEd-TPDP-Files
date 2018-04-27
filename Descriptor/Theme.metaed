@@ -1,14 +1,2 @@
 Descriptor Theme
   documentation "The descriptor holds the theme of the specified level of the rubric."
-  with optional map type
-    documentation "Map for the theme types."
-    item "Effective Planning"
-    item "Classroom Environment"
-    item "Classroom Instruction"
-    item "Managing Student Behavior"
-    item "Lesson Alignment"
-    item "Student Assessment"
-    item "Student Investment and Engagement"
-    item "Teacher Reflection"
-    item "Professionalism"
-    item "Other"

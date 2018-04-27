@@ -1,8 +1,2 @@
 Descriptor RubricType
   documentation "The descriptor holds the rubric types."
-  with optional map type
-    documentation "Map for the rubric types."
-    item "State"
-    item "District"
-    item "Teacher Preparation Provider"
-    item "Other"
