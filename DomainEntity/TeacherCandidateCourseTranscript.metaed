@@ -1,6 +1,6 @@
 Domain Entity TeacherCandidateCourseTranscript
     documentation "This entity is the final record of a student's performance in their courses at the end of a semester or school year."
-    enumeration CourseAttemptResult
+    descriptor CourseAttemptResult
         documentation "The result from the student's attempt to take the course, for example:
         Pass
         Fail
@@ -23,7 +23,7 @@ Domain Entity TeacherCandidateCourseTranscript
         documentation "Student's grade level at time of course."
         is optional
         with context WhenTaken
-    enumeration MethodCreditEarned
+    descriptor MethodCreditEarned
         documentation "The method the credits were earned (e.g., Classroom, Examination, Transfer)."
         is optional
     shared string GradeEarned named FinalLetterGradeEarned
@@ -32,7 +32,7 @@ Domain Entity TeacherCandidateCourseTranscript
     shared decimal NumericGrade named FinalNumericGradeEarned
         documentation "The final indicator of student performance in a class as submitted by the instructor."
         is optional
-    enumeration CourseRepeatCode
+    descriptor CourseRepeatCode
         documentation "Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student's academic grade average."
         is optional
     domain entity Course

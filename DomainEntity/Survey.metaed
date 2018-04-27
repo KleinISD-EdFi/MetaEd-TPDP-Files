@@ -34,4 +34,4 @@ Domain Entity Survey
         documentation "The section associated with the survey."
         is optional
         merge Section.CourseOffering.Session.SchoolYear with SchoolYear
-        merge Section.CourseOffering.Session.Term with Term
+        //merge Section.CourseOffering.Session.Term with Term

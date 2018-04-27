@@ -3,7 +3,7 @@ Common Recommendation
   descriptor CredentialField
     documentation "The field of certification for the certificate (e.g., Mathematics, Music)."
     is optional
-  descriptor Level
+  descriptor GradeLevel
     documentation "The grade level(s) certified for teaching."
     is required
   descriptor TeachingCredential

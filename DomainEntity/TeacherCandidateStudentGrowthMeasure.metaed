@@ -12,7 +12,7 @@ Domain Entity TeacherCandidateStudentGrowthMeasure
   date StudentGrowthMeasureDate
     documentation "The date for which the student growth is measured"
     is optional
-  enumeration ResultDatatypeType
+  descriptor ResultDatatypeType
     documentation "The datatype of the result. The results can be expressed as a number, percentile, range, level, etc."
     is optional
   descriptor StudentGrowthType

@@ -38,7 +38,7 @@ Domain Entity Prospect
     integer PreScreeningRating
         documentation "The rating initially assigned to the prospect prior to an official screening."
         is optional
-    enumeration Race
+    descriptor Race
         documentation "The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races."
         is optional collection
         is queryable field
@@ -51,7 +51,7 @@ Domain Entity Prospect
     shared string ReferredBy
         documentation "The person making the referral."
         is optional
-    enumeration Sex
+    descriptor Sex
         documentation "A person's gender."
         is optional
         is queryable field

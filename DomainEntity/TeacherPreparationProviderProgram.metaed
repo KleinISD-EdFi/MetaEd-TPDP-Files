@@ -12,7 +12,7 @@ Domain Entity TeacherPreparationProviderProgram
       documentation "The formal name of the Program of instruction, training, services, or benefits available through federal, state, or local agencies."
       is part of identity
       is queryable field
-    enumeration ProgramType
+    descriptor ProgramType
       documentation "The type of program."
       is part of identity
       is queryable field

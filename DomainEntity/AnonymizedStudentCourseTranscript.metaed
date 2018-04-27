@@ -13,7 +13,7 @@ Domain Entity AnonymizedStudentCourseTranscript
   shared decimal NumericGrade named FinalNumericGradeEarned
     documentation "The final indicator of student performance in a class as submitted by the instructor."
     is optional
-  enumeration CourseRepeatCode
+  descriptor CourseRepeatCode
     documentation "Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student's academic grade average."
     is optional
   shared string CourseTitle
