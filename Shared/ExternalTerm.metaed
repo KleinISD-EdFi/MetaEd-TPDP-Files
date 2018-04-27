@@ -1,4 +1,0 @@
-Shared String ExternalTerm [2739]
-    documentation "Defines the external term of a session during the school
-                   year (e.g., Fall Semester) of an ExternalEducationOrganization."
-    max length 75

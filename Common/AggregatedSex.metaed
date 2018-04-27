@@ -3,7 +3,7 @@ Common AggregatedSex
   descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
-  enumeration Sex
+  descriptor Sex
     documentation "A person's gender."
     is part of identity
   integer SexTypeNumber

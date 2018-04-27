@@ -17,7 +17,7 @@ Domain Entity Applicant
         documentation "Full legal name of the person."
         is required
         is queryable field
-    enumeration Sex
+    descriptor Sex
         documentation "A person's gender."
         is optional
         is queryable field
@@ -43,7 +43,7 @@ Domain Entity Applicant
         documentation "An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, ""Spanish origin,"" can be used in addition to ""Hispanic or Latino""."
         is optional
         is queryable field
-    enumeration Race
+    descriptor Race
         documentation "The general racial category which most clearly reflects the individual's recognition of his or her community or with which the individual most identifies. The way this data element is listed, it must allow for multiple entries so that each individual can specify all appropriate races."
         is optional collection
         is queryable field

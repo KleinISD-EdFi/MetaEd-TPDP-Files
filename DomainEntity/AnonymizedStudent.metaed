@@ -23,7 +23,7 @@ Domain Entity AnonymizedStudent
     documentation "The section associated with aggregated student data"
     is optional
     merge Section.CourseOffering.Session.SchoolYear with SchoolYear
-  enumeration Sex
+  descriptor Sex
     documentation "A person's gender."
     is optional
   descriptor Gender
@@ -32,7 +32,7 @@ Domain Entity AnonymizedStudent
   bool HispanicLatinoEthnicity
     documentation "An indication that the individual traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central, and South America, and other Spanish cultures, regardless of race. The term, ""Spanish origin,"" can be used in addition to ""Hispanic or Latino."""
     is optional
-  enumeration Race
+  descriptor Race
     documentation "The general racial category which most clearly reflects the individual's
                    recognition of his or her community or with which the individual most
                    identifies. The data model allows for multiple entries so that each individual

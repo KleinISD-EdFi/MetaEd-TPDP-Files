@@ -1,6 +1,6 @@
 Domain Entity ExternalCourseTranscript [2740]
     documentation "This entity is the final record of a student's performance in their courses at the end of a semester or school year of an ExternalEducationOrgnaization."
-    enumeration CourseAttemptResult [2746]
+    descriptor CourseAttemptResult [2746]
         documentation "The result from the student's attempt to take the course, for example:
         Pass
         Fail
@@ -27,7 +27,7 @@ Domain Entity ExternalCourseTranscript [2740]
         documentation "Student's grade level at time of course."
         is optional
         with context Offered
-    enumeration MethodCreditEarned [2757]
+    descriptor MethodCreditEarned [2757]
         documentation "The method the credits were earned (e.g., Classroom, Examination, Transfer)."
         is optional
     shared string GradeEarned named FinalLetterGradeEarned [2755]
@@ -36,7 +36,7 @@ Domain Entity ExternalCourseTranscript [2740]
     shared decimal NumericGrade named FinalNumericGradeEarned [2756]
         documentation "The final indicator of student performance in a class as submitted by the instructor."
         is optional
-    enumeration CourseRepeatCode [2751]
+    descriptor CourseRepeatCode [2751]
         documentation "Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student's academic grade average."
         is optional
     domain entity Course [2762]
@@ -58,7 +58,7 @@ Domain Entity ExternalCourseTranscript [2740]
     descriptor AcademicSubject [2741]
         documentation "The intended major subject area of the course."
         is optional
-    enumeration CareerPathway [2745]
+    descriptor CareerPathway [2745]
 		documentation "Indicates the career cluster or pathway the course is associated with as part of a CTE curriculum."
         is optional
     shared string IdentificationCode named ExternalCourseCode [2747]
@@ -72,11 +72,7 @@ Domain Entity ExternalCourseTranscript [2740]
     common CourseIdentificationCode [2749]
         documentation "The code that identifies the organization of subject matter and related learning experiences provided for the instruction of students."
         is optional collection
-        is queryable field    
-    enumeration CourseLevelCharacteristic [2750]
+        is queryable field
+    descriptor CourseLevelCharacteristic [2750]
         documentation "The type of specific program or designation with which the course is associated (e.g., AP, IB, Dual Credit, CTE)."
         is optional collection
-                            
-                            
-                            
-                             
