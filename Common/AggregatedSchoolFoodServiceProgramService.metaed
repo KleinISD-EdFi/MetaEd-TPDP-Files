@@ -1,9 +1,9 @@
-Common AggregatedSchoolFoodServicesEligibility
+Common AggregatedSchoolFoodServiceProgramService
   documentation "Identifies if the student is eligible for Free and Reduce Price Lunch"
   descriptor ValueType
     documentation "The value of the data, i.e., is the data projected, actual or other"
     is optional
-  descriptor SchoolFoodServicesEligibility
+  descriptor SchoolFoodServiceProgramService
     documentation "Information about the students who are enrolled based on School Food Services Eligibility"
     is part of identity
   integer TypeNumber

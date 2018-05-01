@@ -61,9 +61,6 @@ Domain Entity TeacherCandidate
   bool EconomicDisadvantaged
       documentation "An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy."
       is optional
-  descriptor SchoolFoodServicesEligibility
-      documentation "An indication of a student's level of eligibility for breakfast, lunch, snack, supper, and milk programs."
-      is optional
   common TeacherCandidateCharacteristic
       documentation "Reflects important characteristics of the teacher candidate's home situation:
       Displaced Homemaker, Immigrant, Migratory, Military Parent, Pregnant Teen, Single Parent, and Unaccompanied Youth."

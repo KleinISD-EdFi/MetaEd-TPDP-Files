@@ -39,10 +39,6 @@ Domain Entity AnonymizedStudent
                    can specify all appropriate races."
     is optional collection
     is queryable field
-  descriptor SchoolFoodServicesEligibility
-    documentation "An indication of a student's level of eligibility for breakfast, lunch, snack,
-                   supper, and milk programs."
-    is optional
   common Language
     documentation "The language(s) the individual uses to communicate."
     is optional collection

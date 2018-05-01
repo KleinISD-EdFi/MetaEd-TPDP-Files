@@ -21,7 +21,7 @@ Domain Entity EducationOrganizationStudentFacts
   common AggregatedRace
     documentation "Data about the race of the group"
     is optional collection
-  common AggregatedSchoolFoodServicesEligibility
+  common AggregatedSchoolFoodServiceProgramService
     documentation "Identifies if the student is eligible for Free and Reduce Price Lunch"
     is optional collection
   common AggregatedLanguage
