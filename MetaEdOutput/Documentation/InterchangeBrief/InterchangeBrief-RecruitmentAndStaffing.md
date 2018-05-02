@@ -37,7 +37,7 @@ This interchange includes the following Extended References.
 
 | Extended Reference Name | Description |
 |-----------------------------|-----------------|
-| EducationOrganizationReference (in Applicant) | Required.  The education organization, typically a LocalEducationAgency, associated with the applicant. |
+| ApplicantEducationOrganizationReference (in Applicant) | Required.  The education organization, typically a LocalEducationAgency, associated with the applicant. |
 | ProspectEducationOrganizationReference (in Prospect) | Required.  The education organization, typically a LocalEducationAgency, associated with the prospect. |
 
 

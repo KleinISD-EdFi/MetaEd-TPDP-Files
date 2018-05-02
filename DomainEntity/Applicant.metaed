@@ -9,6 +9,7 @@ Domain Entity Applicant
     domain entity EducationOrganization
         documentation "The education organization, typically a LocalEducationAgency, associated with the applicant."
         is part of identity
+        with context Applicant
     common StaffIdentificationCode
         documentation "A unique number or alphanumeric code assigned to an applicant by a school, school system, a state, or other agency or entity."
         is optional collection
