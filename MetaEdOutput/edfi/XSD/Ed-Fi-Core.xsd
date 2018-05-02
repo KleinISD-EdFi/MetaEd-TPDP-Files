@@ -3036,6 +3036,19 @@
               <xs:documentation>The school year in which a charter school was initially approved.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="SchoolStatus" type="SchoolStatusDescriptorReferenceType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The status of school e.g. priority or focus.</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>SchoolStatusDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ImprovingSchool" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>An indication of whether a school is identified as an improving school.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -5711,6 +5724,17 @@
   <xs:complexType name="SchoolFoodServiceProgramServiceDescriptor">
     <xs:annotation>
       <xs:documentation>This descriptor defines the services provided by an education organization to populations of students associated with a school food service program.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Descriptor</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DescriptorType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SchoolStatusDescriptor">
+    <xs:annotation>
+      <xs:documentation>The descriptor holds the status of a school e.g. priority or focus.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Descriptor</ann:TypeGroup>
       </xs:appinfo>
@@ -13580,6 +13604,15 @@
   <xs:simpleType name="SchoolFoodServiceProgramServiceDescriptorReferenceType">
     <xs:annotation>
       <xs:documentation>This descriptor defines the services provided by an education organization to populations of students associated with a school food service program.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="DescriptorReferenceType" />
+  </xs:simpleType>
+  <xs:simpleType name="SchoolStatusDescriptorReferenceType">
+    <xs:annotation>
+      <xs:documentation>The descriptor holds the status of a school e.g. priority or focus.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
       </xs:appinfo>

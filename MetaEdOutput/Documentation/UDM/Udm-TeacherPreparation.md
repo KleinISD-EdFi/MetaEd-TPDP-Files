@@ -44,7 +44,7 @@
 | RubricLevel | This entity represents the level of the rubric. |
 | RubricLevelResponse | This entity represents the response to the rubric level. |
 | RubricLevelResponseFacts | This entity represents the rubric level response at the aggregate level. |
-| School |  |
+| School | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
 | SectionCourseTranscriptFacts | Data about the final grade earned of the group. |
 | SectionStudentAcademicRecordFacts | Complex type that provides data about a group of students and their academic record. |
 | SectionStudentAssessmentFacts | This domain entity collects data for aggregated level students with whom the teacher candidate is associated through field work or student teaching. |

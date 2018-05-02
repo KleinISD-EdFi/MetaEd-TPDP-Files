@@ -689,6 +689,9 @@
   <Aggregate root="SchoolFoodServiceProgramServiceDescriptor">
     <Entity table="SchoolFoodServiceProgramServiceDescriptor" isA="Descriptor"/>
   </Aggregate>
+  <Aggregate root="SchoolStatusDescriptor">
+    <Entity table="SchoolStatusDescriptor" isA="Descriptor"/>
+  </Aggregate>
   <Aggregate root="SchoolTypeDescriptor">
     <Entity table="SchoolTypeDescriptor" isA="Descriptor"/>
   </Aggregate>

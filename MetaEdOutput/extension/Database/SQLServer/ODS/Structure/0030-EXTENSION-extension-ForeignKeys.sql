@@ -27,12 +27,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudent_GenderDescriptor]
 ON [extension].[AnonymizedStudent] ([GenderDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudent] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudent_SchoolYearType] FOREIGN KEY ([SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudent] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudent_SchoolYearType] FOREIGN KEY ([AssociatedSchoolYear])
 REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudent_SchoolYearType]
-ON [extension].[AnonymizedStudent] ([SchoolYear] ASC)
+ON [extension].[AnonymizedStudent] ([AssociatedSchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudent] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudent_Section] FOREIGN KEY ([LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName])
@@ -60,12 +60,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudent_ValueTypeDescriptor]
 ON [extension].[AnonymizedStudent] ([ValueTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAcademicRecord] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAcademicRecord_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAcademicRecord] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAcademicRecord_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAcademicRecord_AnonymizedStudent]
-ON [extension].[AnonymizedStudentAcademicRecord] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentAcademicRecord] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentAcademicRecord] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAcademicRecord_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
@@ -92,12 +92,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_AcademicSubjectDescrip
 ON [extension].[AnonymizedStudentAssessment] ([AcademicSubjectDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_AnonymizedStudent]
-ON [extension].[AnonymizedStudentAssessment] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentAssessment] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentAssessment] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessment_AssessmentCategoryDescriptor] FOREIGN KEY ([AssessmentCategoryDescriptorId])
@@ -149,8 +149,8 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessment_TermDescriptor]
 ON [extension].[AnonymizedStudentAssessment] ([TermDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentPerformanceLevel_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
-REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentPerformanceLevel_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [TakenSchoolYear])
+REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [TakenSchoolYear])
 ON DELETE CASCADE
 GO
 
@@ -170,8 +170,8 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessmentPerformanceLevel_Perfor
 ON [extension].[AnonymizedStudentAssessmentPerformanceLevel] ([PerformanceLevelDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentAssessmentScoreResult] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentScoreResult_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
-REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [FactsAsOfDate], [SchoolYear], [TakenSchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentAssessmentScoreResult] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentAssessmentScoreResult_AnonymizedStudentAssessment] FOREIGN KEY ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [TakenSchoolYear])
+REFERENCES [extension].[AnonymizedStudentAssessment] ([AdministrationDate], [AnonymizedStudentIdentifier], [AssessmentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [TakenSchoolYear])
 ON DELETE CASCADE
 GO
 
@@ -191,12 +191,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentAssessmentScoreResult_ResultDatat
 ON [extension].[AnonymizedStudentAssessmentScoreResult] ([ResultDatatypeTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentCourseAssociation_AnonymizedStudent]
-ON [extension].[AnonymizedStudentCourseAssociation] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentCourseAssociation] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentCourseAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseAssociation_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
@@ -207,12 +207,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentCourseAssociation_Course]
 ON [extension].[AnonymizedStudentCourseAssociation] ([CourseCode] ASC, [EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentCourseTranscript] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseTranscript_AnonymizedStudentAcademicRecord] FOREIGN KEY ([AnonymizedStudentIdentifier], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
-REFERENCES [extension].[AnonymizedStudentAcademicRecord] ([AnonymizedStudentIdentifier], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [SchoolYear], [TermDescriptorId])
+ALTER TABLE [extension].[AnonymizedStudentCourseTranscript] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseTranscript_AnonymizedStudentAcademicRecord] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [TermDescriptorId])
+REFERENCES [extension].[AnonymizedStudentAcademicRecord] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [EducationOrganizationId], [FactAsOfDate], [FactsAsOfDate], [TermDescriptorId])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentCourseTranscript_AnonymizedStudentAcademicRecord]
-ON [extension].[AnonymizedStudentCourseTranscript] ([AnonymizedStudentIdentifier] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC, [TermDescriptorId] ASC)
+ON [extension].[AnonymizedStudentCourseTranscript] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [EducationOrganizationId] ASC, [FactAsOfDate] ASC, [FactsAsOfDate] ASC, [TermDescriptorId] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentCourseTranscript] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentCourseTranscript_Course] FOREIGN KEY ([CourseCode], [EducationOrganizationId])
@@ -231,13 +231,13 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentCourseTranscript_CourseRepeatCode
 ON [extension].[AnonymizedStudentCourseTranscript] ([CourseRepeatCodeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentDisability] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisability_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentDisability] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisability_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 ON DELETE CASCADE
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentDisability_AnonymizedStudent]
-ON [extension].[AnonymizedStudentDisability] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentDisability] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentDisability] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisability_DisabilityDescriptor] FOREIGN KEY ([DisabilityDescriptorId])
@@ -256,13 +256,13 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentDisability_DisabilityDeterminatio
 ON [extension].[AnonymizedStudentDisability] ([DisabilityDeterminationSourceTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentDisabilityDesignation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisabilityDesignation_AnonymizedStudentDisability] FOREIGN KEY ([AnonymizedStudentIdentifier], [DisabilityDescriptorId], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudentDisability] ([AnonymizedStudentIdentifier], [DisabilityDescriptorId], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentDisabilityDesignation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisabilityDesignation_AnonymizedStudentDisability] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [DisabilityDescriptorId], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudentDisability] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [DisabilityDescriptorId], [FactsAsOfDate])
 ON DELETE CASCADE
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentDisabilityDesignation_AnonymizedStudentDisability]
-ON [extension].[AnonymizedStudentDisabilityDesignation] ([AnonymizedStudentIdentifier] ASC, [DisabilityDescriptorId] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentDisabilityDesignation] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [DisabilityDescriptorId] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentDisabilityDesignation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentDisabilityDesignation_DisabilityDesignationDescriptor] FOREIGN KEY ([DisabilityDesignationDescriptorId])
@@ -273,12 +273,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentDisabilityDesignation_DisabilityD
 ON [extension].[AnonymizedStudentDisabilityDesignation] ([DisabilityDesignationDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentEducationOrganizationAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentEducationOrganizationAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentEducationOrganizationAssociation_AnonymizedStudent]
-ON [extension].[AnonymizedStudentEducationOrganizationAssociation] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentEducationOrganizationAssociation] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentEducationOrganizationAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentEducationOrganizationAssociation_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
@@ -289,13 +289,13 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentEducationOrganizationAssociation_
 ON [extension].[AnonymizedStudentEducationOrganizationAssociation] ([EducationOrganizationId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentLanguage] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguage_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentLanguage] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguage_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 ON DELETE CASCADE
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentLanguage_AnonymizedStudent]
-ON [extension].[AnonymizedStudentLanguage] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentLanguage] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentLanguage] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguage_LanguageDescriptor] FOREIGN KEY ([LanguageDescriptorId])
@@ -306,13 +306,13 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentLanguage_LanguageDescriptor]
 ON [extension].[AnonymizedStudentLanguage] ([LanguageDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentLanguageUse] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguageUse_AnonymizedStudentLanguage] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [LanguageDescriptorId], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudentLanguage] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [LanguageDescriptorId], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentLanguageUse] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguageUse_AnonymizedStudentLanguage] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [LanguageDescriptorId])
+REFERENCES [extension].[AnonymizedStudentLanguage] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate], [LanguageDescriptorId])
 ON DELETE CASCADE
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentLanguageUse_AnonymizedStudentLanguage]
-ON [extension].[AnonymizedStudentLanguageUse] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [LanguageDescriptorId] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentLanguageUse] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC, [LanguageDescriptorId] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentLanguageUse] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentLanguageUse_LanguageUseDescriptor] FOREIGN KEY ([LanguageUseDescriptorId])
@@ -323,13 +323,13 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentLanguageUse_LanguageUseDescriptor
 ON [extension].[AnonymizedStudentLanguageUse] ([LanguageUseDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentRace] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentRace_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentRace] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentRace_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 ON DELETE CASCADE
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentRace_AnonymizedStudent]
-ON [extension].[AnonymizedStudentRace] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentRace] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentRace] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentRace_RaceDescriptor] FOREIGN KEY ([RaceDescriptorId])
@@ -340,12 +340,12 @@ CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentRace_RaceDescriptor]
 ON [extension].[AnonymizedStudentRace] ([RaceDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[AnonymizedStudentSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentSectionAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
-REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [FactsAsOfDate], [SchoolYear])
+ALTER TABLE [extension].[AnonymizedStudentSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentSectionAssociation_AnonymizedStudent] FOREIGN KEY ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
+REFERENCES [extension].[AnonymizedStudent] ([AnonymizedStudentIdentifier], [AssociatedSchoolYear], [FactsAsOfDate])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_AnonymizedStudentSectionAssociation_AnonymizedStudent]
-ON [extension].[AnonymizedStudentSectionAssociation] ([AnonymizedStudentIdentifier] ASC, [FactsAsOfDate] ASC, [SchoolYear] ASC)
+ON [extension].[AnonymizedStudentSectionAssociation] ([AnonymizedStudentIdentifier] ASC, [AssociatedSchoolYear] ASC, [FactsAsOfDate] ASC)
 GO
 
 ALTER TABLE [extension].[AnonymizedStudentSectionAssociation] WITH CHECK ADD CONSTRAINT [FK_AnonymizedStudentSectionAssociation_Section] FOREIGN KEY ([LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName])
@@ -3033,24 +3033,6 @@ REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
 GO
 
-ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_School] FOREIGN KEY ([SchoolId])
-REFERENCES [edfi].[School] ([SchoolId])
-ON DELETE CASCADE
-GO
-
-ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_SchoolStatusDescriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
-REFERENCES [extension].[SchoolStatusDescriptor] ([SchoolStatusDescriptorId])
-GO
-
-CREATE NONCLUSTERED INDEX [FK_SchoolExtension_SchoolStatusDescriptor]
-ON [extension].[SchoolExtension] ([SchoolStatusDescriptorId] ASC)
-GO
-
-ALTER TABLE [extension].[SchoolStatusDescriptor] WITH CHECK ADD CONSTRAINT [FK_SchoolStatusDescriptor_Descriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
-REFERENCES [edfi].[Descriptor] ([DescriptorId])
-ON DELETE CASCADE
-GO
-
 ALTER TABLE [extension].[SectionCourseTranscriptFacts] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFacts_SectionStudentAcademicRecordFacts] FOREIGN KEY ([FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName])
 REFERENCES [extension].[SectionStudentAcademicRecordFacts] ([FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName])
 ON UPDATE CASCADE
@@ -4029,12 +4011,12 @@ CREATE NONCLUSTERED INDEX [FK_Survey_Program]
 ON [extension].[Survey] ([EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeDescriptorId] ASC)
 GO
 
-ALTER TABLE [extension].[Survey] WITH CHECK ADD CONSTRAINT [FK_Survey_SchoolYearType] FOREIGN KEY ([SchoolYear])
+ALTER TABLE [extension].[Survey] WITH CHECK ADD CONSTRAINT [FK_Survey_SchoolYearType] FOREIGN KEY ([AssociatedSchoolYear])
 REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
 GO
 
 CREATE NONCLUSTERED INDEX [FK_Survey_SchoolYearType]
-ON [extension].[Survey] ([SchoolYear] ASC)
+ON [extension].[Survey] ([AssociatedSchoolYear] ASC)
 GO
 
 ALTER TABLE [extension].[Survey] WITH CHECK ADD CONSTRAINT [FK_Survey_Section] FOREIGN KEY ([LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName])

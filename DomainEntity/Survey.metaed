@@ -14,6 +14,7 @@ Domain Entity Survey
     enumeration SchoolYear
         documentation "The school year associated with the survey."
         is required
+        with context Survey
     descriptor Term
         documentation "The Term the survey was given."
         is optional
@@ -33,5 +34,3 @@ Domain Entity Survey
   	domain entity Section
         documentation "The section associated with the survey."
         is optional
-        merge Section.CourseOffering.Session.SchoolYear with SchoolYear
-        //merge Section.CourseOffering.Session.Term with Term

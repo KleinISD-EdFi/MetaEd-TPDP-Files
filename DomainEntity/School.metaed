@@ -1,7 +1,0 @@
-Domain Entity School additions
-  descriptor SchoolStatus
-    documentation "The status of school e.g. priority or focus."
-    is optional
-  bool ImprovingSchool
-    documentation "An indication of whether a school is identified as an improving school."
-    is optional

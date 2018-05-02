@@ -167,6 +167,7 @@ The following table describes the primary entities of which the Descriptors Inte
 | SchoolCategoryDescriptor | The category of school. For example: High School, Middle School, Elementary School. |
 | SchoolChoiceImplementStatusDescriptor | An indication of whether the LEA was able to implement the provisions for public school choice under Title I, Part A, Section 1116 of ESEA, as amended. |
 | SchoolFoodServiceProgramServiceDescriptor | This descriptor defines the services provided by an education organization to populations of students associated with a school food service program. |
+| SchoolStatusDescriptor | The descriptor holds the status of a school e.g. priority or focus. |
 | SchoolTypeDescriptor | The type of education institution as classified by its primary focus. |
 | SectionCharacteristicDescriptor | This descriptor defines characteristics of a Section, such as whether attendance is taken and the Section is graded. |
 | SeparationDescriptor | Type of employment separation; for example:  Voluntary separation, Involuntary separation, Mutual agreement. Other, etc. |
@@ -209,7 +210,6 @@ The following table describes the primary entities of which the Descriptors Inte
 | QuestionFormDescriptor | The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbox; 8) Matrix of text boxes. |
 | RubricTypeDescriptor | The descriptor holds the rubric types. |
 | SalaryTypeDescriptor | The descriptor holds the type of salary that a staff member is receiving. |
-| SchoolStatusDescriptor | The descriptor holds the status of a school e.g. priority or focus. |
 | StudentGrowthTypeDescriptor | Identification of the type of score that was used to determine student growth |
 | SurveyCategoryDescriptor | The descriptor holds the category or type of survey. |
 | TeacherCandidateCharacteristicDescriptor | The characteristic designated for the TeacherCandidate. |

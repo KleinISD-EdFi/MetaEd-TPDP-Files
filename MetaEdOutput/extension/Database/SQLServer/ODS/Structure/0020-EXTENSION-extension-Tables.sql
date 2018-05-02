@@ -10,14 +10,15 @@ GO
 -- Table [extension].[AnonymizedStudent] --
 CREATE TABLE [extension].[AnonymizedStudent] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [ValueTypeDescriptorId] [INT] NULL,
     [EducationOrganizationId] [INT] NULL,
     [CourseCode] [NVARCHAR](60) NULL,
     [SectionIdentifier] [NVARCHAR](255) NULL,
     [LocalCourseCode] [NVARCHAR](60) NULL,
     [SessionName] [NVARCHAR](60) NULL,
+    [SchoolYear] [SMALLINT] NULL,
     [SchoolId] [INT] NULL,
     [SexDescriptorId] [INT] NULL,
     [GenderDescriptorId] [INT] NULL,
@@ -34,8 +35,8 @@ CREATE TABLE [extension].[AnonymizedStudent] (
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudent_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
-        [FactsAsOfDate] ASC,
-        [SchoolYear] ASC
+        [AssociatedSchoolYear] ASC,
+        [FactsAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -49,10 +50,10 @@ GO
 -- Table [extension].[AnonymizedStudentAcademicRecord] --
 CREATE TABLE [extension].[AnonymizedStudentAcademicRecord] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [SessionGradePointAverage] [DECIMAL](18, 4) NULL,
     [CumulativeGradePointAverage] [DECIMAL](18, 4) NULL,
@@ -62,10 +63,10 @@ CREATE TABLE [extension].[AnonymizedStudentAcademicRecord] (
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudentAcademicRecord_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [FactsAsOfDate] ASC,
-        [SchoolYear] ASC,
         [TermDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -82,8 +83,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessment] (
     [AdministrationDate] [DATE] NOT NULL,
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [TakenSchoolYear] [SMALLINT] NOT NULL,
     [TermDescriptorId] [INT] NULL,
     [AssessmentTitle] [NVARCHAR](60) NULL,
@@ -95,6 +96,7 @@ CREATE TABLE [extension].[AnonymizedStudentAssessment] (
     [SectionIdentifier] [NVARCHAR](255) NULL,
     [LocalCourseCode] [NVARCHAR](60) NULL,
     [SessionName] [NVARCHAR](60) NULL,
+    [SchoolYear] [SMALLINT] NULL,
     [SchoolId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -103,8 +105,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessment] (
         [AdministrationDate] ASC,
         [AnonymizedStudentIdentifier] ASC,
         [AssessmentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
-        [SchoolYear] ASC,
         [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -121,8 +123,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] (
     [AdministrationDate] [DATE] NOT NULL,
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [TakenSchoolYear] [SMALLINT] NOT NULL,
     [PerformanceLevelMet] [BIT] NOT NULL,
     [PerformanceLevelDescriptorId] [INT] NOT NULL,
@@ -132,8 +134,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentPerformanceLevel] (
         [AdministrationDate] ASC,
         [AnonymizedStudentIdentifier] ASC,
         [AssessmentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
-        [SchoolYear] ASC,
         [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -146,8 +148,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentScoreResult] (
     [AdministrationDate] [DATE] NOT NULL,
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
     [AssessmentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [TakenSchoolYear] [SMALLINT] NOT NULL,
     [Result] [NVARCHAR](35) NOT NULL,
     [ResultDatatypeTypeDescriptorId] [INT] NOT NULL,
@@ -157,8 +159,8 @@ CREATE TABLE [extension].[AnonymizedStudentAssessmentScoreResult] (
         [AdministrationDate] ASC,
         [AnonymizedStudentIdentifier] ASC,
         [AssessmentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
-        [SchoolYear] ASC,
         [TakenSchoolYear] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -169,22 +171,22 @@ GO
 -- Table [extension].[AnonymizedStudentCourseAssociation] --
 CREATE TABLE [extension].[AnonymizedStudentCourseAssociation] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudentCourseAssociation_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [BeginDate] ASC,
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
-        [FactsAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactsAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -198,11 +200,11 @@ GO
 -- Table [extension].[AnonymizedStudentCourseTranscript] --
 CREATE TABLE [extension].[AnonymizedStudentCourseTranscript] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [CourseCode] [NVARCHAR](60) NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactAsOfDate] [DATE] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [TermDescriptorId] [INT] NOT NULL,
     [FinalLetterGradeEarned] [NVARCHAR](20) NULL,
     [FinalNumericGradeEarned] [DECIMAL](9, 2) NULL,
@@ -213,11 +215,11 @@ CREATE TABLE [extension].[AnonymizedStudentCourseTranscript] (
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudentCourseTranscript_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [CourseCode] ASC,
         [EducationOrganizationId] ASC,
         [FactAsOfDate] ASC,
         [FactsAsOfDate] ASC,
-        [SchoolYear] ASC,
         [TermDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
@@ -232,18 +234,18 @@ GO
 -- Table [extension].[AnonymizedStudentDisability] --
 CREATE TABLE [extension].[AnonymizedStudentDisability] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [DisabilityDescriptorId] [INT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [DisabilityDiagnosis] [NVARCHAR](80) NULL,
     [OrderOfDisability] [INT] NULL,
     [DisabilityDeterminationSourceTypeDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [AnonymizedStudentDisability_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [DisabilityDescriptorId] ASC,
-        [FactsAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactsAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -253,17 +255,17 @@ GO
 -- Table [extension].[AnonymizedStudentDisabilityDesignation] --
 CREATE TABLE [extension].[AnonymizedStudentDisabilityDesignation] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [DisabilityDescriptorId] [INT] NOT NULL,
     [DisabilityDesignationDescriptorId] [INT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [AnonymizedStudentDisabilityDesignation_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [DisabilityDescriptorId] ASC,
         [DisabilityDesignationDescriptorId] ASC,
-        [FactsAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactsAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -273,20 +275,20 @@ GO
 -- Table [extension].[AnonymizedStudentEducationOrganizationAssociation] --
 CREATE TABLE [extension].[AnonymizedStudentEducationOrganizationAssociation] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [EndDate] [DATE] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudentEducationOrganizationAssociation_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [BeginDate] ASC,
         [EducationOrganizationId] ASC,
-        [FactsAsOfDate] ASC,
-        [SchoolYear] ASC
+        [FactsAsOfDate] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -300,15 +302,15 @@ GO
 -- Table [extension].[AnonymizedStudentLanguage] --
 CREATE TABLE [extension].[AnonymizedStudentLanguage] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [LanguageDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [AnonymizedStudentLanguage_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
-        [LanguageDescriptorId] ASC,
-        [SchoolYear] ASC
+        [LanguageDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -318,17 +320,17 @@ GO
 -- Table [extension].[AnonymizedStudentLanguageUse] --
 CREATE TABLE [extension].[AnonymizedStudentLanguageUse] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [LanguageDescriptorId] [INT] NOT NULL,
     [LanguageUseDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [AnonymizedStudentLanguageUse_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
         [LanguageDescriptorId] ASC,
-        [LanguageUseDescriptorId] ASC,
-        [SchoolYear] ASC
+        [LanguageUseDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -338,15 +340,15 @@ GO
 -- Table [extension].[AnonymizedStudentRace] --
 CREATE TABLE [extension].[AnonymizedStudentRace] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [RaceDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [AnonymizedStudentRace_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [FactsAsOfDate] ASC,
-        [RaceDescriptorId] ASC,
-        [SchoolYear] ASC
+        [RaceDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -356,6 +358,7 @@ GO
 -- Table [extension].[AnonymizedStudentSectionAssociation] --
 CREATE TABLE [extension].[AnonymizedStudentSectionAssociation] (
     [AnonymizedStudentIdentifier] [NVARCHAR](60) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [FactsAsOfDate] [DATE] NOT NULL,
     [LocalCourseCode] [NVARCHAR](60) NOT NULL,
@@ -369,6 +372,7 @@ CREATE TABLE [extension].[AnonymizedStudentSectionAssociation] (
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
     CONSTRAINT [AnonymizedStudentSectionAssociation_PK] PRIMARY KEY CLUSTERED (
         [AnonymizedStudentIdentifier] ASC,
+        [AssociatedSchoolYear] ASC,
         [BeginDate] ASC,
         [FactsAsOfDate] ASC,
         [LocalCourseCode] ASC,
@@ -1694,7 +1698,7 @@ CREATE TABLE [extension].[CredentialExtension] (
     [RevocationReason] [NVARCHAR](40) NULL,
     [SuspensionDate] [DATE] NULL,
     [SuspensionReason] [NVARCHAR](40) NULL,
-    [ValueTypeDescriptorId] [INT] NOT NULL,
+    [ValueTypeDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     CONSTRAINT [CredentialExtension_PK] PRIMARY KEY CLUSTERED (
         [CredentialIdentifier] ASC,
@@ -3694,29 +3698,6 @@ CREATE TABLE [extension].[SalaryTypeDescriptor] (
 ) ON [PRIMARY]
 GO
 
--- Table [extension].[SchoolExtension] --
-CREATE TABLE [extension].[SchoolExtension] (
-    [SchoolId] [INT] NOT NULL,
-    [SchoolStatusDescriptorId] [INT] NULL,
-    [ImprovingSchool] [BIT] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [SchoolExtension_PK] PRIMARY KEY CLUSTERED (
-        [SchoolId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[SchoolExtension] ADD CONSTRAINT [SchoolExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
--- Table [extension].[SchoolStatusDescriptor] --
-CREATE TABLE [extension].[SchoolStatusDescriptor] (
-    [SchoolStatusDescriptorId] [INT] NOT NULL,
-    CONSTRAINT [SchoolStatusDescriptor_PK] PRIMARY KEY CLUSTERED (
-        [SchoolStatusDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
 -- Table [extension].[SectionCourseTranscriptFacts] --
 CREATE TABLE [extension].[SectionCourseTranscriptFacts] (
     [FactAsOfDate] [DATE] NOT NULL,
@@ -5173,6 +5154,7 @@ CREATE TABLE [extension].[Survey] (
     [SurveyIdentifier] [NVARCHAR](64) NOT NULL,
     [EducationOrganizationId] [INT] NULL,
     [SurveyTitle] [NVARCHAR](50) NOT NULL,
+    [AssociatedSchoolYear] [SMALLINT] NOT NULL,
     [TermDescriptorId] [INT] NULL,
     [SurveyCategoryDescriptorId] [INT] NULL,
     [ProgramName] [NVARCHAR](60) NULL,
@@ -5181,7 +5163,7 @@ CREATE TABLE [extension].[Survey] (
     [SectionIdentifier] [NVARCHAR](255) NULL,
     [LocalCourseCode] [NVARCHAR](60) NULL,
     [SessionName] [NVARCHAR](60) NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
+    [SchoolYear] [SMALLINT] NULL,
     [SchoolId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,

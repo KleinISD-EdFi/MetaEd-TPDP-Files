@@ -147,6 +147,7 @@
     <Element name="SchoolCategoryDescriptor" />
     <Element name="SchoolChoiceImplementStatusDescriptor" />
     <Element name="SchoolFoodServiceProgramServiceDescriptor" />
+    <Element name="SchoolStatusDescriptor" />
     <Element name="SchoolTypeDescriptor" />
     <Element name="SectionCharacteristicDescriptor" />
     <Element name="SeparationDescriptor" />

@@ -2764,6 +2764,18 @@
     {
       "aggregateRootEntityName": {
         "schema": "edfi",
+        "name": "SchoolStatusDescriptor"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "edfi",
+          "name": "SchoolStatusDescriptor"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "edfi",
         "name": "SchoolTypeDescriptor"
       },
       "aggregateEntityNames": [
@@ -17856,7 +17868,21 @@
     {
       "schema": "edfi",
       "name": "School",
-      "locallyDefinedProperties": [],
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "ImprovingSchool",
+          "propertyType": {
+            "dbType": "Boolean",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "An indication of whether a school is identified as an improving school.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
       "identifiers": [
         {
           "identifierName": "School_PK",
@@ -17984,6 +18010,23 @@
       ],
       "isAbstract": false,
       "description": "The grade levels served at the school."
+    },
+    {
+      "schema": "edfi",
+      "name": "SchoolStatusDescriptor",
+      "locallyDefinedProperties": [],
+      "identifiers": [
+        {
+          "identifierName": "SchoolStatusDescriptor_PK",
+          "identifyingPropertyNames": [
+            "SchoolStatusDescriptorId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": "The descriptor holds the status of a school e.g. priority or focus."
     },
     {
       "schema": "edfi",
@@ -61115,6 +61158,53 @@
     {
       "fullName": {
         "schema": "edfi",
+        "name": "FK_School_SchoolStatusDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "SchoolStatusDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "edfi",
+        "name": "School"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The status of school e.g. priority or focus.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "edfi",
         "name": "FK_School_SchoolTypeDescriptor"
       },
       "cardinality": "OneToZeroOrMore",
@@ -61577,6 +61667,53 @@
           "description": "The identifier assigned to a school.",
           "isIdentifying": true,
           "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "edfi",
+        "name": "FK_SchoolStatusDescriptor_Descriptor"
+      },
+      "cardinality": "OneToOneInheritance",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Descriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "DescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "edfi",
+        "name": "SchoolStatusDescriptor"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
         }
       ],
       "isIdentifying": true,

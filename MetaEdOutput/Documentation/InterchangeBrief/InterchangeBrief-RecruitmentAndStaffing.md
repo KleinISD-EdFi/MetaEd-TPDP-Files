@@ -81,7 +81,7 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | TeachingCredentialBasisDescriptor | Optional.  An indication of the pre-determined criteria for granting the teaching credential that an individual holds. |
 | TeachingCredentialDescriptor | Required.  This descriptor defines an indication of the category of a legal document giving authorization to perform teaching assignment services. |
 | TelephoneNumberTypeDescriptor | Optional.  The type of communication number listed for an individual. |
-| ValueTypeDescriptor | Required.  The type (i.e. actual or projected) of value. |
+| ValueTypeDescriptor | Optional.  The type (i.e. actual or projected) of value. |
 | VisaDescriptor | Optional.  An indicator of a non-U.S. citizen's Visa type. |
 
 

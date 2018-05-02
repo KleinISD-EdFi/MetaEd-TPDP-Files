@@ -1104,18 +1104,6 @@
     {
       "aggregateRootEntityName": {
         "schema": "extension",
-        "name": "SchoolStatusDescriptor"
-      },
-      "aggregateEntityNames": [
-        {
-          "schema": "extension",
-          "name": "SchoolStatusDescriptor"
-        }
-      ]
-    },
-    {
-      "aggregateRootEntityName": {
-        "schema": "extension",
         "name": "SectionCourseTranscriptFacts"
       },
       "aggregateEntityNames": [
@@ -2189,8 +2177,8 @@
           "identifierName": "AnonymizedStudent_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
-            "FactsAsOfDate",
-            "SchoolYear"
+            "AssociatedSchoolYear",
+            "FactsAsOfDate"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2308,10 +2296,10 @@
           "identifierName": "AnonymizedStudentAcademicRecord_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "EducationOrganizationId",
             "FactAsOfDate",
             "FactsAsOfDate",
-            "SchoolYear",
             "TermDescriptorId"
           ],
           "isPrimary": true,
@@ -2419,8 +2407,8 @@
             "AdministrationDate",
             "AnonymizedStudentIdentifier",
             "AssessmentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
-            "SchoolYear",
             "TakenSchoolYear"
           ],
           "isPrimary": true,
@@ -2476,8 +2464,8 @@
             "AdministrationDate",
             "AnonymizedStudentIdentifier",
             "AssessmentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
-            "SchoolYear",
             "TakenSchoolYear"
           ],
           "isPrimary": true,
@@ -2525,8 +2513,8 @@
             "AdministrationDate",
             "AnonymizedStudentIdentifier",
             "AssessmentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
-            "SchoolYear",
             "TakenSchoolYear"
           ],
           "isPrimary": true,
@@ -2611,11 +2599,11 @@
           "identifierName": "AnonymizedStudentCourseAssociation_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "BeginDate",
             "CourseCode",
             "EducationOrganizationId",
-            "FactsAsOfDate",
-            "SchoolYear"
+            "FactsAsOfDate"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2720,11 +2708,11 @@
           "identifierName": "AnonymizedStudentCourseTranscript_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "CourseCode",
             "EducationOrganizationId",
             "FactAsOfDate",
             "FactsAsOfDate",
-            "SchoolYear",
             "TermDescriptorId"
           ],
           "isPrimary": true,
@@ -2791,9 +2779,9 @@
           "identifierName": "AnonymizedStudentDisability_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "DisabilityDescriptorId",
-            "FactsAsOfDate",
-            "SchoolYear"
+            "FactsAsOfDate"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2825,10 +2813,10 @@
           "identifierName": "AnonymizedStudentDisabilityDesignation_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "DisabilityDescriptorId",
             "DisabilityDesignationDescriptorId",
-            "FactsAsOfDate",
-            "SchoolYear"
+            "FactsAsOfDate"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2912,10 +2900,10 @@
           "identifierName": "AnonymizedStudentEducationOrganizationAssociation_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "BeginDate",
             "EducationOrganizationId",
-            "FactsAsOfDate",
-            "SchoolYear"
+            "FactsAsOfDate"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2955,9 +2943,9 @@
           "identifierName": "AnonymizedStudentLanguage_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
-            "LanguageDescriptorId",
-            "SchoolYear"
+            "LanguageDescriptorId"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -2989,10 +2977,10 @@
           "identifierName": "AnonymizedStudentLanguageUse_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
             "LanguageDescriptorId",
-            "LanguageUseDescriptorId",
-            "SchoolYear"
+            "LanguageUseDescriptorId"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -3024,9 +3012,9 @@
           "identifierName": "AnonymizedStudentRace_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "FactsAsOfDate",
-            "RaceDescriptorId",
-            "SchoolYear"
+            "RaceDescriptorId"
           ],
           "isPrimary": true,
           "isUpdatable": false
@@ -3110,6 +3098,7 @@
           "identifierName": "AnonymizedStudentSectionAssociation_PK",
           "identifyingPropertyNames": [
             "AnonymizedStudentIdentifier",
+            "AssociatedSchoolYear",
             "BeginDate",
             "FactsAsOfDate",
             "LocalCourseCode",
@@ -14822,67 +14811,6 @@
     },
     {
       "schema": "extension",
-      "name": "SchoolExtension",
-      "locallyDefinedProperties": [
-        {
-          "propertyName": "CreateDate",
-          "propertyType": {
-            "dbType": "DateTime",
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "ImprovingSchool",
-          "propertyType": {
-            "dbType": "Boolean",
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": true
-          },
-          "description": "An indication of whether a school is identified as an improving school.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        }
-      ],
-      "identifiers": [
-        {
-          "identifierName": "SchoolExtension_PK",
-          "identifyingPropertyNames": [
-            "SchoolId"
-          ],
-          "isPrimary": true,
-          "isUpdatable": false
-        }
-      ],
-      "isAbstract": false,
-      "description": ""
-    },
-    {
-      "schema": "extension",
-      "name": "SchoolStatusDescriptor",
-      "locallyDefinedProperties": [],
-      "identifiers": [
-        {
-          "identifierName": "SchoolStatusDescriptor_PK",
-          "identifyingPropertyNames": [
-            "SchoolStatusDescriptorId"
-          ],
-          "isPrimary": true,
-          "isUpdatable": false
-        }
-      ],
-      "isAbstract": false,
-      "description": "The descriptor holds the status of a school e.g. priority or focus."
-    },
-    {
-      "schema": "extension",
       "name": "SectionCourseTranscriptFacts",
       "locallyDefinedProperties": [
         {
@@ -24810,7 +24738,7 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "SchoolYear",
+          "propertyName": "AssociatedSchoolYear",
           "propertyType": {
             "dbType": "Int16",
             "maxLength": 0,
@@ -24941,9 +24869,9 @@
             "maxLength": 0,
             "precision": 5,
             "scale": 0,
-            "isNullable": false
+            "isNullable": true
           },
-          "description": "The school year for which the data is associated",
+          "description": "The identifier for the school year.",
           "isIdentifying": false,
           "isServerAssigned": false
         },
@@ -25096,6 +25024,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25105,19 +25046,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -25141,6 +25069,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25150,19 +25091,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -25336,6 +25264,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25345,19 +25286,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -25381,6 +25309,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25390,19 +25331,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -25739,9 +25667,9 @@
             "maxLength": 0,
             "precision": 5,
             "scale": 0,
-            "isNullable": false
+            "isNullable": true
           },
-          "description": "The school year for which the data is associated",
+          "description": "The identifier for the school year.",
           "isIdentifying": false,
           "isServerAssigned": false
         },
@@ -25873,6 +25801,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25882,19 +25823,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -25957,6 +25885,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -25966,19 +25907,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -26144,6 +26072,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26153,19 +26094,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -26228,6 +26156,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26237,19 +26178,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -26389,6 +26317,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26398,19 +26339,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -26434,6 +26362,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26443,19 +26384,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -26561,6 +26489,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "EducationOrganizationId",
           "propertyType": {
             "dbType": "Int32",
@@ -26596,19 +26537,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -26645,6 +26573,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "EducationOrganizationId",
           "propertyType": {
             "dbType": "Int32",
@@ -26680,19 +26621,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -26858,6 +26786,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26867,19 +26808,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -26903,6 +26831,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -26912,19 +26853,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27051,6 +26979,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "DisabilityDescriptorId",
           "propertyType": {
             "dbType": "Int32",
@@ -27073,19 +27014,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27109,6 +27037,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "DisabilityDescriptorId",
           "propertyType": {
             "dbType": "Int32",
@@ -27131,19 +27072,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27223,6 +27151,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27232,19 +27173,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27268,6 +27196,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27277,19 +27218,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27369,6 +27297,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27378,19 +27319,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27414,6 +27342,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27423,19 +27364,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27515,6 +27443,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27537,19 +27478,6 @@
             "isNullable": false
           },
           "description": "A specification of which written or spoken communication is being used.",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27573,6 +27501,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27595,19 +27536,6 @@
             "isNullable": false
           },
           "description": "A specification of which written or spoken communication is being used.",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27687,6 +27615,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27696,19 +27637,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27732,6 +27660,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27741,19 +27682,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27833,6 +27761,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27842,19 +27783,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -27878,6 +27806,19 @@
           "isServerAssigned": false
         },
         {
+          "propertyName": "AssociatedSchoolYear",
+          "propertyType": {
+            "dbType": "Int16",
+            "maxLength": 0,
+            "precision": 5,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The school year for which the data is associated",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        },
+        {
           "propertyName": "FactsAsOfDate",
           "propertyType": {
             "dbType": "Date",
@@ -27887,19 +27828,6 @@
             "isNullable": false
           },
           "description": "The date for which the data element is relevant",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "SchoolYear",
-          "propertyType": {
-            "dbType": "Int16",
-            "maxLength": 0,
-            "precision": 5,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The school year for which the data is associated",
           "isIdentifying": true,
           "isServerAssigned": false
         }
@@ -28024,7 +27952,7 @@
             "scale": 0,
             "isNullable": false
           },
-          "description": "The school year for which the data is associated",
+          "description": "The identifier for the school year.",
           "isIdentifying": true,
           "isServerAssigned": false
         },
@@ -37800,7 +37728,7 @@
             "maxLength": 0,
             "precision": 10,
             "scale": 0,
-            "isNullable": false
+            "isNullable": true
           },
           "description": "The value of the data, i.e., is the data projected, actual or other",
           "isIdentifying": false,
@@ -37808,7 +37736,7 @@
         }
       ],
       "isIdentifying": false,
-      "isRequired": true
+      "isRequired": false
     },
     {
       "fullName": {
@@ -51583,147 +51511,6 @@
     {
       "fullName": {
         "schema": "extension",
-        "name": "FK_SchoolExtension_School"
-      },
-      "cardinality": "OneToOneExtension",
-      "primaryEntityFullName": {
-        "schema": "edfi",
-        "name": "School"
-      },
-      "primaryEntityProperties": [
-        {
-          "propertyName": "SchoolId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to a school.",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        }
-      ],
-      "secondaryEntityFullName": {
-        "schema": "extension",
-        "name": "SchoolExtension"
-      },
-      "secondaryEntityProperties": [
-        {
-          "propertyName": "SchoolId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The identifier assigned to a school.",
-          "isIdentifying": true,
-          "isServerAssigned": false
-        }
-      ],
-      "isIdentifying": true,
-      "isRequired": true
-    },
-    {
-      "fullName": {
-        "schema": "extension",
-        "name": "FK_SchoolExtension_SchoolStatusDescriptor"
-      },
-      "cardinality": "OneToZeroOrMore",
-      "primaryEntityFullName": {
-        "schema": "extension",
-        "name": "SchoolStatusDescriptor"
-      },
-      "primaryEntityProperties": [
-        {
-          "propertyName": "SchoolStatusDescriptorId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        }
-      ],
-      "secondaryEntityFullName": {
-        "schema": "extension",
-        "name": "SchoolExtension"
-      },
-      "secondaryEntityProperties": [
-        {
-          "propertyName": "SchoolStatusDescriptorId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": true
-          },
-          "description": "The status of school e.g. priority or focus.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        }
-      ],
-      "isIdentifying": false,
-      "isRequired": false
-    },
-    {
-      "fullName": {
-        "schema": "extension",
-        "name": "FK_SchoolStatusDescriptor_Descriptor"
-      },
-      "cardinality": "OneToOneInheritance",
-      "primaryEntityFullName": {
-        "schema": "edfi",
-        "name": "Descriptor"
-      },
-      "primaryEntityProperties": [
-        {
-          "propertyName": "DescriptorId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
-          "isIdentifying": true,
-          "isServerAssigned": true
-        }
-      ],
-      "secondaryEntityFullName": {
-        "schema": "extension",
-        "name": "SchoolStatusDescriptor"
-      },
-      "secondaryEntityProperties": [
-        {
-          "propertyName": "SchoolStatusDescriptorId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
-          "isIdentifying": true,
-          "isServerAssigned": true
-        }
-      ],
-      "isIdentifying": true,
-      "isRequired": true
-    },
-    {
-      "fullName": {
-        "schema": "extension",
         "name": "FK_SectionCourseTranscriptFacts_SectionStudentAcademicRecordFacts"
       },
       "cardinality": "OneToZeroOrMore",
@@ -63222,7 +63009,7 @@
       },
       "secondaryEntityProperties": [
         {
-          "propertyName": "SchoolYear",
+          "propertyName": "AssociatedSchoolYear",
           "propertyType": {
             "dbType": "Int16",
             "maxLength": 0,
@@ -63353,9 +63140,9 @@
             "maxLength": 0,
             "precision": 5,
             "scale": 0,
-            "isNullable": false
+            "isNullable": true
           },
-          "description": "The school year associated with the survey.",
+          "description": "The identifier for the school year.",
           "isIdentifying": false,
           "isServerAssigned": false
         },

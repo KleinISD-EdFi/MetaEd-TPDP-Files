@@ -274,9 +274,6 @@
   <Aggregate root="SalaryTypeDescriptor">
     <Entity table="SalaryTypeDescriptor" isA="Descriptor" schema="extension"/>
   </Aggregate>
-  <Aggregate root="SchoolStatusDescriptor">
-    <Entity table="SchoolStatusDescriptor" isA="Descriptor" schema="extension"/>
-  </Aggregate>
   <Aggregate root="SectionCourseTranscriptFacts">
     <Entity table="SectionCourseTranscriptFacts" schema="extension"/>
     <Entity table="SectionCourseTranscriptFactsAggregatedFinalLetterGradeEarned" schema="extension"/>

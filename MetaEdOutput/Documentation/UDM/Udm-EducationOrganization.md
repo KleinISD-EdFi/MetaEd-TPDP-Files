@@ -22,7 +22,7 @@ The Education Organization domain defines the organizational structure and hiera
 | EducationServiceCenter | This entity represents a regional, multi-services public agency authorized by state law to develop, manage and provide services, programs, or other support options (e.g., construction, food services, and technology services) to LEAs. |
 | FeederSchoolAssociation | The association from feeder school to the receiving school. |
 | LocalEducationAgency | This entity represents an administrative unit at the local level which exists primarily to operate schools or to contract for educational services. It includes school districts, charter schools, charter management organizations, or other local administrative organizations. |
-| School |  |
+| School | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |
 | StateEducationAgency | This entity represents the agency of the state charged with the primary responsibility for coordinating and supervising public instruction, including the setting of standards for elementary and secondary instructional programs. |
 | CommunityOrganization | This entity represents an administrative unit at the state level which exists primarily to operate local community providers. |
 | CommunityProvider | This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups. |

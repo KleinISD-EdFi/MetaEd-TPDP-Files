@@ -3926,6 +3926,14 @@ CREATE NONCLUSTERED INDEX [FK_School_MagnetSpecialProgramEmphasisSchoolDescripto
 ON [edfi].[School] ([MagnetSpecialProgramEmphasisSchoolDescriptorId] ASC)
 GO
 
+ALTER TABLE [edfi].[School] WITH CHECK ADD CONSTRAINT [FK_School_SchoolStatusDescriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
+REFERENCES [edfi].[SchoolStatusDescriptor] ([SchoolStatusDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_School_SchoolStatusDescriptor]
+ON [edfi].[School] ([SchoolStatusDescriptorId] ASC)
+GO
+
 ALTER TABLE [edfi].[School] WITH CHECK ADD CONSTRAINT [FK_School_SchoolTypeDescriptor] FOREIGN KEY ([SchoolTypeDescriptorId])
 REFERENCES [edfi].[SchoolTypeDescriptor] ([SchoolTypeDescriptorId])
 GO
@@ -3997,6 +4005,11 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_SchoolGradeLevel_School]
 ON [edfi].[SchoolGradeLevel] ([SchoolId] ASC)
+GO
+
+ALTER TABLE [edfi].[SchoolStatusDescriptor] WITH CHECK ADD CONSTRAINT [FK_SchoolStatusDescriptor_Descriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
+REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
 GO
 
 ALTER TABLE [edfi].[SchoolTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_SchoolTypeDescriptor_Descriptor] FOREIGN KEY ([SchoolTypeDescriptorId])

@@ -118,7 +118,7 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | TermDescriptor | Required.  This descriptor defines the term of a session during the school year (e.g., Fall Semester). |
 | TPPDegreeTypeDescriptor | Required.  The descriptor holds the degree that a teacher candidate accomplishes. |
 | TribalAffiliationDescriptor | Optional.  An American Indian tribe with which an individual is affiliated. |
-| ValueTypeDescriptor | Required.  The type (i.e. actual or projected) of value. |
+| ValueTypeDescriptor | Optional.  The type (i.e. actual or projected) of value. |
 | VisaDescriptor | Optional.  An indicator of a non-U.S. citizen's Visa type. |
 
 

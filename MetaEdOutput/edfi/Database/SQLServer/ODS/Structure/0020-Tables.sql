@@ -4799,6 +4799,8 @@ CREATE TABLE [edfi].[School] (
     [LocalEducationAgencyId] [INT] NULL,
     [CharterApprovalAgencyTypeDescriptorId] [INT] NULL,
     [CharterApprovalSchoolYear] [SMALLINT] NULL,
+    [SchoolStatusDescriptorId] [INT] NULL,
+    [ImprovingSchool] [BIT] NULL,
     CONSTRAINT [School_PK] PRIMARY KEY CLUSTERED (
         [SchoolId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -4858,6 +4860,15 @@ CREATE TABLE [edfi].[SchoolGradeLevel] (
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[SchoolGradeLevel] ADD CONSTRAINT [SchoolGradeLevel_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[SchoolStatusDescriptor] --
+CREATE TABLE [edfi].[SchoolStatusDescriptor] (
+    [SchoolStatusDescriptorId] [INT] NOT NULL,
+    CONSTRAINT [SchoolStatusDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [SchoolStatusDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
 -- Table [edfi].[SchoolTypeDescriptor] --

@@ -6,6 +6,7 @@ Domain Entity AnonymizedStudent
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
     is part of identity
+    with context AnonymizedStudent
   date FactsAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity
@@ -22,7 +23,6 @@ Domain Entity AnonymizedStudent
   domain entity Section
     documentation "The section associated with aggregated student data"
     is optional
-    merge Section.CourseOffering.Session.SchoolYear with SchoolYear
   descriptor Sex
     documentation "A person's gender."
     is optional

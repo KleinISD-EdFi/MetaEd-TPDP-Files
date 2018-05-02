@@ -3673,6 +3673,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of ag
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year in which a charter school was initially approved.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'School', @level2type=N'COLUMN', @level2name=N'CharterApprovalSchoolYear'
 GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of school e.g. priority or focus.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'School', @level2type=N'COLUMN', @level2name=N'SchoolStatusDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An indication of whether a school is identified as an improving school.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'School', @level2type=N'COLUMN', @level2name=N'ImprovingSchool'
+GO
 
 -- Extended Properties [edfi].[SchoolCategory] --
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The one or more categories of school. For example: High School, Middle School, and/or Elementary School.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'SchoolCategory'
@@ -3706,6 +3710,12 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade levels served at the school.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'SchoolGradeLevel', @level2type=N'COLUMN', @level2name=N'GradeLevelDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'SchoolGradeLevel', @level2type=N'COLUMN', @level2name=N'SchoolId'
+GO
+
+-- Extended Properties [edfi].[SchoolStatusDescriptor] --
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the status of a school e.g. priority or focus.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE', @level1name=N'SchoolStatusDescriptor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'edfi', @level1type=N'TABLE',@level1name=N'SchoolStatusDescriptor', @level2type=N'COLUMN', @level2name=N'SchoolStatusDescriptorId'
 GO
 
 -- Extended Properties [edfi].[SchoolTypeDescriptor] --
