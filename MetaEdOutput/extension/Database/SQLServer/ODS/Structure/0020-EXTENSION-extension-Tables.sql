@@ -2979,32 +2979,10 @@ GO
 -- Table [extension].[FederalLocaleCodeDescriptor] --
 CREATE TABLE [extension].[FederalLocaleCodeDescriptor] (
     [FederalLocaleCodeDescriptorId] [INT] NOT NULL,
-    [FederalLocaleCodeTypeId] [INT] NULL,
     CONSTRAINT [FederalLocaleCodeDescriptor_PK] PRIMARY KEY CLUSTERED (
         [FederalLocaleCodeDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
--- Table [extension].[FederalLocaleCodeType] --
-CREATE TABLE [extension].[FederalLocaleCodeType] (
-    [FederalLocaleCodeTypeId] [INT] IDENTITY(1,1) NOT NULL,
-    [CodeValue] [NVARCHAR](50) NOT NULL,
-    [Description] [NVARCHAR](1024) NOT NULL,
-    [ShortDescription] [NVARCHAR](450) NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    [LastModifiedDate] [DATETIME] NOT NULL,
-    [Id] [UNIQUEIDENTIFIER] NOT NULL,
-    CONSTRAINT [FederalLocaleCodeType_PK] PRIMARY KEY CLUSTERED (
-        [FederalLocaleCodeTypeId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_Id] DEFAULT (newid()) FOR [Id]
-GO
-ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
 -- Table [extension].[FieldworkTypeDescriptor] --

@@ -784,18 +784,6 @@
     {
       "aggregateRootEntityName": {
         "schema": "extension",
-        "name": "FederalLocaleCodeType"
-      },
-      "aggregateEntityNames": [
-        {
-          "schema": "extension",
-          "name": "FederalLocaleCodeType"
-        }
-      ]
-    },
-    {
-      "aggregateRootEntityName": {
-        "schema": "extension",
         "name": "FieldworkTypeDescriptor"
       },
       "aggregateEntityNames": [
@@ -12405,124 +12393,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "(TPDP Extension) The descriptor holds the federal locale code applicable to an education organization."
-    },
-    {
-      "schema": "extension",
-      "name": "FederalLocaleCodeType",
-      "locallyDefinedProperties": [
-        {
-          "propertyName": "CodeValue",
-          "propertyType": {
-            "dbType": "String",
-            "maxLength": 50,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "This column is deprecated.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "CreateDate",
-          "propertyType": {
-            "dbType": "DateTime",
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "Description",
-          "propertyType": {
-            "dbType": "String",
-            "maxLength": 1024,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The description for the FederalLocaleCode type.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "FederalLocaleCodeTypeId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "Key for FederalLocaleCode",
-          "isIdentifying": true,
-          "isServerAssigned": true
-        },
-        {
-          "propertyName": "Id",
-          "propertyType": {
-            "dbType": "Guid",
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "LastModifiedDate",
-          "propertyType": {
-            "dbType": "DateTime",
-            "maxLength": 0,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        },
-        {
-          "propertyName": "ShortDescription",
-          "propertyType": {
-            "dbType": "String",
-            "maxLength": 450,
-            "precision": 0,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "The value for the FederalLocaleCode type.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        }
-      ],
-      "identifiers": [
-        {
-          "identifierName": "FederalLocaleCodeType_PK",
-          "identifyingPropertyNames": [
-            "FederalLocaleCodeTypeId"
-          ],
-          "isPrimary": true,
-          "isUpdatable": false
-        },
-        {
-          "identifierName": "UX_FederalLocaleCodeType_Id",
-          "identifyingPropertyNames": [
-            "Id"
-          ],
-          "isPrimary": false,
-          "isUpdatable": false
-        }
-      ],
-      "isAbstract": false,
-      "description": "Map for the type federal local codes."
+      "description": "The descriptor holds the federal locale code applicable to an education organization."
     },
     {
       "schema": "extension",
@@ -47303,53 +47174,6 @@
       ],
       "isIdentifying": true,
       "isRequired": true
-    },
-    {
-      "fullName": {
-        "schema": "extension",
-        "name": "FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType"
-      },
-      "cardinality": "OneToZeroOrMore",
-      "primaryEntityFullName": {
-        "schema": "extension",
-        "name": "FederalLocaleCodeType"
-      },
-      "primaryEntityProperties": [
-        {
-          "propertyName": "FederalLocaleCodeTypeId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": false
-          },
-          "description": "Key for FederalLocaleCode",
-          "isIdentifying": false,
-          "isServerAssigned": true
-        }
-      ],
-      "secondaryEntityFullName": {
-        "schema": "extension",
-        "name": "FederalLocaleCodeDescriptor"
-      },
-      "secondaryEntityProperties": [
-        {
-          "propertyName": "FederalLocaleCodeTypeId",
-          "propertyType": {
-            "dbType": "Int32",
-            "maxLength": 0,
-            "precision": 10,
-            "scale": 0,
-            "isNullable": true
-          },
-          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
-          "isIdentifying": false,
-          "isServerAssigned": false
-        }
-      ],
-      "isIdentifying": false,
-      "isRequired": false
     },
     {
       "fullName": {

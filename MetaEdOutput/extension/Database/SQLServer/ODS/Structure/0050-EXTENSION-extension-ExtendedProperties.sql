@@ -2514,23 +2514,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date on which 
 GO
 
 -- Extended Properties [extension].[FederalLocaleCodeDescriptor] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'(TPDP Extension) The descriptor holds the federal locale code applicable to an education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeDescriptor'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The descriptor holds the federal locale code applicable to an education organization.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeDescriptor'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeDescriptor', @level2type=N'COLUMN', @level2name=N'FederalLocaleCodeDescriptorId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeDescriptor', @level2type=N'COLUMN', @level2name=N'FederalLocaleCodeTypeId'
-GO
-
--- Extended Properties [extension].[FederalLocaleCodeType] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Map for the type federal local codes.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeType'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for FederalLocaleCode', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeType', @level2type=N'COLUMN', @level2name=N'FederalLocaleCodeTypeId'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This column is deprecated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeType', @level2type=N'COLUMN', @level2name=N'CodeValue'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the FederalLocaleCode type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeType', @level2type=N'COLUMN', @level2name=N'Description'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the FederalLocaleCode type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'FederalLocaleCodeType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
 GO
 
 -- Extended Properties [extension].[FieldworkTypeDescriptor] --

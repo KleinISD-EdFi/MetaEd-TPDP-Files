@@ -2513,14 +2513,6 @@ REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
 GO
 
-ALTER TABLE [extension].[FederalLocaleCodeDescriptor] WITH CHECK ADD CONSTRAINT [FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType] FOREIGN KEY ([FederalLocaleCodeTypeId])
-REFERENCES [extension].[FederalLocaleCodeType] ([FederalLocaleCodeTypeId])
-GO
-
-CREATE NONCLUSTERED INDEX [FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType]
-ON [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeTypeId] ASC)
-GO
-
 ALTER TABLE [extension].[FieldworkTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_FieldworkTypeDescriptor_Descriptor] FOREIGN KEY ([FieldworkTypeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
