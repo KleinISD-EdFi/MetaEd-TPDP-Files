@@ -1648,6 +1648,7 @@ CREATE TABLE [edfi].[DisciplineAction] (
     [ResponsibilitySchoolId] [INT] NOT NULL,
     [AssignmentSchoolId] [INT] NULL,
     [ReceivedEducationServicesDuringExpulsion] [BIT] NULL,
+    [IEPPlacementMeetingIndicator] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
@@ -1950,7 +1951,6 @@ CREATE TABLE [edfi].[EducationOrganization] (
     [ShortNameOfInstitution] [NVARCHAR](75) NULL,
     [WebSite] [NVARCHAR](255) NULL,
     [OperationalStatusDescriptorId] [INT] NULL,
-    [FederalLocaleCodeDescriptorId] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
@@ -2238,15 +2238,6 @@ CREATE TABLE [edfi].[ExitWithdrawTypeDescriptor] (
     [ExitWithdrawTypeDescriptorId] [INT] NOT NULL,
     CONSTRAINT [ExitWithdrawTypeDescriptor_PK] PRIMARY KEY CLUSTERED (
         [ExitWithdrawTypeDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
--- Table [edfi].[FederalLocaleCodeDescriptor] --
-CREATE TABLE [edfi].[FederalLocaleCodeDescriptor] (
-    [FederalLocaleCodeDescriptorId] [INT] NOT NULL,
-    CONSTRAINT [FederalLocaleCodeDescriptor_PK] PRIMARY KEY CLUSTERED (
-        [FederalLocaleCodeDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -4799,8 +4790,6 @@ CREATE TABLE [edfi].[School] (
     [LocalEducationAgencyId] [INT] NULL,
     [CharterApprovalAgencyTypeDescriptorId] [INT] NULL,
     [CharterApprovalSchoolYear] [SMALLINT] NULL,
-    [SchoolStatusDescriptorId] [INT] NULL,
-    [ImprovingSchool] [BIT] NULL,
     CONSTRAINT [School_PK] PRIMARY KEY CLUSTERED (
         [SchoolId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -4860,15 +4849,6 @@ CREATE TABLE [edfi].[SchoolGradeLevel] (
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[SchoolGradeLevel] ADD CONSTRAINT [SchoolGradeLevel_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
--- Table [edfi].[SchoolStatusDescriptor] --
-CREATE TABLE [edfi].[SchoolStatusDescriptor] (
-    [SchoolStatusDescriptorId] [INT] NOT NULL,
-    CONSTRAINT [SchoolStatusDescriptor_PK] PRIMARY KEY CLUSTERED (
-        [SchoolStatusDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
 GO
 
 -- Table [edfi].[SchoolTypeDescriptor] --
@@ -5934,7 +5914,6 @@ CREATE TABLE [edfi].[Student] (
     [LastSurname] [NVARCHAR](75) NOT NULL,
     [GenerationCodeSuffix] [NVARCHAR](10) NULL,
     [MaidenName] [NVARCHAR](75) NULL,
-    [SexDescriptorId] [INT] NOT NULL,
     [BirthDate] [DATE] NOT NULL,
     [BirthCity] [NVARCHAR](30) NULL,
     [BirthStateAbbreviationDescriptorId] [INT] NULL,
@@ -5943,11 +5922,7 @@ CREATE TABLE [edfi].[Student] (
     [DateEnteredUS] [DATE] NULL,
     [MultipleBirthStatus] [BIT] NULL,
     [BirthSexDescriptorId] [INT] NULL,
-    [ProfileThumbnail] [NVARCHAR](255) NULL,
-    [HispanicLatinoEthnicity] [BIT] NULL,
-    [OldEthnicityDescriptorId] [INT] NULL,
     [CitizenshipStatusDescriptorId] [INT] NULL,
-    [LoginId] [NVARCHAR](60) NULL,
     [StudentUniqueId] [NVARCHAR](32) NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
@@ -6156,48 +6131,6 @@ CREATE TABLE [edfi].[StudentAcademicRecordReportCard] (
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[StudentAcademicRecordReportCard] ADD CONSTRAINT [StudentAcademicRecordReportCard_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
--- Table [edfi].[StudentAddress] --
-CREATE TABLE [edfi].[StudentAddress] (
-    [AddressTypeDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [StreetNumberName] [NVARCHAR](150) NOT NULL,
-    [ApartmentRoomSuiteNumber] [NVARCHAR](50) NULL,
-    [BuildingSiteNumber] [NVARCHAR](20) NULL,
-    [City] [NVARCHAR](30) NOT NULL,
-    [StateAbbreviationDescriptorId] [INT] NOT NULL,
-    [PostalCode] [NVARCHAR](17) NOT NULL,
-    [NameOfCounty] [NVARCHAR](30) NULL,
-    [CountyFIPSCode] [NVARCHAR](5) NULL,
-    [Latitude] [NVARCHAR](20) NULL,
-    [Longitude] [NVARCHAR](20) NULL,
-    [DoNotPublishIndicator] [BIT] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentAddress_PK] PRIMARY KEY CLUSTERED (
-        [AddressTypeDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentAddress] ADD CONSTRAINT [StudentAddress_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
--- Table [edfi].[StudentAddressPeriod] --
-CREATE TABLE [edfi].[StudentAddressPeriod] (
-    [AddressTypeDescriptorId] [INT] NOT NULL,
-    [BeginDate] [DATE] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [EndDate] [DATE] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentAddressPeriod_PK] PRIMARY KEY CLUSTERED (
-        [AddressTypeDescriptorId] ASC,
-        [BeginDate] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentAddressPeriod] ADD CONSTRAINT [StudentAddressPeriod_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentAssessment] --
@@ -6488,22 +6421,6 @@ GO
 ALTER TABLE [edfi].[StudentCohortAssociationSection] ADD CONSTRAINT [StudentCohortAssociationSection_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
--- Table [edfi].[StudentCohortYear] --
-CREATE TABLE [edfi].[StudentCohortYear] (
-    [CohortYearTypeDescriptorId] [INT] NOT NULL,
-    [SchoolYear] [SMALLINT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentCohortYear_PK] PRIMARY KEY CLUSTERED (
-        [CohortYearTypeDescriptorId] ASC,
-        [SchoolYear] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentCohortYear] ADD CONSTRAINT [StudentCohortYear_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
 -- Table [edfi].[StudentCompetencyObjective] --
 CREATE TABLE [edfi].[StudentCompetencyObjective] (
     [GradingPeriodDescriptorId] [INT] NOT NULL,
@@ -6538,8 +6455,8 @@ GO
 ALTER TABLE [edfi].[StudentCompetencyObjective] ADD CONSTRAINT [StudentCompetencyObjective_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
--- Table [edfi].[StudentCompetencyObjectiveStudentProgramAssociation] --
-CREATE TABLE [edfi].[StudentCompetencyObjectiveStudentProgramAssociation] (
+-- Table [edfi].[StudentCompetencyObjectiveGeneralStudentProgramAssociation] --
+CREATE TABLE [edfi].[StudentCompetencyObjectiveGeneralStudentProgramAssociation] (
     [BeginDate] [DATE] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
     [GradingPeriodDescriptorId] [INT] NOT NULL,
@@ -6554,7 +6471,7 @@ CREATE TABLE [edfi].[StudentCompetencyObjectiveStudentProgramAssociation] (
     [ProgramTypeDescriptorId] [INT] NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentCompetencyObjectiveStudentProgramAssociation_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [StudentCompetencyObjectiveGeneralStudentProgramAssociation_PK] PRIMARY KEY CLUSTERED (
         [BeginDate] ASC,
         [EducationOrganizationId] ASC,
         [GradingPeriodDescriptorId] ASC,
@@ -6571,7 +6488,7 @@ CREATE TABLE [edfi].[StudentCompetencyObjectiveStudentProgramAssociation] (
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [edfi].[StudentCompetencyObjectiveStudentProgramAssociation] ADD CONSTRAINT [StudentCompetencyObjectiveStudentProgramAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [edfi].[StudentCompetencyObjectiveGeneralStudentProgramAssociation] ADD CONSTRAINT [StudentCompetencyObjectiveGeneralStudentProgramAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentCompetencyObjectiveStudentSectionAssociation] --
@@ -6734,7 +6651,12 @@ GO
 CREATE TABLE [edfi].[StudentEducationOrganizationAssociation] (
     [EducationOrganizationId] [INT] NOT NULL,
     [StudentUSI] [INT] NOT NULL,
+    [SexDescriptorId] [INT] NOT NULL,
+    [ProfileThumbnail] [NVARCHAR](255) NULL,
+    [HispanicLatinoEthnicity] [BIT] NULL,
+    [OldEthnicityDescriptorId] [INT] NULL,
     [LimitedEnglishProficiencyDescriptorId] [INT] NULL,
+    [LoginId] [NVARCHAR](60) NULL,
     [CreateDate] [DATETIME] NOT NULL,
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL,
@@ -6749,6 +6671,70 @@ GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociation] ADD CONSTRAINT [StudentEducationOrganizationAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociation] ADD CONSTRAINT [StudentEducationOrganizationAssociation_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationAddress] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationAddress] (
+    [AddressTypeDescriptorId] [INT] NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [StreetNumberName] [NVARCHAR](150) NOT NULL,
+    [ApartmentRoomSuiteNumber] [NVARCHAR](50) NULL,
+    [BuildingSiteNumber] [NVARCHAR](20) NULL,
+    [City] [NVARCHAR](30) NOT NULL,
+    [StateAbbreviationDescriptorId] [INT] NOT NULL,
+    [PostalCode] [NVARCHAR](17) NOT NULL,
+    [NameOfCounty] [NVARCHAR](30) NULL,
+    [CountyFIPSCode] [NVARCHAR](5) NULL,
+    [Latitude] [NVARCHAR](20) NULL,
+    [Longitude] [NVARCHAR](20) NULL,
+    [DoNotPublishIndicator] [BIT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationAddress_PK] PRIMARY KEY CLUSTERED (
+        [AddressTypeDescriptorId] ASC,
+        [EducationOrganizationId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationAddress] ADD CONSTRAINT [StudentEducationOrganizationAssociationAddress_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationAddressPeriod] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationAddressPeriod] (
+    [AddressTypeDescriptorId] [INT] NOT NULL,
+    [BeginDate] [DATE] NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [EndDate] [DATE] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationAddressPeriod_PK] PRIMARY KEY CLUSTERED (
+        [AddressTypeDescriptorId] ASC,
+        [BeginDate] ASC,
+        [EducationOrganizationId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationAddressPeriod] ADD CONSTRAINT [StudentEducationOrganizationAssociationAddressPeriod_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationCohortYear] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationCohortYear] (
+    [CohortYearTypeDescriptorId] [INT] NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [SchoolYear] [SMALLINT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationCohortYear_PK] PRIMARY KEY CLUSTERED (
+        [CohortYearTypeDescriptorId] ASC,
+        [EducationOrganizationId] ASC,
+        [SchoolYear] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationCohortYear] ADD CONSTRAINT [StudentEducationOrganizationAssociationCohortYear_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentEducationOrganizationAssociationDisability] --
@@ -6788,6 +6774,84 @@ GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociationDisabilityDesignation] ADD CONSTRAINT [StudentEducationOrganizationAssociationDisabilityDesignation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [edfi].[StudentEducationOrganizationAssociationElectronicMail] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationElectronicMail] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [ElectronicMailTypeDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [ElectronicMailAddress] [NVARCHAR](128) NOT NULL,
+    [PrimaryEmailAddressIndicator] [BIT] NULL,
+    [DoNotPublishIndicator] [BIT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationElectronicMail_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [ElectronicMailTypeDescriptorId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationElectronicMail] ADD CONSTRAINT [StudentEducationOrganizationAssociationElectronicMail_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationInternationalAddress] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationInternationalAddress] (
+    [AddressTypeDescriptorId] [INT] NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [AddressLine1] [NVARCHAR](150) NOT NULL,
+    [AddressLine2] [NVARCHAR](150) NULL,
+    [AddressLine3] [NVARCHAR](150) NULL,
+    [AddressLine4] [NVARCHAR](150) NULL,
+    [CountryDescriptorId] [INT] NOT NULL,
+    [Latitude] [NVARCHAR](20) NULL,
+    [Longitude] [NVARCHAR](20) NULL,
+    [BeginDate] [DATE] NULL,
+    [EndDate] [DATE] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationInternationalAddress_PK] PRIMARY KEY CLUSTERED (
+        [AddressTypeDescriptorId] ASC,
+        [EducationOrganizationId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationInternationalAddress] ADD CONSTRAINT [StudentEducationOrganizationAssociationInternationalAddress_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationLanguage] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationLanguage] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [LanguageDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationLanguage_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [LanguageDescriptorId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationLanguage] ADD CONSTRAINT [StudentEducationOrganizationAssociationLanguage_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationLanguageUse] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationLanguageUse] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [LanguageDescriptorId] [INT] NOT NULL,
+    [LanguageUseDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationLanguageUse_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [LanguageDescriptorId] ASC,
+        [LanguageUseDescriptorId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationLanguageUse] ADD CONSTRAINT [StudentEducationOrganizationAssociationLanguageUse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [edfi].[StudentEducationOrganizationAssociationProgramParticipation] --
 CREATE TABLE [edfi].[StudentEducationOrganizationAssociationProgramParticipation] (
     [EducationOrganizationId] [INT] NOT NULL,
@@ -6825,6 +6889,22 @@ GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociationProgramParticipationProgramCharacteristic] ADD CONSTRAINT [StudentEducationOrganizationAssociationProgramParticipationProgramCharacteristic_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [edfi].[StudentEducationOrganizationAssociationRace] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationRace] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [RaceDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationRace_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [RaceDescriptorId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationRace] ADD CONSTRAINT [StudentEducationOrganizationAssociationRace_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [edfi].[StudentEducationOrganizationAssociationStudentCharacteristic] --
 CREATE TABLE [edfi].[StudentEducationOrganizationAssociationStudentCharacteristic] (
     [EducationOrganizationId] [INT] NOT NULL,
@@ -6859,6 +6939,25 @@ CREATE TABLE [edfi].[StudentEducationOrganizationAssociationStudentCharacteristi
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociationStudentCharacteristicPeriod] ADD CONSTRAINT [StudentEducationOrganizationAssociationStudentCharacteristicPeriod_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationStudentIdentificationCode] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationStudentIdentificationCode] (
+    [AssigningOrganizationIdentificationCode] [NVARCHAR](60) NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentIdentificationSystemDescriptorId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [IdentificationCode] [NVARCHAR](60) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationStudentIdentificationCode_PK] PRIMARY KEY CLUSTERED (
+        [AssigningOrganizationIdentificationCode] ASC,
+        [EducationOrganizationId] ASC,
+        [StudentIdentificationSystemDescriptorId] ASC,
+        [StudentUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationStudentIdentificationCode] ADD CONSTRAINT [StudentEducationOrganizationAssociationStudentIdentificationCode_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentEducationOrganizationAssociationStudentIndicator] --
@@ -6899,6 +6998,42 @@ GO
 ALTER TABLE [edfi].[StudentEducationOrganizationAssociationStudentIndicatorPeriod] ADD CONSTRAINT [StudentEducationOrganizationAssociationStudentIndicatorPeriod_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [edfi].[StudentEducationOrganizationAssociationTelephone] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationTelephone] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [TelephoneNumberTypeDescriptorId] [INT] NOT NULL,
+    [TelephoneNumber] [NVARCHAR](24) NOT NULL,
+    [OrderOfPriority] [INT] NULL,
+    [TextMessageCapabilityIndicator] [BIT] NULL,
+    [DoNotPublishIndicator] [BIT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationTelephone_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [StudentUSI] ASC,
+        [TelephoneNumberTypeDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationTelephone] ADD CONSTRAINT [StudentEducationOrganizationAssociationTelephone_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [edfi].[StudentEducationOrganizationAssociationTribalAffiliation] --
+CREATE TABLE [edfi].[StudentEducationOrganizationAssociationTribalAffiliation] (
+    [EducationOrganizationId] [INT] NOT NULL,
+    [StudentUSI] [INT] NOT NULL,
+    [TribalAffiliationDescriptorId] [INT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StudentEducationOrganizationAssociationTribalAffiliation_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationId] ASC,
+        [StudentUSI] ASC,
+        [TribalAffiliationDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [edfi].[StudentEducationOrganizationAssociationTribalAffiliation] ADD CONSTRAINT [StudentEducationOrganizationAssociationTribalAffiliation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [edfi].[StudentEducationOrganizationResponsibilityAssociation] --
 CREATE TABLE [edfi].[StudentEducationOrganizationResponsibilityAssociation] (
     [BeginDate] [DATE] NOT NULL,
@@ -6922,23 +7057,6 @@ GO
 ALTER TABLE [edfi].[StudentEducationOrganizationResponsibilityAssociation] ADD CONSTRAINT [StudentEducationOrganizationResponsibilityAssociation_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
 ALTER TABLE [edfi].[StudentEducationOrganizationResponsibilityAssociation] ADD CONSTRAINT [StudentEducationOrganizationResponsibilityAssociation_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
--- Table [edfi].[StudentElectronicMail] --
-CREATE TABLE [edfi].[StudentElectronicMail] (
-    [ElectronicMailTypeDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [ElectronicMailAddress] [NVARCHAR](128) NOT NULL,
-    [PrimaryEmailAddressIndicator] [BIT] NULL,
-    [DoNotPublishIndicator] [BIT] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentElectronicMail_PK] PRIMARY KEY CLUSTERED (
-        [ElectronicMailTypeDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentElectronicMail] ADD CONSTRAINT [StudentElectronicMail_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentGradebookEntry] --
@@ -7029,23 +7147,6 @@ GO
 ALTER TABLE [edfi].[StudentHomelessProgramAssociationHomelessProgramService] ADD CONSTRAINT [StudentHomelessProgramAssociationHomelessProgramService_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
--- Table [edfi].[StudentIdentificationCode] --
-CREATE TABLE [edfi].[StudentIdentificationCode] (
-    [AssigningOrganizationIdentificationCode] [NVARCHAR](60) NOT NULL,
-    [StudentIdentificationSystemDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [IdentificationCode] [NVARCHAR](60) NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentIdentificationCode_PK] PRIMARY KEY CLUSTERED (
-        [AssigningOrganizationIdentificationCode] ASC,
-        [StudentIdentificationSystemDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentIdentificationCode] ADD CONSTRAINT [StudentIdentificationCode_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
 -- Table [edfi].[StudentIdentificationDocument] --
 CREATE TABLE [edfi].[StudentIdentificationDocument] (
     [IdentificationDocumentUseDescriptorId] [INT] NOT NULL,
@@ -7074,29 +7175,6 @@ CREATE TABLE [edfi].[StudentIdentificationSystemDescriptor] (
         [StudentIdentificationSystemDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
--- Table [edfi].[StudentInternationalAddress] --
-CREATE TABLE [edfi].[StudentInternationalAddress] (
-    [AddressTypeDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [AddressLine1] [NVARCHAR](150) NOT NULL,
-    [AddressLine2] [NVARCHAR](150) NULL,
-    [AddressLine3] [NVARCHAR](150) NULL,
-    [AddressLine4] [NVARCHAR](150) NULL,
-    [CountryDescriptorId] [INT] NOT NULL,
-    [Latitude] [NVARCHAR](20) NULL,
-    [Longitude] [NVARCHAR](20) NULL,
-    [BeginDate] [DATE] NULL,
-    [EndDate] [DATE] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentInternationalAddress_PK] PRIMARY KEY CLUSTERED (
-        [AddressTypeDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentInternationalAddress] ADD CONSTRAINT [StudentInternationalAddress_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentInterventionAssociation] --
@@ -7179,20 +7257,6 @@ GO
 ALTER TABLE [edfi].[StudentInterventionAttendanceEvent] ADD CONSTRAINT [StudentInterventionAttendanceEvent_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
--- Table [edfi].[StudentLanguage] --
-CREATE TABLE [edfi].[StudentLanguage] (
-    [LanguageDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentLanguage_PK] PRIMARY KEY CLUSTERED (
-        [LanguageDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentLanguage] ADD CONSTRAINT [StudentLanguage_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
 -- Table [edfi].[StudentLanguageInstructionProgramAssociation] --
 CREATE TABLE [edfi].[StudentLanguageInstructionProgramAssociation] (
     [BeginDate] [DATE] NOT NULL,
@@ -7268,22 +7332,6 @@ GO
 ALTER TABLE [edfi].[StudentLanguageInstructionProgramAssociationLanguageInstructionProgramService] ADD CONSTRAINT [StudentLanguageInstructionProgramAssociationLanguageInstructionProgramService_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
--- Table [edfi].[StudentLanguageUse] --
-CREATE TABLE [edfi].[StudentLanguageUse] (
-    [LanguageDescriptorId] [INT] NOT NULL,
-    [LanguageUseDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentLanguageUse_PK] PRIMARY KEY CLUSTERED (
-        [LanguageDescriptorId] ASC,
-        [LanguageUseDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentLanguageUse] ADD CONSTRAINT [StudentLanguageUse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
 -- Table [edfi].[StudentLearningObjective] --
 CREATE TABLE [edfi].[StudentLearningObjective] (
     [AcademicSubjectDescriptorId] [INT] NOT NULL,
@@ -7318,8 +7366,8 @@ GO
 ALTER TABLE [edfi].[StudentLearningObjective] ADD CONSTRAINT [StudentLearningObjective_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
--- Table [edfi].[StudentLearningObjectiveStudentProgramAssociation] --
-CREATE TABLE [edfi].[StudentLearningObjectiveStudentProgramAssociation] (
+-- Table [edfi].[StudentLearningObjectiveGeneralStudentProgramAssociation] --
+CREATE TABLE [edfi].[StudentLearningObjectiveGeneralStudentProgramAssociation] (
     [AcademicSubjectDescriptorId] [INT] NOT NULL,
     [BeginDate] [DATE] NOT NULL,
     [EducationOrganizationId] [INT] NOT NULL,
@@ -7334,7 +7382,7 @@ CREATE TABLE [edfi].[StudentLearningObjectiveStudentProgramAssociation] (
     [ProgramTypeDescriptorId] [INT] NOT NULL,
     [StudentUSI] [INT] NOT NULL,
     [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentLearningObjectiveStudentProgramAssociation_PK] PRIMARY KEY CLUSTERED (
+    CONSTRAINT [StudentLearningObjectiveGeneralStudentProgramAssociation_PK] PRIMARY KEY CLUSTERED (
         [AcademicSubjectDescriptorId] ASC,
         [BeginDate] ASC,
         [EducationOrganizationId] ASC,
@@ -7351,7 +7399,7 @@ CREATE TABLE [edfi].[StudentLearningObjectiveStudentProgramAssociation] (
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [edfi].[StudentLearningObjectiveStudentProgramAssociation] ADD CONSTRAINT [StudentLearningObjectiveStudentProgramAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [edfi].[StudentLearningObjectiveGeneralStudentProgramAssociation] ADD CONSTRAINT [StudentLearningObjectiveGeneralStudentProgramAssociation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentLearningObjectiveStudentSectionAssociation] --
@@ -7648,20 +7696,6 @@ GO
 ALTER TABLE [edfi].[StudentProgramAttendanceEvent] ADD CONSTRAINT [StudentProgramAttendanceEvent_DF_Id] DEFAULT (newid()) FOR [Id]
 GO
 ALTER TABLE [edfi].[StudentProgramAttendanceEvent] ADD CONSTRAINT [StudentProgramAttendanceEvent_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
-GO
-
--- Table [edfi].[StudentRace] --
-CREATE TABLE [edfi].[StudentRace] (
-    [RaceDescriptorId] [INT] NOT NULL,
-    [StudentUSI] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentRace_PK] PRIMARY KEY CLUSTERED (
-        [RaceDescriptorId] ASC,
-        [StudentUSI] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentRace] ADD CONSTRAINT [StudentRace_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentSchoolAssociation] --
@@ -8002,24 +8036,6 @@ GO
 ALTER TABLE [edfi].[StudentSpecialEducationProgramAssociationSpecialEducationProgramService] ADD CONSTRAINT [StudentSpecialEducationProgramAssociationSpecialEducationProgramService_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
--- Table [edfi].[StudentTelephone] --
-CREATE TABLE [edfi].[StudentTelephone] (
-    [StudentUSI] [INT] NOT NULL,
-    [TelephoneNumberTypeDescriptorId] [INT] NOT NULL,
-    [TelephoneNumber] [NVARCHAR](24) NOT NULL,
-    [OrderOfPriority] [INT] NULL,
-    [TextMessageCapabilityIndicator] [BIT] NULL,
-    [DoNotPublishIndicator] [BIT] NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentTelephone_PK] PRIMARY KEY CLUSTERED (
-        [StudentUSI] ASC,
-        [TelephoneNumberTypeDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentTelephone] ADD CONSTRAINT [StudentTelephone_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
 -- Table [edfi].[StudentTitleIPartAProgramAssociation] --
 CREATE TABLE [edfi].[StudentTitleIPartAProgramAssociation] (
     [BeginDate] [DATE] NOT NULL,
@@ -8065,20 +8081,6 @@ CREATE TABLE [edfi].[StudentTitleIPartAProgramAssociationService] (
 ) ON [PRIMARY]
 GO
 ALTER TABLE [edfi].[StudentTitleIPartAProgramAssociationService] ADD CONSTRAINT [StudentTitleIPartAProgramAssociationService_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
-GO
-
--- Table [edfi].[StudentTribalAffiliation] --
-CREATE TABLE [edfi].[StudentTribalAffiliation] (
-    [StudentUSI] [INT] NOT NULL,
-    [TribalAffiliationDescriptorId] [INT] NOT NULL,
-    [CreateDate] [DATETIME] NOT NULL,
-    CONSTRAINT [StudentTribalAffiliation_PK] PRIMARY KEY CLUSTERED (
-        [StudentUSI] ASC,
-        [TribalAffiliationDescriptorId] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [edfi].[StudentTribalAffiliation] ADD CONSTRAINT [StudentTribalAffiliation_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [edfi].[StudentVisa] --

@@ -89,14 +89,13 @@ The following table describes the primary entities of which the Descriptors Inte
 | EducationalEnvironmentDescriptor | The setting in which a child receives education and related services. |
 | EducationOrganizationCategoryDescriptor | The classification of the education agency within the geographic boundaries of a state according to the level of administrative and operational control granted by the state. |
 | EducationOrganizationIdentificationSystemDescriptor | This descriptor defines the originating record system and code that is used for record-keeping purposes by education organizations. |
-| EducationPlanDescriptor | The type of education plan(s) the student is following, if appropriate. For example:<br/>    Special education<br/>    Vocational. |
+| EducationPlanDescriptor | The type of education plan(s) the student is following, if appropriate. |
 | ElectronicMailTypeDescriptor | The type of email listed for an individual or organization. |
 | EmploymentStatusDescriptor | This descriptor defines the type of employment or contract. |
 | EntryGradeLevelReasonDescriptor | The primary reason as to why a staff member determined that a student should be promoted or not (or be demoted) at the end of a given school term. |
 | EntryTypeDescriptor | This descriptor defines the process by which a student enters a school during a given academic session. |
 | EventCircumstanceDescriptor | An unusual event occurred during the administration of the assessment. This could include fire alarm, student became ill, etc. |
 | ExitWithdrawTypeDescriptor | This descriptor defines the circumstances under which the student exited from membership in an educational institution. |
-| FederalLocaleCodeDescriptor | (TPDP Extension) The descriptor holds the federal locale code applicable to an education organization. |
 | GradebookEntryTypeDescriptor | The type of the gradebook entry; for example, homework, assignment, quiz, unit test, oral presentation, etc. |
 | GradeLevelDescriptor | This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | GradeTypeDescriptor | The type of grade in a report card or transcript (e.g., Final, Exam, Grading Period). |
@@ -112,7 +111,7 @@ The following table describes the primary entities of which the Descriptors Inte
 | InternetAccessDescriptor | The type of Internet access available. |
 | InterventionClassDescriptor | The way in which an intervention is used: curriculum, supplement, or practice. |
 | InterventionEffectivenessRatingDescriptor | An intervention demonstrates effectiveness if the research has shown that the program caused an improvement in outcomes. Rating Values: positive effects, potentially positive effects, mixed effects, potentially negative effects, negative effects, and no discernible effects. |
-| LanguageDescriptor | This descriptor defines the language(s) that are spoken or written. It is strongly recommended that entries use only ISO 639-3 language codes: for CodeValue, use the 3 character code; for ShortDescription and Description use the full language name. |
+| LanguageDescriptor | This descriptor defines the language(s) that are spoken or written. It is strongly recommended that entries use only ISO 639-2 language codes: for CodeValue, use the 3 character code; for ShortDescription and Description use the full language name. |
 | LanguageInstructionProgramServiceDescriptor | This descriptor defines the services provided by an education organization to populations of students associated with a language instruction program. |
 | LanguageUseDescriptor | The category denoting how a language is used. |
 | LearningStandardCategoryDescriptor | An additional classification of the type of a specific learning standard. |
@@ -167,7 +166,6 @@ The following table describes the primary entities of which the Descriptors Inte
 | SchoolCategoryDescriptor | The category of school. For example: High School, Middle School, Elementary School. |
 | SchoolChoiceImplementStatusDescriptor | An indication of whether the LEA was able to implement the provisions for public school choice under Title I, Part A, Section 1116 of ESEA, as amended. |
 | SchoolFoodServiceProgramServiceDescriptor | This descriptor defines the services provided by an education organization to populations of students associated with a school food service program. |
-| SchoolStatusDescriptor | The descriptor holds the status of a school e.g. priority or focus. |
 | SchoolTypeDescriptor | The type of education institution as classified by its primary focus. |
 | SectionCharacteristicDescriptor | This descriptor defines characteristics of a Section, such as whether attendance is taken and the Section is graded. |
 | SeparationDescriptor | Type of employment separation; for example:  Voluntary separation, Involuntary separation, Mutual agreement. Other, etc. |
@@ -193,31 +191,6 @@ The following table describes the primary entities of which the Descriptors Inte
 | TribalAffiliationDescriptor | An American Indian tribe with which an individual is affiliated. |
 | VisaDescriptor | An indicator of a non-U.S. citizen's Visa type. |
 | WeaponDescriptor | This descriptor defines the types of weapon used during an incident. |
-| AidTypeDescriptor | This descriptor defines the classification of financial aid awarded to a person for the academic term/year. |
-| BackgroundCheckStatusDescriptor | This descriptor holds the  status of the background check (e.g., pending, under investigation, offense(s) found, etc.). |
-| BackgroundCheckTypeDescriptor | This descriptor defines the classification of the background check a person receives. |
-| BoardCertificationTypeDescriptor | The descriptor holds the type of board certification awarded to an individual. |
-| CertificationExamTypeDescriptor | The descriptor holds the type of certification exam that was taken. |
-| EnglishLanguageExamDescriptor | Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL). |
-| FieldworkTypeDescriptor | The descriptor holds the type of fieldwork being executed by a teacher candidate. |
-| GenderDescriptor | The gender with with a person associates. |
-| LevelOfDegreeAwardedDescriptor | The descriptor holds the level of degree awarded by the teacher prep program to the person (e.g., Certificate Only, Bachelor's, Master's, etc.). |
-| LevelTypeDescriptor | The descriptor holds the level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured. |
-| PerformanceMeasureTypeDescriptor | The descriptor holds the type (e.g., walkthrough, summative) of observation conducted. |
-| PreviousCareerDescriptor | The descriptor holds the previous career of an individual. |
-| ProfessionalDevelopmentOfferedByDescriptor | The descriptor holds the organization that a professional development is offered by. |
-| ProgramGatewayDescriptor | The descriptor holds the program gateway that is associated with continuation in a program. |
-| QuestionFormDescriptor | The form of question: 1) Radio box: multiple choice, single selection; 2) Checkbox: Multiple choice, multiple selection; 3) Dropdown: multiple choice, single selection; 4) Matrix, numeric rating scale; 5) Matrix of dropdowns; 6) Ranking; 7) Single textbox; 8) Matrix of text boxes. |
-| RubricTypeDescriptor | The descriptor holds the rubric types. |
-| SalaryTypeDescriptor | The descriptor holds the type of salary that a staff member is receiving. |
-| StudentGrowthTypeDescriptor | Identification of the type of score that was used to determine student growth |
-| SurveyCategoryDescriptor | The descriptor holds the category or type of survey. |
-| TeacherCandidateCharacteristicDescriptor | The characteristic designated for the TeacherCandidate. |
-| TeacherPreparationProgramTypeDescriptor | The descriptor holds the type of teacher prep program (e.g., college, alternative, TFA, etc.). |
-| ThemeDescriptor | The descriptor holds the theme of the specified level of the rubric. |
-| TPPDegreeTypeDescriptor | The descriptor holds the degree that a teacher candidate accomplishes. |
-| TPPProgramPathwayDescriptor | The descriptor holds the program pathways available at TPP's. |
-| ValueTypeDescriptor | The type (i.e. actual or projected) of value. |
 
 
 

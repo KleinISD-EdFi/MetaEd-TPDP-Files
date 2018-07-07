@@ -875,6 +875,32 @@ REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
 GO
 
+ALTER TABLE [extension].[CommunityOrganizationExtension] WITH CHECK ADD CONSTRAINT [FK_CommunityOrganizationExtension_CommunityOrganization] FOREIGN KEY ([CommunityOrganizationId])
+REFERENCES [edfi].[CommunityOrganization] ([CommunityOrganizationId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[CommunityOrganizationExtension] WITH CHECK ADD CONSTRAINT [FK_CommunityOrganizationExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CommunityOrganizationExtension_FederalLocaleCodeDescriptor]
+ON [extension].[CommunityOrganizationExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[CommunityProviderExtension] WITH CHECK ADD CONSTRAINT [FK_CommunityProviderExtension_CommunityProvider] FOREIGN KEY ([CommunityProviderId])
+REFERENCES [edfi].[CommunityProvider] ([CommunityProviderId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[CommunityProviderExtension] WITH CHECK ADD CONSTRAINT [FK_CommunityProviderExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_CommunityProviderExtension_FederalLocaleCodeDescriptor]
+ON [extension].[CommunityProviderExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
 ALTER TABLE [extension].[CourseCourseTranscriptFacts] WITH CHECK ADD CONSTRAINT [FK_CourseCourseTranscriptFacts_CourseStudentAcademicRecordFacts] FOREIGN KEY ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 REFERENCES [extension].[CourseStudentAcademicRecordFacts] ([CourseCode], [EducationOrganizationId], [FactAsOfDate], [SchoolYear], [TermDescriptorId])
 GO
@@ -1563,6 +1589,19 @@ CREATE NONCLUSTERED INDEX [FK_EducationOrganizationFactsVacancies_ValueTypeDescr
 ON [extension].[EducationOrganizationFactsVacancies] ([ValueTypeDescriptorId] ASC)
 GO
 
+ALTER TABLE [extension].[EducationOrganizationNetworkExtension] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationNetworkExtension_EducationOrganizationNetwork] FOREIGN KEY ([EducationOrganizationNetworkId])
+REFERENCES [edfi].[EducationOrganizationNetwork] ([EducationOrganizationNetworkId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[EducationOrganizationNetworkExtension] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationNetworkExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_EducationOrganizationNetworkExtension_FederalLocaleCodeDescriptor]
+ON [extension].[EducationOrganizationNetworkExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
 ALTER TABLE [extension].[EducationOrganizationStudentAcademicRecordFacts] WITH CHECK ADD CONSTRAINT [FK_EducationOrganizationStudentAcademicRecordFacts_EducationOrganization] FOREIGN KEY ([EducationOrganizationId])
 REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 GO
@@ -2050,6 +2089,19 @@ REFERENCES [extension].[EducationOrganizationSurveySectionResponseRatingFacts] (
 ON DELETE CASCADE
 GO
 
+ALTER TABLE [extension].[EducationServiceCenterExtension] WITH CHECK ADD CONSTRAINT [FK_EducationServiceCenterExtension_EducationServiceCenter] FOREIGN KEY ([EducationServiceCenterId])
+REFERENCES [edfi].[EducationServiceCenter] ([EducationServiceCenterId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[EducationServiceCenterExtension] WITH CHECK ADD CONSTRAINT [FK_EducationServiceCenterExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_EducationServiceCenterExtension_FederalLocaleCodeDescriptor]
+ON [extension].[EducationServiceCenterExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
 ALTER TABLE [extension].[EnglishLanguageExamDescriptor] WITH CHECK ADD CONSTRAINT [FK_EnglishLanguageExamDescriptor_Descriptor] FOREIGN KEY ([EnglishLanguageExamDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
@@ -2456,6 +2508,19 @@ CREATE NONCLUSTERED INDEX [FK_ExternalStudentAcademicRecordRecognition_Recogniti
 ON [extension].[ExternalStudentAcademicRecordRecognition] ([RecognitionTypeDescriptorId] ASC)
 GO
 
+ALTER TABLE [extension].[FederalLocaleCodeDescriptor] WITH CHECK ADD CONSTRAINT [FK_FederalLocaleCodeDescriptor_Descriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[FederalLocaleCodeDescriptor] WITH CHECK ADD CONSTRAINT [FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType] FOREIGN KEY ([FederalLocaleCodeTypeId])
+REFERENCES [extension].[FederalLocaleCodeType] ([FederalLocaleCodeTypeId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType]
+ON [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeTypeId] ASC)
+GO
+
 ALTER TABLE [extension].[FieldworkTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_FieldworkTypeDescriptor_Descriptor] FOREIGN KEY ([FieldworkTypeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
@@ -2487,6 +2552,19 @@ GO
 
 ALTER TABLE [extension].[LevelTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_LevelTypeDescriptor_Descriptor] FOREIGN KEY ([LevelTypeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[LocalEducationAgencyExtension] WITH CHECK ADD CONSTRAINT [FK_LocalEducationAgencyExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_LocalEducationAgencyExtension_FederalLocaleCodeDescriptor]
+ON [extension].[LocalEducationAgencyExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[LocalEducationAgencyExtension] WITH CHECK ADD CONSTRAINT [FK_LocalEducationAgencyExtension_LocalEducationAgency] FOREIGN KEY ([LocalEducationAgencyId])
+REFERENCES [edfi].[LocalEducationAgency] ([LocalEducationAgencyId])
 ON DELETE CASCADE
 GO
 
@@ -2666,6 +2744,19 @@ GO
 
 ALTER TABLE [extension].[PerformanceMeasureTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_PerformanceMeasureTypeDescriptor_Descriptor] FOREIGN KEY ([PerformanceMeasureTypeDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[PostSecondaryInstitutionExtension] WITH CHECK ADD CONSTRAINT [FK_PostSecondaryInstitutionExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PostSecondaryInstitutionExtension_FederalLocaleCodeDescriptor]
+ON [extension].[PostSecondaryInstitutionExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[PostSecondaryInstitutionExtension] WITH CHECK ADD CONSTRAINT [FK_PostSecondaryInstitutionExtension_PostSecondaryInstitution] FOREIGN KEY ([PostSecondaryInstitutionId])
+REFERENCES [edfi].[PostSecondaryInstitution] ([PostSecondaryInstitutionId])
 ON DELETE CASCADE
 GO
 
@@ -3029,6 +3120,32 @@ ON DELETE CASCADE
 GO
 
 ALTER TABLE [extension].[SalaryTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_SalaryTypeDescriptor_Descriptor] FOREIGN KEY ([SalaryTypeDescriptorId])
+REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolExtension_FederalLocaleCodeDescriptor]
+ON [extension].[SchoolExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_School] FOREIGN KEY ([SchoolId])
+REFERENCES [edfi].[School] ([SchoolId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_SchoolStatusDescriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
+REFERENCES [extension].[SchoolStatusDescriptor] ([SchoolStatusDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolExtension_SchoolStatusDescriptor]
+ON [extension].[SchoolExtension] ([SchoolStatusDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolStatusDescriptor] WITH CHECK ADD CONSTRAINT [FK_SchoolStatusDescriptor_Descriptor] FOREIGN KEY ([SchoolStatusDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
 GO
@@ -3974,6 +4091,19 @@ GO
 
 CREATE NONCLUSTERED INDEX [FK_StaffTeacherPreparationProviderProgramAssociation_TeacherPreparationProviderProgram]
 ON [extension].[StaffTeacherPreparationProviderProgramAssociation] ([EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[StateEducationAgencyExtension] WITH CHECK ADD CONSTRAINT [FK_StateEducationAgencyExtension_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_StateEducationAgencyExtension_FederalLocaleCodeDescriptor]
+ON [extension].[StateEducationAgencyExtension] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[StateEducationAgencyExtension] WITH CHECK ADD CONSTRAINT [FK_StateEducationAgencyExtension_StateEducationAgency] FOREIGN KEY ([StateEducationAgencyId])
+REFERENCES [edfi].[StateEducationAgency] ([StateEducationAgencyId])
+ON DELETE CASCADE
 GO
 
 ALTER TABLE [extension].[StudentGradebookEntryExtension] WITH CHECK ADD CONSTRAINT [FK_StudentGradebookEntryExtension_StudentGradebookEntry] FOREIGN KEY ([BeginDate], [DateAssigned], [GradebookEntryTitle], [LocalCourseCode], [SchoolId], [SchoolYear], [SectionIdentifier], [SessionName], [StudentUSI])
@@ -5271,6 +5401,14 @@ REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 ON DELETE CASCADE
 GO
 
+ALTER TABLE [extension].[TeacherPreparationProvider] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProvider_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_TeacherPreparationProvider_FederalLocaleCodeDescriptor]
+ON [extension].[TeacherPreparationProvider] ([FederalLocaleCodeDescriptorId] ASC)
+GO
+
 ALTER TABLE [extension].[TeacherPreparationProvider] WITH CHECK ADD CONSTRAINT [FK_TeacherPreparationProvider_University] FOREIGN KEY ([UniversityId])
 REFERENCES [extension].[University] ([UniversityId])
 GO
@@ -5367,6 +5505,14 @@ GO
 ALTER TABLE [extension].[University] WITH CHECK ADD CONSTRAINT [FK_University_EducationOrganization] FOREIGN KEY ([UniversityId])
 REFERENCES [edfi].[EducationOrganization] ([EducationOrganizationId])
 ON DELETE CASCADE
+GO
+
+ALTER TABLE [extension].[University] WITH CHECK ADD CONSTRAINT [FK_University_FederalLocaleCodeDescriptor] FOREIGN KEY ([FederalLocaleCodeDescriptorId])
+REFERENCES [extension].[FederalLocaleCodeDescriptor] ([FederalLocaleCodeDescriptorId])
+GO
+
+CREATE NONCLUSTERED INDEX [FK_University_FederalLocaleCodeDescriptor]
+ON [extension].[University] ([FederalLocaleCodeDescriptorId] ASC)
 GO
 
 ALTER TABLE [extension].[ValueTypeDescriptor] WITH CHECK ADD CONSTRAINT [FK_ValueTypeDescriptor_Descriptor] FOREIGN KEY ([ValueTypeDescriptorId])

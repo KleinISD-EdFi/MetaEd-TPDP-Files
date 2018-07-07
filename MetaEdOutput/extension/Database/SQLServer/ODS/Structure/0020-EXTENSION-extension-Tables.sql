@@ -911,6 +911,32 @@ CREATE TABLE [extension].[CertificationExamTypeDescriptor] (
 ) ON [PRIMARY]
 GO
 
+-- Table [extension].[CommunityOrganizationExtension] --
+CREATE TABLE [extension].[CommunityOrganizationExtension] (
+    [CommunityOrganizationId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [CommunityOrganizationExtension_PK] PRIMARY KEY CLUSTERED (
+        [CommunityOrganizationId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CommunityOrganizationExtension] ADD CONSTRAINT [CommunityOrganizationExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [extension].[CommunityProviderExtension] --
+CREATE TABLE [extension].[CommunityProviderExtension] (
+    [CommunityProviderId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [CommunityProviderExtension_PK] PRIMARY KEY CLUSTERED (
+        [CommunityProviderId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[CommunityProviderExtension] ADD CONSTRAINT [CommunityProviderExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [extension].[CourseCourseTranscriptFacts] --
 CREATE TABLE [extension].[CourseCourseTranscriptFacts] (
     [CourseCode] [NVARCHAR](60) NOT NULL,
@@ -1915,6 +1941,19 @@ GO
 ALTER TABLE [extension].[EducationOrganizationFactsVacancies] ADD CONSTRAINT [EducationOrganizationFactsVacancies_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [extension].[EducationOrganizationNetworkExtension] --
+CREATE TABLE [extension].[EducationOrganizationNetworkExtension] (
+    [EducationOrganizationNetworkId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [EducationOrganizationNetworkExtension_PK] PRIMARY KEY CLUSTERED (
+        [EducationOrganizationNetworkId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[EducationOrganizationNetworkExtension] ADD CONSTRAINT [EducationOrganizationNetworkExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [extension].[EducationOrganizationStudentAcademicRecordFacts] --
 CREATE TABLE [extension].[EducationOrganizationStudentAcademicRecordFacts] (
     [EducationOrganizationId] [INT] NOT NULL,
@@ -2505,6 +2544,19 @@ GO
 ALTER TABLE [extension].[EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse] ADD CONSTRAINT [EducationOrganizationSurveySectionResponseRatingFactsAggregatedNumericResponse_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [extension].[EducationServiceCenterExtension] --
+CREATE TABLE [extension].[EducationServiceCenterExtension] (
+    [EducationServiceCenterId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [EducationServiceCenterExtension_PK] PRIMARY KEY CLUSTERED (
+        [EducationServiceCenterId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[EducationServiceCenterExtension] ADD CONSTRAINT [EducationServiceCenterExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [extension].[EnglishLanguageExamDescriptor] --
 CREATE TABLE [extension].[EnglishLanguageExamDescriptor] (
     [EnglishLanguageExamDescriptorId] [INT] NOT NULL,
@@ -2924,6 +2976,37 @@ GO
 ALTER TABLE [extension].[ExternalStudentAcademicRecordRecognition] ADD CONSTRAINT [ExternalStudentAcademicRecordRecognition_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
+-- Table [extension].[FederalLocaleCodeDescriptor] --
+CREATE TABLE [extension].[FederalLocaleCodeDescriptor] (
+    [FederalLocaleCodeDescriptorId] [INT] NOT NULL,
+    [FederalLocaleCodeTypeId] [INT] NULL,
+    CONSTRAINT [FederalLocaleCodeDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [FederalLocaleCodeDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+-- Table [extension].[FederalLocaleCodeType] --
+CREATE TABLE [extension].[FederalLocaleCodeType] (
+    [FederalLocaleCodeTypeId] [INT] IDENTITY(1,1) NOT NULL,
+    [CodeValue] [NVARCHAR](50) NOT NULL,
+    [Description] [NVARCHAR](1024) NOT NULL,
+    [ShortDescription] [NVARCHAR](450) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL,
+    CONSTRAINT [FederalLocaleCodeType_PK] PRIMARY KEY CLUSTERED (
+        [FederalLocaleCodeTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[FederalLocaleCodeType] ADD CONSTRAINT [FederalLocaleCodeType_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
 -- Table [extension].[FieldworkTypeDescriptor] --
 CREATE TABLE [extension].[FieldworkTypeDescriptor] (
     [FieldworkTypeDescriptorId] [INT] NOT NULL,
@@ -2984,6 +3067,19 @@ CREATE TABLE [extension].[LevelTypeDescriptor] (
         [LevelTypeDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+-- Table [extension].[LocalEducationAgencyExtension] --
+CREATE TABLE [extension].[LocalEducationAgencyExtension] (
+    [LocalEducationAgencyId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [LocalEducationAgencyExtension_PK] PRIMARY KEY CLUSTERED (
+        [LocalEducationAgencyId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[LocalEducationAgencyExtension] ADD CONSTRAINT [LocalEducationAgencyExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [extension].[PerformanceMeasure] --
@@ -3157,6 +3253,19 @@ CREATE TABLE [extension].[PerformanceMeasureTypeDescriptor] (
         [PerformanceMeasureTypeDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+-- Table [extension].[PostSecondaryInstitutionExtension] --
+CREATE TABLE [extension].[PostSecondaryInstitutionExtension] (
+    [PostSecondaryInstitutionId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [PostSecondaryInstitutionExtension_PK] PRIMARY KEY CLUSTERED (
+        [PostSecondaryInstitutionId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[PostSecondaryInstitutionExtension] ADD CONSTRAINT [PostSecondaryInstitutionExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
 GO
 
 -- Table [extension].[PreviousCareerDescriptor] --
@@ -3694,6 +3803,30 @@ CREATE TABLE [extension].[SalaryTypeDescriptor] (
     [SalaryTypeDescriptorId] [INT] NOT NULL,
     CONSTRAINT [SalaryTypeDescriptor_PK] PRIMARY KEY CLUSTERED (
         [SalaryTypeDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+-- Table [extension].[SchoolExtension] --
+CREATE TABLE [extension].[SchoolExtension] (
+    [SchoolId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [SchoolStatusDescriptorId] [INT] NULL,
+    [ImprovingSchool] [BIT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [SchoolExtension_PK] PRIMARY KEY CLUSTERED (
+        [SchoolId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[SchoolExtension] ADD CONSTRAINT [SchoolExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+-- Table [extension].[SchoolStatusDescriptor] --
+CREATE TABLE [extension].[SchoolStatusDescriptor] (
+    [SchoolStatusDescriptorId] [INT] NOT NULL,
+    CONSTRAINT [SchoolStatusDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [SchoolStatusDescriptorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -5110,6 +5243,19 @@ GO
 ALTER TABLE [extension].[StaffTeacherPreparationProviderProgramAssociation] ADD CONSTRAINT [StaffTeacherPreparationProviderProgramAssociation_DF_LastModifiedDate] DEFAULT (getdate()) FOR [LastModifiedDate]
 GO
 
+-- Table [extension].[StateEducationAgencyExtension] --
+CREATE TABLE [extension].[StateEducationAgencyExtension] (
+    [StateEducationAgencyId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
+    [CreateDate] [DATETIME] NOT NULL,
+    CONSTRAINT [StateEducationAgencyExtension_PK] PRIMARY KEY CLUSTERED (
+        [StateEducationAgencyId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[StateEducationAgencyExtension] ADD CONSTRAINT [StateEducationAgencyExtension_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+
 -- Table [extension].[StudentGradebookEntryExtension] --
 CREATE TABLE [extension].[StudentGradebookEntryExtension] (
     [BeginDate] [DATE] NOT NULL,
@@ -6392,6 +6538,7 @@ GO
 -- Table [extension].[TeacherPreparationProvider] --
 CREATE TABLE [extension].[TeacherPreparationProvider] (
     [TeacherPreparationProviderId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
     [UniversityId] [INT] NULL,
     CONSTRAINT [TeacherPreparationProvider_PK] PRIMARY KEY CLUSTERED (
         [TeacherPreparationProviderId] ASC
@@ -6492,6 +6639,7 @@ GO
 -- Table [extension].[University] --
 CREATE TABLE [extension].[University] (
     [UniversityId] [INT] NOT NULL,
+    [FederalLocaleCodeDescriptorId] [INT] NULL,
     CONSTRAINT [University_PK] PRIMARY KEY CLUSTERED (
         [UniversityId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

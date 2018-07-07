@@ -772,6 +772,30 @@
     {
       "aggregateRootEntityName": {
         "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "extension",
+          "name": "FederalLocaleCodeDescriptor"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeType"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "extension",
+          "name": "FederalLocaleCodeType"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "extension",
         "name": "FieldworkTypeDescriptor"
       },
       "aggregateEntityNames": [
@@ -1098,6 +1122,18 @@
         {
           "schema": "extension",
           "name": "SalaryTypeDescriptor"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "extension",
+        "name": "SchoolStatusDescriptor"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "extension",
+          "name": "SchoolStatusDescriptor"
         }
       ]
     },
@@ -5009,6 +5045,68 @@
     },
     {
       "schema": "extension",
+      "name": "CommunityOrganizationExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "CommunityOrganizationExtension_PK",
+          "identifyingPropertyNames": [
+            "CommunityOrganizationId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
+    },
+    {
+      "schema": "extension",
+      "name": "CommunityProviderExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "CommunityProviderExtension_PK",
+          "identifyingPropertyNames": [
+            "CommunityProviderId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
+    },
+    {
+      "schema": "extension",
       "name": "CourseCourseTranscriptFacts",
       "locallyDefinedProperties": [
         {
@@ -8352,6 +8450,37 @@
     },
     {
       "schema": "extension",
+      "name": "EducationOrganizationNetworkExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "EducationOrganizationNetworkExtension_PK",
+          "identifyingPropertyNames": [
+            "EducationOrganizationNetworkId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
+    },
+    {
+      "schema": "extension",
       "name": "EducationOrganizationStudentAcademicRecordFacts",
       "locallyDefinedProperties": [
         {
@@ -10375,6 +10504,37 @@
     },
     {
       "schema": "extension",
+      "name": "EducationServiceCenterExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "EducationServiceCenterExtension_PK",
+          "identifyingPropertyNames": [
+            "EducationServiceCenterId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
+    },
+    {
+      "schema": "extension",
       "name": "EnglishLanguageExamDescriptor",
       "locallyDefinedProperties": [],
       "identifiers": [
@@ -12232,6 +12392,140 @@
     },
     {
       "schema": "extension",
+      "name": "FederalLocaleCodeDescriptor",
+      "locallyDefinedProperties": [],
+      "identifiers": [
+        {
+          "identifierName": "FederalLocaleCodeDescriptor_PK",
+          "identifyingPropertyNames": [
+            "FederalLocaleCodeDescriptorId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": "(TPDP Extension) The descriptor holds the federal locale code applicable to an education organization."
+    },
+    {
+      "schema": "extension",
+      "name": "FederalLocaleCodeType",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CodeValue",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 50,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "This column is deprecated.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "Description",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 1024,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The description for the FederalLocaleCode type.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "FederalLocaleCodeTypeId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "Key for FederalLocaleCode",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "ShortDescription",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 450,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The value for the FederalLocaleCode type.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "FederalLocaleCodeType_PK",
+          "identifyingPropertyNames": [
+            "FederalLocaleCodeTypeId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        },
+        {
+          "identifierName": "UX_FederalLocaleCodeType_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": "Map for the type federal local codes."
+    },
+    {
+      "schema": "extension",
       "name": "FieldworkTypeDescriptor",
       "locallyDefinedProperties": [],
       "identifiers": [
@@ -12347,6 +12641,37 @@
       ],
       "isAbstract": false,
       "description": "The descriptor holds the level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured."
+    },
+    {
+      "schema": "extension",
+      "name": "LocalEducationAgencyExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "LocalEducationAgencyExtension_PK",
+          "identifyingPropertyNames": [
+            "LocalEducationAgencyId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
     },
     {
       "schema": "extension",
@@ -12890,6 +13215,37 @@
       ],
       "isAbstract": false,
       "description": "The descriptor holds the type (e.g., walkthrough, summative) of observation conducted."
+    },
+    {
+      "schema": "extension",
+      "name": "PostSecondaryInstitutionExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "PostSecondaryInstitutionExtension_PK",
+          "identifyingPropertyNames": [
+            "PostSecondaryInstitutionId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
     },
     {
       "schema": "extension",
@@ -14808,6 +15164,67 @@
       ],
       "isAbstract": false,
       "description": "The descriptor holds the type of salary that a staff member is receiving."
+    },
+    {
+      "schema": "extension",
+      "name": "SchoolExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        },
+        {
+          "propertyName": "ImprovingSchool",
+          "propertyType": {
+            "dbType": "Boolean",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "An indication of whether a school is identified as an improving school.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "SchoolExtension_PK",
+          "identifyingPropertyNames": [
+            "SchoolId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
+    },
+    {
+      "schema": "extension",
+      "name": "SchoolStatusDescriptor",
+      "locallyDefinedProperties": [],
+      "identifiers": [
+        {
+          "identifierName": "SchoolStatusDescriptor_PK",
+          "identifyingPropertyNames": [
+            "SchoolStatusDescriptorId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": "The descriptor holds the status of a school e.g. priority or focus."
     },
     {
       "schema": "extension",
@@ -19086,6 +19503,37 @@
       ],
       "isAbstract": false,
       "description": "This association indicates the Staff associated with a teacher preparation provider program."
+    },
+    {
+      "schema": "extension",
+      "name": "StateEducationAgencyExtension",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "StateEducationAgencyExtension_PK",
+          "identifyingPropertyNames": [
+            "StateEducationAgencyId"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false
+        }
+      ],
+      "isAbstract": false,
+      "description": ""
     },
     {
       "schema": "extension",
@@ -31829,6 +32277,194 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_CommunityOrganizationExtension_CommunityOrganization"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "CommunityOrganization"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "CommunityOrganizationId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a CommunityOrganization.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "CommunityOrganizationExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "CommunityOrganizationId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a CommunityOrganization.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_CommunityOrganizationExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "CommunityOrganizationExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_CommunityProviderExtension_CommunityProvider"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "CommunityProvider"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "CommunityProviderId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a CommunityProvider.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "CommunityProviderExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "CommunityProviderId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a CommunityProvider.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_CommunityProviderExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "CommunityProviderExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_CourseCourseTranscriptFacts_CourseStudentAcademicRecordFacts"
       },
       "cardinality": "OneToZeroOrMore",
@@ -39133,6 +39769,100 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_EducationOrganizationNetworkExtension_EducationOrganizationNetwork"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "EducationOrganizationNetwork"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "EducationOrganizationNetworkId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a network of education organizations.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "EducationOrganizationNetworkExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "EducationOrganizationNetworkId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a network of education organizations.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_EducationOrganizationNetworkExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "EducationOrganizationNetworkExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_EducationOrganizationStudentAcademicRecordFacts_EducationOrganization"
       },
       "cardinality": "OneToZeroOrMore",
@@ -43332,6 +44062,100 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_EducationServiceCenterExtension_EducationServiceCenter"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "EducationServiceCenter"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "EducationServiceCenterId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to an education service center.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "EducationServiceCenterExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "EducationServiceCenterId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to an education service center.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_EducationServiceCenterExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "EducationServiceCenterExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_EnglishLanguageExamDescriptor_Descriptor"
       },
       "cardinality": "OneToOneInheritance",
@@ -46436,6 +47260,100 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_FederalLocaleCodeDescriptor_Descriptor"
+      },
+      "cardinality": "OneToOneInheritance",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Descriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "DescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_FederalLocaleCodeDescriptor_FederalLocaleCodeType"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeType"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeTypeId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "Key for FederalLocaleCode",
+          "isIdentifying": false,
+          "isServerAssigned": true
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeTypeId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_FieldworkTypeDescriptor_Descriptor"
       },
       "cardinality": "OneToOneInheritance",
@@ -46866,6 +47784,100 @@
           "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
           "isIdentifying": true,
           "isServerAssigned": true
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_LocalEducationAgencyExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "LocalEducationAgencyExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_LocalEducationAgencyExtension_LocalEducationAgency"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "LocalEducationAgency"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LocalEducationAgencyId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a local education agency.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "LocalEducationAgencyExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LocalEducationAgencyId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a local education agency.",
+          "isIdentifying": true,
+          "isServerAssigned": false
         }
       ],
       "isIdentifying": true,
@@ -48259,6 +49271,100 @@
           "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
           "isIdentifying": true,
           "isServerAssigned": true
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_PostSecondaryInstitutionExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "PostSecondaryInstitutionExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_PostSecondaryInstitutionExtension_PostSecondaryInstitution"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "PostSecondaryInstitution"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "PostSecondaryInstitutionId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The ID of the post secondary institution.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "PostSecondaryInstitutionExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "PostSecondaryInstitutionId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The ID of the post secondary institution.",
+          "isIdentifying": true,
+          "isServerAssigned": false
         }
       ],
       "isIdentifying": true,
@@ -51493,6 +52599,194 @@
       "secondaryEntityProperties": [
         {
           "propertyName": "SalaryTypeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_SchoolExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "SchoolExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_SchoolExtension_School"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "School"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "SchoolId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a school.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "SchoolExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "SchoolId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a school.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_SchoolExtension_SchoolStatusDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "SchoolStatusDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "SchoolExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The status of school e.g. priority or focus.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_SchoolStatusDescriptor_Descriptor"
+      },
+      "cardinality": "OneToOneInheritance",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "Descriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "DescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": true,
+          "isServerAssigned": true
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "SchoolStatusDescriptor"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "SchoolStatusDescriptorId",
           "propertyType": {
             "dbType": "Int32",
             "maxLength": 0,
@@ -62460,6 +63754,100 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_StateEducationAgencyExtension_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "StateEducationAgencyExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_StateEducationAgencyExtension_StateEducationAgency"
+      },
+      "cardinality": "OneToOneExtension",
+      "primaryEntityFullName": {
+        "schema": "edfi",
+        "name": "StateEducationAgency"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "StateEducationAgencyId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a state education agency.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "StateEducationAgencyExtension"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "StateEducationAgencyId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The identifier assigned to a state education agency.",
+          "isIdentifying": true,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_StudentGradebookEntryExtension_StudentGradebookEntry"
       },
       "cardinality": "OneToOneExtension",
@@ -71951,6 +73339,53 @@
     {
       "fullName": {
         "schema": "extension",
+        "name": "FK_TeacherPreparationProvider_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "TeacherPreparationProvider"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
+    },
+    {
+      "fullName": {
+        "schema": "extension",
         "name": "FK_TeacherPreparationProvider_University"
       },
       "cardinality": "OneToZeroOrMore",
@@ -72709,6 +74144,53 @@
       ],
       "isIdentifying": true,
       "isRequired": true
+    },
+    {
+      "fullName": {
+        "schema": "extension",
+        "name": "FK_University_FederalLocaleCodeDescriptor"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "extension",
+        "name": "FederalLocaleCodeDescriptor"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "extension",
+        "name": "University"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "FederalLocaleCodeDescriptorId",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The federal locale code associated with an education organization.",
+          "isIdentifying": false,
+          "isServerAssigned": false
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false
     },
     {
       "fullName": {

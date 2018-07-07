@@ -1,0 +1,9 @@
+Descriptor FederalLocaleCode
+  documentation "(TPDP Extension) The descriptor holds the federal locale code applicable to an education organization."
+  with optional map type
+    documentation "Map for the type federal local codes."
+    item "City"
+    item "Suburb"
+    item "Other"
+    item "Town"
+    item "Rural"

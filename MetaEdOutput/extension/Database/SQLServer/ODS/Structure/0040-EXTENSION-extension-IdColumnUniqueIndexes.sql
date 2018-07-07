@@ -181,6 +181,13 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.FederalLocaleCodeType') AND name = N'UX_FederalLocaleCodeType_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_FederalLocaleCodeType_Id ON [extension].[FederalLocaleCodeType]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
     IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.PerformanceMeasure') AND name = N'UX_PerformanceMeasure_Id')
     CREATE UNIQUE NONCLUSTERED INDEX UX_PerformanceMeasure_Id ON [extension].[PerformanceMeasure]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
