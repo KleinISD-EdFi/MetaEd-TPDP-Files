@@ -100,8 +100,9 @@ Domain Entity Applicant
     common ScoreResult
       documentation "A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc."
       is optional collection
-    reference TeacherCandidate
-      documentation "?"
     bool EconomicDisadvantaged
       documentation "An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy."
+      is optional
+    domain entity TeacherCandidate
+      documentation "Reference to the teacher candidate associated."
       is optional

@@ -85,3 +85,9 @@ Domain Entity Prospect
     bool EconomicDisadvantaged
       documentation "An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy."
       is optional
+    domain entity Staff
+      documentation "Reference to the staff associated."
+      is optional
+    domain entity TeacherCandidate
+      documentation "Reference to the teacher candidate associated."
+      is optional
