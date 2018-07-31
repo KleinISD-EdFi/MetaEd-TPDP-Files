@@ -53,3 +53,6 @@ Domain Entity PerformanceMeasure
     documentation "Any comments about the performance measure to be captured"
     is optional
     max length 1024
+
+  descriptor PerformanceMeasureInstance
+    documentation "?"

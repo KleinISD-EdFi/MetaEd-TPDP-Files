@@ -9,3 +9,5 @@ Common Vacancies
   integer NumberOfVacancies
     documentation "The number of vacancies, projected or actual, associated with an education organization."
     is required
+  descriptor GradeLevel
+    is optional

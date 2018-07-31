@@ -77,9 +77,6 @@ Domain Entity TeacherCandidate
   shared string DisplacementStatus
       documentation "Indicates a state health or weather related event that displaces a group of students, and may require additional funding, educational, or social services."
       is optional
-  common ProgramParticipation
-      documentation "Key programs the student is participating in or receives services from."
-      is optional collection
   common CohortYear
       documentation "The type and year of a cohort (e.g., 9th grade) the student belongs to as determined by the year that student entered a specific grade."
       is optional collection
@@ -124,3 +121,4 @@ Domain Entity TeacherCandidate
   domain entity Staff
     documentation "The staff associated."
     is optional
+  
