@@ -115,10 +115,15 @@ Domain Entity TeacherCandidate
   bool ProgramComplete
     documentation "An indication of whether a teacher candidate has completed the teacher preparation program."
     is optional
+  common DegreeSpecialization
+    documentation "Information around the area(s) of specialization for an individual."
+    is optional collection
+  bool FirstGenerationStudent
+    documentation "Indicator of whether individual is a first generation college student."
+    is optional
   domain entity Student
     documentation "The student associated."
     is required
   domain entity Staff
     documentation "The staff associated."
     is optional
-  

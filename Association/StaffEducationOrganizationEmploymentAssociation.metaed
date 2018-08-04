@@ -1,8 +1,8 @@
 Association StaffEducationOrganizationEmploymentAssociation additions
-    reference EmploymentEvent
+    domain entity EmploymentEvent
         documentation "The associated Employment event upon hiring."
         is optional
-    reference EmploymentSeparationEvent
+    domain entity EmploymentSeparationEvent
         documentation "The associated separation event upon termination."
         is optional
     enumeration SchoolYear

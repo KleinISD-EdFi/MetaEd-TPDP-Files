@@ -12,9 +12,9 @@ Domain Entity StaffEvaluationElement
     shared string RubricReference named RubricReference
         documentation "The reference to rubric title or identifier."
         is optional
-    include StaffRatingLevel
+    common StaffRatingLevel
         documentation "The descriptive level(s) of ratings (cut scores) for staff evaluation."
         is optional collection
-    reference StaffEvaluationComponent
+    domain entity StaffEvaluationComponent
         documentation "Reference to the Staff Evalaution Component."
         is part of identity

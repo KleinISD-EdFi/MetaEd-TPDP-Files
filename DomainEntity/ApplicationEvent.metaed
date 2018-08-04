@@ -23,12 +23,14 @@ Domain Entity ApplicationEvent
   descriptor ApplicationEventResult
     documentation "The recommendation, result or conclusion of the application event (e.g., Continue, exit, recommend for hire)."
     is optional
-  reference Application
+  domain entity Application
     documentation "Reference to the application associated with the application event."
     is part of identity
 
   // TPDP Extensions
   enumeration SchoolYear
+    documentation "Identifier for a school year."
     is required
   descriptor Term
+    documentation "This descriptor defines the term of a session during the school year (e.g., Fall Semester)."
     is optional

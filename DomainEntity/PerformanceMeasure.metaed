@@ -27,7 +27,7 @@ Domain Entity PerformanceMeasure
     is optional
   common PersonBeingReviewed
     documentation "Information regarding the person taking the performance measure."
-    is optional
+    is required
   common Reviewer
     documentation "The person that conducted the performance measure."
     is optional collection

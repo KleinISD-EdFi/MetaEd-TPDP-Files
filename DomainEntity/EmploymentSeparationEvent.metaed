@@ -15,13 +15,13 @@ Domain Entity EmploymentSeparationEvent
     bool RemainingInDistrict
         documentation "Whether a teacher is leaving a school but remaining within the district, or leaving the district entirely."
         is optional
-    reference OpenStaffPosition
+    domain entity OpenStaffPosition
         documentation "The open staff position associated with the employment separation event."
         is part of identity
-    reference EducationOrganization
+    domain entity EducationOrganization
         documentation "The reference to the employing Ed Org."
         is queryable only
-    reference Staff
+    domain entity Staff
         documentation "The reference to the staff."
         is queryable only
     descriptor EmploymentStatus

@@ -6,9 +6,9 @@ Domain Entity StaffEvaluationComponentRating
     descriptor StaffEvaluationRatingLevel
         documentation "The rating level achieved based upon the rating or score."
         is optional
-    reference StaffEvaluationComponent
+    domain entity StaffEvaluationComponent
         documentation "Reference to the Staff Evaluation Component"
         is part of identity
-    reference StaffEvaluationRating
+    domain entity StaffEvaluationRating
         documentation "Reference to the Staff Evaluation Rating."
         is part of identity

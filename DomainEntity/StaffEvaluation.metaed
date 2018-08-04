@@ -8,7 +8,7 @@ Domain Entity StaffEvaluation
         documentation "The school year the Staff evaluation is applied."
         is part of identity
         is queryable field
-    reference EducationOrganization
+    domain entity EducationOrganization
         documentation "The EducationOrganization administering the staff evaluation instrument."
         is part of identity
         is queryable field
@@ -26,6 +26,6 @@ Domain Entity StaffEvaluation
         documentation "The type of the staff evaluation (e.g., observation, principal, peer, student survey, student growth)."
         is optional
         is queryable field
-    include StaffRatingLevel
+    common StaffRatingLevel
         documentation "The descriptive level(s) of ratings (cut scores) for staff evaluation."
         is optional collection

@@ -15,9 +15,9 @@ Domain Entity StaffEvaluationComponent
     descriptor StaffEvaluationType
         documentation "The type of the staff evaluation (e.g., observation, principal, peer, student survey, student growth)."
         is optional
-    include StaffRatingLevel
+    common StaffRatingLevel
         documentation "The descriptive level(s) of ratings (cut scores) for staff evaluation."
         is optional collection
-    reference StaffEvaluation
+    domain entity StaffEvaluation
         documentation "Reference to the Staff Evaluation"
         is part of identity

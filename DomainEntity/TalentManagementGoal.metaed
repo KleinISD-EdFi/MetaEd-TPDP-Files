@@ -9,6 +9,6 @@ Domain Entity TalentManagementGoal
     enumeration SchoolYear
         documentation "The school year the Staff evaluation is applied."
         is part of identity
-    reference EducationOrganization
+    domain entity EducationOrganization
         documentation "The Education Organization(s) associated with the talent management goals."
         is required collection

@@ -4,7 +4,7 @@ Domain Entity Application
     documentation "Identifier assigned to the application for an open staff position."
     is part of identity
     is queryable field
-  reference EducationOrganization
+  domain entity EducationOrganization
     documentation "The education organization, typically a LocalEducationAgency, associated with the application."
     is part of identity
     is queryable field
@@ -51,11 +51,11 @@ Domain Entity Application
   descriptor WithdrawReason
     documentation "Reason applicant withdrew application."
     is optional
-  reference Applicant
+  domain entity Applicant
     documentation "The applicant submitting the application."
     is required
     is queryable field
-  reference OpenStaffPosition
+  domain entity OpenStaffPosition
     documentation "The open staff position(s) associated with the application."
     is optional collection
     is queryable field

@@ -9,13 +9,13 @@ Domain Entity StaffEvaluationRating
     descriptor StaffEvaluationRatingLevel
         documentation "The rating level achieved based upon the rating or score."
         is optional
-    reference Staff
+    domain entity Staff
         documentation "The staff member evaluated."
         is part of identity
-    reference Staff
+    domain entity Staff
         documentation "The staff member performing the evaluation."
         is optional
         with context EvaluatedBy
-    reference StaffEvaluation
+    domain entity StaffEvaluation
         documentation "The Staff Evaluation applied for the staff member."
         is part of identity

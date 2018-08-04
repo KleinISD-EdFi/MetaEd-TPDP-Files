@@ -103,6 +103,9 @@ Domain Entity Applicant
     bool EconomicDisadvantaged
       documentation "An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy."
       is optional
+    bool FirstGenerationStudent
+      documentation "Indicator of whether individual is a first generation college student."
+      is optional
     domain entity TeacherCandidate
       documentation "Reference to the teacher candidate associated."
       is optional

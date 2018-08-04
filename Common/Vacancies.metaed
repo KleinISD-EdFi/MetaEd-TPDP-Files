@@ -10,4 +10,5 @@ Common Vacancies
     documentation "The number of vacancies, projected or actual, associated with an education organization."
     is required
   descriptor GradeLevel
+    documentation "This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required."
     is optional

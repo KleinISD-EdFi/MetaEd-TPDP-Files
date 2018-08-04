@@ -7,6 +7,8 @@ Domain TeacherPreparation
     domain entity AnonymizedStudentAssessment
     domain entity AnonymizedStudentCourseTranscript
     domain entity Applicant
+    domain entity Application
+    domain entity ApplicationEvent
     domain entity Assessment
     domain entity CourseCourseTranscriptFacts
     domain entity CourseStudentAcademicRecordFacts
@@ -28,6 +30,7 @@ Domain TeacherPreparation
     domain entity ExternalEducationOrganization
     domain entity ExternalStudentAcademicRecord
     domain entity GradebookEntry
+    domain entity OpenStaffPosition
     domain entity PerformanceMeasure
     domain entity PerformanceMeasureFacts
     domain entity ProfessionalDevelopmentEvent
@@ -67,7 +70,7 @@ Domain TeacherPreparation
     domain entity TeacherPreparationProvider
     domain entity TeacherPreparationProviderProgram
     domain entity University
-    
+
     association AnonymizedStudentCourseAssociation
     association AnonymizedStudentEducationOrganizationAssociation
     association AnonymizedStudentSectionAssociation

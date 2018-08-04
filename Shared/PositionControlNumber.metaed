@@ -1,4 +1,4 @@
-Common String PositionControlNumber
+Shared String PositionControlNumber
     documentation "Identifier assigned to the position to be filled."
     min length 1
     max length 20

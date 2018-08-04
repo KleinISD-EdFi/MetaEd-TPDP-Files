@@ -1,4 +1,4 @@
-Common Type StaffRatingLevel
+Common StaffRatingLevel
     documentation "The descriptive level(s) of ratings (cut scores) for staff evaluation."
     shared string StaffEvaluationLevel named StaffEvaluationLevel
         documentation "The title for a level of rating or evaluation band (e.g., Excellent, Acceptable, Needs Improvement, Unacceptable)."
