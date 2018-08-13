@@ -121,6 +121,9 @@ Domain Entity TeacherCandidate
   bool FirstGenerationStudent
     documentation "Indicator of whether individual is a first generation college student."
     is optional
+  common TPPProgramDegree
+    documentation "Details of the degree."
+    is required
   domain entity Student
     documentation "The student associated."
     is required

@@ -55,4 +55,5 @@ Domain Entity PerformanceMeasure
     max length 1024
 
   descriptor PerformanceMeasureInstance
-    documentation "?"
+    documentation "Instance of the performance measure taken by the individual."
+    is optional

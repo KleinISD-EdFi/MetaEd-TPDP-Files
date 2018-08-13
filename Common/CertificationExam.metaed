@@ -14,3 +14,4 @@ Common CertificationExam
     is required
   bool CertificationExamPassFail
     documentation "Indicates if the certification exam was passed by the teacher candidate."
+    is optional
