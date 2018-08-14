@@ -1,5 +1,0 @@
-Enumeration Gender
-    documentation "The gender with with a person associates."
-    item "Female"
-    item "Male"
-    item "Not Selected"

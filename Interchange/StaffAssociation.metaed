@@ -1,5 +1,0 @@
-Interchange StaffAssociation additions
-  domain entity StaffFieldworkAbsenceEvent
-  domain entity StaffFieldworkExperience
-  association StaffTeacherPreparationProviderAssociation
-  association StaffTeacherPreparationProviderProgramAssociation

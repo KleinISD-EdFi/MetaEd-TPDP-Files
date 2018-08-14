@@ -1,0 +1,2 @@
+insert into [EdFi_Security].[dbo].[ResourceClaims] (DisplayName,ResourceName, ClaimName, ParentResourceClaimId,Application_ApplicationId)
+  values ('talentManagement','talentManagement', 'http://ed-fi.org/ods/identity/claims/domains/talentManagement', NULL,1)

@@ -1,6 +1,0 @@
-Interchange RecruitmentAndStaffing
-  documentation "?"
-  domain entity Credential
-  domain entity Applicant
-  domain entity Prospect
-  domain entity RecruitmentEvent

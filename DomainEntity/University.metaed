@@ -1,6 +1,0 @@
-Domain Entity University based on EducationOrganization
-    documentation "This entity represents an educational organization that includes staff and students who participate in classes and educational activity groups."
-    integer UniversityId
-        documentation "The unique identification code of the University"
-        renames identity property EducationOrganizationId
-        is queryable field

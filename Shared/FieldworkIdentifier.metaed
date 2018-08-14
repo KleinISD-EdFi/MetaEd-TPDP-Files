@@ -1,4 +1,0 @@
-Shared String FieldworkIdentifier
-  documentation "The unique identifier for the fieldwork experience"
-  min length 1
-  max length 20

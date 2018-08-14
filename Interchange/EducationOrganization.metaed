@@ -1,5 +1,0 @@
-Interchange EducationOrganization additions
-  domain entity EducationOrganizationFacts
-  domain entity TeacherPreparationProvider
-  domain entity TeacherPreparationProviderProgram
-  domain entity University

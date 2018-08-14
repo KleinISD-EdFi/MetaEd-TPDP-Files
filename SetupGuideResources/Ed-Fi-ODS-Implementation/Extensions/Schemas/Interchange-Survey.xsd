@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Edward Comer (Educuity) -->
+<!-- (c)2015 Ed-Fi Alliance, LLC. All Rights Reserved. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ed-fi.org/0200" targetNamespace="http://ed-fi.org/0200" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="EXTENSION-Ed-Fi-Extended-Core.xsd"/>
+	<xs:annotation>
+		<xs:documentation>===> TalentMgmt Extensions by tntp.org 2016-04-30</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>===> Requires a modified Ed-Fi Core XSD and TalentMgmt EXTENSION-Ed-Fi-Extended</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>===== Survey Interchange Model  =====</xs:documentation>
+	</xs:annotation>
+	<xs:element name="InterchangeSurvey">
+		<xs:annotation>
+			<xs:documentation>This interchange defines survey metadata and responses. It can be used to define employment, assignment, and teaching associations, as well as staff positions and staff leave events.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Survey" type="EXTENSION-Survey"/>
+				<xs:element name="SurveySection" type="EXTENSION-SurveySection"/>
+				<xs:element name="SurveyQuestion" type="EXTENSION-SurveyQuestion"/>
+				<xs:element name="SurveyResponse" type="EXTENSION-SurveyResponse"/>
+				<xs:element name="SurveySectionResponseRating" type="EXTENSION-SurveySectionResponseRating"/>
+				<xs:element name="SurveyQuestionResponse" type="EXTENSION-SurveyQuestionResponse"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

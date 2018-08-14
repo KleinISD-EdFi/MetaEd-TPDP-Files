@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Edward Comer (Educuity) -->
+<!-- (c)2015 Ed-Fi Alliance, LLC. All Rights Reserved. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ed-fi.org/0200" targetNamespace="http://ed-fi.org/0200" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="EXTENSION-Ed-Fi-Extended-Core.xsd"/>
+	<xs:annotation>
+		<xs:documentation>===== StaffEvaluation Interchange Model  =====</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>===> TalentMgmt Extensions by tntp.org 2016-04-30</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>===> Requires a modified Ed-Fi Core XSD and TalentMgmt EXTENSION-Ed-Fi-Extended</xs:documentation>
+	</xs:annotation>
+	<xs:element name="InterchangeStaffEvaluation">
+		<xs:annotation>
+			<xs:documentation>This interchange defines staff evaluation information.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="StaffEvaluation" type="EXTENSION-StaffEvaluation"/>
+				<xs:element name="StaffEvaluationComponent" type="EXTENSION-StaffEvaluationComponent"/>
+				<xs:element name="StaffEvaluationElement" type="EXTENSION-StaffEvaluationElement"/>
+				<xs:element name="StaffEvaluationRating" type="EXTENSION-StaffEvaluationRating"/>
+				<xs:element name="StaffEvaluationComponentRating" type="EXTENSION-StaffEvaluationComponentRating"/>
+				<xs:element name="StaffEvaluationElementRating" type="EXTENSION-StaffEvaluationElementRating"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

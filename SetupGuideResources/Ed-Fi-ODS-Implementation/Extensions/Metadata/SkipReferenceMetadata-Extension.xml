@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  The order of the NormalizedSchemaTypeName elements is very important. The order of the SkipReferenceType elements is not. 
+  The extension metadata file will add to the core metadata.
+-->
+<SkipReferenceTypes>
+  <SkipReferenceType>
+    <NormalizedSchemaTypeName>EducationOrganizationReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>Application</NormalizedSchemaTypeName>
+  </SkipReferenceType>
+<!-- 
+  <SkipReferenceType>
+    <NormalizedSchemaTypeName>EducationOrganizationReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>ApplicantIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>ApplicantReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>Application</NormalizedSchemaTypeName>
+  </SkipReferenceType> -->
+<!-- 
+  <SkipReferenceType>
+    <NormalizedSchemaTypeName>EducationOrganizationReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>ProspectIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>ProspectReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>Applicant</NormalizedSchemaTypeName>
+  </SkipReferenceType> -->
+  
+  <SkipReferenceType>
+    <NormalizedSchemaTypeName>EducationOrganizationReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>EmploymentEventIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>EmploymentEventReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>StaffEducationOrganizationEmploymentAssociation</NormalizedSchemaTypeName>
+  </SkipReferenceType>
+  
+  <SkipReferenceType>
+    <NormalizedSchemaTypeName>EducationOrganizationReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>OpenStaffPositionReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>EmploymentSeparationEventIdentityType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>EmploymentSeparationEventReferenceType</NormalizedSchemaTypeName>
+    <NormalizedSchemaTypeName>StaffEducationOrganizationEmploymentAssociation</NormalizedSchemaTypeName>
+  </SkipReferenceType>
+</SkipReferenceTypes>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Order of the elements is not important. The extension metadata will add to the core metadata.
+-->
+<PredefinedContextMetadata>
+  <ContextMetadata>
+    <ElementName>ProspectReference</ElementName>
+    <ParentElementName>Applicant</ParentElementName>
+    <Context>Prospect</Context>
+  </ContextMetadata>
+  <ContextMetadata>
+    <ElementName>ApplicantReference</ElementName>
+    <ParentElementName>Application</ParentElementName>
+    <Context>Applicant</Context>
+  </ContextMetadata>
+  <ContextMetadata>
+    <ElementName>ApplicantReference</ElementName>
+    <ParentElementName>Staff</ParentElementName>
+    <Context>Applicant</Context>
+  </ContextMetadata>  
+  <ContextMetadata>
+    <ElementName>EvaluatedByStaffReference</ElementName>
+    <ParentElementName>StaffEvaluationRating</ParentElementName>
+    <Context>EvaluatedBy</Context>
+  </ContextMetadata>
+</PredefinedContextMetadata>

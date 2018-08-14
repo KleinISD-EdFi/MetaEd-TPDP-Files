@@ -1,8 +1,0 @@
-Descriptor StudentGrowthType
-  documentation "Identification of the type of score that was used to determine student growth"
-  with map type
-    documentation "Identification of the type of score that was used to determine student growth"
-    item "Value Add"
-    item "Growth Percentile"
-    item "Student Learning Objective (SLO)"
-    item "Other"

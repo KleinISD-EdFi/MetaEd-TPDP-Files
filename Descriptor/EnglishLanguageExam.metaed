@@ -1,8 +1,0 @@
-Descriptor EnglishLanguageExam
-  documentation "Indicates that a person passed, failed, or did not take an English Language assessment (e.g., TOEFFL)."
-  with map type
-    documentation "The rating the individual received on the English Language assessment."
-    item "Pass"
-    item "Fail"
-    item "N/A"
-    item "Other"

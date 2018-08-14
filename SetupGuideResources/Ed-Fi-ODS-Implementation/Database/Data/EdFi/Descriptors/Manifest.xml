@@ -4,11 +4,7 @@
 		<Type>descriptors</Type>
 	</Interchange>
 	<Interchange>
-		<Filename>InterchangeData-TalentMgmtDescriptors-TPDP.xml</Filename>
-		<Type>descriptors</Type>
-	</Interchange>
-	<Interchange>
-		<Filename>Interchange-Descriptors-TPDP.xml</Filename>
-		<Type>descriptors</Type>
+		<Filename>InterchangeData-TalentMgmtDescriptors.xml</Filename>
+		<Type>TalentMgmtDescriptors</Type>
 	</Interchange>
 </Interchanges>

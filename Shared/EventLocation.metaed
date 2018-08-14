@@ -1,3 +1,0 @@
-Shared String EventLocation
-    documentation "The location of the event."
-    max length 255

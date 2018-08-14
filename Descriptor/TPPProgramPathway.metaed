@@ -1,9 +1,0 @@
-Descriptor TPPProgramPathway
-  documentation "The descriptor holds the program pathways available at TPP's."
-  with optional map type
-    documentation "Map for the program pathways."
-    item "Residency"
-    item "Internship"
-    item "Fellowship"
-    item "Traditional"
-    item "Other"

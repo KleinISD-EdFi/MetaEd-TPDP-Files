@@ -37,7 +37,7 @@ function global:Initialize-DevelopmentEnvironment {
         [switch] $NoResetDatabase
     )
 
-    # Our psake scripts will throw if $error is not empty (this is a workaround for some TeamCity behavior).
+    # Our psake scripts will throw if $error is not empty (this is a workaround for some TeamCity behavior). 
     Write-Host -Foreground Cyan "Clearing `$error..."
     $error.clear()
 
@@ -49,24 +49,22 @@ function global:Initialize-DevelopmentEnvironment {
     if (-not $NoCompile) {
         # We only need the empty ODS DB for codegen
         if (-not $NoResetDatabase) {$tasks += @(Invoke-InitDevTask 'Reset-EmptyDatabase')}
-        $tasks += @(Invoke-InitDevTask 'Restore-NuGetPackages')
         $tasks += @(Invoke-InitDevTask 'Rebuild-Solution')
     }
 
     if (-not $NoResetDatabase) {
-		$tasks += @(Invoke-InitDevTask 'Reset-BulkLoadOdsDatabase')
         $tasks += @(Invoke-InitDevTask 'Remove-Sandboxes')
         $tasks += @(Invoke-InitDevTask 'Reset-SecurityDatabase')
         $tasks += @(Invoke-InitDevTask 'Reset-AdminDatabase')
         $tasks += @(Invoke-InitDevTask 'Reset-EdFiBulkDatabase')
-        #$tasks += @(Invoke-InitDevTask 'Reset-PopulatedTemplate')
+        $tasks += @(Invoke-InitDevTask 'Reset-PopulatedTemplate')
         $tasks += @(Invoke-InitDevTask 'Reset-MinimalTemplateDatabase')
+        $tasks += @(Invoke-InitDevTask 'Reset-IntegrationTestOdsDatabase')
     }
 
     $tasks
 }
 Set-Alias -Scope Global initdev Initialize-DevelopmentEnvironment
-Function global:Restore-NuGetPackages {Invoke-InitDevTask 'Restore-NuGetPackages'}
 Function global:Reset-EmptyDatabase {Invoke-InitDevTask 'Reset-EmptyDatabase'}
 function global:Rebuild-Solution {Invoke-InitDevTask 'Rebuild-Solution'}
 Function global:Remove-Sandboxes {Invoke-InitDevTask 'Remove-Sandboxes'}
@@ -75,7 +73,7 @@ Function global:Reset-AdminDatabase {Invoke-InitDevTask 'Reset-AdminDatabase'}
 function global:Reset-EdFiBulkDatabase {Invoke-InitDevTask 'Reset-EdFiBulkDatabase'}
 Function global:Reset-PopulatedTemplate {Invoke-InitDevTask 'Reset-PopulatedTemplate'}
 Function global:Reset-MinimalTemplateDatabase {Invoke-InitDevTask 'Reset-MinimalTemplateDatabase'}
-function global:Reset-BulkLoadOdsDatabase {Invoke-InitDevTask 'Reset-BulkLoadOdsDatabase'}
+function global:Reset-IntegrationTestOdsDatabase {Invoke-InitDevTask 'Reset-IntegrationTestOdsDatabase'}
 
 function Invoke-InitDevTask {
     param(
@@ -95,20 +93,6 @@ $script:codeGenCsb = Get-DbConnectionStringBuilderFromConfig -configFile (Get-Re
 $script:edfiDatabaseIdTable = Get-EdFiDatabaseIdTable
 
 $script:initdevTasks = @{
-    'Restore-NuGetPackages' = {
-        $solutionPath = Get-RepositoryResolvedPath "Application\Ed-Fi-Ods.sln"
-        $nugetPath = Get-RepositoryResolvedPath "Application\.nuget\NuGet.exe"
-        $configPath = Get-RepositoryResolvedPath "Application\.nuget\NuGet.config"
-        $nugetCommandTemplate = '& "{0}" restore "{1}" -config "{2}"'
-        $nugetCommand = $nugetCommandTemplate -f @($nugetPath, $solutionPath, $configPath)
-        Write-Host "Starting NuGet Restore [$nugetCommand]" -ForegroundColor Cyan
-        Invoke-Expression $nugetCommand | Write-Host
-
-        $success = $LASTEXITCODE -eq 0
-        if (-not $success) {
-            throw "NuGet Package Restore Failed."
-        }
-    }
     'Rebuild-Solution' = {
         Param(
             [string] $buildConfiguration = "Debug",
@@ -118,8 +102,6 @@ $script:initdevTasks = @{
         $msbuildPath2015 = "${env:ProgramFiles(x86)}\MSBuild\14.0\bin\MSBuild.exe"
         $msbuildPath2013 = "${env:ProgramFiles(x86)}\MSBuild\12.0\bin\MSBuild.exe"
         $msbuildPath2012 = "${env:WinDir}\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
-        # Order is very important here, 2015 is the only fully supported msbuild.
-        # The other versions are checked and used as an unsupported convenience
         foreach ($possiblePath in @($msbuildPath2015, $msbuildPath2013, $msbuildPath2012)) {
             if (Test-Path $possiblePath) {
                 $msbuildEXE = $possiblePath
@@ -128,7 +110,7 @@ $script:initdevTasks = @{
         }
 
         $solutionPath = Get-RepositoryResolvedPath 'Application/Ed-Fi-Ods.sln'
-        $msbuildCommandTemplate = '& "{0}" "{1}" "/verbosity:normal" "/target:rebuild" "/property:Configuration={2}" "/nr:false"'
+        $msbuildCommandTemplate = '& "{0}" "{1}" "/verbosity:minimal" "/target:rebuild" "/property:Configuration={2}" "/nr:false"'
         $msbuildCommand = $msbuildCommandTemplate -f @($msbuildEXE, $solutionPath,$buildConfiguration)
 
         $tryCounter = 0
@@ -158,15 +140,6 @@ $script:initdevTasks = @{
         $initdbArgs
         Initialize-EdFiDatabaseWithMigrations @initdbArgs
     }
-	'Reset-BulkLoadOdsDatabase' = {
-		$sourceCSB = $script:codeGenCsb
-		$bulkOdsCSB = Get-DbConnectionStringBuilderFromTemplate -templateCSB $csbs[$edfiDatabaseIdTable.EdFiOds.DatabaseType] -replacementTokens "Ods_Bulk1"
-		
-		& $folders.activities.invoke('deployment/database/generate-bulkods.ps1') -sourceCSB $sourceCSB -bulkOdsCSB $bulkOdsCSB
-		if ($error) {
-			throw "$($error.count) errors"
-		}
-	}
     'Reset-EdFiBulkDatabase' = {
         $initdbArgs = @{
             csb = $script:csbs[$edfiDatabaseIdTable.EdFiOdsBulk.DatabaseType]
@@ -184,7 +157,7 @@ $script:initdevTasks = @{
             transient = $true
             ignoreMetadata = $true
             applyDescriptors = $true
-            applyEdOrgs = $false
+            applyEdOrgs = $true
         }
         Initialize-EdFiDatabaseWithMigrations @initdbArgs
     }
@@ -211,6 +184,23 @@ $script:initdevTasks = @{
     'Reset-PopulatedTemplate' = {
         $initdbArgs = @{
             csb = Get-DbConnectionStringBuilderFromTemplate -templateCSB $csbs[$edfiDatabaseIdTable.EdFiOds.DatabaseType] -replacementTokens "Ods_Populated_Template"
+            dbTypeName = $edfiDatabaseIdTable.EdFiOds.DatabaseType
+            transient = $true
+            ignoreMetadata = $true
+            applyDescriptors = $true
+            createByRestoringBackup = Get-EdFiOdsPopulatedTemplateBackupFile | Select -Expand FullName
+        }
+        Initialize-EdFiDatabaseWithMigrations @initdbArgs
+    }
+    'Reset-IntegrationTestOdsDatabase' = {
+        # NOTE: This database is used for some integration tests (and the EdFi_Ods name is hard coded),
+        # but in the future we want to have those tests set up a database themselves. 
+        # When that happens, this task should be removed.
+        $integrationTestOdsCsb = 
+        $initdbArgs = @{
+            csb = New-DbConnectionStringBuilder -existingCSB $csbs[$edfiDatabaseIdTable.EdFiOds.DatabaseType] -property @{
+                'Initial Catalog' = "EdFi_Ods"
+            }
             dbTypeName = $edfiDatabaseIdTable.EdFiOds.DatabaseType
             transient = $true
             ignoreMetadata = $true
