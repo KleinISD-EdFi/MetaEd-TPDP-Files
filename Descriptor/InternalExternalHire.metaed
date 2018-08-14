@@ -1,4 +1,2 @@
-Enumeration InternalExternalHire
+Descriptor InternalExternalHire
     documentation "Indicates whether the hire was an internal or external person."
-    item "External"
-    item "Internal"

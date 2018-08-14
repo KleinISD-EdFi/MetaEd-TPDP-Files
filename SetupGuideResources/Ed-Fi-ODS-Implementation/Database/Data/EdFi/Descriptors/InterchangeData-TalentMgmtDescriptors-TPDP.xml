@@ -784,6 +784,18 @@
 		<Namespace>TalentMgmt/HiringSource</Namespace>
 		<HiringSourceMap>School</HiringSourceMap>
 	</HiringSourceDescriptor>
+	<InternalExternalHireDescriptor>
+		<CodeValue>External</CodeValue>
+		<ShortDescription>External</ShortDescription>
+		<Description>External</Description>
+		<Namespace>TalentMgmt/InternalExternalHire</Namespace>
+	</InternalExternalHireDescriptor>
+	<InternalExternalHireDescriptor>
+		<CodeValue>Internal</CodeValue>
+		<ShortDescription>Internal</ShortDescription>
+		<Description>Internal</Description>
+		<Namespace>TalentMgmt/InternalExternalHire</Namespace>
+	</InternalExternalHireDescriptor>
 	<LevelOfDegreeAwardedDescriptor>
 		<CodeValue>AA</CodeValue>
 		<ShortDescription>AA</ShortDescription>
@@ -903,6 +915,54 @@
 		<Namespace>TalentMgmt/OpenStaffPositionReason</Namespace>
 		<OpenStaffPositionReasonMap>Replacement</OpenStaffPositionReasonMap>
 	</OpenStaffPositionReasonDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Radio box</CodeValue>
+		<ShortDescription>Radio box</ShortDescription>
+		<Description>Radio box</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Checkbox</CodeValue>
+		<ShortDescription>Checkbox</ShortDescription>
+		<Description>Checkbox</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Dropdown</CodeValue>
+		<ShortDescription>Dropdown</ShortDescription>
+		<Description>Dropdown</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Matrix of numeric ratings</CodeValue>
+		<ShortDescription>Matrix of numeric ratings</ShortDescription>
+		<Description>Matrix of numeric ratings</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Matrix of dropdowns</CodeValue>
+		<ShortDescription>Matrix of dropdowns</ShortDescription>
+		<Description>Matrix of dropdowns</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Ranking</CodeValue>
+		<ShortDescription>Ranking</ShortDescription>
+		<Description>Ranking</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Textbox</CodeValue>
+		<ShortDescription>Textbox</ShortDescription>
+		<Description>Textbox</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
+	<QuestionFormDescriptor>
+		<CodeValue>Matrix of textboxes</CodeValue>
+		<ShortDescription>Matrix of textboxes</ShortDescription>
+		<Description>Matrix of textboxes</Description>
+		<Namespace>TalentMgmt/QuestionForm</Namespace>
+	</QuestionFormDescriptor>
 	<StaffEvaluationPeriodDescriptor>
 		<CodeValue>BOY</CodeValue>
 		<ShortDescription>BOY</ShortDescription>

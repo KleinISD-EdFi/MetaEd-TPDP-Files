@@ -10,7 +10,7 @@ Domain Entity EmploymentEvent
     bool EarlyHire
         documentation "Indicator of whether this was an early hire."
         is optional
-    enumeration InternalExternalHire
+    descriptor InternalExternalHire
         documentation "Indicates whether the hire was an internal or external person."
         is optional
     bool MutualConsent
