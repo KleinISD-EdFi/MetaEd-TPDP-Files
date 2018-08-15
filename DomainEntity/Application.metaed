@@ -1,6 +1,6 @@
 Domain Entity Application
   documentation "An application for employment or contract."
-  shared string ApplicationIdentifier named ApplicationIdentifier
+  shared string ApplicationIdentifier
     documentation "Identifier assigned to the application for an open staff position."
     is part of identity
     is queryable field

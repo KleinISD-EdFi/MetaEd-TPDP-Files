@@ -9,7 +9,6 @@ Domain Entity Prospect
 	domain entity EducationOrganization
         documentation "The education organization, typically a LocalEducationAgency, associated with the prospect."
         is part of identity
-        with context Prospect
         is queryable field
     inline common Name
         documentation "Full legal name of the person."

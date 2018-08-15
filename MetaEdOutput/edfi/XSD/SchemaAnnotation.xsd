@@ -17,6 +17,7 @@
     </xs:annotation>
     <xs:restriction base="xs:token">
       <xs:enumeration value="AbsenceEventCategoryDescriptor" />
+      <xs:enumeration value="AbsenceEventCategoryDescriptor" />
       <xs:enumeration value="AcademicHonorCategoryDescriptor" />
       <xs:enumeration value="AcademicSubjectDescriptor" />
       <xs:enumeration value="AccommodationDescriptor" />
@@ -27,6 +28,10 @@
       <xs:enumeration value="AdministrationEnvironmentDescriptor" />
       <xs:enumeration value="AdministrativeFundingControlDescriptor" />
       <xs:enumeration value="AidTypeDescriptor" />
+      <xs:enumeration value="ApplicationEventResultDescriptor" />
+      <xs:enumeration value="ApplicationEventTypeDescriptor" />
+      <xs:enumeration value="ApplicationSourceDescriptor" />
+      <xs:enumeration value="ApplicationStatusDescriptor" />
       <xs:enumeration value="AssessmentCategoryDescriptor" />
       <xs:enumeration value="AssessmentIdentificationSystemDescriptor" />
       <xs:enumeration value="AssessmentItemCategoryDescriptor" />
@@ -80,6 +85,9 @@
       <xs:enumeration value="EducationOrganizationIdentificationSystemDescriptor" />
       <xs:enumeration value="EducationPlanDescriptor" />
       <xs:enumeration value="ElectronicMailTypeDescriptor" />
+      <xs:enumeration value="EmploymentEventTypeDescriptor" />
+      <xs:enumeration value="EmploymentSeparationReasonDescriptor" />
+      <xs:enumeration value="EmploymentSeparationTypeDescriptor" />
       <xs:enumeration value="EmploymentStatusDescriptor" />
       <xs:enumeration value="EnglishLanguageExamDescriptor" />
       <xs:enumeration value="EntryGradeLevelReasonDescriptor" />
@@ -88,19 +96,24 @@
       <xs:enumeration value="ExitWithdrawTypeDescriptor" />
       <xs:enumeration value="FederalLocaleCodeDescriptor" />
       <xs:enumeration value="FieldworkTypeDescriptor" />
+      <xs:enumeration value="FundingSourceDescriptor" />
       <xs:enumeration value="GenderDescriptor" />
+      <xs:enumeration value="GPATypeDescriptor" />
       <xs:enumeration value="GradebookEntryTypeDescriptor" />
       <xs:enumeration value="GradeLevelDescriptor" />
       <xs:enumeration value="GradeTypeDescriptor" />
       <xs:enumeration value="GradingPeriodDescriptor" />
       <xs:enumeration value="GraduationPlanTypeDescriptor" />
       <xs:enumeration value="GunFreeSchoolsActReportingStatusDescriptor" />
+      <xs:enumeration value="HireStatusDescriptor" />
+      <xs:enumeration value="HiringSourceDescriptor" />
       <xs:enumeration value="HomelessPrimaryNighttimeResidenceDescriptor" />
       <xs:enumeration value="HomelessProgramServiceDescriptor" />
       <xs:enumeration value="IdentificationDocumentUseDescriptor" />
       <xs:enumeration value="IncidentLocationDescriptor" />
       <xs:enumeration value="InstitutionTelephoneNumberTypeDescriptor" />
       <xs:enumeration value="InteractivityStyleDescriptor" />
+      <xs:enumeration value="InternalExternalHireDescriptor" />
       <xs:enumeration value="InternetAccessDescriptor" />
       <xs:enumeration value="InterventionClassDescriptor" />
       <xs:enumeration value="InterventionEffectivenessRatingDescriptor" />
@@ -124,11 +137,15 @@
       <xs:enumeration value="NeglectedOrDelinquentProgramServiceDescriptor" />
       <xs:enumeration value="NetworkPurposeDescriptor" />
       <xs:enumeration value="OldEthnicityDescriptor" />
+      <xs:enumeration value="OpenStaffPositionEventStatusDescriptor" />
+      <xs:enumeration value="OpenStaffPositionEventTypeDescriptor" />
+      <xs:enumeration value="OpenStaffPositionReasonDescriptor" />
       <xs:enumeration value="OperationalStatusDescriptor" />
       <xs:enumeration value="OtherNameTypeDescriptor" />
       <xs:enumeration value="ParticipationDescriptor" />
       <xs:enumeration value="PerformanceBaseConversionDescriptor" />
       <xs:enumeration value="PerformanceLevelDescriptor" />
+      <xs:enumeration value="PerformanceMeasureInstanceDescriptor" />
       <xs:enumeration value="PerformanceMeasureTypeDescriptor" />
       <xs:enumeration value="PersonalInformationVerificationDescriptor" />
       <xs:enumeration value="PopulationServedDescriptor" />
@@ -145,6 +162,7 @@
       <xs:enumeration value="ProgramTypeDescriptor" />
       <xs:enumeration value="ProgressDescriptor" />
       <xs:enumeration value="ProgressLevelDescriptor" />
+      <xs:enumeration value="ProspectTypeDescriptor" />
       <xs:enumeration value="ProviderCategoryDescriptor" />
       <xs:enumeration value="ProviderProfitabilityDescriptor" />
       <xs:enumeration value="ProviderStatusDescriptor" />
@@ -178,6 +196,9 @@
       <xs:enumeration value="SpecialEducationProgramServiceDescriptor" />
       <xs:enumeration value="SpecialEducationSettingDescriptor" />
       <xs:enumeration value="StaffClassificationDescriptor" />
+      <xs:enumeration value="StaffEvaluationPeriodDescriptor" />
+      <xs:enumeration value="StaffEvaluationRatingLevelDescriptor" />
+      <xs:enumeration value="StaffEvaluationTypeDescriptor" />
       <xs:enumeration value="StaffIdentificationSystemDescriptor" />
       <xs:enumeration value="StaffLeaveEventCategoryDescriptor" />
       <xs:enumeration value="StateAbbreviationDescriptor" />
@@ -202,6 +223,7 @@
       <xs:enumeration value="ValueTypeDescriptor" />
       <xs:enumeration value="VisaDescriptor" />
       <xs:enumeration value="WeaponDescriptor" />
+      <xs:enumeration value="WithdrawReasonDescriptor" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="TypeGroup">

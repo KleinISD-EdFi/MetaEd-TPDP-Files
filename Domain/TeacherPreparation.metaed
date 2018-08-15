@@ -26,9 +26,6 @@ Domain TeacherPreparation
     domain entity EducationOrganizationSurveyQuestionResponseFacts
     domain entity EducationOrganizationSurveyResponseFacts
     domain entity EducationOrganizationSurveySectionResponseRatingFacts
-    domain entity ExternalCourseTranscript
-    domain entity ExternalEducationOrganization
-    domain entity ExternalStudentAcademicRecord
     domain entity GradebookEntry
     domain entity OpenStaffPosition
     domain entity PerformanceMeasure

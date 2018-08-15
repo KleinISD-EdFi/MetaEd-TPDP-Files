@@ -14,7 +14,6 @@ Domain Entity Survey
   enumeration SchoolYear
     documentation "The school year associated with the survey."
     is required
-    with context Survey
   descriptor Term
     documentation "The Term the survey was given."
     is optional

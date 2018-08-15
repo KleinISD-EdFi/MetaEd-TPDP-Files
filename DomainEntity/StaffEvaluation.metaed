@@ -1,6 +1,6 @@
 Domain Entity StaffEvaluation
     documentation "A staff evaluation instrument applied by an education organization."
-    shared string StaffEvaluationTitle named StaffEvaluationTitle
+    shared string StaffEvaluationTitle
         documentation "The name or title of the staff evaluation."
         is part of identity
         is queryable field

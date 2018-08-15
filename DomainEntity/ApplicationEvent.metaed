@@ -9,7 +9,7 @@ Domain Entity ApplicationEvent
   date EventEndDate
     documentation "The end date of the event, if an interval."
     is optional
-  shared integer SequenceNumber named SequenceNumber
+  shared integer SequenceNumber
     documentation "The sequence number of the application events. This is used to discriminate between mutiple events of the same type in the same day."
     is part of identity
   descriptor ApplicationEventType

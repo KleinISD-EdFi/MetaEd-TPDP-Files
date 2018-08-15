@@ -1,6 +1,6 @@
 Domain Entity StaffEvaluationElement
     documentation "The Evaluation Elements that are the parts of the Evaluation Component."
-    shared string EvaluationElement named EvaluationElement
+    shared string EvaluationElement
         documentation "The Evaluation Element name or title (e.g., Preparation, classroom control, delivery of instruction, etc.)."
         is part of identity
     shared decimal StaffRating named MaxRating
@@ -9,7 +9,7 @@ Domain Entity StaffEvaluationElement
     shared decimal StaffRating named MinRating
         documentation "The minimum rating for the scale used for the Evaluation Component, if different from the overall staff evaluation."
         is optional
-    shared string RubricReference named RubricReference
+    shared string RubricReference
         documentation "The reference to rubric title or identifier."
         is optional
     common StaffRatingLevel

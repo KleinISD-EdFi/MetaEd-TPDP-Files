@@ -55,6 +55,20 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.Application') AND name = N'UX_Application_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_Application_Id ON [extension].[Application]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.ApplicationEvent') AND name = N'UX_ApplicationEvent_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_ApplicationEvent_Id ON [extension].[ApplicationEvent]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
     IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.CourseCourseTranscriptFacts') AND name = N'UX_CourseCourseTranscriptFacts_Id')
     CREATE UNIQUE NONCLUSTERED INDEX UX_CourseCourseTranscriptFacts_Id ON [extension].[CourseCourseTranscriptFacts]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
@@ -160,22 +174,22 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.ExternalCourseTranscript') AND name = N'UX_ExternalCourseTranscript_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_ExternalCourseTranscript_Id ON [extension].[ExternalCourseTranscript]
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.EmploymentEvent') AND name = N'UX_EmploymentEvent_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_EmploymentEvent_Id ON [extension].[EmploymentEvent]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.ExternalEducationOrganization') AND name = N'UX_ExternalEducationOrganization_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_ExternalEducationOrganization_Id ON [extension].[ExternalEducationOrganization]
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.EmploymentSeparationEvent') AND name = N'UX_EmploymentSeparationEvent_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_EmploymentSeparationEvent_Id ON [extension].[EmploymentSeparationEvent]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
 
 BEGIN TRANSACTION
-    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.ExternalStudentAcademicRecord') AND name = N'UX_ExternalStudentAcademicRecord_Id')
-    CREATE UNIQUE NONCLUSTERED INDEX UX_ExternalStudentAcademicRecord_Id ON [extension].[ExternalStudentAcademicRecord]
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.OpenStaffPositionEvent') AND name = N'UX_OpenStaffPositionEvent_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_OpenStaffPositionEvent_Id ON [extension].[OpenStaffPositionEvent]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
@@ -300,6 +314,48 @@ BEGIN TRANSACTION
 COMMIT
 
 BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluation') AND name = N'UX_StaffEvaluation_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluation_Id ON [extension].[StaffEvaluation]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluationComponent') AND name = N'UX_StaffEvaluationComponent_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluationComponent_Id ON [extension].[StaffEvaluationComponent]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluationComponentRating') AND name = N'UX_StaffEvaluationComponentRating_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluationComponentRating_Id ON [extension].[StaffEvaluationComponentRating]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluationElement') AND name = N'UX_StaffEvaluationElement_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluationElement_Id ON [extension].[StaffEvaluationElement]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluationElementRating') AND name = N'UX_StaffEvaluationElementRating_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluationElementRating_Id ON [extension].[StaffEvaluationElementRating]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffEvaluationRating') AND name = N'UX_StaffEvaluationRating_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_StaffEvaluationRating_Id ON [extension].[StaffEvaluationRating]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
     IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.StaffFieldworkAbsenceEvent') AND name = N'UX_StaffFieldworkAbsenceEvent_Id')
     CREATE UNIQUE NONCLUSTERED INDEX UX_StaffFieldworkAbsenceEvent_Id ON [extension].[StaffFieldworkAbsenceEvent]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
@@ -400,6 +456,13 @@ COMMIT
 BEGIN TRANSACTION
     IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SurveySectionResponseRating') AND name = N'UX_SurveySectionResponseRating_Id')
     CREATE UNIQUE NONCLUSTERED INDEX UX_SurveySectionResponseRating_Id ON [extension].[SurveySectionResponseRating]
+    (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+    GO
+COMMIT
+
+BEGIN TRANSACTION
+    IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.TalentManagementGoal') AND name = N'UX_TalentManagementGoal_Id')
+    CREATE UNIQUE NONCLUSTERED INDEX UX_TalentManagementGoal_Id ON [extension].[TalentManagementGoal]
     (Id) WITH (PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
     GO
 COMMIT
