@@ -6,3 +6,6 @@ Common TPPProgramDegree
   descriptor TPPDegreeType
     documentation "A code for describing the degree type that a teacher candidate accomplishes."
     is required
+  descriptor GradeLevel
+    documentation "The grade level associated with the degree plan for the teacher candidate."
+    is required

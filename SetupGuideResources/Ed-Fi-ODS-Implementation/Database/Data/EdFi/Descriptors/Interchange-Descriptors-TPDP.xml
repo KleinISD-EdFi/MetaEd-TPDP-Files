@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <InterchangeDescriptors xmlns="http://ed-fi.org/0200" xmlns:ann="http://ed-fi.org/annotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
 	<AcademicSubjectDescriptor>
 		<CodeValue>Bilingual</CodeValue>
 		<ShortDescription>Bilingual</ShortDescription>
@@ -28,6 +29,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AcademicSubjectDescriptor.xml</Namespace>
 		<AcademicSubjectMap>Special Education</AcademicSubjectMap>
 	</AcademicSubjectDescriptor>
+
 	<AidTypeDescriptor>
 		<CodeValue>Assistantships</CodeValue>
 		<ShortDescription>Assistantships</ShortDescription>
@@ -196,6 +198,44 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/AidTypeDescriptor.xml</Namespace>
 		<AidTypeMap>Tuition Reimbursements</AidTypeMap>
 	</AidTypeDescriptor>
+
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Accepted</CodeValue>
+		<ShortDescription>Accepted</ShortDescription>
+		<Description>Accepted</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Rejected</CodeValue>
+		<ShortDescription>Rejected</ShortDescription>
+		<Description>Rejected</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Deferred</CodeValue>
+		<ShortDescription>Deferred</ShortDescription>
+		<Description>Deferred</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Pending</CodeValue>
+		<ShortDescription>Pending</ShortDescription>
+		<Description>Pending</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+	<ApplicationEventTypeDescriptor>
+		<CodeValue>Received</CodeValue>
+		<ShortDescription>Received</ShortDescription>
+		<Description>Received</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ApplicationEventTypeDescriptor.xml</Namespace>
+	</ApplicationEventTypeDescriptor>
+
 	<BackgroundCheckTypeDescriptor>
 		<CodeValue>City</CodeValue>
 		<ShortDescription>City</ShortDescription>
@@ -224,6 +264,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BackgroundCheckTypeDescriptor.xml</Namespace>
 		<BackgroundCheckTypeMap>State</BackgroundCheckTypeMap>
 	</BackgroundCheckTypeDescriptor>
+
 	<BoardCertificationTypeDescriptor>
 		<CodeValue>Art/Early Adolescence through Young Adulthood</CodeValue>
 		<ShortDescription>Art/Early Adolescence through Young Adulthood</ShortDescription>
@@ -427,6 +468,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/BoardCertificationTypeDescriptor.xml</Namespace>
 		<BoardCertificationTypeMap>Other</BoardCertificationTypeMap>
 	</BoardCertificationTypeDescriptor>
+
 	<CertificationExamTypeDescriptor>
 		<CodeValue>National</CodeValue>
 		<ShortDescription>National</ShortDescription>
@@ -448,6 +490,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/CertificationExamTypeDescriptor.xml</Namespace>
 		<CertificationExamTypeMap>Other</CertificationExamTypeMap>
 	</CertificationExamTypeDescriptor>
+
 	<ClassroomPositionDescriptor>
 		<CodeValue>Other</CodeValue>
 		<ShortDescription>Other</ShortDescription>
@@ -455,6 +498,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ClassroomPositionDescriptor.xml</Namespace>
 		<ClassroomPositionMap>Other</ClassroomPositionMap>
 	</ClassroomPositionDescriptor>
+
 	<DiagnosisDescriptor>
 		<CodeValue>Course Repeat</CodeValue>
 		<ShortDescription>Course Repeat</ShortDescription>
@@ -490,6 +534,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/DiagnosisDescriptor.xml</Namespace>
 		<DiagnosisMap>Other</DiagnosisMap>
 	</DiagnosisDescriptor>
+
 	<EnglishLanguageExamDescriptor>
 		<CodeValue>Fail</CodeValue>
 		<ShortDescription>Fail</ShortDescription>
@@ -518,6 +563,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/EnglishLanguageExamDescriptor.xml</Namespace>
 		<EnglishLanguageExamMap>Other</EnglishLanguageExamMap>
 	</EnglishLanguageExamDescriptor>
+
 	<FederalLocaleCodeDescriptor>
 		<CodeValue>City</CodeValue>
 		<ShortDescription>City</ShortDescription>
@@ -546,6 +592,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FederalLocaleCodeDescriptor.xml</Namespace>
 		<FederalLocaleCodeMap>Town</FederalLocaleCodeMap>
 	</FederalLocaleCodeDescriptor>
+
 	<FieldworkTypeDescriptor>
 		<CodeValue>Clinical Experience</CodeValue>
 		<ShortDescription>Clinical Experience</ShortDescription>
@@ -574,6 +621,74 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/FieldworkTypeDescriptor.xml</Namespace>
 		<FieldworkTypeMap>Other</FieldworkTypeMap>
 	</FieldworkTypeDescriptor>
+
+	<GPATypeDescriptor>
+		<CodeValue>High School</CodeValue>
+		<ShortDescription>High School</ShortDescription>
+		<Description>High School</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Pre Program</CodeValue>
+		<ShortDescription>Pre Program</ShortDescription>
+		<Description>Pre Program</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Undergraduate</CodeValue>
+		<ShortDescription>Undergraduate</ShortDescription>
+		<Description>Undergraduate</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Graduate</CodeValue>
+		<ShortDescription>Graduate</ShortDescription>
+		<Description>Graduate</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Content</CodeValue>
+		<ShortDescription>Content</ShortDescription>
+		<Description>Content</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Professional Ed</CodeValue>
+		<ShortDescription>Professional Ed</ShortDescription>
+		<Description>Professional Ed</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</ShortDescription>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Overall</CodeValue>
+		<ShortDescription>Overall</ShortDescription>
+		<Description>Overall</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Core</CodeValue>
+		<ShortDescription>Core</ShortDescription>
+		<Description>Core</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Methods</CodeValue>
+		<ShortDescription>Methods</ShortDescription>
+		<Description>Methods</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+	<GPATypeDescriptor>
+		<CodeValue>Clinical</CodeValue>
+		<ShortDescription>Clinical</ShortDescription>
+		<Description>Clinical</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GPATypeDescriptor.xml</Namespace>
+	</GPATypeDescriptor>
+
 	<GradeLevelDescriptor>
 		<CodeValue>Master's</CodeValue>
 		<ShortDescription>Master's</ShortDescription>
@@ -595,6 +710,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/GradeLevelDescriptor.xml</Namespace>
 		<GradeLevelMap>Undergraduate</GradeLevelMap>
 	</GradeLevelDescriptor>
+
 	<LevelOfDegreeAwardedDescriptor>
 		<CodeValue>Associates</CodeValue>
 		<ShortDescription>Associates</ShortDescription>
@@ -616,6 +732,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelOfDegreeAwardedDescriptor.xml</Namespace>
 		<LevelOfDegreeAwardedMap>Masters</LevelOfDegreeAwardedMap>
 	</LevelOfDegreeAwardedDescriptor>
+
 	<LevelTypeDescriptor>
 		<CodeValue>1</CodeValue>
 		<ShortDescription>1</ShortDescription>
@@ -658,6 +775,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/LevelTypeDescriptor.xml</Namespace>
 		<LevelTypeMap>Other</LevelTypeMap>
 	</LevelTypeDescriptor>
+
 	<PerformanceMeasureTypeDescriptor>
 		<CodeValue>Assessment</CodeValue>
 		<ShortDescription>Assessment</ShortDescription>
@@ -707,6 +825,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PerformanceMeasureTypeDescriptor.xml</Namespace>
 		<PerformanceMeasureTypeMap>Other</PerformanceMeasureTypeMap>
 	</PerformanceMeasureTypeDescriptor>
+
 	<PreviousCareerDescriptor>
 		<CodeValue>Accounting</CodeValue>
 		<ShortDescription>Accounting</ShortDescription>
@@ -756,6 +875,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/PreviousCareerDescriptor.xml</Namespace>
 		<PreviousCareerMap>Other</PreviousCareerMap>
 	</PreviousCareerDescriptor>
+
 	<ProfessionalDevelopmentOfferedByDescriptor>
 		<CodeValue>District</CodeValue>
 		<ShortDescription>District</ShortDescription>
@@ -784,6 +904,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProfessionalDevelopmentOfferedByDescriptor.xml</Namespace>
 		<ProfessionalDevelopmentOfferedByMap>Teacher Preparation Provider</ProfessionalDevelopmentOfferedByMap>
 	</ProfessionalDevelopmentOfferedByDescriptor>
+
 	<ProgramGatewayDescriptor>
 		<CodeValue>Gateway 1</CodeValue>
 		<ShortDescription>Gateway 1</ShortDescription>
@@ -819,6 +940,32 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProgramGatewayDescriptor.xml</Namespace>
 		<ProgramGatewayMap>Gateway 5</ProgramGatewayMap>
 	</ProgramGatewayDescriptor>
+
+	<ProspectTypeDescriptor>
+		<CodeValue>TPP Applicant</CodeValue>
+		<ShortDescription>TPP Applicant</CodeValue>
+		<Description>TPP Applicant</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProspectTypeDescriptor.xml</Namespace>
+	</ProspectTypeDescriptor>
+	<ProspectTypeDescriptor>
+		<CodeValue>Mentor Teacher</CodeValue>
+		<ShortDescription>Mentor Teacher</CodeValue>
+		<Description>Mentor Teacher</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProspectTypeDescriptor.xml</Namespace>
+	</ProspectTypeDescriptor>
+	<ProspectTypeDescriptor>
+		<CodeValue>New Hire</CodeValue>
+		<ShortDescription>New Hire</CodeValue>
+		<Description>New Hire</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProspectTypeDescriptor.xml</Namespace>
+	</ProspectTypeDescriptor>
+	<ProspectTypeDescriptor>
+		<CodeValue>Other</CodeValue>
+		<ShortDescription>Other</CodeValue>
+		<Description>Other</Description>
+		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ProspectTypeDescriptor.xml</Namespace>
+	</ProspectTypeDescriptor>
+
 	<ResponsibilityDescriptor>
 		<CodeValue>Discipline</CodeValue>
 		<ShortDescription>Discipline</ShortDescription>
@@ -826,6 +973,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ResponsibilityDescriptor.xml</Namespace>
 		<ResponsibilityMap>Discipline</ResponsibilityMap>
 	</ResponsibilityDescriptor>
+
 	<RubricTypeDescriptor>
 		<CodeValue>District</CodeValue>
 		<ShortDescription>District</ShortDescription>
@@ -854,6 +1002,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/RubricTypeDescriptor.xml</Namespace>
 		<RubricTypeMap>Other</RubricTypeMap>
 	</RubricTypeDescriptor>
+
 	<SalaryTypeDescriptor>
 		<CodeValue>Contract</CodeValue>
 		<ShortDescription>Contract</ShortDescription>
@@ -889,6 +1038,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SalaryTypeDescriptor.xml</Namespace>
 		<SalaryTypeMap>Other</SalaryTypeMap>
 	</SalaryTypeDescriptor>
+
 	<SchoolStatusDescriptor>
 		<CodeValue>Focus</CodeValue>
 		<ShortDescription>Focus</ShortDescription>
@@ -910,6 +1060,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SchoolStatusDescriptor.xml</Namespace>
 		<SchoolStatusMap>Other</SchoolStatusMap>
 	</SchoolStatusDescriptor>
+
 	<StaffClassificationDescriptor>
 		<CodeValue>Adjunct Professor</CodeValue>
 		<ShortDescription>Adjunct Professor</ShortDescription>
@@ -994,6 +1145,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StaffClassificationDescriptor.xml</Namespace>
 		<StaffClassificationMap>Speech Language Pathologist</StaffClassificationMap>
 	</StaffClassificationDescriptor>
+
 	<StudentGrowthTypeDescriptor>
 		<CodeValue>Growth Percentile</CodeValue>
 		<ShortDescription>Growth Percentile</ShortDescription>
@@ -1022,6 +1174,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/StudentGrowthTypeDescriptor.xml</Namespace>
 		<StudentGrowthTypeMap>Other</StudentGrowthTypeMap>
 	</StudentGrowthTypeDescriptor>
+
 	<SurveyCategoryDescriptor>
 		<CodeValue>Alumni</CodeValue>
 		<ShortDescription>Alumni</ShortDescription>
@@ -1064,6 +1217,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/SurveyCategoryDescriptor.xml</Namespace>
 		<SurveyCategoryMap>School/District Leader</SurveyCategoryMap>
 	</SurveyCategoryDescriptor>
+
 	<TeacherCandidateCharacteristicDescriptor>
 		<CodeValue>Asylee</CodeValue>
 		<ShortDescription>Asylee</ShortDescription>
@@ -1176,6 +1330,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherCandidateCharacteristicDescriptor.xml</Namespace>
 		<TeacherCandidateCharacteristicMap>Veteran</TeacherCandidateCharacteristicMap>
 	</TeacherCandidateCharacteristicDescriptor>
+
 	<TeacherPreparationProgramTypeDescriptor>
 		<CodeValue>Alternate</CodeValue>
 		<ShortDescription>Alternate</ShortDescription>
@@ -1183,6 +1338,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TeacherPreparationProgramTypeDescriptor.xml</Namespace>
 		<TeacherPreparationProgramTypeMap>Alternate</TeacherPreparationProgramTypeMap>
 	</TeacherPreparationProgramTypeDescriptor>
+
 	<ThemeDescriptor>
 		<CodeValue>Classroom Environment</CodeValue>
 		<ShortDescription>Classroom Environment</ShortDescription>
@@ -1253,6 +1409,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/ThemeDescriptor.xml</Namespace>
 		<ThemeMap>Other</ThemeMap>
 	</ThemeDescriptor>
+
 	<TPPDegreeTypeDescriptor>
 		<CodeValue>Bachelor of Arts</CodeValue>
 		<ShortDescription>Bachelor of Arts</ShortDescription>
@@ -1316,6 +1473,7 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPDegreeTypeDescriptor.xml</Namespace>
 		<TPPDegreeTypeMap>Other</TPPDegreeTypeMap>
 	</TPPDegreeTypeDescriptor>
+
 	<TPPProgramPathwayDescriptor>
 		<CodeValue>Fellowship</CodeValue>
 		<ShortDescription>Fellowship</ShortDescription>
@@ -1351,4 +1509,5 @@
 		<Namespace>http://exchange.ed-fi.org/TPDP/Descriptor/TPPProgramPathwayDescriptor.xml</Namespace>
 		<TPPProgramPathwayMap>Other</TPPProgramPathwayMap>
 	</TPPProgramPathwayDescriptor>
+
 </InterchangeDescriptors>

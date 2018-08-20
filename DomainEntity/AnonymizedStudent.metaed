@@ -6,7 +6,6 @@ Domain Entity AnonymizedStudent
   enumeration SchoolYear
     documentation "The school year for which the data is associated"
     is part of identity
-    with context AnonymizedStudent
   date FactsAsOfDate
     documentation "The date for which the data element is relevant"
     is part of identity

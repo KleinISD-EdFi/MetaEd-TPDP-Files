@@ -9,7 +9,6 @@ Domain Entity Applicant
     domain entity EducationOrganization
         documentation "The education organization, typically a LocalEducationAgency, associated with the applicant."
         is part of identity
-        with context Applicant
     common StaffIdentificationCode
         documentation "A unique number or alphanumeric code assigned to an applicant by a school, school system, a state, or other agency or entity."
         is optional collection
@@ -100,3 +99,12 @@ Domain Entity Applicant
     common ScoreResult
       documentation "A meaningful score or statistical expression of the performance of an individual. The results can be expressed as a number, percentile, range, level, etc."
       is optional collection
+    bool EconomicDisadvantaged
+      documentation "An indication of inadequate financial condition of an individual's family, as determined by family income, number of family members/dependents, participation in public assistance programs, and/or other characteristics considered relevant by federal, state, and local policy."
+      is optional
+    bool FirstGenerationStudent
+      documentation "Indicator of whether individual is a first generation college student."
+      is optional
+    domain entity TeacherCandidate
+      documentation "Reference to the teacher candidate associated."
+      is optional

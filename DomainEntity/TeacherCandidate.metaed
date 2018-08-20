@@ -77,9 +77,6 @@ Domain Entity TeacherCandidate
   shared string DisplacementStatus
       documentation "Indicates a state health or weather related event that displaces a group of students, and may require additional funding, educational, or social services."
       is optional
-  common ProgramParticipation
-      documentation "Key programs the student is participating in or receives services from."
-      is optional collection
   common CohortYear
       documentation "The type and year of a cohort (e.g., 9th grade) the student belongs to as determined by the year that student entered a specific grade."
       is optional collection
@@ -118,6 +115,15 @@ Domain Entity TeacherCandidate
   bool ProgramComplete
     documentation "An indication of whether a teacher candidate has completed the teacher preparation program."
     is optional
+  common DegreeSpecialization
+    documentation "Information around the area(s) of specialization for an individual."
+    is optional collection
+  bool FirstGenerationStudent
+    documentation "Indicator of whether individual is a first generation college student."
+    is optional
+  common TPPProgramDegree
+    documentation "Details of the degree."
+    is required
   domain entity Student
     documentation "The student associated."
     is required
